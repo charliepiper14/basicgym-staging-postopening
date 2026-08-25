@@ -1,0 +1,285 @@
+<!-- ============================================================
+     BasicGym - WELCOME / PAYMENT COMPLETE  (basicgym.co.uk/welcome/)
+     Paste into ONE Elementor "HTML" widget (Canvas). Scoped under .bg-welcome.
+     Footer = SEPARATE basicgym-footer-shared.html widget below.
+
+     Updated 25 August 2026 for post-opening pricing and the Back to Basic sale.
+     Requires bg-promo.js loaded site wide for the sale states.
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap');
+.bg-welcome{--white:#FFFFFF;--paper:#FFFFFF;--cream:#F5F4F0;--ink:#0E0E0E;--orange:#FF6600;--orange-bright:#FF7A1A;--orange-deep:#CC5200;--muted:#565659;--muted-dark:#A9A9AE;--line:#E7E5E0;--line-dark:#262629;--font:'Cooper Hewitt','Hanken Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-family:var(--font);}
+.bg-welcome *{box-sizing:border-box;margin:0;padding:0}
+.bg-welcome{scroll-behavior:smooth;background:var(--white);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-welcome .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.bg-welcome .display{font-family:var(--font);font-weight:900;letter-spacing:-0.015em;text-transform:uppercase;line-height:0.95}
+.bg-welcome .orange{color:var(--orange)}
+.bg-welcome a{color:inherit;text-decoration:none}
+.bg-welcome img{max-width:100%;display:block}
+.bg-welcome svg{display:block}
+.bg-welcome .sec{padding:74px 0}
+.bg-welcome .sec--cream{background:var(--cream)}
+.bg-welcome .sec--ink{background:var(--ink);color:var(--white)}
+.bg-welcome .kicker{font-size:12.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+.bg-welcome .h2{font-size:clamp(28px,5vw,48px);margin-top:12px}
+.bg-welcome .lead{color:var(--muted);font-size:17px;margin-top:14px;max-width:620px}
+.bg-welcome .sec--ink .lead{color:var(--muted-dark)}
+.bg-welcome .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:15px;padding:15px 26px;border-radius:8px;text-transform:uppercase;letter-spacing:0.02em;transition:transform .12s ease, background .15s ease, border-color .15s ease}
+.bg-welcome .btn-primary{background:var(--orange);color:#fff}
+.bg-welcome .btn-primary:hover{background:var(--orange-deep);transform:translateY(-1px)}
+.bg-welcome .btn-dark{background:var(--ink);color:#fff}
+.bg-welcome .btn-dark:hover{transform:translateY(-1px);background:#000}
+.bg-welcome .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.4)}
+.bg-welcome .btn-ghost:hover{border-color:#fff}
+.bg-welcome .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+.bg-welcome .hero{position:relative;color:#fff;overflow:hidden;background:var(--ink)}
+.bg-welcome .hero-bg{position:absolute;inset:0;z-index:0}
+.bg-welcome .hero-bg img{width:100%;height:100%;object-fit:cover}
+.bg-welcome .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,14,14,0.92) 0%,rgba(14,14,14,0.78) 42%,rgba(14,14,14,0.45) 100%)}
+.bg-welcome .hero-inner{position:relative;z-index:1;padding:88px 0 58px;max-width:680px}
+.bg-welcome .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange)}
+.bg-welcome .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.bg-welcome .hero h1{font-size:clamp(42px,8vw,86px);margin:18px 0 0}
+.bg-welcome .hero h1 .sub{display:block;font-family:var(--font);font-weight:600;text-transform:none;letter-spacing:-0.01em;font-size:clamp(18px,2.6vw,25px);line-height:1.25;margin-top:18px;color:#EDEDED;max-width:560px}
+.bg-welcome .fineprint{font-size:13.5px;color:#BFBFC2;margin-top:18px}
+.bg-welcome .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.bg-welcome .pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:30px;padding:8px 14px}
+.bg-welcome .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.bg-welcome .pill .stars{color:var(--orange);letter-spacing:1px}
+.bg-welcome .statbar{background:var(--orange);color:var(--ink)}
+.bg-welcome .statbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.bg-welcome .sb{padding:22px 18px;display:flex;align-items:baseline;gap:10px;justify-content:center;border-right:1px solid rgba(0,0,0,0.16)}
+.bg-welcome .sb:last-child{border-right:0}
+.bg-welcome .sb .n{font-family:var(--font);font-weight:900;font-size:26px;line-height:1}
+.bg-welcome .sb .l{font-size:11.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
+@media(max-width:760px){.bg-welcome .statbar .wrap{grid-template-columns:1fr 1fr}.bg-welcome .sb:nth-child(2){border-right:0}.bg-welcome .sb:nth-child(1),.bg-welcome .sb:nth-child(2){border-bottom:1px solid rgba(0,0,0,0.16)}}
+.bg-welcome .ic svg{width:20px;height:20px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bg-welcome .ci svg{width:26px;height:26px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bg-welcome .local-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:42px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-welcome .local-grid{grid-template-columns:1fr;gap:30px}}
+.bg-welcome .local-points{margin-top:26px;display:flex;flex-direction:column;gap:18px}
+.bg-welcome .lp{display:flex;gap:14px;align-items:flex-start}
+.bg-welcome .lp .ic{flex:0 0 auto;width:42px;height:42px;border-radius:10px;background:rgba(255,102,0,0.1);border:1px solid rgba(255,102,0,0.28);display:flex;align-items:center;justify-content:center}
+.bg-welcome .lp h4{font-size:16px;font-weight:700}
+.bg-welcome .lp p{font-size:14.5px;color:var(--muted);margin-top:3px}
+.bg-welcome .brands{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+.bg-welcome .brands span{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:6px 10px;white-space:nowrap}
+.bg-welcome .catch-card{background:var(--ink);color:#fff;border-radius:18px;padding:30px}
+.bg-welcome .catch-card .big{font-family:var(--font);font-weight:900;font-size:clamp(40px,8vw,62px);color:var(--orange);line-height:0.9}
+.bg-welcome .catch-card .big-l{font-size:15px;font-weight:600;margin-top:10px}
+.bg-welcome .catch-sub{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bg-welcome .catch-sub div{background:rgba(255,255,255,0.04);border:1px solid var(--line-dark);border-radius:11px;padding:14px}
+.bg-welcome .catch-sub .cn{font-family:var(--font);font-weight:800;font-size:20px}
+.bg-welcome .catch-sub .cl{font-size:12px;color:var(--muted-dark);margin-top:3px}
+.bg-welcome .get-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+@media(max-width:860px){.bg-welcome .get-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.bg-welcome .get-grid{grid-template-columns:1fr}}
+.bg-welcome .card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px;transition:transform .15s ease, box-shadow .15s ease}
+.bg-welcome .card:hover{transform:translateY(-2px);box-shadow:0 14px 34px -22px rgba(0,0,0,0.35)}
+.bg-welcome .card .ci{width:48px;height:48px;border-radius:11px;background:rgba(255,102,0,0.1);border:1px solid rgba(255,102,0,0.26);display:flex;align-items:center;justify-content:center}
+.bg-welcome .card h4{font-size:17px;font-weight:700;margin-top:16px}
+.bg-welcome .card p{font-size:14.5px;color:var(--muted);margin-top:7px}
+.bg-welcome .gym-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+@media(max-width:860px){.bg-welcome .gym-grid{grid-template-columns:1fr}}
+.bg-welcome .gtile{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5}
+.bg-welcome .gtile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.bg-welcome .gtile:hover img{transform:scale(1.04)}
+.bg-welcome .gtile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(14,14,14,0.85) 100%)}
+.bg-welcome .gtile .cap{position:absolute;left:18px;bottom:16px;z-index:2;color:#fff}
+.bg-welcome .gtile .cap .z{font-family:var(--font);font-weight:800;text-transform:uppercase;letter-spacing:0.04em;font-size:18px}
+.bg-welcome .gtile .cap .d{font-size:13px;color:#D6D6D8;margin-top:2px}
+.bg-welcome .found-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-welcome .found-grid{grid-template-columns:1fr;gap:28px}}
+.bg-welcome .found-copy b{color:#fff}
+.bg-welcome .price-card{background:var(--orange);color:#fff;border-radius:18px;padding:34px 30px;text-align:center}
+.bg-welcome .price-card .e{font-size:11.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;opacity:0.9}
+.bg-welcome .price-card .amt{font-family:var(--font);font-weight:900;font-size:72px;line-height:0.95;margin-top:10px}
+.bg-welcome .price-card .amt small{font-size:22px;font-weight:800}
+.bg-welcome .price-card .then{font-size:13.5px;margin-top:8px;opacity:0.95}
+.bg-welcome .price-card .btn{width:100%;margin-top:22px}
+.bg-welcome .price-card .note{font-size:12px;margin-top:14px;opacity:0.9}
+.bg-welcome .rev-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:34px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-welcome .rev-grid{grid-template-columns:1fr;gap:24px}}
+.bg-welcome .rev-stats{display:flex;gap:30px;margin-top:22px}
+.bg-welcome .rev-stats .n{font-family:var(--font);font-weight:900;font-size:32px;color:var(--orange);line-height:1}
+.bg-welcome .rev-stats .l{font-size:12.5px;color:var(--muted);margin-top:4px}
+.bg-welcome .rev-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:0 18px 40px -28px rgba(0,0,0,0.4)}
+.bg-welcome .rev-card .stars{color:var(--orange);font-size:20px;letter-spacing:2px}
+.bg-welcome .rev-card .score{font-family:var(--font);font-weight:900;font-size:46px;margin-top:10px;color:var(--ink)}
+.bg-welcome .rev-card .score span{color:var(--orange)}
+.bg-welcome .rev-card p{font-size:14.5px;color:var(--muted);margin-top:12px}
+.bg-welcome .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-welcome .loc-grid{grid-template-columns:1fr}}
+.bg-welcome .map{background:var(--cream);border:1px solid var(--line);border-radius:16px;overflow:hidden;min-height:320px}
+.bg-welcome .map iframe{width:100%;height:100%;min-height:320px;border:0}
+.bg-welcome .routes{margin-top:18px;display:flex;flex-direction:column;gap:12px}
+.bg-welcome .route{display:flex;gap:12px;align-items:center;font-size:15px}
+.bg-welcome .route .tag{font-family:var(--font);font-weight:800;font-size:13px;color:var(--orange);border:1px solid rgba(255,102,0,0.4);border-radius:7px;padding:4px 9px;min-width:54px;text-align:center}
+.bg-welcome .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+@media(max-width:760px){.bg-welcome .faq-grid{grid-template-columns:1fr}}
+.bg-welcome .faq-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px}
+.bg-welcome .faq-card h4{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.02em}
+.bg-welcome .faq-card p{font-size:14px;color:var(--muted);margin-top:8px}
+.bg-welcome .final{background:var(--orange);color:var(--ink);text-align:center;padding:80px 0}
+.bg-welcome .final h2{font-size:clamp(32px,6.5vw,60px);margin-bottom:14px}
+.bg-welcome .final p{font-size:17px;margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto}
+.bg-welcome .final .micro{font-size:15px;margin-top:18px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#2a1500;opacity:1}
+.bg-welcome .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ink);border-top:1px solid var(--line-dark);padding:11px 16px;display:none;align-items:center;justify-content:space-between;gap:12px}
+.bg-welcome .sticky-cta .p{font-size:13px;font-weight:700;line-height:1.2;color:#fff}
+.bg-welcome .sticky-cta .p b{color:var(--orange)}
+.bg-welcome .sticky-cta .p small{display:block;color:var(--muted-dark);font-weight:500;font-size:11px}
+.bg-welcome .sticky-cta a{background:var(--orange);color:#fff;font-weight:800;font-size:14px;padding:13px 18px;border-radius:8px;text-transform:uppercase;white-space:nowrap}
+@media(max-width:860px){.bg-welcome .sticky-cta{display:flex}.bg-welcome{padding-bottom:70px}}
+.bg-welcome .reveal{animation:bg-rise .6s ease both}
+@keyframes bg-rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.bg-welcome .reveal{animation:none}.bg-welcome .btn:hover,.bg-welcome .gtile:hover img{transform:none}}
+@keyframes navdrop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.bg-welcome .nav{position:sticky;top:0;z-index:60;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08)}
+.bg-welcome .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.bg-welcome .nav .logo img{height:40px;width:auto}
+.bg-welcome .nav .links{display:flex;align-items:center;gap:26px}
+.bg-welcome .nav .links a{color:#e7e7e7;font-weight:700;font-size:14px}
+.bg-welcome .nav .links a:hover{color:var(--orange-bright)}
+.bg-welcome .nav .links a[aria-current="page"]{color:var(--orange-bright)}
+.bg-welcome .btn.orange{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(255,102,0,.34);border-radius:12px}
+.bg-welcome .btn.orange:hover{background:var(--orange-deep)}
+.bg-welcome .nav .btn{padding:11px 18px;font-size:13px}
+.bg-welcome .nav .nav-toggle{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.bg-welcome .nav .burger{display:none}
+.bg-welcome .nav .links .nav-link-cta{display:none}
+.bg-welcome .nav .navdrop{position:relative;display:flex;align-items:center}
+.bg-welcome .nav .navdrop-top{display:inline-flex;align-items:center;gap:6px;color:#e7e7e7;font-weight:700;font-size:14px;cursor:pointer}
+.bg-welcome .nav .navdrop-top:hover{color:var(--orange-bright)}
+.bg-welcome .nav .navdrop-top i{font-style:normal;font-size:11px}
+.bg-welcome .nav .navdrop-menu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:#161616;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;min-width:212px;opacity:0;visibility:hidden;transition:.18s;box-shadow:0 22px 44px -18px rgba(0,0,0,.8);z-index:70}
+.bg-welcome .nav .navdrop:hover .navdrop-menu,.bg-welcome .nav .navdrop:focus-within .navdrop-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.bg-welcome .nav .navdrop-menu a{display:block;padding:10px 13px;border-radius:8px;color:#D6D6D8;font-weight:600;font-size:14px;border:0}
+.bg-welcome .nav .navdrop-menu a:hover{background:#222;color:#fff}
+.bg-welcome .sec--ink .kicker{color:var(--orange-bright)}
+.bg-welcome .sec--ink .h2,.bg-welcome .sec--ink h2{color:#fff}
+.bg-welcome .sec--ink .lead{color:#cfcfcf}
+@media(max-width:860px){
+  .bg-welcome .nav .nav-cta-desktop{display:none}
+  .bg-welcome .nav .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08);padding:6px 20px 16px;box-shadow:0 22px 44px -22px rgba(0,0,0,.8)}
+  .bg-welcome .nav .nav-toggle:checked ~ .links{display:flex}
+  .bg-welcome .nav .burger{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;cursor:pointer;margin-right:-9px}
+  .bg-welcome .nav .burger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+  .bg-welcome .nav .links a{padding:14px 2px;font-size:15px;border-bottom:1px solid rgba(255,255,255,.07);color:#e7e7e7}
+  .bg-welcome .nav .links .nav-link-cta{display:flex;margin-top:12px;padding:14px;border-bottom:0;justify-content:center}
+  .bg-welcome .nav .navdrop{flex-direction:column;align-items:stretch}
+  .bg-welcome .nav .navdrop-top{padding:14px 2px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .bg-welcome .nav .navdrop-menu{position:static;opacity:1;visibility:visible;transform:none;background:transparent;border:0;box-shadow:none;padding:2px 0 0 14px;min-width:0}
+  .bg-welcome .nav .navdrop-menu a{padding:10px 2px;font-size:14px;color:#bdbdbd}
+  .bg-welcome .nav .nav-toggle:checked ~ .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .bg-welcome .nav .nav-toggle:checked ~ .burger span:nth-child(2){opacity:0}
+  .bg-welcome .nav .nav-toggle:checked ~ .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+/* --- Back to Basic sale states, added Aug 2026 --- */
+.bg-welcome .salebar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:24px;border:1.5px solid var(--orange);background:#FFF3EA;border-radius:14px;padding:16px 20px}
+.bg-welcome .salebar.shut{border-color:var(--line);background:var(--cream)}
+.bg-welcome .salebar[hidden]{display:none}
+.bg-welcome .salebar .lead-txt{font-size:15.5px;font-weight:800;color:var(--ink)}
+.bg-welcome .salebar .lead-txt em{font-style:normal;color:var(--orange-deep)}
+.bg-welcome .salebar .note{font-size:13.5px;color:var(--muted);font-weight:600;margin-top:3px}
+.bg-welcome .salebar .clock{display:flex;gap:7px;margin-left:auto}
+.bg-welcome .salebar .clock .u{text-align:center;min-width:46px}
+.bg-welcome .salebar .clock b{display:block;font-size:22px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.bg-welcome .salebar .clock i{display:block;font-style:normal;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px;font-weight:800}
+@media(max-width:700px){.bg-welcome .salebar .clock{margin-left:0}}
+.bg-welcome .hero .salebar{background:rgba(255,255,255,.07);border-color:rgba(255,122,26,.5)}
+.bg-welcome .hero .salebar .lead-txt{color:#fff}
+.bg-welcome .hero .salebar .lead-txt em{color:var(--orange-bright)}
+.bg-welcome .hero .salebar .note{color:#BFBFC2}
+.bg-welcome .hero .salebar .clock b{color:#fff}
+.bg-welcome .hero .salebar .clock i{color:#9a9a9a}
+.bg-welcome .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+<div class="bg-welcome">
+<nav class="nav">
+    <div class="wrap">
+      <a class="logo" href="index.html" aria-label="BasicGym"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
+      <input type="checkbox" id="navtoggle" class="nav-toggle" aria-hidden="true">
+      <div class="links">
+        <a href="classes.html">Classes</a>
+        <a href="nottingham.html">Nottingham</a>
+        <a href="membership.html">Membership</a>
+        <a href="open-day.html">Open days</a>
+        <div class="navdrop">
+          <a class="navdrop-top" href="about-us.html">About us <i>&#9662;</i></a>
+          <div class="navdrop-menu">
+            <a href="about-us.html">About us</a>
+            <a href="students.html">Students</a>
+            <a href="corporate-membership.html">Corporate Membership</a>
+            <a href="personal-training.html">Personal Training</a>
+            <a href="careers.html">Careers</a>
+            <a href="refer-a-friend.html">Refer a Friend</a>
+          </div>
+        </div>
+        <a class="btn orange nav-link-cta" href="join.html" data-bg-join>Join now</a>
+      </div>
+      <a class="btn orange nav-cta-desktop" href="join.html" data-bg-join>Join now</a>
+      <label for="navtoggle" class="burger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/f_auto,q_auto,w_1600/v1782298061/basicgymhero_iwhmp4.png" alt="BasicGym interior" fetchpriority="high"></div>
+    <div class="wrap"><div class="hero-inner">
+      <span class="eyebrow"><span class="dot"></span>Payment complete</span>
+      <h1 class="display">You&rsquo;re in.<br><span class="orange">Welcome to BasicGym.</span></h1>
+      <p class="lead" style="color:#EDEDED;max-width:560px">That&rsquo;s it, your membership is live. You can train today at Riverside Retail Park, and every class is included from your first visit.</p>
+      <div class="pills"><span class="pill"><span class="dot"></span>Membership active</span><span class="pill"><span class="dot"></span>Open 24/7 on Plus</span><span class="pill"><span class="dot"></span>120 classes a week</span></div>
+    </div></div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <span class="kicker">What happens next</span>
+      <h2 class="h2 display">Three quick things.</h2>
+      <div class="get-grid"><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div><h4>1. Get the app</h4><p>Download the BasicGym app and sign in with the email you just used. Your entry QR code lives in there.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></div><h4>2. Book a class</h4><p>120 a week, all included. Book up to seven days ahead from the app. If a class is full, join the waitlist.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h4>3. Come in</h4><p>Riverside Retail Park, Nottingham NG2 1RU. Park anywhere, all 650 spaces are free, and scan at the turnstile.</p></div></div>
+    </div>
+  </section>
+
+  <section class="sec sec--cream">
+    <div class="wrap">
+      <div class="found-grid">
+        <div class="found-copy">
+          <span class="kicker">Your membership</span>
+          <h2 class="h2 display">Sorted,<br>nothing to do.</h2>
+          <p class="lead">Your confirmation is on its way by email, with everything you need for your first visit. If it has not landed in five minutes, check the junk folder before you assume it failed.</p>
+        </div>
+        <div class="local-points">
+          <div class="lp"><div class="ic"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div><div><h4>Payment taken</h4><p>Your first payment has gone through.</p></div></div>
+          <div class="lp"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><h4>Then monthly by Direct Debit</h4><p>Collected on the same date each month.</p></div></div>
+          <div class="lp"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><h4>Cancel anytime on monthly</h4><p>No lock-in on the rolling plans.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       PASTE THE LIVE PURCHASE EVENT SCRIPT HERE
+
+       NOTE, RAISED 25 AUG 2026: there is currently NO Purchase event
+       on this page at all. The join page fires Lead before the
+       Ashbourne redirect and nothing fires when payment completes,
+       so Meta has no revenue signal. Two things to confirm with Avi:
+         1. whether server side CAPI is sending Purchase via Stape
+            independently of the browser
+         2. that Ashbourne is actually configured to redirect here
+            after payment, otherwise this page is never reached
+       When the browser event is added, the value must be the amount
+       actually charged. There are now six possible first payments,
+       so a hard coded figure will be wrong five times out of six.
+       ============================================================== -->
+
+  <section class="final">
+    <div class="wrap">
+      <h2 class="display">Know someone who&rsquo;d love this?</h2>
+      <p>Training is better with a friend. Send them over and they can pick the plan that suits them.</p>
+      <a class="btn btn-dark" href="refer-a-friend.html">Bring a friend in</a>
+      <div class="micro">See you in the gym &middot; Nottingham Riverside</div>
+    </div>
+  </section>
+
+</div>

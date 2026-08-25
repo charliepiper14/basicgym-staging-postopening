@@ -1,0 +1,326 @@
+<!-- ============================================================
+     BasicGym - ABOUT US  (basicgym.co.uk/about-us/)
+     Paste into ONE Elementor "HTML" widget (Canvas). Scoped under .bg-about.
+     Footer = SEPARATE basicgym-footer-shared.html widget below.
+
+     Updated 25 August 2026 for post-opening pricing and the Back to Basic sale.
+     Requires bg-promo.js loaded site wide for the sale states.
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap');
+.bg-about{--white:#FFFFFF;--paper:#FFFFFF;--cream:#F5F4F0;--ink:#0E0E0E;--orange:#FF6600;--orange-bright:#FF7A1A;--orange-deep:#CC5200;--muted:#565659;--muted-dark:#A9A9AE;--line:#E7E5E0;--line-dark:#262629;--font:'Cooper Hewitt','Hanken Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-family:var(--font);}
+.bg-about *{box-sizing:border-box;margin:0;padding:0}
+.bg-about{scroll-behavior:smooth;background:var(--white);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-about .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.bg-about .display{font-family:var(--font);font-weight:900;letter-spacing:-0.015em;text-transform:uppercase;line-height:0.95}
+.bg-about .orange{color:var(--orange)}
+.bg-about a{color:inherit;text-decoration:none}
+.bg-about img{max-width:100%;display:block}
+.bg-about svg{display:block}
+.bg-about .sec{padding:74px 0}
+.bg-about .sec--cream{background:var(--cream)}
+.bg-about .sec--ink{background:var(--ink);color:var(--white)}
+.bg-about .kicker{font-size:12.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+.bg-about .h2{font-size:clamp(28px,5vw,48px);margin-top:12px}
+.bg-about .lead{color:var(--muted);font-size:17px;margin-top:14px;max-width:620px}
+.bg-about .sec--ink .lead{color:var(--muted-dark)}
+.bg-about .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:15px;padding:15px 26px;border-radius:8px;text-transform:uppercase;letter-spacing:0.02em;transition:transform .12s ease, background .15s ease, border-color .15s ease}
+.bg-about .btn-primary{background:var(--orange);color:#fff}
+.bg-about .btn-primary:hover{background:var(--orange-deep);transform:translateY(-1px)}
+.bg-about .btn-dark{background:var(--ink);color:#fff}
+.bg-about .btn-dark:hover{transform:translateY(-1px);background:#000}
+.bg-about .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.4)}
+.bg-about .btn-ghost:hover{border-color:#fff}
+.bg-about .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+.bg-about .hero{position:relative;color:#fff;overflow:hidden;background:var(--ink)}
+.bg-about .hero-bg{position:absolute;inset:0;z-index:0}
+.bg-about .hero-bg img{width:100%;height:100%;object-fit:cover}
+.bg-about .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,14,14,0.92) 0%,rgba(14,14,14,0.78) 42%,rgba(14,14,14,0.45) 100%)}
+.bg-about .hero-inner{position:relative;z-index:1;padding:88px 0 58px;max-width:680px}
+.bg-about .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange)}
+.bg-about .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.bg-about .hero h1{font-size:clamp(42px,8vw,86px);margin:18px 0 0}
+.bg-about .hero h1 .sub{display:block;font-family:var(--font);font-weight:600;text-transform:none;letter-spacing:-0.01em;font-size:clamp(18px,2.6vw,25px);line-height:1.25;margin-top:18px;color:#EDEDED;max-width:560px}
+.bg-about .fineprint{font-size:13.5px;color:#BFBFC2;margin-top:18px}
+.bg-about .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.bg-about .pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:30px;padding:8px 14px}
+.bg-about .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.bg-about .pill .stars{color:var(--orange);letter-spacing:1px}
+.bg-about .statbar{background:var(--orange);color:var(--ink)}
+.bg-about .statbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.bg-about .sb{padding:22px 18px;display:flex;align-items:baseline;gap:10px;justify-content:center;border-right:1px solid rgba(0,0,0,0.16)}
+.bg-about .sb:last-child{border-right:0}
+.bg-about .sb .n{font-family:var(--font);font-weight:900;font-size:26px;line-height:1}
+.bg-about .sb .l{font-size:11.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
+@media(max-width:760px){.bg-about .statbar .wrap{grid-template-columns:1fr 1fr}.bg-about .sb:nth-child(2){border-right:0}.bg-about .sb:nth-child(1),.bg-about .sb:nth-child(2){border-bottom:1px solid rgba(0,0,0,0.16)}}
+.bg-about .ic svg{width:20px;height:20px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bg-about .ci svg{width:26px;height:26px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bg-about .local-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:42px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-about .local-grid{grid-template-columns:1fr;gap:30px}}
+.bg-about .local-points{margin-top:26px;display:flex;flex-direction:column;gap:18px}
+.bg-about .lp{display:flex;gap:14px;align-items:flex-start}
+.bg-about .lp .ic{flex:0 0 auto;width:42px;height:42px;border-radius:10px;background:rgba(255,102,0,0.1);border:1px solid rgba(255,102,0,0.28);display:flex;align-items:center;justify-content:center}
+.bg-about .lp h4{font-size:16px;font-weight:700}
+.bg-about .lp p{font-size:14.5px;color:var(--muted);margin-top:3px}
+.bg-about .brands{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+.bg-about .brands span{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:6px 10px;white-space:nowrap}
+.bg-about .catch-card{background:var(--ink);color:#fff;border-radius:18px;padding:30px}
+.bg-about .catch-card .big{font-family:var(--font);font-weight:900;font-size:clamp(40px,8vw,62px);color:var(--orange);line-height:0.9}
+.bg-about .catch-card .big-l{font-size:15px;font-weight:600;margin-top:10px}
+.bg-about .catch-sub{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bg-about .catch-sub div{background:rgba(255,255,255,0.04);border:1px solid var(--line-dark);border-radius:11px;padding:14px}
+.bg-about .catch-sub .cn{font-family:var(--font);font-weight:800;font-size:20px}
+.bg-about .catch-sub .cl{font-size:12px;color:var(--muted-dark);margin-top:3px}
+.bg-about .get-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+@media(max-width:860px){.bg-about .get-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.bg-about .get-grid{grid-template-columns:1fr}}
+.bg-about .card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px;transition:transform .15s ease, box-shadow .15s ease}
+.bg-about .card:hover{transform:translateY(-2px);box-shadow:0 14px 34px -22px rgba(0,0,0,0.35)}
+.bg-about .card .ci{width:48px;height:48px;border-radius:11px;background:rgba(255,102,0,0.1);border:1px solid rgba(255,102,0,0.26);display:flex;align-items:center;justify-content:center}
+.bg-about .card h4{font-size:17px;font-weight:700;margin-top:16px}
+.bg-about .card p{font-size:14.5px;color:var(--muted);margin-top:7px}
+.bg-about .gym-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+@media(max-width:860px){.bg-about .gym-grid{grid-template-columns:1fr}}
+.bg-about .gtile{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5}
+.bg-about .gtile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.bg-about .gtile:hover img{transform:scale(1.04)}
+.bg-about .gtile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(14,14,14,0.85) 100%)}
+.bg-about .gtile .cap{position:absolute;left:18px;bottom:16px;z-index:2;color:#fff}
+.bg-about .gtile .cap .z{font-family:var(--font);font-weight:800;text-transform:uppercase;letter-spacing:0.04em;font-size:18px}
+.bg-about .gtile .cap .d{font-size:13px;color:#D6D6D8;margin-top:2px}
+.bg-about .found-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-about .found-grid{grid-template-columns:1fr;gap:28px}}
+.bg-about .found-copy b{color:#fff}
+.bg-about .price-card{background:var(--orange);color:#fff;border-radius:18px;padding:34px 30px;text-align:center}
+.bg-about .price-card .e{font-size:11.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;opacity:0.9}
+.bg-about .price-card .amt{font-family:var(--font);font-weight:900;font-size:72px;line-height:0.95;margin-top:10px}
+.bg-about .price-card .amt small{font-size:22px;font-weight:800}
+.bg-about .price-card .then{font-size:13.5px;margin-top:8px;opacity:0.95}
+.bg-about .price-card .btn{width:100%;margin-top:22px}
+.bg-about .price-card .note{font-size:12px;margin-top:14px;opacity:0.9}
+.bg-about .rev-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:34px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-about .rev-grid{grid-template-columns:1fr;gap:24px}}
+.bg-about .rev-stats{display:flex;gap:30px;margin-top:22px}
+.bg-about .rev-stats .n{font-family:var(--font);font-weight:900;font-size:32px;color:var(--orange);line-height:1}
+.bg-about .rev-stats .l{font-size:12.5px;color:var(--muted);margin-top:4px}
+.bg-about .rev-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:0 18px 40px -28px rgba(0,0,0,0.4)}
+.bg-about .rev-card .stars{color:var(--orange);font-size:20px;letter-spacing:2px}
+.bg-about .rev-card .score{font-family:var(--font);font-weight:900;font-size:46px;margin-top:10px;color:var(--ink)}
+.bg-about .rev-card .score span{color:var(--orange)}
+.bg-about .rev-card p{font-size:14.5px;color:var(--muted);margin-top:12px}
+.bg-about .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-about .loc-grid{grid-template-columns:1fr}}
+.bg-about .map{background:var(--cream);border:1px solid var(--line);border-radius:16px;overflow:hidden;min-height:320px}
+.bg-about .map iframe{width:100%;height:100%;min-height:320px;border:0}
+.bg-about .routes{margin-top:18px;display:flex;flex-direction:column;gap:12px}
+.bg-about .route{display:flex;gap:12px;align-items:center;font-size:15px}
+.bg-about .route .tag{font-family:var(--font);font-weight:800;font-size:13px;color:var(--orange);border:1px solid rgba(255,102,0,0.4);border-radius:7px;padding:4px 9px;min-width:54px;text-align:center}
+.bg-about .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+@media(max-width:760px){.bg-about .faq-grid{grid-template-columns:1fr}}
+.bg-about .faq-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px}
+.bg-about .faq-card h4{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.02em}
+.bg-about .faq-card p{font-size:14px;color:var(--muted);margin-top:8px}
+.bg-about .final{background:var(--orange);color:var(--ink);text-align:center;padding:80px 0}
+.bg-about .final h2{font-size:clamp(32px,6.5vw,60px);margin-bottom:14px}
+.bg-about .final p{font-size:17px;margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto}
+.bg-about .final .micro{font-size:15px;margin-top:18px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#2a1500;opacity:1}
+.bg-about .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ink);border-top:1px solid var(--line-dark);padding:11px 16px;display:none;align-items:center;justify-content:space-between;gap:12px}
+.bg-about .sticky-cta .p{font-size:13px;font-weight:700;line-height:1.2;color:#fff}
+.bg-about .sticky-cta .p b{color:var(--orange)}
+.bg-about .sticky-cta .p small{display:block;color:var(--muted-dark);font-weight:500;font-size:11px}
+.bg-about .sticky-cta a{background:var(--orange);color:#fff;font-weight:800;font-size:14px;padding:13px 18px;border-radius:8px;text-transform:uppercase;white-space:nowrap}
+@media(max-width:860px){.bg-about .sticky-cta{display:flex}.bg-about{padding-bottom:70px}}
+.bg-about .reveal{animation:bg-rise .6s ease both}
+@keyframes bg-rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.bg-about .reveal{animation:none}.bg-about .btn:hover,.bg-about .gtile:hover img{transform:none}}
+@keyframes navdrop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.bg-about .nav{position:sticky;top:0;z-index:60;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08)}
+.bg-about .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.bg-about .nav .logo img{height:40px;width:auto}
+.bg-about .nav .links{display:flex;align-items:center;gap:26px}
+.bg-about .nav .links a{color:#e7e7e7;font-weight:700;font-size:14px}
+.bg-about .nav .links a:hover{color:var(--orange-bright)}
+.bg-about .nav .links a[aria-current="page"]{color:var(--orange-bright)}
+.bg-about .btn.orange{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(255,102,0,.34);border-radius:12px}
+.bg-about .btn.orange:hover{background:var(--orange-deep)}
+.bg-about .nav .btn{padding:11px 18px;font-size:13px}
+.bg-about .nav .nav-toggle{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.bg-about .nav .burger{display:none}
+.bg-about .nav .links .nav-link-cta{display:none}
+.bg-about .nav .navdrop{position:relative;display:flex;align-items:center}
+.bg-about .nav .navdrop-top{display:inline-flex;align-items:center;gap:6px;color:#e7e7e7;font-weight:700;font-size:14px;cursor:pointer}
+.bg-about .nav .navdrop-top:hover{color:var(--orange-bright)}
+.bg-about .nav .navdrop-top i{font-style:normal;font-size:11px}
+.bg-about .nav .navdrop-menu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:#161616;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;min-width:212px;opacity:0;visibility:hidden;transition:.18s;box-shadow:0 22px 44px -18px rgba(0,0,0,.8);z-index:70}
+.bg-about .nav .navdrop:hover .navdrop-menu,.bg-about .nav .navdrop:focus-within .navdrop-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.bg-about .nav .navdrop-menu a{display:block;padding:10px 13px;border-radius:8px;color:#D6D6D8;font-weight:600;font-size:14px;border:0}
+.bg-about .nav .navdrop-menu a:hover{background:#222;color:#fff}
+.bg-about .sec--ink .kicker{color:var(--orange-bright)}
+.bg-about .sec--ink .h2,.bg-about .sec--ink h2{color:#fff}
+.bg-about .sec--ink .lead{color:#cfcfcf}
+@media(max-width:860px){
+  .bg-about .nav .nav-cta-desktop{display:none}
+  .bg-about .nav .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08);padding:6px 20px 16px;box-shadow:0 22px 44px -22px rgba(0,0,0,.8)}
+  .bg-about .nav .nav-toggle:checked ~ .links{display:flex}
+  .bg-about .nav .burger{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;cursor:pointer;margin-right:-9px}
+  .bg-about .nav .burger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+  .bg-about .nav .links a{padding:14px 2px;font-size:15px;border-bottom:1px solid rgba(255,255,255,.07);color:#e7e7e7}
+  .bg-about .nav .links .nav-link-cta{display:flex;margin-top:12px;padding:14px;border-bottom:0;justify-content:center}
+  .bg-about .nav .navdrop{flex-direction:column;align-items:stretch}
+  .bg-about .nav .navdrop-top{padding:14px 2px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .bg-about .nav .navdrop-menu{position:static;opacity:1;visibility:visible;transform:none;background:transparent;border:0;box-shadow:none;padding:2px 0 0 14px;min-width:0}
+  .bg-about .nav .navdrop-menu a{padding:10px 2px;font-size:14px;color:#bdbdbd}
+  .bg-about .nav .nav-toggle:checked ~ .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .bg-about .nav .nav-toggle:checked ~ .burger span:nth-child(2){opacity:0}
+  .bg-about .nav .nav-toggle:checked ~ .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+/* --- Back to Basic sale states, added Aug 2026 --- */
+.bg-about .salebar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:24px;border:1.5px solid var(--orange);background:#FFF3EA;border-radius:14px;padding:16px 20px}
+.bg-about .salebar.shut{border-color:var(--line);background:var(--cream)}
+.bg-about .salebar[hidden]{display:none}
+.bg-about .salebar .lead-txt{font-size:15.5px;font-weight:800;color:var(--ink)}
+.bg-about .salebar .lead-txt em{font-style:normal;color:var(--orange-deep)}
+.bg-about .salebar .note{font-size:13.5px;color:var(--muted);font-weight:600;margin-top:3px}
+.bg-about .salebar .clock{display:flex;gap:7px;margin-left:auto}
+.bg-about .salebar .clock .u{text-align:center;min-width:46px}
+.bg-about .salebar .clock b{display:block;font-size:22px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.bg-about .salebar .clock i{display:block;font-style:normal;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px;font-weight:800}
+@media(max-width:700px){.bg-about .salebar .clock{margin-left:0}}
+.bg-about .hero .salebar{background:rgba(255,255,255,.07);border-color:rgba(255,122,26,.5)}
+.bg-about .hero .salebar .lead-txt{color:#fff}
+.bg-about .hero .salebar .lead-txt em{color:var(--orange-bright)}
+.bg-about .hero .salebar .note{color:#BFBFC2}
+.bg-about .hero .salebar .clock b{color:#fff}
+.bg-about .hero .salebar .clock i{color:#9a9a9a}
+.bg-about .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+<div class="bg-about">
+<nav class="nav">
+    <div class="wrap">
+      <a class="logo" href="index.html" aria-label="BasicGym"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
+      <input type="checkbox" id="navtoggle" class="nav-toggle" aria-hidden="true">
+      <div class="links">
+        <a href="classes.html">Classes</a>
+        <a href="nottingham.html">Nottingham</a>
+        <a href="membership.html">Membership</a>
+        <a href="open-day.html">Open days</a>
+        <div class="navdrop">
+          <a class="navdrop-top" href="about-us.html" aria-current="page">About us <i>&#9662;</i></a>
+          <div class="navdrop-menu">
+            <a href="about-us.html" aria-current="page">About us</a>
+            <a href="students.html">Students</a>
+            <a href="corporate-membership.html">Corporate Membership</a>
+            <a href="personal-training.html">Personal Training</a>
+            <a href="careers.html">Careers</a>
+            <a href="refer-a-friend.html">Refer a Friend</a>
+          </div>
+        </div>
+        <a class="btn orange nav-link-cta" href="join.html" data-bg-join>Join now</a>
+      </div>
+      <a class="btn orange nav-cta-desktop" href="join.html" data-bg-join>Join now</a>
+      <label for="navtoggle" class="burger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/f_auto,q_auto,w_1600/v1782298061/basicgymhero_iwhmp4.png" alt="BasicGym interior" fetchpriority="high"></div>
+    <div class="wrap"><div class="hero-inner">
+      <span class="eyebrow"><span class="dot"></span>Our story</span>
+      <h1 class="display">Premium gym.<br><span class="orange">Basic price.</span></h1>
+      <p class="lead" style="color:#EDEDED;max-width:580px">BasicGym started with one idea: a big, clean, properly equipped gym that feels premium, priced so anyone can walk in and train. No frills you will never use. Monthly plans with no contract. Just everything you actually need.</p>
+      <div class="cta-row"><a class="btn btn-primary" href="membership.html">See membership prices</a><a class="btn btn-ghost" href="nottingham.html">See Riverside</a></div>
+      <div class="pills"><span class="pill"><span class="dot"></span><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 on Google</span><span class="pill"><span class="dot"></span>101 five-star reviews</span><span class="pill"><span class="dot"></span>Grown on word of mouth</span></div>
+    </div></div>
+  </section>
+
+  <div class="statbar"><div class="wrap">
+    <div class="sb"><span class="n">24/7</span><span class="l">Open<br>every day</span></div>
+    <div class="sb"><span class="n">101</span><span class="l">Five-star<br>reviews</span></div>
+    <div class="sb"><span class="n">5.0</span><span class="l">Google<br>rating</span></div>
+    <div class="sb"><span class="n">9</span><span class="l">Training<br>zones</span></div>
+  </div></div>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="found-grid">
+        <div class="found-copy">
+          <span class="kicker">Where it started</span>
+          <h2 class="h2 display">It began in<br>Long Eaton.</h2>
+          <p class="lead">There was a gap. The big chains were fine if you could afford them. The small independents were fine if you knew the owner. In between, there was nothing that felt good to train in without paying a premium for a pool and a spa you would never touch.</p>
+          <p class="lead">So we built it. A large, open, spotless gym with proper equipment, long hours and real people on the floor, priced so it is an easy yes. Members noticed. The gym filled on word of mouth alone, before a single advert ran.</p>
+        </div>
+        <div class="catch-card">
+          <div class="big">5.0</div>
+          <div class="big-l">Google rating across 101 five-star reviews</div>
+          <div class="catch-sub">
+            <div><div class="cn">101</div><div class="cl">Five-star reviews</div></div>
+            <div><div class="cn">Word of mouth</div><div class="cl">No ads, just results</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--cream">
+    <div class="wrap">
+      <span class="kicker">What we stand for</span>
+      <h2 class="h2 display">Simple on purpose.</h2>
+      <p class="lead">Everything we leave out is deliberate. It is what keeps the price low and the gym good.</p>
+      <div class="get-grid"><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div><h4>No frills, no waste</h4><p>No pool, no spa, no gimmicks. The money goes into the equipment and the space you actually train with.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h4>Real service</h4><p>Staff who say hello. Trainers who will show you how to use anything, free. You are a member, not a number.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4>No egos</h4><p>All shapes, all levels, all welcome. Beginners train next to regulars and nobody is watching.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M6 4v16"/><path d="M18 4v16"/><path d="M6 8h12"/><path d="M6 16h12"/></svg></div><h4>Everything you need</h4><p>Free weights, machines, cardio, functional space and 120 classes a week. Nine zones under one roof.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div><h4>Spotless, every day</h4><p>Kit wiped and reset daily. A clean gym you are glad to walk into, not one you tolerate.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h4>Open when you are</h4><p>24 hours a day on Plus, fitting around real life, work and everything in between.</p></div></div>
+    </div>
+  </section>
+
+  <section class="sec sec--ink">
+    <div class="wrap">
+      <div class="rev-grid">
+        <div>
+          <span class="kicker">Earned, not advertised</span>
+          <h2 class="h2 display">The members did<br>the talking.</h2>
+          <p class="lead">No campaign built Long Eaton. People trained, liked it, and told someone. That is the whole strategy, and the rating shows it.</p>
+          <div class="rev-stats">
+            <div><div class="n">101</div><div class="l">Five-star reviews</div></div>
+            <div><div class="n">5.0</div><div class="l">Google rating</div></div>
+          </div>
+        </div>
+        <div class="rev-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="score">5.0<span>/5</span></div>
+          <p>A clean, well-equipped gym with friendly staff and no pressure, at a price that makes it easy to keep coming back. That is what members tell us, and each other.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="found-grid">
+        <div class="found-copy">
+          <span class="kicker">What&rsquo;s next</span>
+          <h2 class="h2 display">Riverside is<br>chapter two.</h2>
+          <p class="lead">The model works, so we brought it to Nottingham. A 10,000 sq ft BasicGym at Riverside Retail Park, built on exactly what made Long Eaton work, with more space and more equipment.</p>
+          <p class="lead">It opened on 22 August 2026. And it will not be the last.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="membership.html">See membership prices</a>
+            <a class="btn btn-dark" href="nottingham.html">See Riverside</a>
+          </div>
+        </div>
+        <div class="local-points">
+          <div class="lp"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><h4>Open now, 24 hours a day</h4><p>Memberships from &pound;17.99 a month.</p></div></div>
+          <div class="lp"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><h4>Riverside Retail Park, Nottingham</h4><p>Next to B&amp;Q, Boots, JD Sports and Next.</p></div></div>
+          <div class="lp"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg></div><div><h4>650 free parking spaces</h4><p>Park, train, get on with your day.</p></div></div>
+          <div class="lp"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 4v16"/><path d="M18 4v16"/><path d="M6 8h12"/><path d="M6 16h12"/></svg></div><div><h4>10,000 sq ft, nine zones</h4><p>Free weights, machines, cardio, functional and 120 classes a week.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2 class="display">Come and train with us.</h2>
+      <p>Four plans from &pound;17.99 a month, every class included, and no contract on the monthly plans.</p>
+      <a class="btn btn-dark" href="membership.html">See membership prices</a>
+      <div class="micro">Open now &middot; Nottingham Riverside</div>
+    </div>
+  </section>
+
+</div>
