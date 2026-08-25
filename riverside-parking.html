@@ -1,0 +1,197 @@
+<!-- ============================================================
+     BasicGym - PARKING  (basicgym.co.uk/riverside-parking/)
+     Paste into ONE Elementor "HTML" widget (Canvas). Scoped under .bg-park.
+     Footer = SEPARATE basicgym-footer-shared.html widget below.
+     Updated 25 August 2026 for post-opening pricing.
+     Requires bg-promo.js loaded site wide for the sale states.
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap');
+.bg-park{--ink:#0E0E0E;--ink-soft:#1A1A1A;--paper:#FFFFFF;--orange:#FF6600;--orange-bright:#FF7A1A;--orange-deep:#CC5200;--steel:#6B6B6B;--line:#E6E4E0;--panel:#F5F4F1;--ok:#1B9E5A;--font:'Cooper Hewitt','Hanken Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;--radius:14px;--shadow:0 18px 50px rgba(0,0,0,.16);font-family:var(--font);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;background:var(--paper);}
+.bg-park *{box-sizing:border-box;}
+.bg-park img{max-width:100%;display:block;}
+.bg-park h1,.bg-park h2,.bg-park h3{margin:0;line-height:1.03;letter-spacing:-.02em;text-transform:uppercase;font-weight:900;overflow-wrap:break-word;}
+.bg-park p{margin:0;overflow-wrap:break-word;}
+.bg-park a{color:inherit;text-decoration:none;}
+.bg-park .wrap{width:100%;max-width:1140px;margin:0 auto;padding:0 20px;}
+.bg-park .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:900;text-transform:uppercase;font-size:15px;letter-spacing:.01em;padding:15px 24px;border-radius:12px;cursor:pointer;border:0;font-family:var(--font);transition:.15s;}
+.bg-park .btn.orange{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(255,102,0,.34);}
+.bg-park .btn.orange:hover{background:var(--orange-deep);}
+.bg-park .btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3);}
+.bg-park .btn.ghost:hover{border-color:var(--orange);background:rgba(255,102,0,.14);}
+.bg-park .btn.dark{background:var(--ink);color:#fff;}
+.bg-park .nav{position:sticky;top:0;z-index:60;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08);}
+.bg-park .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;}
+.bg-park .nav .logo img{height:40px;width:auto;}
+.bg-park .nav .links{display:flex;align-items:center;gap:26px;}
+.bg-park .nav .links a{color:#e7e7e7;font-weight:700;font-size:14px;letter-spacing:.01em;}
+.bg-park .nav .links a:hover{color:var(--orange-bright);}
+.bg-park .nav .links a[aria-current="page"]{color:var(--orange-bright)}
+.bg-park .nav .btn{padding:11px 18px;font-size:13px;}
+.bg-park .nav .nav-toggle{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.bg-park .nav .burger{display:none}
+.bg-park .nav .links .nav-link-cta{display:none}
+.bg-park .nav .navdrop{position:relative;display:flex;align-items:center}
+.bg-park .nav .navdrop-top{display:inline-flex;align-items:center;gap:6px;color:#e7e7e7;font-weight:700;font-size:14px;cursor:pointer}
+.bg-park .nav .navdrop-top:hover{color:var(--orange-bright)}
+.bg-park .nav .navdrop-top i{font-style:normal;font-size:11px}
+.bg-park .nav .navdrop-menu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:#161616;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;min-width:212px;opacity:0;visibility:hidden;transition:.18s;box-shadow:0 22px 44px -18px rgba(0,0,0,.8);z-index:70}
+.bg-park .nav .navdrop:hover .navdrop-menu,.bg-park .nav .navdrop:focus-within .navdrop-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.bg-park .nav .navdrop-menu a{display:block;padding:10px 13px;border-radius:8px;color:#D6D6D8;font-weight:600;font-size:14px;border:0}
+.bg-park .nav .navdrop-menu a:hover{background:#222;color:#fff}
+@media(max-width:860px){
+  .bg-park .nav .nav-cta-desktop{display:none}
+  .bg-park .nav .burger{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;cursor:pointer;margin-right:-9px}
+  .bg-park .nav .burger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+  .bg-park .nav .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08);padding:6px 20px 16px;box-shadow:0 22px 44px -22px rgba(0,0,0,.8)}
+  .bg-park .nav .nav-toggle:checked ~ .links{display:flex}
+  .bg-park .nav .links a{padding:14px 2px;font-size:15px;border-bottom:1px solid rgba(255,255,255,.07);color:#e7e7e7}
+  .bg-park .nav .links .nav-link-cta{display:flex;margin-top:12px;padding:14px;border-bottom:0;justify-content:center}
+  .bg-park .nav .navdrop{flex-direction:column;align-items:stretch}
+  .bg-park .nav .navdrop-top{padding:14px 2px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .bg-park .nav .navdrop-menu{position:static;opacity:1;visibility:visible;transform:none;background:transparent;border:0;box-shadow:none;padding:2px 0 0 14px;min-width:0}
+  .bg-park .nav .navdrop-menu a{padding:10px 2px;font-size:14px;color:#bdbdbd}
+  .bg-park .nav .nav-toggle:checked ~ .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .bg-park .nav .nav-toggle:checked ~ .burger span:nth-child(2){opacity:0}
+  .bg-park .nav .nav-toggle:checked ~ .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+.bg-park .hero{position:relative;color:#fff;background:var(--ink);overflow:hidden;}
+.bg-park .hero .bgimg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0;background-image:url('https://res.cloudinary.com/dcnabm5nc/image/upload/f_auto,q_auto,w_1600/v1782298061/basicgymhero_iwhmp4.png');}
+.bg-park .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg, rgba(14,14,14,.94) 0%, rgba(14,14,14,.86) 38%, rgba(14,14,14,.55) 75%, rgba(14,14,14,.4) 100%),radial-gradient(700px 320px at 12% 8%, rgba(255,102,0,.34), transparent 60%);}
+.bg-park .hero .wrap{position:relative;z-index:2;padding:64px 20px 70px;max-width:1140px;}
+.bg-park .hero .inner{max-width:680px;}
+.bg-park .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-bright);}
+.bg-park .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--orange-bright);}
+.bg-park .hero h1{font-size:clamp(38px,7vw,68px);margin:16px 0 0;text-shadow:0 2px 30px rgba(0,0,0,.6);}
+.bg-park .hero h1 .hl{color:var(--orange);}
+.bg-park .hero .sub{margin-top:20px;font-size:clamp(16px,2.1vw,20px);color:#e0e0e0;font-weight:500;text-transform:none;letter-spacing:0;max-width:34em;}
+.bg-park .hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
+.bg-park .trust{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px;}
+.bg-park .chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);padding:9px 13px;border-radius:999px;font-size:13px;font-weight:700;}
+.bg-park .chip .ic{color:var(--orange-bright);font-weight:900;}
+.bg-park .stripe{background:var(--orange);color:#111;}
+.bg-park .stripe .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;padding:20px 20px;}
+.bg-park .stripe .s{display:flex;align-items:baseline;gap:9px;}
+.bg-park .stripe .s b{font-size:26px;font-weight:900;line-height:1;}
+.bg-park .stripe .s span{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;}
+.bg-park section{padding:64px 0;background:var(--paper);}
+.bg-park .klabel{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-deep);}
+.bg-park .h2{font-size:clamp(28px,4.6vw,44px);margin-top:12px;color:var(--ink);}
+.bg-park .lead{margin-top:14px;font-size:17px;color:#3c3c3c;font-weight:500;text-transform:none;letter-spacing:0;max-width:46em;}
+.bg-park .routes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+@media(max-width:860px){.bg-park .routes{grid-template-columns:1fr}}
+.bg-park .rt{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px}
+.bg-park .rt .tag{display:inline-block;font-weight:900;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-deep);border:1px solid rgba(255,102,0,.4);border-radius:7px;padding:5px 10px}
+.bg-park .rt h3{font-size:18px;margin-top:14px}
+.bg-park .rt p{margin-top:8px;font-size:14.5px;color:#555;font-weight:500;text-transform:none;letter-spacing:0}
+.bg-park .steps{list-style:none;margin:30px 0 0;padding:0;counter-reset:s;max-width:680px}
+.bg-park .steps li{counter-increment:s;position:relative;padding:0 0 20px 54px;font-size:15.5px;line-height:1.55;color:#555;font-weight:500;text-transform:none;letter-spacing:0}
+.bg-park .steps li b{display:block;color:var(--ink);font-weight:900;text-transform:uppercase;font-size:16px;margin-bottom:4px}
+.bg-park .steps li::before{content:counter(s);position:absolute;left:0;top:-2px;width:36px;height:36px;border-radius:50%;background:var(--orange);color:#fff;font-weight:900;font-size:16px;line-height:36px;text-align:center}
+.bg-park .band{background:var(--orange);color:#111;text-align:center;}
+.bg-park .band h2{font-size:clamp(26px,4.4vw,42px);color:#111;}
+.bg-park .band p{margin:14px auto 0;max-width:36em;font-weight:600;text-transform:none;letter-spacing:0;color:#2a1500;}
+.bg-park .band .btn{margin-top:24px;}
+@media (max-width:680px){.bg-park section{padding:48px 0;}.bg-park .hero .wrap{padding:48px 20px 54px;}.bg-park .stripe .wrap{justify-content:flex-start;gap:14px 22px;}}
+@media (prefers-reduced-motion:reduce){.bg-park *{transition:none!important;}}
+</style>
+<div class="bg-park">
+  <nav class="nav">
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="BasicGym"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
+      <input type="checkbox" id="navtoggle-park" class="nav-toggle" aria-hidden="true">
+      <div class="links">
+        <a href="/classes/">Classes</a>
+        <a href="/nottingham/">Nottingham</a>
+        <a href="/membership/">Membership</a>
+        <a href="/open-day/">Open days</a>
+        <div class="navdrop">
+          <a class="navdrop-top" href="/about-us/">About us <i>&#9662;</i></a>
+          <div class="navdrop-menu">
+            <a href="/about-us/">About us</a>
+            <a href="/students/">Students</a>
+            <a href="/corporate-membership/">Corporate Membership</a>
+            <a href="/personal-training/">Personal Training</a>
+            <a href="/careers/">Careers</a>
+            <a href="/refer-a-friend/">Refer a Friend</a>
+          </div>
+        </div>
+        <a class="btn orange nav-link-cta" href="/join/" data-bg-join>Join now</a>
+      </div>
+      <a class="btn orange nav-cta-desktop" href="/join/" data-bg-join>Join now</a>
+      <label for="navtoggle-park" class="burger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="bgimg" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="inner">
+        <span class="eyebrow"><span class="dot"></span> Riverside Retail Park &middot; Nottingham NG2 1RU</span>
+        <h1>Parking is <span class="hl">free</span>.</h1>
+        <p class="sub">650 free spaces at Riverside Retail Park. No ticket, no barrier, no charge. Park up and train.</p>
+        <div class="ctas">
+          <a class="btn orange" href="https://www.google.com/maps/search/?api=1&amp;query=Riverside+Retail+Park+Nottingham" target="_blank" rel="noopener">Open in Google Maps</a>
+          <a class="btn ghost" href="/membership/">See membership prices</a>
+        </div>
+        <div class="trust">
+          <span class="chip"><span class="ic">&#9679;</span> 650 free spaces</span>
+          <span class="chip"><span class="ic">&#9679;</span> Open 24/7</span>
+          <span class="chip"><span class="ic">&#9679;</span> Next to B&amp;Q and Boots</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="stripe">
+    <div class="wrap">
+      <div class="s"><b>650</b><span>Free spaces</span></div>
+      <div class="s"><b>&pound;0</b><span>To park</span></div>
+      <div class="s"><b>24/7</b><span>Gym access</span></div>
+      <div class="s"><b>120</b><span>Classes a week</span></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <span class="klabel">Getting here</span>
+      <h2 class="h2">Three ways in.</h2>
+      <p class="lead">We are in the main terrace at Riverside Retail Park, alongside B&amp;Q, Boots, JD Sports and Next. Whichever way you come in, parking is free across the whole park.</p>
+      <div class="routes">
+        <div class="rt"><span class="tag">A52</span><h3>From the ring road</h3><p>Come off at Clifton Boulevard and follow the signs for Riverside Retail Park. The entrance is on your left as you come into the park.</p></div>
+        <div class="rt"><span class="tag">City centre</span><h3>Ten minutes out</h3><p>Head out on Queens Drive towards the retail park. Roughly ten minutes outside of rush hour.</p></div>
+        <div class="rt"><span class="tag">A453</span><h3>From the south</h3><p>Quick from Clifton, Wilford and Ruddington. Fifteen minutes from Long Eaton and Beeston on a normal day.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#F5F4F1">
+    <div class="wrap">
+      <span class="klabel">Once you are here</span>
+      <h2 class="h2">Park, scan, train.</h2>
+      <ol class="steps">
+        <li><b>Park anywhere on the park</b>All 650 spaces are free and there is no barrier or ticket machine. The bays nearest the gym are along the main terrace.
+        <!-- PARKING_LIMIT: the live page states "no time limit for members".
+             Still worth confirming with Riaz and the retail park before the
+             QR code goes to print, since this page is where it lands. --></li>
+        <li><b>Come to the main entrance</b>You will see us in the terrace between the big-name stores. The door is on the front.</li>
+        <li><b>Scan your QR code</b>Your membership QR lives in the BasicGym app and gets you through the turnstile. If it plays up, there is someone on the door.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Here already? Join today.</h2>
+      <p>Four plans from &pound;17.99 a month, every class included, and no contract on the monthly plans.</p>
+      <a class="btn dark" href="/membership/">See membership prices &rarr;</a>
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({event:'bg_parking_scan', page_path:'/riverside-parking/'});
+})();
+</script>

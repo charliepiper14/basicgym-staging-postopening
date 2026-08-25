@@ -1,0 +1,309 @@
+<!-- ============================================================
+     BasicGym - LOOK ROUND THANK YOU  (basicgym.co.uk/open-day-thank-you/)
+     Paste into ONE Elementor "HTML" widget (Canvas). Scoped under .bg-ty.
+     Footer = SEPARATE basicgym-footer-shared.html widget below.
+
+     Updated 25 August 2026 for post-opening pricing and the Back to Basic sale.
+     Requires bg-promo.js loaded site wide for the sale states.
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap');
+.bg-ty{--white:#FFFFFF;--paper:#FFFFFF;--cream:#F5F4F0;--ink:#0E0E0E;--orange:#FF6600;--orange-bright:#FF7A1A;--orange-deep:#CC5200;--muted:#565659;--muted-dark:#A9A9AE;--line:#E7E5E0;--line-dark:#262629;--font:'Cooper Hewitt','Hanken Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-family:var(--font);}
+.bg-ty *{box-sizing:border-box;margin:0;padding:0}
+.bg-ty{scroll-behavior:smooth;background:var(--white);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-ty .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.bg-ty .display{font-family:var(--font);font-weight:900;letter-spacing:-0.015em;text-transform:uppercase;line-height:0.95}
+.bg-ty .orange{color:var(--orange)}
+.bg-ty a{color:inherit;text-decoration:none}
+.bg-ty img{max-width:100%;display:block}
+.bg-ty svg{display:block}
+.bg-ty .sec{padding:74px 0}
+.bg-ty .sec--cream{background:var(--cream)}
+.bg-ty .sec--ink{background:var(--ink);color:var(--white)}
+.bg-ty .kicker{font-size:12.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+.bg-ty .h2{font-size:clamp(28px,5vw,48px);margin-top:12px}
+.bg-ty .lead{color:var(--muted);font-size:17px;margin-top:14px;max-width:620px}
+.bg-ty .sec--ink .lead{color:var(--muted-dark)}
+.bg-ty .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:15px;padding:15px 26px;border-radius:8px;text-transform:uppercase;letter-spacing:0.02em;transition:transform .12s ease, background .15s ease, border-color .15s ease}
+.bg-ty .btn-primary{background:var(--orange);color:#fff}
+.bg-ty .btn-primary:hover{background:var(--orange-deep);transform:translateY(-1px)}
+.bg-ty .btn-dark{background:var(--ink);color:#fff}
+.bg-ty .btn-dark:hover{transform:translateY(-1px);background:#000}
+.bg-ty .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.4)}
+.bg-ty .btn-ghost:hover{border-color:#fff}
+.bg-ty .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+.bg-ty .hero{position:relative;color:#fff;overflow:hidden;background:var(--ink)}
+.bg-ty .hero-bg{position:absolute;inset:0;z-index:0}
+.bg-ty .hero-bg img{width:100%;height:100%;object-fit:cover}
+.bg-ty .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,14,14,0.92) 0%,rgba(14,14,14,0.78) 42%,rgba(14,14,14,0.45) 100%)}
+.bg-ty .hero-inner{position:relative;z-index:1;padding:88px 0 58px;max-width:680px}
+.bg-ty .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange)}
+.bg-ty .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.bg-ty .hero h1{font-size:clamp(42px,8vw,86px);margin:18px 0 0}
+.bg-ty .hero h1 .sub{display:block;font-family:var(--font);font-weight:600;text-transform:none;letter-spacing:-0.01em;font-size:clamp(18px,2.6vw,25px);line-height:1.25;margin-top:18px;color:#EDEDED;max-width:560px}
+.bg-ty .fineprint{font-size:13.5px;color:#BFBFC2;margin-top:18px}
+.bg-ty .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.bg-ty .pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:30px;padding:8px 14px}
+.bg-ty .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.bg-ty .pill .stars{color:var(--orange);letter-spacing:1px}
+.bg-ty .statbar{background:var(--orange);color:var(--ink)}
+.bg-ty .statbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.bg-ty .sb{padding:22px 18px;display:flex;align-items:baseline;gap:10px;justify-content:center;border-right:1px solid rgba(0,0,0,0.16)}
+.bg-ty .sb:last-child{border-right:0}
+.bg-ty .sb .n{font-family:var(--font);font-weight:900;font-size:26px;line-height:1}
+.bg-ty .sb .l{font-size:11.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
+@media(max-width:760px){.bg-ty .statbar .wrap{grid-template-columns:1fr 1fr}.bg-ty .sb:nth-child(2){border-right:0}.bg-ty .sb:nth-child(1),.bg-ty .sb:nth-child(2){border-bottom:1px solid rgba(0,0,0,0.16)}}
+.bg-ty .ic svg{width:20px;height:20px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bg-ty .ci svg{width:26px;height:26px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bg-ty .local-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:42px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-ty .local-grid{grid-template-columns:1fr;gap:30px}}
+.bg-ty .local-points{margin-top:26px;display:flex;flex-direction:column;gap:18px}
+.bg-ty .lp{display:flex;gap:14px;align-items:flex-start}
+.bg-ty .lp .ic{flex:0 0 auto;width:42px;height:42px;border-radius:10px;background:rgba(255,102,0,0.1);border:1px solid rgba(255,102,0,0.28);display:flex;align-items:center;justify-content:center}
+.bg-ty .lp h4{font-size:16px;font-weight:700}
+.bg-ty .lp p{font-size:14.5px;color:var(--muted);margin-top:3px}
+.bg-ty .brands{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+.bg-ty .brands span{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:6px 10px;white-space:nowrap}
+.bg-ty .catch-card{background:var(--ink);color:#fff;border-radius:18px;padding:30px}
+.bg-ty .catch-card .big{font-family:var(--font);font-weight:900;font-size:clamp(40px,8vw,62px);color:var(--orange);line-height:0.9}
+.bg-ty .catch-card .big-l{font-size:15px;font-weight:600;margin-top:10px}
+.bg-ty .catch-sub{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bg-ty .catch-sub div{background:rgba(255,255,255,0.04);border:1px solid var(--line-dark);border-radius:11px;padding:14px}
+.bg-ty .catch-sub .cn{font-family:var(--font);font-weight:800;font-size:20px}
+.bg-ty .catch-sub .cl{font-size:12px;color:var(--muted-dark);margin-top:3px}
+.bg-ty .get-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+@media(max-width:860px){.bg-ty .get-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.bg-ty .get-grid{grid-template-columns:1fr}}
+.bg-ty .card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px;transition:transform .15s ease, box-shadow .15s ease}
+.bg-ty .card:hover{transform:translateY(-2px);box-shadow:0 14px 34px -22px rgba(0,0,0,0.35)}
+.bg-ty .card .ci{width:48px;height:48px;border-radius:11px;background:rgba(255,102,0,0.1);border:1px solid rgba(255,102,0,0.26);display:flex;align-items:center;justify-content:center}
+.bg-ty .card h4{font-size:17px;font-weight:700;margin-top:16px}
+.bg-ty .card p{font-size:14.5px;color:var(--muted);margin-top:7px}
+.bg-ty .gym-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+@media(max-width:860px){.bg-ty .gym-grid{grid-template-columns:1fr}}
+.bg-ty .gtile{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5}
+.bg-ty .gtile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.bg-ty .gtile:hover img{transform:scale(1.04)}
+.bg-ty .gtile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(14,14,14,0.85) 100%)}
+.bg-ty .gtile .cap{position:absolute;left:18px;bottom:16px;z-index:2;color:#fff}
+.bg-ty .gtile .cap .z{font-family:var(--font);font-weight:800;text-transform:uppercase;letter-spacing:0.04em;font-size:18px}
+.bg-ty .gtile .cap .d{font-size:13px;color:#D6D6D8;margin-top:2px}
+.bg-ty .found-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-ty .found-grid{grid-template-columns:1fr;gap:28px}}
+.bg-ty .found-copy b{color:#fff}
+.bg-ty .price-card{background:var(--orange);color:#fff;border-radius:18px;padding:34px 30px;text-align:center}
+.bg-ty .price-card .e{font-size:11.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;opacity:0.9}
+.bg-ty .price-card .amt{font-family:var(--font);font-weight:900;font-size:72px;line-height:0.95;margin-top:10px}
+.bg-ty .price-card .amt small{font-size:22px;font-weight:800}
+.bg-ty .price-card .then{font-size:13.5px;margin-top:8px;opacity:0.95}
+.bg-ty .price-card .btn{width:100%;margin-top:22px}
+.bg-ty .price-card .note{font-size:12px;margin-top:14px;opacity:0.9}
+.bg-ty .rev-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:34px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-ty .rev-grid{grid-template-columns:1fr;gap:24px}}
+.bg-ty .rev-stats{display:flex;gap:30px;margin-top:22px}
+.bg-ty .rev-stats .n{font-family:var(--font);font-weight:900;font-size:32px;color:var(--orange);line-height:1}
+.bg-ty .rev-stats .l{font-size:12.5px;color:var(--muted);margin-top:4px}
+.bg-ty .rev-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:0 18px 40px -28px rgba(0,0,0,0.4)}
+.bg-ty .rev-card .stars{color:var(--orange);font-size:20px;letter-spacing:2px}
+.bg-ty .rev-card .score{font-family:var(--font);font-weight:900;font-size:46px;margin-top:10px;color:var(--ink)}
+.bg-ty .rev-card .score span{color:var(--orange)}
+.bg-ty .rev-card p{font-size:14.5px;color:var(--muted);margin-top:12px}
+.bg-ty .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-ty .loc-grid{grid-template-columns:1fr}}
+.bg-ty .map{background:var(--cream);border:1px solid var(--line);border-radius:16px;overflow:hidden;min-height:320px}
+.bg-ty .map iframe{width:100%;height:100%;min-height:320px;border:0}
+.bg-ty .routes{margin-top:18px;display:flex;flex-direction:column;gap:12px}
+.bg-ty .route{display:flex;gap:12px;align-items:center;font-size:15px}
+.bg-ty .route .tag{font-family:var(--font);font-weight:800;font-size:13px;color:var(--orange);border:1px solid rgba(255,102,0,0.4);border-radius:7px;padding:4px 9px;min-width:54px;text-align:center}
+.bg-ty .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+@media(max-width:760px){.bg-ty .faq-grid{grid-template-columns:1fr}}
+.bg-ty .faq-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px}
+.bg-ty .faq-card h4{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.02em}
+.bg-ty .faq-card p{font-size:14px;color:var(--muted);margin-top:8px}
+.bg-ty .final{background:var(--orange);color:var(--ink);text-align:center;padding:80px 0}
+.bg-ty .final h2{font-size:clamp(32px,6.5vw,60px);margin-bottom:14px}
+.bg-ty .final p{font-size:17px;margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto}
+.bg-ty .final .micro{font-size:15px;margin-top:18px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#2a1500;opacity:1}
+.bg-ty .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ink);border-top:1px solid var(--line-dark);padding:11px 16px;display:none;align-items:center;justify-content:space-between;gap:12px}
+.bg-ty .sticky-cta .p{font-size:13px;font-weight:700;line-height:1.2;color:#fff}
+.bg-ty .sticky-cta .p b{color:var(--orange)}
+.bg-ty .sticky-cta .p small{display:block;color:var(--muted-dark);font-weight:500;font-size:11px}
+.bg-ty .sticky-cta a{background:var(--orange);color:#fff;font-weight:800;font-size:14px;padding:13px 18px;border-radius:8px;text-transform:uppercase;white-space:nowrap}
+@media(max-width:860px){.bg-ty .sticky-cta{display:flex}.bg-ty{padding-bottom:70px}}
+.bg-ty .reveal{animation:bg-rise .6s ease both}
+@keyframes bg-rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.bg-ty .reveal{animation:none}.bg-ty .btn:hover,.bg-ty .gtile:hover img{transform:none}}
+@keyframes navdrop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.bg-ty .nav{position:sticky;top:0;z-index:60;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08)}
+.bg-ty .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.bg-ty .nav .logo img{height:40px;width:auto}
+.bg-ty .nav .links{display:flex;align-items:center;gap:26px}
+.bg-ty .nav .links a{color:#e7e7e7;font-weight:700;font-size:14px}
+.bg-ty .nav .links a:hover{color:var(--orange-bright)}
+.bg-ty .nav .links a[aria-current="page"]{color:var(--orange-bright)}
+.bg-ty .btn.orange{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(255,102,0,.34);border-radius:12px}
+.bg-ty .btn.orange:hover{background:var(--orange-deep)}
+.bg-ty .nav .btn{padding:11px 18px;font-size:13px}
+.bg-ty .nav .nav-toggle{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.bg-ty .nav .burger{display:none}
+.bg-ty .nav .links .nav-link-cta{display:none}
+.bg-ty .nav .navdrop{position:relative;display:flex;align-items:center}
+.bg-ty .nav .navdrop-top{display:inline-flex;align-items:center;gap:6px;color:#e7e7e7;font-weight:700;font-size:14px;cursor:pointer}
+.bg-ty .nav .navdrop-top:hover{color:var(--orange-bright)}
+.bg-ty .nav .navdrop-top i{font-style:normal;font-size:11px}
+.bg-ty .nav .navdrop-menu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:#161616;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;min-width:212px;opacity:0;visibility:hidden;transition:.18s;box-shadow:0 22px 44px -18px rgba(0,0,0,.8);z-index:70}
+.bg-ty .nav .navdrop:hover .navdrop-menu,.bg-ty .nav .navdrop:focus-within .navdrop-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.bg-ty .nav .navdrop-menu a{display:block;padding:10px 13px;border-radius:8px;color:#D6D6D8;font-weight:600;font-size:14px;border:0}
+.bg-ty .nav .navdrop-menu a:hover{background:#222;color:#fff}
+.bg-ty .sec--ink .kicker{color:var(--orange-bright)}
+.bg-ty .sec--ink .h2,.bg-ty .sec--ink h2{color:#fff}
+.bg-ty .sec--ink .lead{color:#cfcfcf}
+@media(max-width:860px){
+  .bg-ty .nav .nav-cta-desktop{display:none}
+  .bg-ty .nav .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08);padding:6px 20px 16px;box-shadow:0 22px 44px -22px rgba(0,0,0,.8)}
+  .bg-ty .nav .nav-toggle:checked ~ .links{display:flex}
+  .bg-ty .nav .burger{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;cursor:pointer;margin-right:-9px}
+  .bg-ty .nav .burger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+  .bg-ty .nav .links a{padding:14px 2px;font-size:15px;border-bottom:1px solid rgba(255,255,255,.07);color:#e7e7e7}
+  .bg-ty .nav .links .nav-link-cta{display:flex;margin-top:12px;padding:14px;border-bottom:0;justify-content:center}
+  .bg-ty .nav .navdrop{flex-direction:column;align-items:stretch}
+  .bg-ty .nav .navdrop-top{padding:14px 2px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .bg-ty .nav .navdrop-menu{position:static;opacity:1;visibility:visible;transform:none;background:transparent;border:0;box-shadow:none;padding:2px 0 0 14px;min-width:0}
+  .bg-ty .nav .navdrop-menu a{padding:10px 2px;font-size:14px;color:#bdbdbd}
+  .bg-ty .nav .nav-toggle:checked ~ .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .bg-ty .nav .nav-toggle:checked ~ .burger span:nth-child(2){opacity:0}
+  .bg-ty .nav .nav-toggle:checked ~ .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+/* --- Back to Basic sale states, added Aug 2026 --- */
+.bg-ty .salebar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:24px;border:1.5px solid var(--orange);background:#FFF3EA;border-radius:14px;padding:16px 20px}
+.bg-ty .salebar.shut{border-color:var(--line);background:var(--cream)}
+.bg-ty .salebar[hidden]{display:none}
+.bg-ty .salebar .lead-txt{font-size:15.5px;font-weight:800;color:var(--ink)}
+.bg-ty .salebar .lead-txt em{font-style:normal;color:var(--orange-deep)}
+.bg-ty .salebar .note{font-size:13.5px;color:var(--muted);font-weight:600;margin-top:3px}
+.bg-ty .salebar .clock{display:flex;gap:7px;margin-left:auto}
+.bg-ty .salebar .clock .u{text-align:center;min-width:46px}
+.bg-ty .salebar .clock b{display:block;font-size:22px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.bg-ty .salebar .clock i{display:block;font-style:normal;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px;font-weight:800}
+@media(max-width:700px){.bg-ty .salebar .clock{margin-left:0}}
+.bg-ty .hero .salebar{background:rgba(255,255,255,.07);border-color:rgba(255,122,26,.5)}
+.bg-ty .hero .salebar .lead-txt{color:#fff}
+.bg-ty .hero .salebar .lead-txt em{color:var(--orange-bright)}
+.bg-ty .hero .salebar .note{color:#BFBFC2}
+.bg-ty .hero .salebar .clock b{color:#fff}
+.bg-ty .hero .salebar .clock i{color:#9a9a9a}
+.bg-ty .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.bg-ty .tick{width:78px;height:78px;border-radius:50%;background:#1B9E5A;color:#fff;display:grid;place-items:center;margin:0 auto 22px;font-size:40px;font-weight:900;box-shadow:0 0 0 10px rgba(27,158,90,.16)}
+.bg-ty .center{text-align:center}
+.bg-ty .center .lead{margin-left:auto;margin-right:auto}
+.bg-ty .ticket{max-width:420px;margin:30px auto 0;background:var(--orange);color:#111;border-radius:16px;padding:18px 22px 20px;text-align:left;box-shadow:0 18px 44px rgba(0,0,0,.4)}
+.bg-ty .ticket .ptag{font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#3a1d02}
+.bg-ty .ticket .tname{font-size:24px;font-weight:900;text-transform:uppercase;letter-spacing:-.02em;margin-top:6px;line-height:1}
+.bg-ty .ticket .trow{display:flex;justify-content:space-between;align-items:flex-end;margin-top:14px;gap:12px}
+.bg-ty .ticket .lab{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#5a3208}
+.bg-ty .ticket .val{font-size:15px;font-weight:900;text-transform:uppercase;color:#111}
+.bg-ty .ticket .barcode{height:26px;margin-top:14px;border-radius:4px;opacity:.85;background:repeating-linear-gradient(90deg,#111 0 2px,transparent 2px 4px,#111 4px 5px,transparent 5px 9px,#111 9px 12px,transparent 12px 14px)}
+.bg-ty .actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
+.bg-ty .abtn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:800;font-size:14.5px;padding:13px 18px;border-radius:11px;border:1.5px solid var(--line);color:var(--ink);background:#fff;transition:.15s}
+.bg-ty .abtn:hover{border-color:var(--orange);color:var(--orange-deep)}
+.bg-ty .abtn.primary{background:var(--orange);border-color:var(--orange);color:#fff}
+.bg-ty .abtn.primary:hover{background:var(--orange-deep);color:#fff}
+.bg-ty .cal-note{margin-top:12px;font-size:12.5px;color:var(--muted);font-weight:600;text-align:center}
+.bg-ty .steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+@media(max-width:760px){.bg-ty .steps3{grid-template-columns:1fr}}
+.bg-ty .st{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 20px}
+.bg-ty .st .num{font-size:14px;font-weight:900;color:#fff;background:var(--ink);width:30px;height:30px;border-radius:8px;display:grid;place-items:center}
+.bg-ty .st h3{font-size:16px;margin-top:14px;font-weight:900;text-transform:uppercase}
+.bg-ty .st p{margin-top:8px;font-size:14px;color:var(--muted)}
+</style>
+<div class="bg-ty">
+  <nav class="nav">
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="BasicGym"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
+      <input type="checkbox" id="navtoggle" class="nav-toggle" aria-hidden="true">
+      <div class="links">
+        <a href="/classes/">Classes</a>
+        <a href="/nottingham/">Nottingham</a>
+        <a href="/membership/">Membership</a>
+        <a href="/open-day/" aria-current="page">Open days</a>
+        <div class="navdrop">
+          <a class="navdrop-top" href="/about-us/">About us <i>&#9662;</i></a>
+          <div class="navdrop-menu">
+            <a href="/about-us/">About us</a>
+            <a href="/students/">Students</a>
+            <a href="/corporate-membership/">Corporate Membership</a>
+            <a href="/personal-training/">Personal Training</a>
+            <a href="/careers/">Careers</a>
+            <a href="/refer-a-friend/">Refer a Friend</a>
+          </div>
+        </div>
+        <a class="btn orange nav-link-cta" href="/join/" data-bg-join>Join now</a>
+      </div>
+      <a class="btn orange nav-cta-desktop" href="/join/" data-bg-join>Join now</a>
+      <label for="navtoggle" class="burger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    </div>
+  </nav>
+
+  <section class="sec center" style="padding-top:80px">
+    <div class="wrap">
+      <div class="tick" aria-hidden="true">&#10003;</div>
+      <span class="kicker">Your place is booked</span>
+      <h1 class="h2 display" id="tyHead">You&rsquo;re <span class="orange">in.</span></h1>
+      <p class="lead" id="tySub">Your look round is booked. Add it to your calendar now so it does not slip, then turn up and have a proper look around.</p>
+
+      <div class="ticket" aria-label="Your booking">
+        <div class="ptag">BasicGym Riverside &middot; Look round</div>
+        <div class="tname" id="tyName">Reserved</div>
+        <div class="trow">
+          <div><div class="lab">Date</div><div class="val" id="tyDate">See email</div></div>
+          <div style="text-align:center"><div class="lab">Time</div><div class="val" id="tyTime">--:--</div></div>
+          <div style="text-align:right"><div class="lab">Cost</div><div class="val">Free</div></div>
+        </div>
+        <div class="barcode" aria-hidden="true"></div>
+      </div>
+
+      <div class="actions" id="tyActions">
+        <a class="abtn primary" id="calGoogle" href="#" download="basicgym-look-round.ics"><span>&#128197;</span> Add to calendar</a>
+        <a class="abtn" id="calApple" href="#" download="basicgym-look-round.ics"><span>&#63743;</span> Apple / Outlook</a>
+        <a class="abtn" id="directions" href="https://www.google.com/maps/dir/?api=1&amp;destination=Riverside+Retail+Park+Nottingham" target="_blank" rel="noopener"><span>&#128205;</span> Get directions</a>
+      </div>
+      <div class="cal-note" id="calNote">Adding it to your calendar means we both remember. We will also text and email you a reminder.</div>
+    </div>
+  </section>
+
+  <section class="sec sec--cream">
+    <div class="wrap">
+      <span class="kicker">What happens next</span>
+      <h2 class="h2 display">Three things, then we&rsquo;ll see you there.</h2>
+      <div class="steps3">
+        <div class="st"><div class="num">1</div><h3>Watch for your reminder</h3><p>A text and email land before your visit with the time and directions. Nothing to do until then.</p></div>
+        <div class="st"><div class="num">2</div><h3>Turn up and look around</h3><p>Walk the floor, see the kit, meet the team, ask anything. No payment on the door, no pressure.</p></div>
+        <div class="st"><div class="num">3</div><h3>Join if you like it</h3><p>Sign up on the day on whichever of the four plans suits you, from &pound;17.99 a month. No obligation if it is not for you.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       PASTE THE LIVE LEAD EVENT SCRIPT HERE
+       It reads n, d, dt, t and eid from the URL, personalises the
+       ticket, builds the .ics and fires the Meta Lead deduped on eid.
+       Copy it across from the live page unchanged, EXCEPT:
+
+       BUG TO FIX WHILE YOU ARE IN THERE: the .ics generation hard
+       codes BST by subtracting one hour from local time. That is
+       wrong from 26 October when the clocks go back, and every
+       calendar invite after that date will be an hour out. Use the
+       Europe/London offset for the event date rather than a constant.
+       ============================================================== -->
+
+  <section class="final">
+    <div class="wrap">
+      <h2 class="display">See you soon.</h2>
+      <p>Riverside Retail Park, Nottingham NG2 1RU. 650 free parking spaces, open 24 hours a day on Plus.</p>
+      <a class="btn btn-dark" href="/membership/">See membership prices</a>
+      <div class="micro">Open now &middot; Nottingham Riverside</div>
+    </div>
+  </section>
+
+</div>

@@ -1,0 +1,370 @@
+<!-- ============================================================
+     BasicGym - CLASSES  (basicgym.co.uk/classes/)
+     Paste into ONE Elementor "HTML" widget (Canvas). Scoped under .bg-class.
+     Footer = SEPARATE basicgym-footer-shared.html widget below.
+
+     Updated 25 August 2026 for post-opening pricing and the Back to Basic sale.
+     Requires bg-promo.js loaded site wide for the sale states.
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap');
+.bg-class{--white:#FFFFFF;--paper:#FFFFFF;--cream:#F5F4F0;--ink:#0E0E0E;--orange:#FF6600;--orange-bright:#FF7A1A;--orange-deep:#CC5200;--muted:#565659;--muted-dark:#A9A9AE;--line:#E7E5E0;--line-dark:#262629;--font:'Cooper Hewitt','Hanken Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-family:var(--font);}
+.bg-class *{box-sizing:border-box;margin:0;padding:0}
+.bg-class{scroll-behavior:smooth;background:var(--white);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-class .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.bg-class .display{font-family:var(--font);font-weight:900;letter-spacing:-0.015em;text-transform:uppercase;line-height:0.95}
+.bg-class .orange{color:var(--orange)}
+.bg-class a{color:inherit;text-decoration:none}
+.bg-class img{max-width:100%;display:block}
+.bg-class svg{display:block}
+.bg-class .sec{padding:74px 0}
+.bg-class .sec--cream{background:var(--cream)}
+.bg-class .sec--ink{background:var(--ink);color:var(--white)}
+.bg-class .kicker{font-size:12.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+.bg-class .h2{font-size:clamp(28px,5vw,48px);margin-top:12px}
+.bg-class .lead{color:var(--muted);font-size:17px;margin-top:14px;max-width:620px}
+.bg-class .sec--ink .lead{color:var(--muted-dark)}
+.bg-class .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:15px;padding:15px 26px;border-radius:8px;text-transform:uppercase;letter-spacing:0.02em;transition:transform .12s ease, background .15s ease, border-color .15s ease}
+.bg-class .btn-primary{background:var(--orange);color:#fff}
+.bg-class .btn-primary:hover{background:var(--orange-deep);transform:translateY(-1px)}
+.bg-class .btn-dark{background:var(--ink);color:#fff}
+.bg-class .btn-dark:hover{transform:translateY(-1px);background:#000}
+.bg-class .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.4)}
+.bg-class .btn-ghost:hover{border-color:#fff}
+.bg-class .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+.bg-class .hero{position:relative;color:#fff;overflow:hidden;background:var(--ink)}
+.bg-class .hero-bg{position:absolute;inset:0;z-index:0}
+.bg-class .hero-bg img{width:100%;height:100%;object-fit:cover}
+.bg-class .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,14,14,0.92) 0%,rgba(14,14,14,0.78) 42%,rgba(14,14,14,0.45) 100%)}
+.bg-class .hero-inner{position:relative;z-index:1;padding:88px 0 58px;max-width:680px}
+.bg-class .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange)}
+.bg-class .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.bg-class .hero h1{font-size:clamp(42px,8vw,86px);margin:18px 0 0}
+.bg-class .hero h1 .sub{display:block;font-family:var(--font);font-weight:600;text-transform:none;letter-spacing:-0.01em;font-size:clamp(18px,2.6vw,25px);line-height:1.25;margin-top:18px;color:#EDEDED;max-width:560px}
+.bg-class .fineprint{font-size:13.5px;color:#BFBFC2;margin-top:18px}
+.bg-class .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.bg-class .pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:30px;padding:8px 14px}
+.bg-class .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.bg-class .pill .stars{color:var(--orange);letter-spacing:1px}
+.bg-class .statbar{background:var(--orange);color:var(--ink)}
+.bg-class .statbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.bg-class .sb{padding:22px 18px;display:flex;align-items:baseline;gap:10px;justify-content:center;border-right:1px solid rgba(0,0,0,0.16)}
+.bg-class .sb:last-child{border-right:0}
+.bg-class .sb .n{font-family:var(--font);font-weight:900;font-size:26px;line-height:1}
+.bg-class .sb .l{font-size:11.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
+@media(max-width:760px){.bg-class .statbar .wrap{grid-template-columns:1fr 1fr}.bg-class .sb:nth-child(2){border-right:0}.bg-class .sb:nth-child(1),.bg-class .sb:nth-child(2){border-bottom:1px solid rgba(0,0,0,0.16)}}
+.bg-class .ic svg{width:20px;height:20px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bg-class .ci svg{width:26px;height:26px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bg-class .local-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:42px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-class .local-grid{grid-template-columns:1fr;gap:30px}}
+.bg-class .local-points{margin-top:26px;display:flex;flex-direction:column;gap:18px}
+.bg-class .lp{display:flex;gap:14px;align-items:flex-start}
+.bg-class .lp .ic{flex:0 0 auto;width:42px;height:42px;border-radius:10px;background:rgba(255,102,0,0.1);border:1px solid rgba(255,102,0,0.28);display:flex;align-items:center;justify-content:center}
+.bg-class .lp h4{font-size:16px;font-weight:700}
+.bg-class .lp p{font-size:14.5px;color:var(--muted);margin-top:3px}
+.bg-class .brands{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+.bg-class .brands span{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:6px 10px;white-space:nowrap}
+.bg-class .catch-card{background:var(--ink);color:#fff;border-radius:18px;padding:30px}
+.bg-class .catch-card .big{font-family:var(--font);font-weight:900;font-size:clamp(40px,8vw,62px);color:var(--orange);line-height:0.9}
+.bg-class .catch-card .big-l{font-size:15px;font-weight:600;margin-top:10px}
+.bg-class .catch-sub{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bg-class .catch-sub div{background:rgba(255,255,255,0.04);border:1px solid var(--line-dark);border-radius:11px;padding:14px}
+.bg-class .catch-sub .cn{font-family:var(--font);font-weight:800;font-size:20px}
+.bg-class .catch-sub .cl{font-size:12px;color:var(--muted-dark);margin-top:3px}
+.bg-class .get-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+@media(max-width:860px){.bg-class .get-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.bg-class .get-grid{grid-template-columns:1fr}}
+.bg-class .card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px;transition:transform .15s ease, box-shadow .15s ease}
+.bg-class .card:hover{transform:translateY(-2px);box-shadow:0 14px 34px -22px rgba(0,0,0,0.35)}
+.bg-class .card .ci{width:48px;height:48px;border-radius:11px;background:rgba(255,102,0,0.1);border:1px solid rgba(255,102,0,0.26);display:flex;align-items:center;justify-content:center}
+.bg-class .card h4{font-size:17px;font-weight:700;margin-top:16px}
+.bg-class .card p{font-size:14.5px;color:var(--muted);margin-top:7px}
+.bg-class .gym-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+@media(max-width:860px){.bg-class .gym-grid{grid-template-columns:1fr}}
+.bg-class .gtile{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5}
+.bg-class .gtile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.bg-class .gtile:hover img{transform:scale(1.04)}
+.bg-class .gtile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(14,14,14,0.85) 100%)}
+.bg-class .gtile .cap{position:absolute;left:18px;bottom:16px;z-index:2;color:#fff}
+.bg-class .gtile .cap .z{font-family:var(--font);font-weight:800;text-transform:uppercase;letter-spacing:0.04em;font-size:18px}
+.bg-class .gtile .cap .d{font-size:13px;color:#D6D6D8;margin-top:2px}
+.bg-class .found-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-class .found-grid{grid-template-columns:1fr;gap:28px}}
+.bg-class .found-copy b{color:#fff}
+.bg-class .price-card{background:var(--orange);color:#fff;border-radius:18px;padding:34px 30px;text-align:center}
+.bg-class .price-card .e{font-size:11.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;opacity:0.9}
+.bg-class .price-card .amt{font-family:var(--font);font-weight:900;font-size:72px;line-height:0.95;margin-top:10px}
+.bg-class .price-card .amt small{font-size:22px;font-weight:800}
+.bg-class .price-card .then{font-size:13.5px;margin-top:8px;opacity:0.95}
+.bg-class .price-card .btn{width:100%;margin-top:22px}
+.bg-class .price-card .note{font-size:12px;margin-top:14px;opacity:0.9}
+.bg-class .rev-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:34px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-class .rev-grid{grid-template-columns:1fr;gap:24px}}
+.bg-class .rev-stats{display:flex;gap:30px;margin-top:22px}
+.bg-class .rev-stats .n{font-family:var(--font);font-weight:900;font-size:32px;color:var(--orange);line-height:1}
+.bg-class .rev-stats .l{font-size:12.5px;color:var(--muted);margin-top:4px}
+.bg-class .rev-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:0 18px 40px -28px rgba(0,0,0,0.4)}
+.bg-class .rev-card .stars{color:var(--orange);font-size:20px;letter-spacing:2px}
+.bg-class .rev-card .score{font-family:var(--font);font-weight:900;font-size:46px;margin-top:10px;color:var(--ink)}
+.bg-class .rev-card .score span{color:var(--orange)}
+.bg-class .rev-card p{font-size:14.5px;color:var(--muted);margin-top:12px}
+.bg-class .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-class .loc-grid{grid-template-columns:1fr}}
+.bg-class .map{background:var(--cream);border:1px solid var(--line);border-radius:16px;overflow:hidden;min-height:320px}
+.bg-class .map iframe{width:100%;height:100%;min-height:320px;border:0}
+.bg-class .routes{margin-top:18px;display:flex;flex-direction:column;gap:12px}
+.bg-class .route{display:flex;gap:12px;align-items:center;font-size:15px}
+.bg-class .route .tag{font-family:var(--font);font-weight:800;font-size:13px;color:var(--orange);border:1px solid rgba(255,102,0,0.4);border-radius:7px;padding:4px 9px;min-width:54px;text-align:center}
+.bg-class .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+@media(max-width:760px){.bg-class .faq-grid{grid-template-columns:1fr}}
+.bg-class .faq-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px}
+.bg-class .faq-card h4{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.02em}
+.bg-class .faq-card p{font-size:14px;color:var(--muted);margin-top:8px}
+.bg-class .final{background:var(--orange);color:var(--ink);text-align:center;padding:80px 0}
+.bg-class .final h2{font-size:clamp(32px,6.5vw,60px);margin-bottom:14px}
+.bg-class .final p{font-size:17px;margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto}
+.bg-class .final .micro{font-size:15px;margin-top:18px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#2a1500;opacity:1}
+.bg-class .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ink);border-top:1px solid var(--line-dark);padding:11px 16px;display:none;align-items:center;justify-content:space-between;gap:12px}
+.bg-class .sticky-cta .p{font-size:13px;font-weight:700;line-height:1.2;color:#fff}
+.bg-class .sticky-cta .p b{color:var(--orange)}
+.bg-class .sticky-cta .p small{display:block;color:var(--muted-dark);font-weight:500;font-size:11px}
+.bg-class .sticky-cta a{background:var(--orange);color:#fff;font-weight:800;font-size:14px;padding:13px 18px;border-radius:8px;text-transform:uppercase;white-space:nowrap}
+@media(max-width:860px){.bg-class .sticky-cta{display:flex}.bg-class{padding-bottom:70px}}
+.bg-class .reveal{animation:bg-rise .6s ease both}
+@keyframes bg-rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.bg-class .reveal{animation:none}.bg-class .btn:hover,.bg-class .gtile:hover img{transform:none}}
+@keyframes navdrop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.bg-class .nav{position:sticky;top:0;z-index:60;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08)}
+.bg-class .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.bg-class .nav .logo img{height:40px;width:auto}
+.bg-class .nav .links{display:flex;align-items:center;gap:26px}
+.bg-class .nav .links a{color:#e7e7e7;font-weight:700;font-size:14px}
+.bg-class .nav .links a:hover{color:var(--orange-bright)}
+.bg-class .nav .links a[aria-current="page"]{color:var(--orange-bright)}
+.bg-class .btn.orange{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(255,102,0,.34);border-radius:12px}
+.bg-class .btn.orange:hover{background:var(--orange-deep)}
+.bg-class .nav .btn{padding:11px 18px;font-size:13px}
+.bg-class .nav .nav-toggle{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.bg-class .nav .burger{display:none}
+.bg-class .nav .links .nav-link-cta{display:none}
+.bg-class .nav .navdrop{position:relative;display:flex;align-items:center}
+.bg-class .nav .navdrop-top{display:inline-flex;align-items:center;gap:6px;color:#e7e7e7;font-weight:700;font-size:14px;cursor:pointer}
+.bg-class .nav .navdrop-top:hover{color:var(--orange-bright)}
+.bg-class .nav .navdrop-top i{font-style:normal;font-size:11px}
+.bg-class .nav .navdrop-menu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:#161616;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;min-width:212px;opacity:0;visibility:hidden;transition:.18s;box-shadow:0 22px 44px -18px rgba(0,0,0,.8);z-index:70}
+.bg-class .nav .navdrop:hover .navdrop-menu,.bg-class .nav .navdrop:focus-within .navdrop-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.bg-class .nav .navdrop-menu a{display:block;padding:10px 13px;border-radius:8px;color:#D6D6D8;font-weight:600;font-size:14px;border:0}
+.bg-class .nav .navdrop-menu a:hover{background:#222;color:#fff}
+.bg-class .sec--ink .kicker{color:var(--orange-bright)}
+.bg-class .sec--ink .h2,.bg-class .sec--ink h2{color:#fff}
+.bg-class .sec--ink .lead{color:#cfcfcf}
+@media(max-width:860px){
+  .bg-class .nav .nav-cta-desktop{display:none}
+  .bg-class .nav .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08);padding:6px 20px 16px;box-shadow:0 22px 44px -22px rgba(0,0,0,.8)}
+  .bg-class .nav .nav-toggle:checked ~ .links{display:flex}
+  .bg-class .nav .burger{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;cursor:pointer;margin-right:-9px}
+  .bg-class .nav .burger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+  .bg-class .nav .links a{padding:14px 2px;font-size:15px;border-bottom:1px solid rgba(255,255,255,.07);color:#e7e7e7}
+  .bg-class .nav .links .nav-link-cta{display:flex;margin-top:12px;padding:14px;border-bottom:0;justify-content:center}
+  .bg-class .nav .navdrop{flex-direction:column;align-items:stretch}
+  .bg-class .nav .navdrop-top{padding:14px 2px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .bg-class .nav .navdrop-menu{position:static;opacity:1;visibility:visible;transform:none;background:transparent;border:0;box-shadow:none;padding:2px 0 0 14px;min-width:0}
+  .bg-class .nav .navdrop-menu a{padding:10px 2px;font-size:14px;color:#bdbdbd}
+  .bg-class .nav .nav-toggle:checked ~ .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .bg-class .nav .nav-toggle:checked ~ .burger span:nth-child(2){opacity:0}
+  .bg-class .nav .nav-toggle:checked ~ .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+/* --- Back to Basic sale states, added Aug 2026 --- */
+.bg-class .salebar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:24px;border:1.5px solid var(--orange);background:#FFF3EA;border-radius:14px;padding:16px 20px}
+.bg-class .salebar.shut{border-color:var(--line);background:var(--cream)}
+.bg-class .salebar[hidden]{display:none}
+.bg-class .salebar .lead-txt{font-size:15.5px;font-weight:800;color:var(--ink)}
+.bg-class .salebar .lead-txt em{font-style:normal;color:var(--orange-deep)}
+.bg-class .salebar .note{font-size:13.5px;color:var(--muted);font-weight:600;margin-top:3px}
+.bg-class .salebar .clock{display:flex;gap:7px;margin-left:auto}
+.bg-class .salebar .clock .u{text-align:center;min-width:46px}
+.bg-class .salebar .clock b{display:block;font-size:22px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.bg-class .salebar .clock i{display:block;font-style:normal;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px;font-weight:800}
+@media(max-width:700px){.bg-class .salebar .clock{margin-left:0}}
+.bg-class .hero .salebar{background:rgba(255,255,255,.07);border-color:rgba(255,122,26,.5)}
+.bg-class .hero .salebar .lead-txt{color:#fff}
+.bg-class .hero .salebar .lead-txt em{color:var(--orange-bright)}
+.bg-class .hero .salebar .note{color:#BFBFC2}
+.bg-class .hero .salebar .clock b{color:#fff}
+.bg-class .hero .salebar .clock i{color:#9a9a9a}
+.bg-class .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.bg-class .cls-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+@media(max-width:860px){.bg-class .cls-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.bg-class .cls-grid{grid-template-columns:1fr}}
+.bg-class .cls-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease}
+.bg-class .cls-card:hover{transform:translateY(-3px);box-shadow:0 22px 44px -28px rgba(0,0,0,0.4);border-color:rgba(255,102,0,.4)}
+.bg-class .cls-ic{width:50px;height:50px;border-radius:12px;background:rgba(255,102,0,0.1);border:1px solid rgba(255,102,0,0.26);display:flex;align-items:center;justify-content:center;color:var(--orange)}
+.bg-class .cls-ic svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bg-class .cls-card h3{font-family:var(--font);font-weight:900;text-transform:uppercase;letter-spacing:0.01em;font-size:21px;margin-top:18px}
+.bg-class .cls-card p{font-size:14.5px;color:var(--muted);margin-top:9px;flex:1}
+.bg-class .cls-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.bg-class .cls-tags .tg{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--muted);background:var(--cream);border:1px solid var(--line);border-radius:30px;padding:5px 12px}
+.bg-class .cls-tags .tg-int{color:var(--orange-deep);background:rgba(255,102,0,.08);border-color:rgba(255,102,0,.22)}
+.bg-class .tt-frame{position:relative;margin-top:32px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--white);min-height:620px}
+.bg-class .tt-frame iframe{display:block;width:100%;height:1200px;border:0;background:transparent}
+@media(max-width:860px){.bg-class .tt-frame iframe{height:1520px}}
+.bg-class .tt-skel{position:absolute;inset:0;display:grid;place-items:center;gap:14px;padding:24px;text-align:center;background:var(--white);color:var(--muted);font-weight:700;font-size:15px}
+.bg-class .tt-skel::before{content:"";width:34px;height:34px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--orange);animation:ttspin .85s linear infinite}
+@keyframes ttspin{to{transform:rotate(360deg)}}
+.bg-class .tt-frame.is-ready .tt-skel{display:none}
+.bg-class .tt-fail{display:none;padding:48px 26px;text-align:center}
+.bg-class .tt-fail p{color:var(--muted);font-size:16px;max-width:46em;margin:0 auto 18px}
+.bg-class .tt-frame.is-failed .tt-skel,.bg-class .tt-frame.is-failed iframe{display:none}
+.bg-class .tt-frame.is-failed .tt-fail{display:block}
+.bg-class .tt-note{margin-top:16px;font-size:13.5px;color:var(--muted);font-weight:600}
+@media(prefers-reduced-motion:reduce){.bg-class .tt-skel::before{animation:none}}
+</style>
+<div class="bg-class">
+  <nav class="nav">
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="BasicGym"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
+      <input type="checkbox" id="navtoggle" class="nav-toggle" aria-hidden="true">
+      <div class="links">
+        <a href="/classes/" aria-current="page">Classes</a>
+        <a href="/nottingham/">Nottingham</a>
+        <a href="/membership/">Membership</a>
+        <a href="/open-day/">Open days</a>
+        <div class="navdrop">
+          <a class="navdrop-top" href="/about-us/">About us <i>&#9662;</i></a>
+          <div class="navdrop-menu">
+            <a href="/about-us/">About us</a>
+            <a href="/students/">Students</a>
+            <a href="/corporate-membership/">Corporate Membership</a>
+            <a href="/personal-training/">Personal Training</a>
+            <a href="/careers/">Careers</a>
+            <a href="/refer-a-friend/">Refer a Friend</a>
+          </div>
+        </div>
+        <a class="btn orange nav-link-cta" href="/join/" data-bg-join>Join now</a>
+      </div>
+      <a class="btn orange nav-cta-desktop" href="/join/" data-bg-join>Join now</a>
+      <label for="navtoggle" class="burger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/f_auto,q_auto,w_1600/v1782300003/basicgymhyroxclass_yb0lkq.png" alt="BasicGym class in session" fetchpriority="high"></div>
+    <div class="wrap">
+      <div class="hero-inner">
+        <span class="eyebrow"><span class="dot"></span>Classes &middot; Included in every membership</span>
+        <h1 class="display">120 a week.<br><span class="orange">All included.</span>
+          <span class="sub">Real instructors, a proper timetable, and not a penny more than your membership. Book from the app up to seven days ahead.</span>
+        </h1>
+        <div class="cta-row">
+          <a href="#timetable" class="btn btn-primary">See this week&rsquo;s timetable &rarr;</a>
+          <a href="#classes" class="btn btn-ghost">See the classes</a>
+        </div>
+        <p class="fineprint">Every class is included on every plan, from &pound;17.99 a month. Nothing to upgrade to.</p>
+        <div class="pills">
+          <span class="pill"><span class="dot"></span> 120 classes a week</span>
+          <span class="pill"><span class="dot"></span> Led by real instructors</span>
+          <span class="pill"><span class="dot"></span> No extra cost</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="statbar">
+    <div class="wrap">
+      <div class="sb"><span class="n">120</span><span class="l">Classes a week</span></div>
+      <div class="sb"><span class="n">&pound;0</span><span class="l">Extra to attend</span></div>
+      <div class="sb"><span class="n">12</span><span class="l">Class types</span></div>
+      <div class="sb"><span class="n">5.0</span><span class="l">Google rating</span></div>
+    </div>
+  </div>
+
+  <section class="sec" id="classes">
+    <div class="wrap">
+      <div class="kicker">What we run</div>
+      <h2 class="h2 display">Every class, one membership</h2>
+      <p class="lead">From Hyrox and strength to combat, Pilates and TRX, there is something for every level and every goal. Pick what suits you, change it up whenever you like, and never pay a penny more.</p>
+      <div class="cls-grid">
+        <div class="cls-card reveal"><div class="cls-ic"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>Hyrox</h3><p>Functional fitness racing. Running intervals stacked with sled pushes, wall balls and burpees. Builds a serious engine and the grit to match.</p><div class="cls-tags"><span class="tg tg-int">High intensity</span><span class="tg">Conditioning</span></div></div>
+        <div class="cls-card reveal"><div class="cls-ic"><svg viewBox="0 0 24 24"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></div><h3>Strength</h3><p>Coached barbell and compound lifting in a group setting. Learn to move properly and build real, usable strength session on session.</p><div class="cls-tags"><span class="tg tg-int">Medium intensity</span><span class="tg">Strength</span></div></div>
+        <div class="cls-card reveal"><div class="cls-ic"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h3>HIIT</h3><p>Short, hard intervals that spike the heart rate and keep burning long after you leave. Maximum result in minimum time.</p><div class="cls-tags"><span class="tg tg-int">High intensity</span><span class="tg">Cardio</span></div></div>
+        <div class="cls-card reveal"><div class="cls-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h3>Core &amp; Abs</h3><p>Focused midsection work that builds a stronger, more stable core. The foundation every other lift is built on.</p><div class="cls-tags"><span class="tg tg-int">Medium intensity</span><span class="tg">Core</span></div></div>
+        <div class="cls-card reveal"><div class="cls-ic"><svg viewBox="0 0 24 24"><path d="M11 14h2a2 2 0 0 0 2-2V7a2 2 0 0 0-4 0v3"/><path d="M7 14h.5a2.5 2.5 0 0 0 0-5H7a2 2 0 0 0-2 2v6a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-2"/></svg></div><h3>Box Fit</h3><p>Boxing-based conditioning on the pads and bags. A proper sweat, a stress release, and fitness that sneaks up on you.</p><div class="cls-tags"><span class="tg tg-int">High intensity</span><span class="tg">Cardio</span></div></div>
+        <div class="cls-card reveal"><div class="cls-ic"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>Bootcamp</h3><p>High-energy full-body circuits with the room pushing together. Fast, loud and built to leave nothing in the tank.</p><div class="cls-tags"><span class="tg tg-int">High intensity</span><span class="tg">Conditioning</span></div></div>
+        <div class="cls-card reveal"><div class="cls-ic"><svg viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div><h3>Combat</h3><p>Martial-arts-inspired cardio set to music. Strikes, kicks and combinations that torch calories and clear your head.</p><div class="cls-tags"><span class="tg tg-int">High intensity</span><span class="tg">Cardio</span></div></div>
+        <div class="cls-card reveal"><div class="cls-ic"><svg viewBox="0 0 24 24"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></div><h3>Booty Class</h3><p>Glute and lower-body focused training to build, shape and strengthen. Targeted work that delivers visible results.</p><div class="cls-tags"><span class="tg tg-int">Medium intensity</span><span class="tg">Strength</span></div></div>
+        <div class="cls-card reveal"><div class="cls-ic"><svg viewBox="0 0 24 24"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></div><h3>Pump</h3><p>High-rep barbell class to music hitting every major muscle group. Light enough to learn, hard enough to feel.</p><div class="cls-tags"><span class="tg tg-int">Medium intensity</span><span class="tg">Strength</span></div></div>
+        <div class="cls-card reveal"><div class="cls-ic"><svg viewBox="0 0 24 24"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg></div><h3>Pilates</h3><p>Controlled mat work for core strength, mobility and posture. The session that keeps everything else moving well.</p><div class="cls-tags"><span class="tg tg-int">Low intensity</span><span class="tg">Mobility</span></div></div>
+        <div class="cls-card reveal"><div class="cls-ic"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>Circuits</h3><p>Stations around the floor, strength and cardio back to back. Constant movement, never a dull rep.</p><div class="cls-tags"><span class="tg tg-int">High intensity</span><span class="tg">Conditioning</span></div></div>
+        <div class="cls-card reveal"><div class="cls-ic"><svg viewBox="0 0 24 24"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></div><h3>TRX Class</h3><p>Suspension training that turns your own bodyweight into the resistance. Builds strength, balance and stability head to toe.</p><div class="cls-tags"><span class="tg tg-int">Medium intensity</span><span class="tg">Strength</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--cream" id="timetable">
+    <div class="wrap">
+      <div class="kicker">This week</div>
+      <h2 class="h2 display">The live timetable</h2>
+      <p class="lead">Straight from the club diary, so it is always the real schedule. Book from the BasicGym app up to seven days ahead, and join the waitlist if a class is full.</p>
+      <div class="tt-frame" id="ttFrame">
+        <div class="tt-skel">Loading this week&rsquo;s classes</div>
+        <iframe id="ttFrame-i" title="BasicGym Riverside class timetable"
+          src="https://app.ashbourne.cloud/ClassTimetable/UK/GREN2?nmb=0&amp;colPrimary=FF6600&amp;colBgOne=00000000&amp;colBgTwo=E7E5E0&amp;colBgThree=FFFFFF&amp;colBgFour=FFFFFF&amp;darkMode=0"
+          loading="eager" data-no-lazy="1" class="litespeed-no-lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="tt-fail">
+          <p>The timetable is not loading right now. It is still running on our booking system, so you can open it directly.</p>
+          <a class="btn btn-dark" href="https://app.ashbourne.cloud/ClassTimetable/UK/GREN2" target="_blank" rel="noopener">Open the timetable</a>
+        </div>
+      </div>
+      <p class="tt-note">Timetable changes go live here the moment the club updates the diary.</p>
+    </div>
+  </section>
+
+  <section class="sec sec--ink" id="included">
+    <div class="wrap">
+      <div class="found-grid">
+        <div class="found-copy reveal">
+          <div class="kicker">All included</div>
+          <h2 class="h2 display">Classes come free<br>with your membership</h2>
+          <p class="lead">Other gyms charge per class or lock them behind a higher tier. We do not. Every class on this page is included on every plan, alongside the full gym and 650 free parking spaces.</p>
+          <p style="margin-top:16px;font-weight:700;color:#fff"><b>Memberships start at &pound;17.99 a month.</b></p>
+        </div>
+        <div class="price-card reveal">
+          <div class="e">Memberships from</div>
+          <div class="amt">&pound;17.99<small>/mo</small></div>
+          <div class="then">every class included, nothing extra to pay</div>
+          <a href="/membership/" class="btn btn-dark">See all four plans</a>
+          <div class="note" data-bg-when="live" hidden>Sale is on, code BACK26 for a &pound;5 first month</div>
+          <div class="note" data-bg-when="closed" hidden>Next Back to Basic sale opens <span data-bg-opens></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2 class="display">Every class, every membership.</h2>
+      <p>Nothing to upgrade to and nothing extra to pay. Book from the app up to seven days ahead.</p>
+      <a class="btn btn-dark" href="/membership/">See membership prices</a>
+      <div class="micro">Open 24/7 &middot; Riverside Retail Park, Nottingham</div>
+    </div>
+  </section>
+
+<script>
+(function(){
+  var frame=document.getElementById('ttFrame'), ifr=document.getElementById('ttFrame-i');
+  if(!frame||!ifr) return;
+  var settled=false;
+  function ready(){ if(settled) return; settled=true; frame.classList.add('is-ready'); frame.classList.remove('is-failed'); }
+  ifr.addEventListener('load', ready);
+  var guard=setTimeout(function(){ if(!settled) frame.classList.add('is-failed'); },8000);
+  ifr.addEventListener('load', function(){ clearTimeout(guard); });
+})();
+</script>
+
+  <div class="sticky-cta">
+    <div class="p"><b>120</b> classes a week<small>All included &middot; from &pound;17.99 a month</small></div>
+    <a href="/join/" data-bg-join>Join now</a>
+  </div>
+
+</div>

@@ -1,0 +1,424 @@
+<!-- ============================================================
+     BasicGym - NOTTINGHAM  (basicgym.co.uk/nottingham/)
+     Paste into ONE Elementor "HTML" widget (Canvas). Scoped under .bg-nott.
+     Footer = SEPARATE basicgym-footer-shared.html widget below.
+
+     Updated 25 August 2026 for post-opening pricing and the Back to Basic sale.
+     Requires bg-promo.js loaded site wide for the sale states.
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap');
+.bg-nott{--white:#FFFFFF;--paper:#FFFFFF;--cream:#F5F4F0;--ink:#0E0E0E;--orange:#FF6600;--orange-bright:#FF7A1A;--orange-deep:#CC5200;--muted:#565659;--muted-dark:#A9A9AE;--line:#E7E5E0;--line-dark:#262629;--font:'Cooper Hewitt','Hanken Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-family:var(--font);}
+.bg-nott *{box-sizing:border-box;margin:0;padding:0}
+.bg-nott{scroll-behavior:smooth;background:var(--white);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-nott .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.bg-nott .display{font-family:var(--font);font-weight:900;letter-spacing:-0.015em;text-transform:uppercase;line-height:0.95}
+.bg-nott .orange{color:var(--orange)}
+.bg-nott a{color:inherit;text-decoration:none}
+.bg-nott img{max-width:100%;display:block}
+.bg-nott svg{display:block}
+.bg-nott .sec{padding:74px 0}
+.bg-nott .sec--cream{background:var(--cream)}
+.bg-nott .sec--ink{background:var(--ink);color:var(--white)}
+.bg-nott .kicker{font-size:12.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+.bg-nott .h2{font-size:clamp(28px,5vw,48px);margin-top:12px}
+.bg-nott .lead{color:var(--muted);font-size:17px;margin-top:14px;max-width:620px}
+.bg-nott .sec--ink .lead{color:var(--muted-dark)}
+.bg-nott .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:15px;padding:15px 26px;border-radius:8px;text-transform:uppercase;letter-spacing:0.02em;transition:transform .12s ease, background .15s ease, border-color .15s ease}
+.bg-nott .btn-primary{background:var(--orange);color:#fff}
+.bg-nott .btn-primary:hover{background:var(--orange-deep);transform:translateY(-1px)}
+.bg-nott .btn-dark{background:var(--ink);color:#fff}
+.bg-nott .btn-dark:hover{transform:translateY(-1px);background:#000}
+.bg-nott .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.4)}
+.bg-nott .btn-ghost:hover{border-color:#fff}
+.bg-nott .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+.bg-nott .hero{position:relative;color:#fff;overflow:hidden;background:var(--ink)}
+.bg-nott .hero-bg{position:absolute;inset:0;z-index:0}
+.bg-nott .hero-bg img{width:100%;height:100%;object-fit:cover}
+.bg-nott .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,14,14,0.92) 0%,rgba(14,14,14,0.78) 42%,rgba(14,14,14,0.45) 100%)}
+.bg-nott .hero-inner{position:relative;z-index:1;padding:88px 0 58px;max-width:680px}
+.bg-nott .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange)}
+.bg-nott .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.bg-nott .hero h1{font-size:clamp(42px,8vw,86px);margin:18px 0 0}
+.bg-nott .hero h1 .sub{display:block;font-family:var(--font);font-weight:600;text-transform:none;letter-spacing:-0.01em;font-size:clamp(18px,2.6vw,25px);line-height:1.25;margin-top:18px;color:#EDEDED;max-width:560px}
+.bg-nott .fineprint{font-size:13.5px;color:#BFBFC2;margin-top:18px}
+.bg-nott .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.bg-nott .pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:30px;padding:8px 14px}
+.bg-nott .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.bg-nott .pill .stars{color:var(--orange);letter-spacing:1px}
+.bg-nott .statbar{background:var(--orange);color:var(--ink)}
+.bg-nott .statbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.bg-nott .sb{padding:22px 18px;display:flex;align-items:baseline;gap:10px;justify-content:center;border-right:1px solid rgba(0,0,0,0.16)}
+.bg-nott .sb:last-child{border-right:0}
+.bg-nott .sb .n{font-family:var(--font);font-weight:900;font-size:26px;line-height:1}
+.bg-nott .sb .l{font-size:11.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
+@media(max-width:760px){.bg-nott .statbar .wrap{grid-template-columns:1fr 1fr}.bg-nott .sb:nth-child(2){border-right:0}.bg-nott .sb:nth-child(1),.bg-nott .sb:nth-child(2){border-bottom:1px solid rgba(0,0,0,0.16)}}
+.bg-nott .ic svg{width:20px;height:20px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bg-nott .ci svg{width:26px;height:26px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bg-nott .local-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:42px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-nott .local-grid{grid-template-columns:1fr;gap:30px}}
+.bg-nott .local-points{margin-top:26px;display:flex;flex-direction:column;gap:18px}
+.bg-nott .lp{display:flex;gap:14px;align-items:flex-start}
+.bg-nott .lp .ic{flex:0 0 auto;width:42px;height:42px;border-radius:10px;background:rgba(255,102,0,0.1);border:1px solid rgba(255,102,0,0.28);display:flex;align-items:center;justify-content:center}
+.bg-nott .lp h4{font-size:16px;font-weight:700}
+.bg-nott .lp p{font-size:14.5px;color:var(--muted);margin-top:3px}
+.bg-nott .brands{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+.bg-nott .brands span{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:6px 10px;white-space:nowrap}
+.bg-nott .catch-card{background:var(--ink);color:#fff;border-radius:18px;padding:30px}
+.bg-nott .catch-card .big{font-family:var(--font);font-weight:900;font-size:clamp(40px,8vw,62px);color:var(--orange);line-height:0.9}
+.bg-nott .catch-card .big-l{font-size:15px;font-weight:600;margin-top:10px}
+.bg-nott .catch-sub{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bg-nott .catch-sub div{background:rgba(255,255,255,0.04);border:1px solid var(--line-dark);border-radius:11px;padding:14px}
+.bg-nott .catch-sub .cn{font-family:var(--font);font-weight:800;font-size:20px}
+.bg-nott .catch-sub .cl{font-size:12px;color:var(--muted-dark);margin-top:3px}
+.bg-nott .get-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+@media(max-width:860px){.bg-nott .get-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.bg-nott .get-grid{grid-template-columns:1fr}}
+.bg-nott .card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px;transition:transform .15s ease, box-shadow .15s ease}
+.bg-nott .card:hover{transform:translateY(-2px);box-shadow:0 14px 34px -22px rgba(0,0,0,0.35)}
+.bg-nott .card .ci{width:48px;height:48px;border-radius:11px;background:rgba(255,102,0,0.1);border:1px solid rgba(255,102,0,0.26);display:flex;align-items:center;justify-content:center}
+.bg-nott .card h4{font-size:17px;font-weight:700;margin-top:16px}
+.bg-nott .card p{font-size:14.5px;color:var(--muted);margin-top:7px}
+.bg-nott .gym-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+@media(max-width:860px){.bg-nott .gym-grid{grid-template-columns:1fr}}
+.bg-nott .gtile{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5}
+.bg-nott .gtile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.bg-nott .gtile:hover img{transform:scale(1.04)}
+.bg-nott .gtile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(14,14,14,0.85) 100%)}
+.bg-nott .gtile .cap{position:absolute;left:18px;bottom:16px;z-index:2;color:#fff}
+.bg-nott .gtile .cap .z{font-family:var(--font);font-weight:800;text-transform:uppercase;letter-spacing:0.04em;font-size:18px}
+.bg-nott .gtile .cap .d{font-size:13px;color:#D6D6D8;margin-top:2px}
+.bg-nott .found-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-nott .found-grid{grid-template-columns:1fr;gap:28px}}
+.bg-nott .found-copy b{color:#fff}
+.bg-nott .price-card{background:var(--orange);color:#fff;border-radius:18px;padding:34px 30px;text-align:center}
+.bg-nott .price-card .e{font-size:11.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;opacity:0.9}
+.bg-nott .price-card .amt{font-family:var(--font);font-weight:900;font-size:72px;line-height:0.95;margin-top:10px}
+.bg-nott .price-card .amt small{font-size:22px;font-weight:800}
+.bg-nott .price-card .then{font-size:13.5px;margin-top:8px;opacity:0.95}
+.bg-nott .price-card .btn{width:100%;margin-top:22px}
+.bg-nott .price-card .note{font-size:12px;margin-top:14px;opacity:0.9}
+.bg-nott .rev-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:34px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-nott .rev-grid{grid-template-columns:1fr;gap:24px}}
+.bg-nott .rev-stats{display:flex;gap:30px;margin-top:22px}
+.bg-nott .rev-stats .n{font-family:var(--font);font-weight:900;font-size:32px;color:var(--orange);line-height:1}
+.bg-nott .rev-stats .l{font-size:12.5px;color:var(--muted);margin-top:4px}
+.bg-nott .rev-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:0 18px 40px -28px rgba(0,0,0,0.4)}
+.bg-nott .rev-card .stars{color:var(--orange);font-size:20px;letter-spacing:2px}
+.bg-nott .rev-card .score{font-family:var(--font);font-weight:900;font-size:46px;margin-top:10px;color:var(--ink)}
+.bg-nott .rev-card .score span{color:var(--orange)}
+.bg-nott .rev-card p{font-size:14.5px;color:var(--muted);margin-top:12px}
+.bg-nott .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;margin-top:8px}
+@media(max-width:880px){.bg-nott .loc-grid{grid-template-columns:1fr}}
+.bg-nott .map{background:var(--cream);border:1px solid var(--line);border-radius:16px;overflow:hidden;min-height:320px}
+.bg-nott .map iframe{width:100%;height:100%;min-height:320px;border:0}
+.bg-nott .routes{margin-top:18px;display:flex;flex-direction:column;gap:12px}
+.bg-nott .route{display:flex;gap:12px;align-items:center;font-size:15px}
+.bg-nott .route .tag{font-family:var(--font);font-weight:800;font-size:13px;color:var(--orange);border:1px solid rgba(255,102,0,0.4);border-radius:7px;padding:4px 9px;min-width:54px;text-align:center}
+.bg-nott .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+@media(max-width:760px){.bg-nott .faq-grid{grid-template-columns:1fr}}
+.bg-nott .faq-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px}
+.bg-nott .faq-card h4{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.02em}
+.bg-nott .faq-card p{font-size:14px;color:var(--muted);margin-top:8px}
+.bg-nott .final{background:var(--orange);color:var(--ink);text-align:center;padding:80px 0}
+.bg-nott .final h2{font-size:clamp(32px,6.5vw,60px);margin-bottom:14px}
+.bg-nott .final p{font-size:17px;margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto}
+.bg-nott .final .micro{font-size:15px;margin-top:18px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#2a1500;opacity:1}
+.bg-nott .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ink);border-top:1px solid var(--line-dark);padding:11px 16px;display:none;align-items:center;justify-content:space-between;gap:12px}
+.bg-nott .sticky-cta .p{font-size:13px;font-weight:700;line-height:1.2;color:#fff}
+.bg-nott .sticky-cta .p b{color:var(--orange)}
+.bg-nott .sticky-cta .p small{display:block;color:var(--muted-dark);font-weight:500;font-size:11px}
+.bg-nott .sticky-cta a{background:var(--orange);color:#fff;font-weight:800;font-size:14px;padding:13px 18px;border-radius:8px;text-transform:uppercase;white-space:nowrap}
+@media(max-width:860px){.bg-nott .sticky-cta{display:flex}.bg-nott{padding-bottom:70px}}
+.bg-nott .reveal{animation:bg-rise .6s ease both}
+@keyframes bg-rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.bg-nott .reveal{animation:none}.bg-nott .btn:hover,.bg-nott .gtile:hover img{transform:none}}
+@keyframes navdrop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.bg-nott .nav{position:sticky;top:0;z-index:60;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08)}
+.bg-nott .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.bg-nott .nav .logo img{height:40px;width:auto}
+.bg-nott .nav .links{display:flex;align-items:center;gap:26px}
+.bg-nott .nav .links a{color:#e7e7e7;font-weight:700;font-size:14px}
+.bg-nott .nav .links a:hover{color:var(--orange-bright)}
+.bg-nott .nav .links a[aria-current="page"]{color:var(--orange-bright)}
+.bg-nott .btn.orange{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(255,102,0,.34);border-radius:12px}
+.bg-nott .btn.orange:hover{background:var(--orange-deep)}
+.bg-nott .nav .btn{padding:11px 18px;font-size:13px}
+.bg-nott .nav .nav-toggle{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.bg-nott .nav .burger{display:none}
+.bg-nott .nav .links .nav-link-cta{display:none}
+.bg-nott .nav .navdrop{position:relative;display:flex;align-items:center}
+.bg-nott .nav .navdrop-top{display:inline-flex;align-items:center;gap:6px;color:#e7e7e7;font-weight:700;font-size:14px;cursor:pointer}
+.bg-nott .nav .navdrop-top:hover{color:var(--orange-bright)}
+.bg-nott .nav .navdrop-top i{font-style:normal;font-size:11px}
+.bg-nott .nav .navdrop-menu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:#161616;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;min-width:212px;opacity:0;visibility:hidden;transition:.18s;box-shadow:0 22px 44px -18px rgba(0,0,0,.8);z-index:70}
+.bg-nott .nav .navdrop:hover .navdrop-menu,.bg-nott .nav .navdrop:focus-within .navdrop-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.bg-nott .nav .navdrop-menu a{display:block;padding:10px 13px;border-radius:8px;color:#D6D6D8;font-weight:600;font-size:14px;border:0}
+.bg-nott .nav .navdrop-menu a:hover{background:#222;color:#fff}
+.bg-nott .sec--ink .kicker{color:var(--orange-bright)}
+.bg-nott .sec--ink .h2,.bg-nott .sec--ink h2{color:#fff}
+.bg-nott .sec--ink .lead{color:#cfcfcf}
+@media(max-width:860px){
+  .bg-nott .nav .nav-cta-desktop{display:none}
+  .bg-nott .nav .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08);padding:6px 20px 16px;box-shadow:0 22px 44px -22px rgba(0,0,0,.8)}
+  .bg-nott .nav .nav-toggle:checked ~ .links{display:flex}
+  .bg-nott .nav .burger{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;cursor:pointer;margin-right:-9px}
+  .bg-nott .nav .burger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+  .bg-nott .nav .links a{padding:14px 2px;font-size:15px;border-bottom:1px solid rgba(255,255,255,.07);color:#e7e7e7}
+  .bg-nott .nav .links .nav-link-cta{display:flex;margin-top:12px;padding:14px;border-bottom:0;justify-content:center}
+  .bg-nott .nav .navdrop{flex-direction:column;align-items:stretch}
+  .bg-nott .nav .navdrop-top{padding:14px 2px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .bg-nott .nav .navdrop-menu{position:static;opacity:1;visibility:visible;transform:none;background:transparent;border:0;box-shadow:none;padding:2px 0 0 14px;min-width:0}
+  .bg-nott .nav .navdrop-menu a{padding:10px 2px;font-size:14px;color:#bdbdbd}
+  .bg-nott .nav .nav-toggle:checked ~ .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .bg-nott .nav .nav-toggle:checked ~ .burger span:nth-child(2){opacity:0}
+  .bg-nott .nav .nav-toggle:checked ~ .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+/* --- Back to Basic sale states, added Aug 2026 --- */
+.bg-nott .salebar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:24px;border:1.5px solid var(--orange);background:#FFF3EA;border-radius:14px;padding:16px 20px}
+.bg-nott .salebar.shut{border-color:var(--line);background:var(--cream)}
+.bg-nott .salebar[hidden]{display:none}
+.bg-nott .salebar .lead-txt{font-size:15.5px;font-weight:800;color:var(--ink)}
+.bg-nott .salebar .lead-txt em{font-style:normal;color:var(--orange-deep)}
+.bg-nott .salebar .note{font-size:13.5px;color:var(--muted);font-weight:600;margin-top:3px}
+.bg-nott .salebar .clock{display:flex;gap:7px;margin-left:auto}
+.bg-nott .salebar .clock .u{text-align:center;min-width:46px}
+.bg-nott .salebar .clock b{display:block;font-size:22px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.bg-nott .salebar .clock i{display:block;font-style:normal;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px;font-weight:800}
+@media(max-width:700px){.bg-nott .salebar .clock{margin-left:0}}
+.bg-nott .hero .salebar{background:rgba(255,255,255,.07);border-color:rgba(255,122,26,.5)}
+.bg-nott .hero .salebar .lead-txt{color:#fff}
+.bg-nott .hero .salebar .lead-txt em{color:var(--orange-bright)}
+.bg-nott .hero .salebar .note{color:#BFBFC2}
+.bg-nott .hero .salebar .clock b{color:#fff}
+.bg-nott .hero .salebar .clock i{color:#9a9a9a}
+.bg-nott .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+<div class="bg-nott">
+<nav class="nav">
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="BasicGym"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
+      <input type="checkbox" id="navtoggle" class="nav-toggle" aria-hidden="true">
+      <div class="links">
+        <a href="/classes/">Classes</a>
+        <a href="/nottingham/" aria-current="page">Nottingham</a>
+        <a href="/membership/">Membership</a>
+        <a href="/open-day/">Open days</a>
+        <div class="navdrop">
+          <a class="navdrop-top" href="/about-us/">About us <i>&#9662;</i></a>
+          <div class="navdrop-menu">
+            <a href="/about-us/">About us</a>
+            <a href="/students/">Students</a>
+            <a href="/corporate-membership/">Corporate Membership</a>
+            <a href="/personal-training/">Personal Training</a>
+            <a href="/careers/">Careers</a>
+            <a href="/refer-a-friend/">Refer a Friend</a>
+          </div>
+        </div>
+        <a class="btn orange nav-link-cta" href="/join/" data-bg-join>Join now</a>
+      </div>
+      <a class="btn orange nav-cta-desktop" href="/join/" data-bg-join>Join now</a>
+      <label for="navtoggle" class="burger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/f_auto,q_auto,w_1600/v1782298061/basicgymhero_iwhmp4.png" alt="BasicGym interior" fetchpriority="high"></div>
+    <div class="wrap">
+      <div class="hero-inner">
+        <span class="eyebrow"><span class="dot"></span>Nottingham Riverside &middot; Open now</span>
+        <h1 class="display">Open <span class="orange">24/7</span>
+          <span class="sub">A premium gym at Nottingham Riverside. Big, clean, open around the clock, with people who actually say hello. Memberships from &pound;17.99 a month.</span>
+        </h1>
+        <div class="cta-row">
+          <a href="/membership/" class="btn btn-primary">See membership prices &rarr;</a>
+          <a href="/open-day/" class="btn btn-ghost">Come and look round</a>
+        </div>
+        <p class="fineprint">Four plans, off peak or 24/7, monthly rolling or 12 month. No contract on the monthly plans.</p>
+        <div class="pills">
+          <span class="pill"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 from 101 reviews</span>
+          <span class="pill"><span class="dot"></span> Open 24/7</span>
+          <span class="pill"><span class="dot"></span> 650 free parking</span>
+          <span class="pill"><span class="dot"></span> 120 classes a week</span>
+        </div>
+        <div class="salebar" data-bg-when="live" hidden>
+          <div>
+            <div class="lead-txt">Back to Basic sale is <em>on</em>. First month <em>&pound;5</em> with code <span data-bg-code>BACK26</span>.</div>
+            <div class="note">Closes <span data-bg-closes></span>.</div>
+          </div>
+          <div class="clock" aria-hidden="true">
+            <span class="u"><b data-bg-count="days">0</b><i>Days</i></span>
+            <span class="u"><b data-bg-count="hours">00</b><i>Hrs</i></span>
+            <span class="u"><b data-bg-count="mins">00</b><i>Min</i></span>
+            <span class="u"><b data-bg-count="secs">00</b><i>Sec</i></span>
+          </div>
+        </div>
+        <div class="salebar shut" data-bg-when="closed" hidden>
+          <div>
+            <div class="lead-txt">Standard prices, from &pound;17.99 a month.</div>
+            <div class="note">The next Back to Basic sale opens <span data-bg-opens></span>.</div>
+          </div>
+        </div>
+        <p class="sr-only" data-bg-sr role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="statbar">
+    <div class="wrap">
+      <div class="sb"><span class="n">5.0</span><span class="l">Google rating</span></div>
+      <div class="sb"><span class="n">101</span><span class="l">Five-star reviews</span></div>
+      <div class="sb"><span class="n">9</span><span class="l">Training zones</span></div>
+      <div class="sb"><span class="n">120</span><span class="l">Classes a week</span></div>
+    </div>
+  </div>
+
+  <section class="sec" id="why">
+    <div class="wrap">
+      <div class="local-grid">
+        <div class="reveal">
+          <div class="kicker">Right on your doorstep</div>
+          <h2 class="h2 display">Built for Nottingham Riverside</h2>
+          <p class="lead">We are at Riverside Retail Park, next to B&amp;Q, Boots, JD Sports, Next and The Food Warehouse. If you live, work or shop near the A52, you are minutes away.</p>
+          <div class="local-points">
+            <div class="lp"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg></div><div><h4>650 free parking spaces</h4><p>No city centre parking charges and no circling for a space. Park, train, leave.</p></div></div>
+            <div class="lp"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><h4>Straight off the ring road</h4><p>Direct access from the A52, A453 and Clifton Boulevard. Easy from Nottingham, West Bridgford, Beeston, Clifton and Long Eaton.</p></div></div>
+            <div class="lp"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 4v16"/><path d="M18 4v16"/><path d="M6 8h12"/><path d="M6 16h12"/></svg></div><div><h4>Minutes from Boots HQ</h4><p>Perfect for a pre work, lunchtime or post work session if you are based around Queens Drive or Lenton Lane.</p></div></div>
+          </div>
+          <div class="brands">
+            <span>B&amp;Q</span><span>Boots</span><span>JD Sports</span><span>Next</span><span>Food Warehouse</span><span>Poundland</span>
+          </div>
+        </div>
+        <div class="catch-card reveal">
+          <div class="big">325,000+</div>
+          <div class="big-l">residents within a 15-minute drive of Riverside</div>
+          <div class="catch-sub">
+            <div><div class="cn">36,500</div><div class="cl">cars through the park every week</div></div>
+            <div><div class="cn">10,000 sq ft</div><div class="cl">of open-plan training space</div></div>
+            <div><div class="cn">68%</div><div class="cl">of locals are working age (18&ndash;64)</div></div>
+            <div><div class="cn">9 zones</div><div class="cl">strength, cardio, functional &amp; more</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--cream" id="whatyouget">
+    <div class="wrap">
+      <div class="kicker">A &pound;100 experience</div>
+      <h2 class="h2 display">What&rsquo;s included</h2>
+      <p class="lead">No-nonsense pricing, none of the no-nonsense feeling. You get premium kit and proper service, without the premium price tag.</p>
+      <div class="get-grid"><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></div><h4>Premium equipment</h4><p>Full strength, cardio, free-weight, functional and cable zones. Kit reset and maintained daily.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h4>120 classes a week</h4><p>Proper instructors leading proper classes, included in every membership at no extra cost.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div><h4>Showers &amp; changing rooms</h4><p>Clean, modern changing rooms kept to the same standard our Long Eaton members rate 5.0.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h4>Open 24/7</h4><p>Finish at 2am or start at 5am? On Plus, the gym fits your day, not the other way round.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg></div><h4>Actual hello service</h4><p>Staff who know your name and trainers who help you for free. That is the bit other gyms miss.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg></div><h4>650 free spaces</h4><p>Free on-site parking the moment you arrive. No app, no ticket, no charge.</p></div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="inside">
+    <div class="wrap">
+      <div class="kicker">What&rsquo;s inside</div>
+      <h2 class="h2 display">Every zone, one membership</h2>
+      <p class="lead">A big, open-plan floor with everything you need and nothing you don&rsquo;t.</p>
+      <div class="gym-grid">
+        <div class="gtile reveal"><img loading="lazy" src="https://res.cloudinary.com/dcnabm5nc/image/upload/c_fill,g_auto,ar_4:5,w_600,f_auto,q_auto/v1782298061/basicgymhero_iwhmp4.png" alt="Open-plan gym floor"><div class="cap"><div class="z">The floor</div><div class="d">Open-plan, 10,000 sq ft</div></div></div>
+        <div class="gtile reveal"><img loading="lazy" src="https://res.cloudinary.com/dcnabm5nc/image/upload/c_fill,g_auto,ar_4:5,w_600,f_auto,q_auto/v1782309600/basicgym-membership-freeweights_ibdxru.png" alt="Free weights"><div class="cap"><div class="z">Free weights</div><div class="d">Full dumbbell range, no queues</div></div></div>
+        <div class="gtile reveal"><img loading="lazy" src="https://res.cloudinary.com/dcnabm5nc/image/upload/c_fill,g_auto,ar_4:5,w_600,f_auto,q_auto/v1782309719/basic-gym-membership-cardiozone_jwnme1.png" alt="Cardio machines"><div class="cap"><div class="z">Cardio zone</div><div class="d">Rows of machines, always free</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--ink" id="pricing">
+    <div class="wrap">
+      <div class="found-grid">
+        <div class="found-copy reveal">
+          <div class="kicker">Membership</div>
+          <h2 class="h2 display">Four plans.<br>No small print.</h2>
+          <p class="lead">Off Peak from &pound;17.99 a month on a 12 month term, or Plus at &pound;27.99 rolling with no contract. Every plan includes unlimited classes and 650 free parking spaces. Joining fee is shown in the price, not sprung on you at the checkout.</p>
+          <p style="margin-top:16px;font-weight:700"><b>Day pass &pound;9.99 if you just want a look at it first.</b></p>
+        </div>
+        <div class="price-card reveal">
+          <div class="e">Memberships from</div>
+          <div class="amt">&pound;17.99<small>/mo</small></div>
+          <div class="then">every class included, 650 free parking spaces</div>
+          <a href="/membership/" class="btn btn-dark">See all four plans</a>
+          <div class="note" data-bg-when="live" hidden>Sale is on, code BACK26 for a &pound;5 first month</div>
+          <div class="note" data-bg-when="closed" hidden>Next Back to Basic sale opens <span data-bg-opens></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--cream" id="reviews">
+    <div class="wrap">
+      <div class="rev-grid">
+        <div class="reveal">
+          <div class="kicker">Proven next door</div>
+          <h2 class="h2 display">Our first gym is rated 5.0</h2>
+          <p class="lead">BasicGym Long Eaton opened in 2024 and grew to a full house on word of mouth alone, with 101 five-star Google reviews. Riverside is the same model in a bigger, better location.</p>
+          <div class="rev-stats">
+            <div><div class="n">5.0</div><div class="l">Google rating</div></div>
+            <div><div class="n">101</div><div class="l">Five-star reviews</div></div>
+            <div><div class="n">9</div><div class="l">Training zones</div></div>
+          </div>
+        </div>
+        <div class="rev-card reveal">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="score">5.0<span>/5</span></div>
+          <p>Members keep saying the same things: spotless, friendly, and genuinely good value.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="location">
+    <div class="wrap">
+      <div class="kicker">Where to find us</div>
+      <h2 class="h2 display">Riverside Retail Park, Nottingham</h2>
+      <div class="loc-grid">
+        <div class="reveal">
+          <p class="lead">You will find us alongside the big-name stores at Riverside, with free on-site parking right at the door.</p>
+          <div class="routes">
+            <div class="route"><span class="tag">A52</span> Straight off Clifton Boulevard and the ring road</div>
+            <div class="route"><span class="tag">A453</span> Quick from Clifton, Wilford and the south of the city</div>
+            <div class="route"><span class="tag">15 min</span> From West Bridgford, Beeston, Long Eaton and Loughborough</div>
+            <div class="route"><span class="tag">P</span> 650 free parking spaces, no charge</div>
+          </div>
+          <div class="cta-row">
+            <a href="/membership/" class="btn btn-primary">See membership prices &rarr;</a>
+          </div>
+        </div>
+        <div class="map reveal">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Riverside%20Retail%20Park%20Nottingham&t=&z=13&ie=UTF8&iwloc=&output=embed" title="Riverside Retail Park, Nottingham"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--cream" id="faq">
+    <div class="wrap">
+      <div class="kicker">Before you join</div>
+      <h2 class="h2 display">Quick answers</h2>
+      <div class="faq-grid">
+        <div class="faq-card"><h4>How much is it?</h4><p>Four plans. Off Peak &pound;17.99 and Plus &pound;24.99 on a 12 month term, Start &pound;21.99 and Plus &pound;27.99 rolling monthly. Joining fee is &pound;9.99 on the 12 month plans and &pound;14.99 on monthly, charged once.</p></div>
+        <div class="faq-card"><h4>Is there a contract?</h4><p>Not on the monthly plans, they roll on and you can cancel any time. The 12 month plans run for 12 months, which is why they cost less.</p></div>
+        <div class="faq-card"><h4>What does off peak mean?</h4><p>Off Peak and Start give you the gym between 10am and 4pm. Plus gives you 24 hour access. Classes are unlimited on every plan.</p></div>
+        <div class="faq-card"><h4>What&rsquo;s included?</h4><p>Every zone, 120 classes a week, showers and changing rooms, and 650 free parking spaces.</p></div>
+        <div class="faq-card"><h4>Is parking free?</h4><p>Completely free. 650 spaces, no app, no ticket and no charge to park.</p></div>
+        <div class="faq-card"><h4>Can I try before joining?</h4><p>Two ways. A &pound;9.99 day pass, or book a look round and someone will show you the place.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2 class="display">Open now at Riverside.</h2>
+      <p>Four plans from &pound;17.99 a month, every class included, and 650 free parking spaces.</p>
+      <a class="btn btn-dark" href="/membership/">See membership prices</a>
+      <div class="micro">Open 24/7 &middot; Riverside Retail Park, Nottingham NG2 1RU</div>
+    </div>
+  </section>
+
+  <div class="sticky-cta">
+    <div class="p">Membership <b>from &pound;17.99</b><small>Every class included &middot; 650 free spaces</small></div>
+    <a href="/join/" data-bg-join>Join now</a>
+  </div>
+
+</div>
