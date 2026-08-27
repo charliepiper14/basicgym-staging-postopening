@@ -312,37 +312,24 @@
       <h2 class="h2 display">The live timetable</h2>
       <p class="lead">Straight from the club diary, so it is always the real schedule. Book from the BasicGym app up to seven days ahead, and join the waitlist if a class is full.</p>
       <!-- ==============================================================
-           TIMETABLE EMBED TEMPORARILY DISABLED, 25 August 2026
+           TIMETABLE, 26 August 2026
 
-           The Ashbourne embed currently fails for club GREN2. Reece's own
-           URL, with his parameters and with none at all, returns
-           "Class Data Could Not Be Fetched". The app shell renders, then the
-           class data request fails, so this is server side at Ashbourne and
-           not a parameter problem on our end.
+           Under construction. The Ashbourne embed has been removed. Riaz has
+           confirmed the timetable will come from Chris at Technogym instead
+           and is sending an email with Charles copied in.
 
-           The earlier "Cannot read properties of null (reading '1')" was the
-           same fault, their code parsing a response that never arrived.
+           When that arrives, replace the holding block below with whatever
+           Technogym supply. If it is an iframe, the .tt-frame styles are
+           still in the stylesheet above and can be reused as is.
 
-           TO RE-ENABLE once Reece confirms it is fixed: delete this holding
-           block and restore the iframe below. The colour map is from his
-           reply of 23 July and is believed correct.
-
-           <div class="tt-frame" id="ttFrame">
-             <div class="tt-skel">Loading this week&rsquo;s classes</div>
-             <iframe id="ttFrame-i" title="BasicGym Riverside class timetable"
-               src="https://app.ashbourne.cloud/ClassTimetable/UK/GREN2?nmb=0&amp;colPrimary=FF6600&amp;colBgOne=F5F4F0&amp;colBgTwo=E7E5E0&amp;colBgThree=FFFFFF&amp;colBgFour=FFFFFF&amp;darkMode=0"
-               loading="eager" data-no-lazy="1" class="litespeed-no-lazy"
-               referrerpolicy="no-referrer-when-downgrade"></iframe>
-             <div class="tt-fail">
-               <p>The timetable is not loading right now.</p>
-               <a class="btn btn-dark" href="https://app.ashbourne.cloud/ClassTimetable/UK/GREN2" target="_blank" rel="noopener">Open the timetable</a>
-             </div>
-           </div>
+           For the record, the Ashbourne feed was returning
+           "Class Data Could Not Be Fetched" for GREN2 on their own URL with
+           no parameters, so it was broken at their end regardless.
            ============================================================== -->
 
       <div class="tt-holding">
-        <h3>The timetable goes live here</h3>
-        <p>We are connecting this page to the club diary so you can see every class, every day, exactly as it is scheduled. Until then, the full class list is above and the team at the club can tell you what is on today.</p>
+        <h3>Timetable under construction</h3>
+        <p>We are wiring this page up to the booking system so you can see every class, every day, exactly as it is scheduled. Until then, the full class list is above and the team at the club will tell you what is on today.</p>
         <div class="cta-row" style="justify-content:center">
           <a class="btn btn-primary" href="membership.html">See membership prices</a>
           <a class="btn btn-line" href="mailto:info@basicgym.co.uk?subject=Class%20timetable">Ask us what&rsquo;s on</a>
@@ -366,8 +353,8 @@
           <div class="amt">&pound;17.99<small>/mo</small></div>
           <div class="then">every class included, nothing extra to pay</div>
           <a href="membership.html" class="btn btn-dark">See all four plans</a>
-          <div class="note" data-bg-when="live" hidden>Sale is on, code BACK26 for a &pound;5 first month</div>
-          <div class="note" data-bg-when="closed" hidden>Next Back to Basic sale opens <span data-bg-opens></span></div>
+          <div class="note" data-bg-when="live" hidden>Code BACK26 for a &pound;5 first month, limited spaces</div>
+          <div class="note" data-bg-when="closed" hidden>Ask at the club for current offers</div>
         </div>
       </div>
     </div>

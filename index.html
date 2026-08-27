@@ -207,6 +207,32 @@
 .bg-home .loc h3{font-size:22px;margin-top:14px;font-weight:900;text-transform:uppercase}
 .bg-home .loc p{margin-top:8px;font-size:14.5px;color:var(--muted)}
 .bg-home .loc a.link{display:inline-block;margin-top:14px;color:var(--orange-deep);font-weight:800;text-transform:uppercase;font-size:13px}
+
+/* --- Back to Basic hero badge, added 26 Aug 2026 --- */
+.bg-home .hero .wrap{position:relative}
+.bg-home .fiver{position:absolute;top:56px;right:0;width:224px;height:224px;border-radius:50%;
+  background:var(--orange);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;color:#fff;z-index:3;box-shadow:0 18px 44px rgba(0,0,0,.45);
+  transform:rotate(-8deg);padding:14px}
+.bg-home .fiver b{display:block;font-weight:900;text-transform:uppercase;font-size:19px;letter-spacing:.01em;line-height:1}
+.bg-home .fiver .amt{display:block;font-weight:900;font-size:82px;line-height:.92;margin:6px 0 2px;letter-spacing:-.03em}
+.bg-home .fiver .code{display:block;font-weight:900;text-transform:uppercase;font-size:15px;letter-spacing:.02em;line-height:1.1}
+.bg-home .fiver[hidden]{display:none}
+@media(max-width:1180px){.bg-home .fiver{width:186px;height:186px;top:40px}
+  .bg-home .fiver b{font-size:16px}.bg-home .fiver .amt{font-size:66px}.bg-home .fiver .code{font-size:13px}}
+@media(max-width:900px){.bg-home .fiver{position:static;margin:26px 0 0;transform:none;width:200px;height:200px}}
+
+/* --- full width sale band under the hero --- */
+.bg-home .fivebar{background:var(--orange);color:#fff;text-align:center;padding:34px 20px}
+.bg-home .fivebar[hidden]{display:none}
+.bg-home .fivebar h2{font-size:clamp(26px,4.6vw,46px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:1;color:#fff}
+.bg-home .fivebar p{margin:12px auto 0;max-width:44em;font-size:17px;font-weight:600;color:#fff}
+.bg-home .fivebar .cd{display:flex;justify-content:center;gap:10px;margin-top:22px}
+.bg-home .fivebar .cd .u{min-width:64px;background:rgba(0,0,0,.16);border-radius:10px;padding:10px 6px}
+.bg-home .fivebar .cd b{display:block;font-size:28px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums;color:#fff}
+.bg-home .fivebar .cd i{display:block;font-style:normal;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;margin-top:5px;color:rgba(255,255,255,.85);font-weight:800}
+.bg-home .fivebar .btn{margin-top:24px;background:var(--ink);color:#fff}
+.bg-home .fivebar .btn:hover{background:#000}
 </style>
 <div class="bg-home">
   <nav class="nav">
@@ -239,6 +265,11 @@
   <section class="hero">
     <div class="hero-bg"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/f_auto,q_auto,w_1600/v1782298061/basicgymhero_iwhmp4.png" alt="BasicGym interior" fetchpriority="high"></div>
     <div class="wrap">
+      <div class="fiver" data-bg-when="live" hidden>
+        <b>1st month</b>
+        <span class="amt">&pound;5</span>
+        <span class="code">Use code<br>BACK26</span>
+      </div>
       <div class="hero-inner">
         <span class="eyebrow"><span class="dot"></span>Nottingham Riverside &middot; Open now</span>
         <h1 class="display">A premium gym<br>at a <span class="orange">basic</span> price.
@@ -257,24 +288,27 @@
         </div>
         <div class="salebar" data-bg-when="live" hidden>
           <div>
-            <div class="lead-txt">Back to Basic sale is <em>on</em>. First month <em>&pound;5</em> with code <span data-bg-code>BACK26</span>.</div>
-            <div class="note">Closes <span data-bg-closes></span>.</div>
+            <div class="lead-txt">First month <em>&pound;5</em> with code <span data-bg-code>BACK26</span>. Limited spaces, only <span data-bg-spaces-total>100</span> available.</div>
+            <div class="note">Limited spaces, only <span data-bg-spaces-total>100</span> available.</div>
           </div>
-          <div class="clock" aria-hidden="true">
-            <span class="u"><b data-bg-count="days">0</b><i>Days</i></span>
-            <span class="u"><b data-bg-count="hours">00</b><i>Hrs</i></span>
-            <span class="u"><b data-bg-count="mins">00</b><i>Min</i></span>
-            <span class="u"><b data-bg-count="secs">00</b><i>Sec</i></span>
           </div>
-        </div>
         <div class="salebar shut" data-bg-when="closed" hidden>
           <div>
             <div class="lead-txt">Standard prices, from &pound;17.99 a month.</div>
-            <div class="note">The next Back to Basic sale opens <span data-bg-opens></span>.</div>
+            <div class="note">Ask at the club for what is running this month.</div>
           </div>
         </div>
         <p class="sr-only" data-bg-sr role="status" aria-live="polite"></p>
       </div>
+    </div>
+  </section>
+
+
+  <section class="fivebar" data-bg-when="live" hidden>
+    <div class="wrap">
+      <h2>Get your first month for &pound;5</h2>
+      <p>Use code <b data-bg-code>BACK26</b> when you join. Any membership, joining fee included, then your normal monthly price after that. Limited spaces, only <span data-bg-spaces-total>100</span> available.</p>
+      <a class="btn btn-dark" href="membership.html">Get your &pound;5 first month &rarr;</a>
     </div>
   </section>
 
@@ -302,16 +336,16 @@
         <div class="found-copy">
           <span class="kicker">Back to Basic</span>
           <h2 class="h2 display">Back to routine.<br>Back to basic.</h2>
-          <p class="lead">Summer is over and the gym habit needs restarting. Four plans from &pound;17.99 a month with every class included, and when the Back to Basic sale is open, code BACK26 makes your first month &pound;5.</p>
-          <p class="lead" style="color:#fff;font-weight:800;margin-top:18px">The sale runs in windows. When it is shut, it is shut.</p>
+          <p class="lead">Summer is over and the gym habit needs restarting. Four plans from &pound;17.99 a month with every class included, and code BACK26 makes your first month &pound;5 on any of them, joining fee included.</p>
+          <p class="lead" style="color:#fff;font-weight:800;margin-top:18px">Limited to 100 spaces.</p>
         </div>
         <div class="price-card">
           <div class="e">Memberships from</div>
           <div class="amt">&pound;17.99<small>/mo</small></div>
           <div class="then">every class included, 650 free parking spaces</div>
           <a class="btn btn-dark" href="membership.html">See all four plans</a>
-          <div class="note" data-bg-when="live" hidden>Sale is on, code BACK26 for a &pound;5 first month</div>
-          <div class="note" data-bg-when="closed" hidden>Next sale opens <span data-bg-opens></span></div>
+          <div class="note" data-bg-when="live" hidden>Code BACK26 for a &pound;5 first month, limited spaces</div>
+          <div class="note" data-bg-when="closed" hidden>Standard prices, from &pound;17.99 a month</div>
         </div>
       </div>
     </div>
@@ -377,9 +411,9 @@
       <span class="kicker">Quick answers</span>
       <h2 class="h2 display">Before you join.</h2>
       <div class="faq-grid">
-        <div class="faq-card"><h4>How much is it?</h4><p>Four plans. Off Peak &pound;17.99 and Plus &pound;24.99 on a 12 month term, Start &pound;21.99 and Plus &pound;27.99 rolling monthly. Joining fee &pound;9.99 or &pound;14.99, charged once and shown in the price.</p></div>
+        <div class="faq-card"><h4>How much is it?</h4><p>Four plans. Off Peak &pound;17.99 and Plus &pound;24.99 on a 12 month term, Off Peak &pound;21.99 and Monthly &pound;27.99 rolling. Joining fee &pound;9.99 or &pound;14.99, charged once and shown in the price.</p></div>
         <div class="faq-card"><h4>Is there a contract?</h4><p>Not on the monthly plans. They roll on and you can cancel any time. The 12 month plans run for 12 months, which is why they cost less.</p></div>
-        <div class="faq-card"><h4>What does off peak mean?</h4><p>Off Peak and Start give you the gym between 10am and 4pm. Plus gives you 24 hour access. Classes are unlimited on every plan.</p></div>
+        <div class="faq-card"><h4>What does off peak mean?</h4><p>The Off Peak plans give you the gym between 10am and 4pm. Plus gives you 24 hour access. Classes are unlimited on every plan.</p></div>
         <div class="faq-card"><h4>What&rsquo;s included?</h4><p>Every zone, 120 classes a week, showers and changing rooms, and 650 free parking spaces. No upsells.</p></div>
       </div>
     </div>

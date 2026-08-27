@@ -42,21 +42,33 @@
 
     tz: 'Europe/London',
 
-    /* ROLLING CYCLE
-       Riaz's brief: a promo that runs for three days, then resets, so a new
-       promotion can be run each cycle.
+    /* CONTINUOUS OFFER, NO TIMER
+       Riaz, 26 Aug: stick with BACK26, take the timer off, and say limited
+       spaces, only 100 available.
 
-       anchor  the London date and time the very first window opened
-       onDays  how long each window stays open
-       offDays the gap before the next one opens
+       The countdown is gone, so the offer simply runs. onDays/offDays are
+       left in place so a scheduled window can be switched back on later with
+       a one line change, but as set the sale is always open.
 
-       onDays 3 / offDays 3 gives a six day cycle: three days on, three off.
-       Set offDays to 0 only if each cycle carries a genuinely DIFFERENT
-       offer, otherwise the countdown expires onto the same deal and the
-       deadline is not real. See CHANGES-v2.md section 3. */
-    anchor: { y: 2026, m: 9, d: 1, h: 9, min: 0 },
+       *** THE 100 HAS TO BE REAL ***
+       Swapping a false deadline for a false scarcity claim lands in the same
+       place. Schedule 20 of the DMCC Act 2024 covers limited availability
+       claims as well as limited time ones. So either the club genuinely
+       stops at 100 BACK26 sign ups, or the number on the page has to come
+       down as they go.
+
+       Set spacesLeft below to the real remaining figure and the site will
+       show it. Leave it null and the page just says 100 available, which is
+       only safe while the cap is genuinely being enforced. */
+    anchor: { y: 2026, m: 8, d: 26, h: 9, min: 0 },
     onDays: 3,
-    offDays: 3,
+    offDays: 0,
+
+    /* Limited availability. spacesTotal is the cap that was advertised.
+       spacesLeft is how many are actually left, updated as they sell.
+       Set spacesLeft to a number to show a live count on the page. */
+    spacesTotal: 100,
+    spacesLeft: null,
 
     /* Dates to skip entirely, as London calendar dates 'YYYY-MM-DD'.
        Matched against the window OPEN date. Use for Christmas, audits, etc. */
@@ -345,6 +357,11 @@
         el.hidden = !show;
       });
       setText('[data-bg-code]', CONFIG.code);
+      setText('[data-bg-spaces-total]', String(CONFIG.spacesTotal));
+      if (CONFIG.spacesLeft !== null && CONFIG.spacesLeft !== undefined) {
+        setText('[data-bg-spaces-left]', String(CONFIG.spacesLeft));
+        q('[data-bg-when-spaces]').forEach(function (el) { el.hidden = false; });
+      }
       setText('[data-bg-closes]', humanTime(state.until));
       setText('[data-bg-opens]', humanTime(state.next));
       applyJoinLinks(state.live);
