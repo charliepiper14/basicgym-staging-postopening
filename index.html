@@ -208,19 +208,34 @@
 .bg-home .loc p{margin-top:8px;font-size:14.5px;color:var(--muted)}
 .bg-home .loc a.link{display:inline-block;margin-top:14px;color:var(--orange-deep);font-weight:800;text-transform:uppercase;font-size:13px}
 
-/* --- Back to Basic hero badge, added 26 Aug 2026 --- */
+/* --- Back to Basic hero offer block, updated 26 Aug 2026 --- */
 .bg-home .hero .wrap{position:relative}
-.bg-home .fiver{position:absolute;top:56px;right:0;width:224px;height:224px;border-radius:50%;
-  background:var(--orange);display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;color:#fff;z-index:3;box-shadow:0 18px 44px rgba(0,0,0,.45);
-  transform:rotate(-8deg);padding:14px}
-.bg-home .fiver b{display:block;font-weight:900;text-transform:uppercase;font-size:19px;letter-spacing:.01em;line-height:1}
-.bg-home .fiver .amt{display:block;font-weight:900;font-size:82px;line-height:.92;margin:6px 0 2px;letter-spacing:-.03em}
-.bg-home .fiver .code{display:block;font-weight:900;text-transform:uppercase;font-size:15px;letter-spacing:.02em;line-height:1.1}
-.bg-home .fiver[hidden]{display:none}
-@media(max-width:1180px){.bg-home .fiver{width:186px;height:186px;top:40px}
-  .bg-home .fiver b{font-size:16px}.bg-home .fiver .amt{font-size:66px}.bg-home .fiver .code{font-size:13px}}
-@media(max-width:900px){.bg-home .fiver{position:static;margin:26px 0 0;transform:none;width:200px;height:200px}}
+.bg-home .offerblock{position:absolute;top:46px;right:0;width:320px;z-index:4;text-align:center}
+.bg-home .offerblock[hidden]{display:none}
+.bg-home .fiver{width:300px;height:300px;margin:0 auto;border-radius:50%;background:var(--orange);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  color:#fff;box-shadow:0 22px 54px rgba(0,0,0,.5);padding:18px}
+.bg-home .fiver b{display:block;font-weight:900;text-transform:uppercase;font-size:26px;letter-spacing:.01em;line-height:1}
+.bg-home .fiver .amt{display:block;font-weight:900;font-size:118px;line-height:.9;margin:8px 0 4px;letter-spacing:-.04em}
+.bg-home .fiver .code{display:block;font-weight:900;text-transform:uppercase;font-size:19px;letter-spacing:.02em;line-height:1.15}
+.bg-home .offerblock .btn{margin-top:18px;width:100%;font-size:17px;padding:18px 20px;
+  box-shadow:0 14px 30px rgba(0,0,0,.4)}
+.bg-home .offerblock .spaces{margin-top:12px;font-size:14px;font-weight:800;color:#fff;
+  text-transform:uppercase;letter-spacing:.04em;text-shadow:0 1px 12px rgba(0,0,0,.7)}
+.bg-home .offerblock .spaces b{color:var(--orange-bright)}
+@media(max-width:1240px){
+  .bg-home .offerblock{width:262px;top:38px}
+  .bg-home .fiver{width:246px;height:246px}
+  .bg-home .fiver b{font-size:21px}
+  .bg-home .fiver .amt{font-size:96px}
+  .bg-home .fiver .code{font-size:16px}
+}
+@media(max-width:1040px){
+  .bg-home .offerblock{position:static;width:100%;max-width:300px;margin:32px 0 0;text-align:left}
+  .bg-home .fiver{margin:0}
+  .bg-home .offerblock .btn{width:auto;display:inline-flex}
+  .bg-home .offerblock .spaces{text-align:left}
+}
 
 /* --- full width sale band under the hero --- */
 .bg-home .fivebar{background:var(--orange);color:#fff;text-align:center;padding:34px 20px}
@@ -233,6 +248,10 @@
 .bg-home .fivebar .cd i{display:block;font-style:normal;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;margin-top:5px;color:rgba(255,255,255,.85);font-weight:800}
 .bg-home .fivebar .btn{margin-top:24px;background:var(--ink);color:#fff}
 .bg-home .fivebar .btn:hover{background:#000}
+
+/* --- headline, updated 26 Aug 2026 --- */
+.bg-home .hero h1{font-size:clamp(34px,6.2vw,66px);line-height:.98}
+@media(max-width:1040px){.bg-home .hero h1{font-size:clamp(32px,7vw,52px)}}
 </style>
 <div class="bg-home">
   <nav class="nav">
@@ -265,14 +284,18 @@
   <section class="hero">
     <div class="hero-bg"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/f_auto,q_auto,w_1600/v1782298061/basicgymhero_iwhmp4.png" alt="BasicGym interior" fetchpriority="high"></div>
     <div class="wrap">
-      <div class="fiver" data-bg-when="live" hidden>
-        <b>1st month</b>
-        <span class="amt">&pound;5</span>
-        <span class="code">Use code<br>BACK26</span>
+      <div class="offerblock" data-bg-when="live" hidden>
+        <div class="fiver">
+          <b>1st month</b>
+          <span class="amt">&pound;5</span>
+          <span class="code">Use code<br>BACK26</span>
+        </div>
+        <a class="btn btn-primary" href="join.html" data-bg-join>Join now &rarr;</a>
+        <p class="spaces">Limited spaces &middot; only <b data-bg-spaces-total>100</b> available</p>
       </div>
       <div class="hero-inner">
         <span class="eyebrow"><span class="dot"></span>Nottingham Riverside &middot; Open now</span>
-        <h1 class="display">A premium gym<br>at a <span class="orange">basic</span> price.
+        <h1 class="display">Summer is over.<br>Back to your routine.<br>Back to <span class="orange">basic</span>.
           <span class="sub">Big, clean, open 24/7, with people who actually say hello. Riverside Retail Park, Nottingham. Every class included and 650 free parking spaces.</span>
         </h1>
         <div class="cta-row">
@@ -286,19 +309,6 @@
           <span class="pill"><span class="dot"></span> 650 free parking</span>
           <span class="pill"><span class="dot"></span> 120 classes a week</span>
         </div>
-        <div class="salebar" data-bg-when="live" hidden>
-          <div>
-            <div class="lead-txt">First month <em>&pound;5</em> with code <span data-bg-code>BACK26</span>. Limited spaces, only <span data-bg-spaces-total>100</span> available.</div>
-            <div class="note">Limited spaces, only <span data-bg-spaces-total>100</span> available.</div>
-          </div>
-          </div>
-        <div class="salebar shut" data-bg-when="closed" hidden>
-          <div>
-            <div class="lead-txt">Standard prices, from &pound;17.99 a month.</div>
-            <div class="note">Ask at the club for what is running this month.</div>
-          </div>
-        </div>
-        <p class="sr-only" data-bg-sr role="status" aria-live="polite"></p>
       </div>
     </div>
   </section>
