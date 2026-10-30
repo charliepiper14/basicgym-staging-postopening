@@ -1,0 +1,389 @@
+<!-- ============================================================
+     BasicGym - FAQS  (basicgym.co.uk/faqs/)
+     30 Oct 2026, SAVE50 (replaces BACK26):
+       - every BACK26 / £5 block now sells SAVE50: 50% off the first month,
+       - offer questions only show while the offer is on
+
+     Paste into ONE Elementor "HTML" widget (Canvas). Scoped .bg-faq.
+     Footer = SEPARATE widget below.
+     Sept 2026: rewritten for post-opening pricing.
+
+     Oct 2026 (Riaz's website changes, tracker refs in brackets):
+       - Open days and Refer a Friend removed from the nav (RA02, RA19),
+         nav and sticky buttons read Join now, to the plans
+       - contract and cancel answers to 30 days' notice (RA25, RA28)
+       - new: How do I access the gym? (RA26), What if your PIN is not
+         working? (RA27), How do I change my membership? (RA29)
+       - parking answer to the 4 hour rule, parking page link removed
+         (RA31, W11), Unit 3 address added
+       - class list matched to the timetable (W08)
+       - look round answer no longer says "any time" (W25, R06)
+       - 24/7 on Plus and Monthly (W09)
+       Not changed yet, waiting on Riaz: 120 classes a week (R04),
+       day pass promise (R08), age requirement question (RA30, R19).
+       Accordion script below is untouched.
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap');
+.bg-faq{--white:#FFFFFF;--cream:#F5F4F0;--ink:#0E0E0E;--orange:#FF6600;--orange-bright:#FF7A1A;--orange-deep:#CC5200;--muted:#565659;--muted-dark:#A9A9AE;--line:#E7E5E0;--line-dark:#262629;--font:'Cooper Hewitt','Hanken Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-family:var(--font);}
+.bg-faq *{box-sizing:border-box;margin:0;padding:0}
+.bg-faq{background:var(--white);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-faq .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.bg-faq .display{font-family:var(--font);font-weight:900;letter-spacing:-0.015em;text-transform:uppercase;line-height:0.95;text-wrap:balance}
+.bg-faq .orange{color:var(--orange)}
+.bg-faq a{color:inherit;text-decoration:none}
+.bg-faq img{max-width:100%;display:block}
+.bg-faq svg{display:block}
+.bg-faq .sec{padding:74px 0}
+.bg-faq .sec--cream{background:var(--cream)}
+.bg-faq .kicker{font-size:12.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+.bg-faq .h2{font-size:clamp(26px,5vw,44px);margin-top:12px;text-wrap:balance}
+.bg-faq .lead{color:var(--muted);font-size:17px;margin-top:14px;max-width:620px;text-wrap:pretty}
+.bg-faq .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:15px;padding:15px 26px;border-radius:8px;text-transform:uppercase;letter-spacing:0.02em;transition:transform .12s ease,background .15s ease,border-color .15s ease}
+.bg-faq .btn-primary{background:var(--orange);color:#fff}
+.bg-faq .btn-primary:hover{background:var(--orange-deep);transform:translateY(-1px)}
+.bg-faq .btn-dark{background:var(--ink);color:#fff}
+.bg-faq .btn-dark:hover{background:#000;transform:translateY(-1px)}
+.bg-faq .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.4)}
+.bg-faq .btn-ghost:hover{border-color:#fff}
+.bg-faq .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
+.bg-faq .hero{position:relative;color:#fff;overflow:hidden;background:var(--ink)}
+.bg-faq .hero-bg{position:absolute;inset:0;z-index:0}
+.bg-faq .hero-bg img{width:100%;height:100%;object-fit:cover}
+.bg-faq .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,14,14,0.94) 0%,rgba(14,14,14,0.80) 42%,rgba(14,14,14,0.45) 100%)}
+.bg-faq .hero-inner{position:relative;z-index:1;padding:72px 0 52px;max-width:660px}
+.bg-faq .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange)}
+.bg-faq .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.bg-faq .hero h1{font-size:clamp(32px,6vw,60px);line-height:1;margin:16px 0 0;text-wrap:balance}
+.bg-faq .hero .sub{margin-top:18px;font-size:clamp(16px,2.2vw,21px);line-height:1.35;color:#EDEDED;font-weight:500;max-width:36em;text-wrap:pretty}
+.bg-faq .statbar{background:var(--orange);color:var(--ink)}
+.bg-faq .statbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.bg-faq .sb{padding:22px 18px;display:flex;align-items:baseline;gap:10px;justify-content:center;border-right:1px solid rgba(0,0,0,0.16)}
+.bg-faq .sb:last-child{border-right:0}
+.bg-faq .sb .n{font-weight:900;font-size:26px;line-height:1}
+.bg-faq .sb .l{font-size:11.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
+@media(max-width:760px){.bg-faq .statbar .wrap{grid-template-columns:1fr 1fr}.bg-faq .sb:nth-child(2){border-right:0}.bg-faq .sb:nth-child(1),.bg-faq .sb:nth-child(2){border-bottom:1px solid rgba(0,0,0,0.16)}}
+.bg-faq .nav{position:sticky;top:0;z-index:60;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08)}
+.bg-faq .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.bg-faq .nav .logo img{height:40px;width:auto}
+.bg-faq .nav .links{display:flex;align-items:center;gap:26px}
+.bg-faq .nav .links a{color:#e7e7e7;font-weight:700;font-size:14px}
+.bg-faq .nav .links a:hover{color:var(--orange-bright)}
+.bg-faq .btn.orange{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(255,102,0,.34);border-radius:12px}
+.bg-faq .btn.orange:hover{background:var(--orange-deep)}
+.bg-faq .nav .btn{padding:11px 18px;font-size:13px}
+.bg-faq .nav .nav-toggle{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.bg-faq .nav .burger{display:none}
+.bg-faq .nav .links .nav-link-cta{display:none}
+.bg-faq .nav .navdrop{position:relative;display:flex;align-items:center}
+.bg-faq .nav .navdrop-top{display:inline-flex;align-items:center;gap:6px;color:#e7e7e7;font-weight:700;font-size:14px;cursor:pointer}
+.bg-faq .nav .navdrop-top:hover{color:var(--orange-bright)}
+.bg-faq .nav .navdrop-top i{font-style:normal;font-size:11px}
+.bg-faq .nav .navdrop-menu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:#161616;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;min-width:212px;opacity:0;visibility:hidden;transition:.18s;box-shadow:0 22px 44px -18px rgba(0,0,0,.8);z-index:70}
+.bg-faq .nav .navdrop:hover .navdrop-menu,.bg-faq .nav .navdrop:focus-within .navdrop-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.bg-faq .nav .navdrop-menu a{display:block;padding:10px 13px;border-radius:8px;color:#D6D6D8;font-weight:600;font-size:14px}
+.bg-faq .nav .navdrop-menu a:hover{background:#222;color:#fff}
+@media(max-width:860px){
+  .bg-faq .nav .nav-cta-desktop{display:none}
+  .bg-faq .nav .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08);padding:6px 20px 16px;box-shadow:0 22px 44px -22px rgba(0,0,0,.8)}
+  .bg-faq .nav .nav-toggle:checked ~ .links{display:flex}
+  .bg-faq .nav .burger{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;cursor:pointer;margin-right:-9px}
+  .bg-faq .nav .burger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+  .bg-faq .nav .links a{padding:14px 2px;font-size:15px;border-bottom:1px solid rgba(255,255,255,.07);color:#e7e7e7}
+  .bg-faq .nav .links .nav-link-cta{display:flex;margin-top:12px;padding:14px;border-bottom:0;justify-content:center}
+  .bg-faq .nav .navdrop{flex-direction:column;align-items:stretch}
+  .bg-faq .nav .navdrop-top{padding:14px 2px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .bg-faq .nav .navdrop-menu{position:static;opacity:1;visibility:visible;transform:none;background:transparent;border:0;box-shadow:none;padding:2px 0 0 14px;min-width:0}
+  .bg-faq .nav .navdrop-menu a{padding:10px 2px;font-size:14px;color:#bdbdbd}
+  .bg-faq .nav .nav-toggle:checked ~ .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .bg-faq .nav .nav-toggle:checked ~ .burger span:nth-child(2){opacity:0}
+  .bg-faq .nav .nav-toggle:checked ~ .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+/* two pane FAQ */
+.bg-faq .faq2{display:grid;grid-template-columns:300px 1fr;gap:34px;margin-top:38px;align-items:start}
+@media(max-width:900px){.bg-faq .faq2{grid-template-columns:1fr;gap:22px}}
+.bg-faq .subj-head{font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:0 4px 12px}
+.bg-faq .subjects{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.bg-faq .subj{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);padding:17px 20px;font-family:var(--font);font-size:15.5px;font-weight:700;color:var(--ink);cursor:pointer;transition:background .14s,color .14s;border-left:3px solid transparent}
+.bg-faq .subj:last-child{border-bottom:0}
+.bg-faq .subj:hover{background:#FBFAF7;color:var(--orange-deep)}
+.bg-faq .subj[aria-selected="true"]{background:#FFF3EA;color:var(--orange-deep);border-left-color:var(--orange)}
+.bg-faq .subj .chev svg{width:16px;height:16px;stroke:var(--muted-dark);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.bg-faq .subj[aria-selected="true"] .chev svg{stroke:var(--orange)}
+.bg-faq .panel{display:none}
+.bg-faq .panel.is-active{display:block;animation:bgfade .28s ease both}
+@keyframes bgfade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.bg-faq .panel-title{font-size:clamp(21px,3.4vw,29px);font-weight:900;letter-spacing:-.01em;text-transform:uppercase;line-height:1.02}
+.bg-faq .panel-sub{color:var(--muted);font-size:15px;margin-top:8px}
+.bg-faq .group{margin-top:24px}
+.bg-faq .group-h{font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);padding-bottom:10px;border-bottom:2px solid var(--line)}
+.bg-faq .qa{border-bottom:1px solid var(--line)}
+.bg-faq .qa-q{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;text-align:left;background:transparent;border:0;padding:18px 4px;font-family:var(--font);font-size:16px;font-weight:700;color:var(--ink);cursor:pointer}
+.bg-faq .qa-q:hover{color:var(--orange-deep)}
+.bg-faq .qa-q .ico{flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;transition:transform .22s,border-color .18s,background .18s}
+.bg-faq .qa-q .ico svg{width:13px;height:13px;stroke:var(--ink);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.bg-faq .qa-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.bg-faq .qa-a p{font-size:15px;color:var(--muted);padding:0 4px 20px;max-width:640px}
+.bg-faq .qa-a a{color:var(--orange-deep);font-weight:700}
+.bg-faq .qa[aria-expanded="true"] .qa-q{color:var(--orange-deep)}
+.bg-faq .qa[aria-expanded="true"] .qa-q .ico{transform:rotate(45deg);border-color:var(--orange);background:var(--orange)}
+.bg-faq .qa[aria-expanded="true"] .qa-q .ico svg{stroke:#fff}
+.bg-faq .cant{background:var(--ink);color:#fff;border-radius:20px;padding:44px 38px;margin-top:52px;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+@media(max-width:760px){.bg-faq .cant{grid-template-columns:1fr;padding:32px 24px;text-align:center}}
+.bg-faq .cant h3{font-size:clamp(24px,4.4vw,38px);font-weight:900;text-transform:uppercase;line-height:.98;text-wrap:balance}
+.bg-faq .cant p{color:#cfcfcf;font-size:15.5px;margin-top:12px;max-width:420px}
+@media(max-width:760px){.bg-faq .cant p{margin-left:auto;margin-right:auto}}
+.bg-faq .cant .actions{display:flex;flex-direction:column;gap:12px}
+.bg-faq .contact-card{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.05);border:1px solid var(--line-dark);border-radius:12px;padding:16px 18px}
+.bg-faq .contact-card .ci{flex:0 0 auto;width:42px;height:42px;border-radius:10px;background:rgba(255,102,0,.14);border:1px solid rgba(255,102,0,.3);display:flex;align-items:center;justify-content:center}
+.bg-faq .contact-card .ci svg{width:20px;height:20px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bg-faq .contact-card .t{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-dark);display:block}
+.bg-faq .contact-card .v{font-size:15px;font-weight:700;color:#fff;word-break:break-word}
+.bg-faq .final{background:var(--orange);color:var(--ink);text-align:center;padding:76px 0}
+.bg-faq .final h2{font-size:clamp(28px,5.6vw,52px);margin-bottom:14px}
+.bg-faq .final p{font-size:17px;margin-bottom:26px;max-width:560px;margin-left:auto;margin-right:auto}
+.bg-faq .final .micro{font-size:15px;margin-top:18px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#2a1500}
+.bg-faq .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ink);border-top:1px solid var(--line-dark);padding:10px 14px;display:none;align-items:center;justify-content:space-between;gap:10px}
+.bg-faq .sticky-cta .p{font-size:12.5px;font-weight:700;line-height:1.2;color:#fff;padding-left:58px}
+.bg-faq .sticky-cta .p b{color:var(--orange)}
+.bg-faq .sticky-cta .p small{display:block;color:var(--muted-dark);font-weight:500;font-size:10.5px}
+.bg-faq .sticky-cta a{background:var(--orange);color:#fff;font-weight:800;font-size:13.5px;padding:12px 16px;border-radius:8px;text-transform:uppercase;white-space:nowrap;margin-right:58px}
+@media(max-width:860px){.bg-faq .sticky-cta{display:flex}.bg-faq{padding-bottom:76px}
+  .bg-faq .hero-inner{padding:44px 0 36px}.bg-faq .sec{padding:52px 0}}
+@media(max-width:420px){.bg-faq .sticky-cta .p{padding-left:52px;font-size:12px}.bg-faq .sticky-cta a{margin-right:52px;padding:12px 13px;font-size:13px}}
+</style>
+<div class="bg-faq">
+  <nav class="nav">
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="BasicGym"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
+      <input type="checkbox" id="navtoggle" class="nav-toggle" aria-hidden="true">
+      <div class="links">
+        <a href="/classes/">Classes</a>
+        <a href="/nottingham/">Nottingham</a>
+        <a href="/membership/">Membership</a>
+        <div class="navdrop">
+          <a class="navdrop-top" href="/about-us/">About us <i>&#9662;</i></a>
+          <div class="navdrop-menu">
+            <a href="/about-us/">About us</a>
+            <a href="/students/">Students</a>
+            <a href="/corporate-membership/">Corporate Membership</a>
+            <a href="/personal-training/">Personal Training</a>
+            <a href="/careers/">Careers</a>
+          </div>
+        </div>
+        <a class="btn orange nav-link-cta" href="/membership/">Join now</a>
+      </div>
+      <a class="btn orange nav-cta-desktop" href="/membership/">Join now</a>
+      <label for="navtoggle" class="burger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/f_auto,q_auto,w_1600/v1782651981/basic-gym-socialarea_twi2if.png" alt="BasicGym social area" fetchpriority="high"></div>
+    <div class="wrap">
+      <div class="hero-inner">
+        <span class="eyebrow"><span class="dot"></span>How can we help?</span>
+        <h1 class="display">Everything you<br><span class="orange">need to know.</span></h1>
+        <p class="sub">Pick a subject on the left, find your answer on the right. Still stuck, email info@basicgym.co.uk and a real person will reply.</p>
+        <div class="cta-row"><a class="btn btn-primary" href="/membership/">See membership prices</a></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="statbar">
+    <div class="wrap">
+      <div class="sb"><span class="n">&pound;17.99</span><span class="l">From per month</span></div>
+      <div class="sb"><span class="n">24/7</span><span class="l">On Plus &amp; Monthly</span></div>
+      <div class="sb"><span class="n">650</span><span class="l">Free parking</span></div>
+      <div class="sb"><span class="n">120</span><span class="l">Classes a week</span></div>
+    </div>
+  </div>
+
+  <section class="sec sec--cream">
+    <div class="wrap">
+      <span class="kicker">Frequently asked questions</span>
+      <h2 class="h2 display">Find your answer</h2>
+      <div class="faq2">
+        <div>
+          <div class="subj-head">Choose your subject</div>
+          <div class="subjects" role="tablist" aria-label="FAQ subjects">
+            <button class="subj" role="tab" aria-selected="true" data-target="cat-joining"><span>Joining &amp; pricing</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span></button>
+            <button class="subj" role="tab" aria-selected="false" data-target="cat-membership"><span>Managing membership</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span></button>
+            <button class="subj" role="tab" aria-selected="false" data-target="cat-gym"><span>The gym</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span></button>
+            <button class="subj" role="tab" aria-selected="false" data-target="cat-classes"><span>Classes</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span></button>
+            <button class="subj" role="tab" aria-selected="false" data-target="cat-location"><span>Parking &amp; location</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span></button>
+            <button class="subj" role="tab" aria-selected="false" data-target="cat-visit"><span>Coming to look round</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span></button>
+            <button class="subj" role="tab" aria-selected="false" data-target="cat-contact"><span>Contact</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span></button>
+          </div>
+        </div>
+
+        <div class="panel-wrap">
+
+          <div class="panel is-active" id="cat-joining" role="tabpanel">
+            <div class="panel-title">Joining &amp; pricing</div>
+            <p class="panel-sub">Four plans, no small print. Here is exactly how it works.</p>
+            <div class="group">
+              <div class="group-h">The plans</div>
+              <div class="qa" aria-expanded="true"><button class="qa-q">How much is it?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Four plans. On a 12 month term, Off Peak is &pound;17.99 a month and Plus is &pound;24.99. Rolling monthly, Off Peak is &pound;21.99 and Monthly is &pound;27.99. There is also a &pound;9.99 day pass with no membership.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">Is there a joining fee?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Yes. &pound;9.99 on the 12 month plans and &pound;14.99 on the monthly plans, charged once when you join. It is included in the total shown on the <a href="/membership/">membership page</a>, so the figure you see is the figure you pay on the day. The day pass has no joining fee.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">Is there a contract?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Not on the monthly plans. They roll on automatically, and you can cancel whenever you like with 30 days&rsquo; notice. Our 12 month plans are fixed for 12 months, which is why they come at a lower monthly price.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">What does off peak mean?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>The Off Peak plans give you the gym between 10am and 4pm. Plus and Monthly give you 24 hour access. Classes are unlimited on every plan.</p></div></div>
+            </div>
+            <div class="group">
+              <div class="group-h">Offer and joining</div>
+              <div class="qa" aria-expanded="false" data-bg-when="live" hidden><button class="qa-q">What is the SAVE50 code?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>SAVE50 takes 50% off your first month on any of the four memberships. On the 12 month plans the joining fee is waived too. On the monthly plans the usual &pound;14.99 joining fee applies. After the first month you pay your normal monthly price. The day pass is not included.</p></div></div>
+              <div class="qa" aria-expanded="false" data-bg-when="live" hidden><button class="qa-q">How do I use the code?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Pick your plan on the <a href="/membership/">membership page</a>, fill in your details, then enter SAVE50 at the checkout.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">How do I join?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Choose a plan, enter your details, then set up your Direct Debit on the secure checkout. It takes a couple of minutes and you can train the same day.</p></div></div>
+            </div>
+          </div>
+
+          <div class="panel" id="cat-membership" role="tabpanel">
+            <div class="panel-title">Managing membership</div>
+            <p class="panel-sub">Simple to join, simple to leave.</p>
+            <div class="group">
+              <div class="group-h">Getting in</div>
+              <div class="qa" aria-expanded="true"><button class="qa-q">How do I access the gym?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Seamless entry without friction. No cards, no waiting. Instant access with your own personal PIN number.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">What if your PIN is not working?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Contact Ashbourne Management, who look after our memberships. There are a few ways to reach them:<br>Email: <a href="mailto:memberships@ashbournemanagement.co.uk">memberships@ashbournemanagement.co.uk</a><br>Live chat: <a href="https://ashbourne-memberships.com/members-contact/" target="_blank" rel="noopener">ashbourne-memberships.com/members-contact</a><br>Text: HELP to 60777</p></div></div>
+            </div>
+            <div class="group">
+              <div class="group-h">Your membership</div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">Can I cancel?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Yes. On the monthly plans you can cancel whenever you like with 30 days&rsquo; notice. Our 12 month plans are fixed for 12 months, which is why they come at a lower monthly price.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">How do I change my membership?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>If you have any questions about your membership, payments or account details, or want to change or cancel your membership, contact Ashbourne Management, who look after our memberships:<br>Email: <a href="mailto:memberships@ashbournemanagement.co.uk">memberships@ashbournemanagement.co.uk</a><br>Live chat: <a href="https://ashbourne-memberships.com/members-contact/" target="_blank" rel="noopener">ashbourne-memberships.com/members-contact</a><br>Text: HELP to 60777</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">Can I switch plans later?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Yes. Contact Ashbourne Management using the details above, or speak to the team in the gym, and you can move onto whichever plan suits you best.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">Can I freeze my membership?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Speak to the team at the club. It depends which plan you are on.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">How do I pay?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Membership is collected monthly by Direct Debit, on the same date each month. You set it up when you join.</p></div></div>
+            </div>
+          </div>
+
+          <div class="panel" id="cat-gym" role="tabpanel">
+            <div class="panel-title">The gym</div>
+            <p class="panel-sub">10,000 sq ft, nine zones, everything you need and nothing you do not.</p>
+            <div class="group">
+              <div class="group-h">Inside the gym</div>
+              <div class="qa" aria-expanded="true"><button class="qa-q">What equipment is there?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>10,000 sq ft across nine zones: free weights, machines, cardio, functional space, strength, cables, boxing and Hyrox. Kit is well maintained and reset daily.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">What are the opening hours?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Open 24 hours a day on the Plus and Monthly plans. Off Peak gives you the gym between 10am and 4pm.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">Are there showers and changing rooms?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Yes, clean modern changing rooms with showers, reset daily.</p></div></div>
+            </div>
+            <div class="group">
+              <div class="group-h">Is it for me?</div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">Is it suitable for beginners?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Absolutely. No egos, no pressure, just a space to train your way. The team is on the floor to help you find your feet.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">Do you have personal trainers?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Yes. Our trainers help members on the floor for free, and one to one sessions are available if you want a structured plan. See the <a href="/personal-training/">personal training page</a>.</p></div></div>
+            </div>
+          </div>
+
+          <div class="panel" id="cat-classes" role="tabpanel">
+            <div class="panel-title">Classes</div>
+            <p class="panel-sub">120 a week, included in every membership.</p>
+            <div class="group">
+              <div class="group-h">Group classes</div>
+              <div class="qa" aria-expanded="true"><button class="qa-q">Are classes included?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Yes. All 120 a week are included in every membership at no extra cost, on every plan.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">What classes do you run?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Our regular classes are Hyrox, Strength, HIIT, Boxing, Thai Fit, Booty, Legs, Bums &amp; Tums, Abs and Power Pilates. The timetable changes week to week, so see what is on this week on the <a href="/classes/">classes page</a>.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">Do I need to book?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Yes, in the free app, up to seven days ahead. If a class is full you can join the waitlist and you will be told if a space opens.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">Do classes cost extra?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>No. Classes are part of your membership, not a bolt-on and not a higher tier.</p></div></div>
+            </div>
+          </div>
+
+          <div class="panel" id="cat-location" role="tabpanel">
+            <div class="panel-title">Parking &amp; location</div>
+            <p class="panel-sub">Riverside Retail Park, Nottingham. Easy to reach, easy to park.</p>
+            <div class="group">
+              <div class="group-h">Getting here</div>
+              <div class="qa" aria-expanded="true"><button class="qa-q">Where is it?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Riverside Retail Park, Unit 3, NG2 1RU Nottingham, right next to B&amp;Q, Boots, JD Sports and Next.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">Is there free parking?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Yes. Free parking for up to 4 hours between 6am and 8:30pm, or 24 hours when you register your vehicle on-site. 650 spaces.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">How do I get there?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>The park sits just off the A52 and A453 and the Nottingham ring road, so it is a quick run from the city, Long Eaton, West Bridgford, Beeston and Clifton.</p></div></div>
+            </div>
+          </div>
+
+          <div class="panel" id="cat-visit" role="tabpanel">
+            <div class="panel-title">Coming to look round</div>
+            <p class="panel-sub">Have a proper look before you commit.</p>
+            <div class="group">
+              <div class="group-h">Visiting</div>
+              <div class="qa" aria-expanded="true"><button class="qa-q">Can I look round before I join?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Yes. No need to book. Come down, ask at the desk and someone will show you the floor, the studio and the changing rooms. No hard sell, we are not that sort of gym.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">Can I try the gym first?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Buy a &pound;9.99 day pass. One full day of access including classes, no membership and no joining fee. Join afterwards and we will not charge you twice for the same day.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">Do I have to join on the day?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Not at all. Come and look around with no obligation.</p></div></div>
+            </div>
+          </div>
+
+          <div class="panel" id="cat-contact" role="tabpanel">
+            <div class="panel-title">Contact</div>
+            <p class="panel-sub">Cannot find it here? A real person is on the other end.</p>
+            <div class="group">
+              <div class="group-h">Get in touch</div>
+              <div class="qa" aria-expanded="true"><button class="qa-q">How do I contact you?<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>Email <a href="mailto:info@basicgym.co.uk">info@basicgym.co.uk</a> and we will get back to you. Or just come in and ask at the desk.</p></div></div>
+              <div class="qa" aria-expanded="false"><button class="qa-q">My question is not answered here.<span class="ico"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="qa-a"><p>No problem, drop us a line at <a href="mailto:info@basicgym.co.uk">info@basicgym.co.uk</a> with your question and we will help you out.</p></div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="cant">
+        <div>
+          <h3>Can&rsquo;t find your question?</h3>
+          <p>Get in touch and we will help. Or come and look round the gym and ask us in person.</p>
+        </div>
+        <div class="actions">
+          <a class="contact-card" href="mailto:info@basicgym.co.uk">
+            <span class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></span>
+            <span><span class="t">Email us</span><span class="v">info@basicgym.co.uk</span></span>
+          </a>
+          <a class="btn btn-primary" href="/membership/" style="width:100%">See membership prices</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2 class="display">Big gym.<br>Basic price.</h2>
+      <p>From &pound;17.99 a month, every class included, and 650 free parking spaces.</p>
+      <a class="btn btn-dark" href="/membership/">See membership prices</a>
+      <div class="micro">Open now &middot; Riverside Retail Park, Nottingham NG2 1RU</div>
+    </div>
+  </section>
+
+  <div class="sticky-cta">
+    <div class="p">Membership <b>from &pound;17.99</b><small data-bg-when="live" hidden>Half price first month with SAVE50</small><small data-bg-when="closed">Every class included</small></div>
+    <a href="/membership/">Join now</a>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var scope=document.querySelector('.bg-faq'); if(!scope) return;
+  function setOpen(qa,open){
+    var ans=qa.querySelector('.qa-a');
+    qa.setAttribute('aria-expanded',open?'true':'false');
+    ans.style.maxHeight=open?(ans.scrollHeight+'px'):'0px';
+  }
+  function refresh(panel){
+    panel.querySelectorAll('.qa[aria-expanded="true"]').forEach(function(qa){
+      var a=qa.querySelector('.qa-a'); a.style.maxHeight=a.scrollHeight+'px';
+    });
+  }
+  var tabs=scope.querySelectorAll('.subj'), panels=scope.querySelectorAll('.panel');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click',function(){
+      var t=tab.getAttribute('data-target');
+      tabs.forEach(function(x){x.setAttribute('aria-selected',x===tab?'true':'false');});
+      panels.forEach(function(p){p.classList.toggle('is-active',p.id===t);});
+      var active=scope.querySelector('#'+t);
+      if(active){
+        refresh(active);
+        if(window.matchMedia('(max-width:900px)').matches){ active.scrollIntoView({behavior:'smooth',block:'start'}); }
+      }
+    });
+  });
+  scope.querySelectorAll('.qa').forEach(function(qa){
+    qa.querySelector('.qa-q').addEventListener('click',function(){
+      setOpen(qa,qa.getAttribute('aria-expanded')!=='true');
+    });
+  });
+  var first=scope.querySelector('.panel.is-active'); if(first) refresh(first);
+  window.addEventListener('resize',function(){
+    var v=scope.querySelector('.panel.is-active'); if(v) refresh(v);
+  });
+})();
+</script>

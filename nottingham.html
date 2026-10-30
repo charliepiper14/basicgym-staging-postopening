@@ -1,10 +1,42 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>STAGING · Nottingham · BasicGym Riverside</title>
+<script>window.BG_STAGING = true;</script>
+<link rel="stylesheet" href="staging.css">
+</head>
+<body>
+<div class="stg-bar"><b>Staging preview</b> <span>Not the live site. Join forms do not record anything.</span> <a href="review.html">What changed</a> <a href="?offer=off" class="stg-off">View with offer off</a></div>
 <!-- ============================================================
      BasicGym - NOTTINGHAM  (basicgym.co.uk/nottingham/)
-     Paste into ONE Elementor "HTML" widget (Canvas). Scoped under .bg-nott.
-     Footer = SEPARATE basicgym-footer-shared.html widget below.
+     30 Oct 2026, SAVE50 (replaces BACK26):
+       - every BACK26 / £5 block now sells SAVE50: 50% off the first month,
+         joining fee waived on the 12 month plans, £14.99 joining fee still
+         applies on the monthly plans, no offer on the day pass
+       - all "limited spaces / only 100" copy removed, no end date (R07 closed)
+       - needs the SAVE50 site-wide script (00-site-wide-offer-script.html)
 
-     Updated 25 August 2026 for post-opening pricing and the Back to Basic sale.
-     Requires bg-promo.js loaded site wide for the sale states.
+     Paste into ONE Elementor "HTML" widget (Canvas). Scoped under .bg-nott.
+     Footer = SEPARATE footer widget below.
+     Requires the SAVE50 offer script loaded site wide for the offer blocks.
+
+     Oct 2026 (Riaz's website changes, tracker refs in brackets):
+       - Open days and Refer a Friend removed from the nav (RA02, RA19)
+       - every Join now button goes to the plan choice on /membership/,
+         not straight to /join/ with no plan (W10)
+       - Come and look round button removed, walk-in note added (RA09)
+       - Unit 3 address added to Where to find us (RA14)
+       - 30 days' notice contract answer (RA15), new parking answer (RA16),
+         link to all FAQs (RA17)
+       - Loughborough removed from the 15 min line (W03)
+       - Long Eaton changing rooms line, parking lines, 24/7 on Plus and
+         Monthly (W21, W24, W09)
+       Not changed yet, waiting on Riaz: ratings and the Proven next door
+       section (R16, RA10, RA13), 120 classes a week (R04), 100 spaces (R07).
+       Section swap and zone slider (RA11, RA12) are new build, on hold.
      ============================================================ -->
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap');
@@ -115,6 +147,11 @@
 .bg-nott .routes{margin-top:18px;display:flex;flex-direction:column;gap:12px}
 .bg-nott .route{display:flex;gap:12px;align-items:center;font-size:15px}
 .bg-nott .route .tag{font-family:var(--font);font-weight:800;font-size:13px;color:var(--orange);border:1px solid rgba(255,102,0,0.4);border-radius:7px;padding:4px 9px;min-width:54px;text-align:center}
+.bg-nott .walkin{margin-top:22px;background:var(--cream);border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:12px;padding:16px 18px}
+.bg-nott .walkin h4{font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.02em}
+.bg-nott .walkin p{font-size:14.5px;color:var(--muted);margin-top:4px}
+.bg-nott .faq-more{margin-top:24px;font-size:15px;color:var(--muted)}
+.bg-nott .faq-more a{color:var(--orange-deep);font-weight:800;text-decoration:underline;text-underline-offset:3px}
 .bg-nott .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
 @media(max-width:760px){.bg-nott .faq-grid{grid-template-columns:1fr}}
 .bg-nott .faq-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px}
@@ -123,7 +160,7 @@
 .bg-nott .final{background:var(--orange);color:var(--ink);text-align:center;padding:80px 0}
 .bg-nott .final h2{font-size:clamp(32px,6.5vw,60px);margin-bottom:14px}
 .bg-nott .final p{font-size:17px;margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto}
-.bg-nott .final .micro{font-size:15px;margin-top:18px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#2a1500;opacity:1}
+.bg-nott .final .micro{font-size:15px;margin-top:18px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#2a1500}
 .bg-nott .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ink);border-top:1px solid var(--line-dark);padding:11px 16px;display:none;align-items:center;justify-content:space-between;gap:12px}
 .bg-nott .sticky-cta .p{font-size:13px;font-weight:700;line-height:1.2;color:#fff}
 .bg-nott .sticky-cta .p b{color:var(--orange)}
@@ -133,7 +170,6 @@
 .bg-nott .reveal{animation:bg-rise .6s ease both}
 @keyframes bg-rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.bg-nott .reveal{animation:none}.bg-nott .btn:hover,.bg-nott .gtile:hover img{transform:none}}
-@keyframes navdrop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 .bg-nott .nav{position:sticky;top:0;z-index:60;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08)}
 .bg-nott .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
 .bg-nott .nav .logo img{height:40px;width:auto}
@@ -153,11 +189,10 @@
 .bg-nott .nav .navdrop-top i{font-style:normal;font-size:11px}
 .bg-nott .nav .navdrop-menu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:#161616;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;min-width:212px;opacity:0;visibility:hidden;transition:.18s;box-shadow:0 22px 44px -18px rgba(0,0,0,.8);z-index:70}
 .bg-nott .nav .navdrop:hover .navdrop-menu,.bg-nott .nav .navdrop:focus-within .navdrop-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-.bg-nott .nav .navdrop-menu a{display:block;padding:10px 13px;border-radius:8px;color:#D6D6D8;font-weight:600;font-size:14px;border:0}
+.bg-nott .nav .navdrop-menu a{display:block;padding:10px 13px;border-radius:8px;color:#D6D6D8;font-weight:600;font-size:14px}
 .bg-nott .nav .navdrop-menu a:hover{background:#222;color:#fff}
 .bg-nott .sec--ink .kicker{color:var(--orange-bright)}
-.bg-nott .sec--ink .h2,.bg-nott .sec--ink h2{color:#fff}
-.bg-nott .sec--ink .lead{color:#cfcfcf}
+.bg-nott .sec--ink .h2{color:#fff}
 @media(max-width:860px){
   .bg-nott .nav .nav-cta-desktop{display:none}
   .bg-nott .nav .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08);padding:6px 20px 16px;box-shadow:0 22px 44px -22px rgba(0,0,0,.8)}
@@ -174,27 +209,9 @@
   .bg-nott .nav .nav-toggle:checked ~ .burger span:nth-child(2){opacity:0}
   .bg-nott .nav .nav-toggle:checked ~ .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 }
-/* --- Back to Basic sale states, added Aug 2026 --- */
-.bg-nott .salebar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:24px;border:1.5px solid var(--orange);background:#FFF3EA;border-radius:14px;padding:16px 20px}
-.bg-nott .salebar.shut{border-color:var(--line);background:var(--cream)}
-.bg-nott .salebar[hidden]{display:none}
-.bg-nott .salebar .lead-txt{font-size:15.5px;font-weight:800;color:var(--ink)}
-.bg-nott .salebar .lead-txt em{font-style:normal;color:var(--orange-deep)}
-.bg-nott .salebar .note{font-size:13.5px;color:var(--muted);font-weight:600;margin-top:3px}
-.bg-nott .salebar .clock{display:flex;gap:7px;margin-left:auto}
-.bg-nott .salebar .clock .u{text-align:center;min-width:46px}
-.bg-nott .salebar .clock b{display:block;font-size:22px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
-.bg-nott .salebar .clock i{display:block;font-style:normal;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px;font-weight:800}
-@media(max-width:700px){.bg-nott .salebar .clock{margin-left:0}}
-.bg-nott .hero .salebar{background:rgba(255,255,255,.07);border-color:rgba(255,122,26,.5)}
-.bg-nott .hero .salebar .lead-txt{color:#fff}
-.bg-nott .hero .salebar .lead-txt em{color:var(--orange-bright)}
-.bg-nott .hero .salebar .note{color:#BFBFC2}
-.bg-nott .hero .salebar .clock b{color:#fff}
-.bg-nott .hero .salebar .clock i{color:#9a9a9a}
 .bg-nott .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* --- Back to Basic offer block, added 26 Aug 2026 --- */
+/* --- offer block in the hero --- */
 .bg-nott .hero .wrap{position:relative}
 .bg-nott .offerblock{position:absolute;top:60px;right:22px;width:300px;z-index:4;text-align:center}
 .bg-nott .offerblock[hidden]{display:none}
@@ -212,46 +229,45 @@
   .bg-nott .fiver b{font-size:20px}.bg-nott .fiver .amt{font-size:90px}.bg-nott .fiver .code{font-size:15px}}
 @media(max-width:1040px){.bg-nott .offerblock{position:static;width:100%;max-width:290px;margin:30px 0 0;text-align:left}
   .bg-nott .fiver{margin:0}.bg-nott .offerblock .btn{width:auto;display:inline-flex}.bg-nott .offerblock .spaces{text-align:left}}
+.bg-nott .fiver .amt small{font-size:.42em;letter-spacing:0;vertical-align:top;line-height:1.25;margin-left:2px}
 </style>
 <div class="bg-nott">
-<nav class="nav">
+  <nav class="nav">
     <div class="wrap">
-      <a class="logo" href="index.html" aria-label="BasicGym"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
+      <a class="logo" href="index.html" aria-label="BasicGym"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
       <input type="checkbox" id="navtoggle" class="nav-toggle" aria-hidden="true">
       <div class="links">
         <a href="classes.html">Classes</a>
         <a href="nottingham.html" aria-current="page">Nottingham</a>
         <a href="membership.html">Membership</a>
-        <a href="open-day.html">Open days</a>
         <div class="navdrop">
-          <a class="navdrop-top" href="about-us.html">About us <i>&#9662;</i></a>
+          <a class="navdrop-top" href="https://basicgym.co.uk/about-us/">About us <i>&#9662;</i></a>
           <div class="navdrop-menu">
-            <a href="about-us.html">About us</a>
+            <a href="https://basicgym.co.uk/about-us/">About us</a>
             <a href="students.html">Students</a>
-            <a href="corporate-membership.html">Corporate Membership</a>
-            <a href="personal-training.html">Personal Training</a>
-            <a href="careers.html">Careers</a>
-            <a href="refer-a-friend.html">Refer a Friend</a>
+            <a href="https://basicgym.co.uk/corporate-membership/">Corporate Membership</a>
+            <a href="https://basicgym.co.uk/personal-training/">Personal Training</a>
+            <a href="https://basicgym.co.uk/careers/">Careers</a>
           </div>
         </div>
-        <a class="btn orange nav-link-cta" href="join.html" data-bg-join>Join now</a>
+        <a class="btn orange nav-link-cta" href="membership.html">Join now</a>
       </div>
-      <a class="btn orange nav-cta-desktop" href="join.html" data-bg-join>Join now</a>
+      <a class="btn orange nav-cta-desktop" href="membership.html">Join now</a>
       <label for="navtoggle" class="burger" aria-label="Open menu"><span></span><span></span><span></span></label>
     </div>
   </nav>
 
   <section class="hero">
-    <div class="hero-bg"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/f_auto,q_auto,w_1600/v1782298061/basicgymhero_iwhmp4.png" alt="BasicGym interior" fetchpriority="high"></div>
+    <div class="hero-bg"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/f_auto,q_auto,w_1600/v1782298061/basicgymhero_iwhmp4.png" alt="BasicGym interior" fetchpriority="high"></div>
     <div class="wrap">
       <div class="offerblock" data-bg-when="live" hidden>
         <div class="fiver">
           <b>1st month</b>
-          <span class="amt">&pound;5</span>
-          <span class="code">Use code<br>BACK26</span>
+          <span class="amt">50<small>%</small></span>
+          <span class="code">off with code<br><span data-bg-code>SAVE50</span></span>
         </div>
-        <a class="btn btn-primary" href="join.html" data-bg-join>Join now &rarr;</a>
-        <p class="spaces">Limited spaces &middot; only <b data-bg-spaces-total>100</b> available</p>
+        <a class="btn btn-primary" href="membership.html">Choose your plan &rarr;</a>
+        <p class="spaces"><b>No joining fee</b> on 12 month plans</p>
       </div>
       <div class="hero-inner">
         <span class="eyebrow"><span class="dot"></span>Nottingham Riverside &middot; Open now</span>
@@ -260,7 +276,6 @@
         </h1>
         <div class="cta-row">
           <a href="membership.html" class="btn btn-primary">See membership prices &rarr;</a>
-          <a href="open-day.html" class="btn btn-ghost">Come and look round</a>
         </div>
         <p class="fineprint">Four plans, off peak or 24/7, monthly rolling or 12 month. No contract on the monthly plans.</p>
         <div class="pills">
@@ -317,7 +332,7 @@
       <div class="kicker">A &pound;100 experience</div>
       <h2 class="h2 display">What&rsquo;s included</h2>
       <p class="lead">No-nonsense pricing, none of the no-nonsense feeling. You get premium kit and proper service, without the premium price tag.</p>
-      <div class="get-grid"><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></div><h4>Premium equipment</h4><p>Full strength, cardio, free-weight, functional and cable zones. Kit reset and maintained daily.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h4>120 classes a week</h4><p>Proper instructors leading proper classes, included in every membership at no extra cost.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div><h4>Showers &amp; changing rooms</h4><p>Clean, modern changing rooms kept to the same standard our Long Eaton members rate 5.0.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h4>Open 24/7</h4><p>Finish at 2am or start at 5am? On Plus, the gym fits your day, not the other way round.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg></div><h4>Actual hello service</h4><p>Staff who know your name and trainers who help you for free. That is the bit other gyms miss.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg></div><h4>650 free spaces</h4><p>Free on-site parking the moment you arrive. No app, no ticket, no charge.</p></div></div>
+      <div class="get-grid"><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></div><h4>Premium equipment</h4><p>Full strength, cardio, free-weight, functional and cable zones. Kit reset and maintained daily.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h4>120 classes a week</h4><p>Proper instructors leading proper classes, included in every membership at no extra cost.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div><h4>Showers &amp; changing rooms</h4><p>Clean, modern changing rooms with showers, kept spotless and reset daily.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h4>Open 24/7</h4><p>Finish at 2am or start at 5am? On Plus and Monthly, the gym fits your day, not the other way round.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg></div><h4>Actual hello service</h4><p>Staff who know your name and trainers who help you for free. That is the bit other gyms miss.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg></div><h4>650 parking spaces</h4><p>Free parking for up to 4 hours between 6am and 8:30pm, or 24 hours when you register your vehicle on-site.</p></div></div>
     </div>
   </section>
 
@@ -327,9 +342,9 @@
       <h2 class="h2 display">Every zone, one membership</h2>
       <p class="lead">A big, open-plan floor with everything you need and nothing you don&rsquo;t.</p>
       <div class="gym-grid">
-        <div class="gtile reveal"><img loading="lazy" src="https://res.cloudinary.com/dcnabm5nc/image/upload/c_fill,g_auto,ar_4:5,w_600,f_auto,q_auto/v1782298061/basicgymhero_iwhmp4.png" alt="Open-plan gym floor"><div class="cap"><div class="z">The floor</div><div class="d">Open-plan, 10,000 sq ft</div></div></div>
-        <div class="gtile reveal"><img loading="lazy" src="https://res.cloudinary.com/dcnabm5nc/image/upload/c_fill,g_auto,ar_4:5,w_600,f_auto,q_auto/v1782309600/basicgym-membership-freeweights_ibdxru.png" alt="Free weights"><div class="cap"><div class="z">Free weights</div><div class="d">Full dumbbell range, no queues</div></div></div>
-        <div class="gtile reveal"><img loading="lazy" src="https://res.cloudinary.com/dcnabm5nc/image/upload/c_fill,g_auto,ar_4:5,w_600,f_auto,q_auto/v1782309719/basic-gym-membership-cardiozone_jwnme1.png" alt="Cardio machines"><div class="cap"><div class="z">Cardio zone</div><div class="d">Rows of machines, always free</div></div></div>
+        <div class="gtile reveal"><img decoding="async" loading="lazy" src="https://res.cloudinary.com/dcnabm5nc/image/upload/c_fill,g_auto,ar_4:5,w_600,f_auto,q_auto/v1782298061/basicgymhero_iwhmp4.png" alt="Open-plan gym floor"><div class="cap"><div class="z">The floor</div><div class="d">Open-plan, 10,000 sq ft</div></div></div>
+        <div class="gtile reveal"><img decoding="async" loading="lazy" src="https://res.cloudinary.com/dcnabm5nc/image/upload/c_fill,g_auto,ar_4:5,w_600,f_auto,q_auto/v1782298987/basicgymfreeweights_hevkjg.png" alt="Free weights"><div class="cap"><div class="z">Free weights</div><div class="d">Full dumbbell range, no queues</div></div></div>
+        <div class="gtile reveal"><img decoding="async" loading="lazy" src="https://res.cloudinary.com/dcnabm5nc/image/upload/c_fill,g_auto,ar_4:5,w_600,f_auto,q_auto/v1782711546/basicgym-cardiov2_qm3vly.png" alt="Cardio machines"><div class="cap"><div class="z">Cardio zone</div><div class="d">Rows of machines, always free</div></div></div>
       </div>
     </div>
   </section>
@@ -340,7 +355,7 @@
         <div class="found-copy reveal">
           <div class="kicker">Membership</div>
           <h2 class="h2 display">Four plans.<br>No small print.</h2>
-          <p class="lead">Off Peak from &pound;17.99 a month on a 12 month term, or Plus at &pound;27.99 rolling with no contract. Every plan includes unlimited classes and 650 free parking spaces. Joining fee is shown in the price, not sprung on you at the checkout.</p>
+          <p class="lead">Off Peak from &pound;17.99 a month on a 12 month term, or Monthly at &pound;27.99 rolling with no contract. Every plan includes unlimited classes and 650 free parking spaces. Joining fee is shown in the price, not sprung on you at the checkout.</p>
           <p style="margin-top:16px;font-weight:700"><b>Day pass &pound;9.99 if you just want a look at it first.</b></p>
         </div>
         <div class="price-card reveal">
@@ -348,8 +363,8 @@
           <div class="amt">&pound;17.99<small>/mo</small></div>
           <div class="then">every class included, 650 free parking spaces</div>
           <a href="membership.html" class="btn btn-dark">See all four plans</a>
-          <div class="note" data-bg-when="live" hidden>Code BACK26 for a &pound;5 first month, limited spaces</div>
-          <div class="note" data-bg-when="closed" hidden>Ask at the club for current offers</div>
+          <div class="note" data-bg-when="live" hidden>Code <b data-bg-code>SAVE50</b> for half price on your first month</div>
+          <div class="note" data-bg-when="closed" hidden>Standard prices, from &pound;17.99 a month</div>
         </div>
       </div>
     </div>
@@ -383,12 +398,16 @@
       <h2 class="h2 display">Riverside Retail Park, Nottingham</h2>
       <div class="loc-grid">
         <div class="reveal">
-          <p class="lead">You will find us alongside the big-name stores at Riverside, with free on-site parking right at the door.</p>
+          <p class="lead">You will find us at Riverside Retail Park, Unit 3, NG2 1RU Nottingham, alongside the big-name stores, with free on-site parking right at the door.</p>
           <div class="routes">
             <div class="route"><span class="tag">A52</span> Straight off Clifton Boulevard and the ring road</div>
             <div class="route"><span class="tag">A453</span> Quick from Clifton, Wilford and the south of the city</div>
-            <div class="route"><span class="tag">15 min</span> From West Bridgford, Beeston, Long Eaton and Loughborough</div>
-            <div class="route"><span class="tag">P</span> 650 free parking spaces, no charge</div>
+            <div class="route"><span class="tag">15 min</span> From West Bridgford, Beeston and Long Eaton</div>
+            <div class="route"><span class="tag">P</span> 650 spaces, free for up to 4 hours (6am to 8:30pm), or 24 hours when you register your vehicle on-site</div>
+          </div>
+          <div class="walkin">
+            <h4>Want a look first?</h4>
+            <p>No need to book. Come down, ask at the desk, and someone will show you round the floor, the studio and the changing rooms. No obligation to join.</p>
           </div>
           <div class="cta-row">
             <a href="membership.html" class="btn btn-primary">See membership prices &rarr;</a>
@@ -407,27 +426,28 @@
       <h2 class="h2 display">Quick answers</h2>
       <div class="faq-grid">
         <div class="faq-card"><h4>How much is it?</h4><p>Four plans. Off Peak &pound;17.99 and Plus &pound;24.99 on a 12 month term, Off Peak &pound;21.99 and Monthly &pound;27.99 rolling. Joining fee is &pound;9.99 on the 12 month plans and &pound;14.99 on monthly, charged once.</p></div>
-        <div class="faq-card"><h4>Is there a contract?</h4><p>Not on the monthly plans, they roll on and you can cancel any time. The 12 month plans run for 12 months, which is why they cost less.</p></div>
-        <div class="faq-card"><h4>What does off peak mean?</h4><p>The Off Peak plans give you the gym between 10am and 4pm. Plus gives you 24 hour access. Classes are unlimited on every plan.</p></div>
+        <div class="faq-card"><h4>Is there a contract?</h4><p>Not on the monthly plans. They roll on automatically, and you can cancel whenever you like with 30 days&rsquo; notice. Our 12 month plans are fixed for 12 months, which is why they come at a lower monthly price.</p></div>
+        <div class="faq-card"><h4>What does off peak mean?</h4><p>The Off Peak plans give you the gym between 10am and 4pm. Plus and Monthly give you 24 hour access. Classes are unlimited on every plan.</p></div>
         <div class="faq-card"><h4>What&rsquo;s included?</h4><p>Every zone, 120 classes a week, showers and changing rooms, and 650 free parking spaces.</p></div>
-        <div class="faq-card"><h4>Is parking free?</h4><p>Completely free. 650 spaces, no app, no ticket and no charge to park.</p></div>
-        <div class="faq-card"><h4>Can I try before joining?</h4><p>Two ways. A &pound;9.99 day pass, or book a look round and someone will show you the place.</p></div>
+        <div class="faq-card"><h4>Is parking free?</h4><p>Free parking for up to 4 hours between 6am and 8:30pm, or 24 hours when you register your vehicle on-site. 650 spaces.</p></div>
+        <div class="faq-card"><h4>Can I try before joining?</h4><p>Two ways. A &pound;9.99 day pass, or just walk in and ask for a look round.</p></div>
       </div>
+      <p class="faq-more">Or view <a href="faqs.html">all our FAQs</a>.</p>
     </div>
   </section>
 
   <section class="final">
     <div class="wrap">
       <h2 class="display">Open now at Riverside.</h2>
-      <p>Four plans from &pound;17.99 a month, every class included, and 650 free parking spaces.</p>
+      <p>From &pound;17.99 a month, every class included, and 650 free parking spaces.</p>
       <a class="btn btn-dark" href="membership.html">See membership prices</a>
       <div class="micro">Open 24/7 &middot; Riverside Retail Park, Nottingham NG2 1RU</div>
     </div>
   </section>
 
   <div class="sticky-cta">
-    <div class="p">Membership <b>from &pound;17.99</b><small>Every class included &middot; 650 free spaces</small></div>
-    <a href="join.html" data-bg-join>Join now</a>
+    <div class="p">Membership <b>from &pound;17.99</b><small data-bg-when="live" hidden>Half price first month with SAVE50</small><small data-bg-when="closed">Every class included &middot; 650 free spaces</small></div>
+    <a href="membership.html">Join now</a>
   </div>
 
 </div>
@@ -453,20 +473,21 @@
   color:var(--orange);margin-bottom:22px}
 .bg-ftr .foot-col a,.bg-ftr .foot-col p{display:block;font-size:16px;color:#D6D6D8;margin-bottom:18px;font-weight:500}
 .bg-ftr .foot-col a:hover{color:#fff}
-.bg-ftr .foot-contact p{color:#9a9a9a}
+.bg-ftr .foot-contact .addr{color:#9a9a9a;line-height:1.5}
 .bg-ftr .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 22px;
   padding:22px 0 28px;margin-top:40px;border-top:1px solid var(--line-dark);font-size:14.5px;color:#9a9a9a}
 @media(max-width:900px){.bg-ftr .foot-top{grid-template-columns:1fr 1fr;gap:34px 20px}.bg-ftr .foot-brand{grid-column:1 / -1}}
-@media(max-width:560px){.bg-ftr .foot-top{grid-template-columns:1fr;gap:30px}.bg-ftr{padding-top:52px}}
+@media(max-width:560px){.bg-ftr .foot-top{grid-template-columns:1fr;gap:30px}.bg-ftr{padding-top:52px}
+  .bg-ftr .foot-bottom{padding-bottom:90px}}
 </style>
   <div class="wrap">
     <div class="foot-top">
 
       <div class="foot-brand">
-        <a class="logo" href="index.html" aria-label="BasicGym"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
-        <p class="foot-tag">A premium gym at a basic price. Long Eaton &amp; Riverside, Nottingham.</p>
+        <a class="logo" href="index.html" aria-label="BasicGym"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
+        <p class="foot-tag">A premium gym at a basic price. Riverside Retail Park, Nottingham.</p>
         <div class="socials">
-          <a href="https://www.facebook.com/Basicgym.uk" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6A22 22 0 0 0 14.3 3.5c-2.4 0-4 1.45-4 4.1v2.3H7.6V13h2.7v8z"/></svg></a>
+          <a href="https://www.facebook.com/people/Basicgymuk/61561127232205/" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6A22 22 0 0 0 14.3 3.5c-2.4 0-4 1.45-4 4.1v2.3H7.6V13h2.7v8z"/></svg></a>
           <a href="https://www.instagram.com/basicgym.uk/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.2A6.6 6.6 0 1 0 18.6 12 6.6 6.6 0 0 0 12 5.4zm0 10.9A4.3 4.3 0 1 1 16.3 12 4.3 4.3 0 0 1 12 16.3zm6.9-11.1a1.5 1.5 0 1 1-1.5-1.5 1.5 1.5 0 0 1 1.5 1.5z"/></svg></a>
           <a href="https://www.tiktok.com/@basicgym.uk" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.8a4.8 4.8 0 0 1-1.1-2.8h-3v12.1a2.5 2.5 0 1 1-2.5-2.5 2.6 2.6 0 0 1 .7.1V9.6a5.6 5.6 0 0 0-.7 0 5.6 5.6 0 1 0 5.6 5.6V9a7.8 7.8 0 0 0 4.4 1.4V7.3a4.7 4.7 0 0 1-3.4-1.5z"/></svg></a>
         </div>
@@ -475,37 +496,37 @@
       <div class="foot-col">
         <h4>More info</h4>
         <a href="index.html">Home</a>
+        <a href="membership.html">Membership</a>
+        <a href="classes.html">Classes</a>
         <a href="students.html">Students</a>
-        <a href="corporate-membership.html">Corporate Membership</a>
-        <a href="personal-training.html">Personal Training</a>
-        <a href="careers.html">Careers</a>
-        <a href="refer-a-friend.html">Refer a Friend</a>
-        <a href="about-us.html">About us</a>
+        <a href="https://basicgym.co.uk/corporate-membership/">Corporate Membership</a>
+        <a href="https://basicgym.co.uk/personal-training/">Personal Training</a>
+        <a href="icons.html">Basic Icons</a>
       </div>
 
       <div class="foot-col">
         <h4>Support</h4>
         <a href="faqs.html">FAQs</a>
-        <a href="club-rules.html">Club Rules</a>
-        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="promotion-terms.html">Promotion Terms</a>
+        <a href="https://basicgym.co.uk/about-us/">About us</a>
+        <a href="https://basicgym.co.uk/careers/">Careers</a>
+        <a href="https://basicgym.co.uk/club-rules/">Club Rules</a>
+        <a href="https://basicgym.co.uk/privacy-policy/">Privacy Policy</a>
       </div>
 
       <div class="foot-col foot-contact">
         <h4>Contact</h4>
         <a href="mailto:info@basicgym.co.uk">info@basicgym.co.uk</a>
-        <a href="https://maps.google.com/?q=Riverside+Retail+Park+Nottingham+NG2+1RU" target="_blank" rel="noopener">Gym Nottingham Riverside Retail Park</a>
-        <a href="https://maps.google.com/?q=Basic+Gym+Long+Eaton+Nottingham" target="_blank" rel="noopener">Gym Long Eaton Nottingham</a>
+        <a class="addr" href="https://maps.google.com/?q=Basic+Gym+Unit+3+Riverside+Retail+Park+Nottingham+NG2+1RU" target="_blank" rel="noopener">Basic Gym Riverside<br>Unit 3, Riverside Retail Park<br>Nottingham NG2 1RU</a>
       </div>
 
     </div>
 
     <div class="foot-bottom">
       <p>&copy; 2026 BasicGym. All rights reserved.</p>
-      <p>Riverside &middot; Open 24/7</p>
+      <p>Riverside Retail Park, Nottingham &middot; Open 24/7</p>
     </div>
   </div>
 </footer>
-
-<script src="bg-promo.js"></script>
+<script src="bg-offer.js"></script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!-- ============================================================
+     BasicGym - JOIN  (basicgym.co.uk/join/)
+     30 Oct 2026, SAVE50 (replaces BACK26):
+       - every BACK26 / £5 block now sells SAVE50: 50% off the first month,
+         joining fee waived on the 12 month plans, £14.99 joining fee still
+         applies on the monthly plans, no offer on the day pass
+       - all "limited spaces / only 100" copy removed, no end date (R07 closed)
+       - needs the SAVE50 site-wide script (00-site-wide-offer-script.html)
+       - offer field sent to the sheet is now SAVE50 (or "none" if the
+         offer is switched off). Endpoint and product IDs unchanged.
+       - Lead value is now the plan's first payment with SAVE50, was 5
+       - window.BG_STAGING (staging preview only) skips the sheet and pixel
+
+     Paste into ONE Elementor "HTML" widget (Canvas). Scoped under .bg-join.
+     Footer = SEPARATE footer widget below.
+
+     FORM WIRING, unchanged and verified against the Apps Script:
+       ENDPOINT   live /exec URL
+       fields     first_name, last_name, email, phone
+       extras     event_id, source, offer, plan, page, ts
+       transport  sendBeacon(FormData) with fetch no-cors fallback
+
+     PLAN ROUTING, product IDs from Beth 27 Aug 2026:
+       year-offpeak 16209   Off Peak 12 month   17.99
+       year-plus    16211   Plus 12 month       24.99
+       month-start  16210   Off Peak monthly    21.99
+       month-plus   14357   Monthly             27.99
+       daypass      16208   Day pass             9.99
+     These will not resolve until Beth makes the options live.
+
+     Updated 27 Aug 2026: form first on mobile.
+
+     Oct 2026 (Riaz's website changes, tracker refs in brackets), copy only:
+       - Open days and Refer a Friend removed from the nav (RA02, RA19),
+         nav button reads Join now, to the plans
+       - cancellation to 30 days' notice in the hero and under the form (W23)
+       - Long Eaton line replaced (W21)
+       - 24/7 on Plus and Monthly (W09)
+       Not changed yet, waiting on Riaz: ratings (R16), 120 classes (R04),
+       100 spaces (R07).
+       Form fields, IDs, endpoint, product IDs and the script are byte for
+       byte the September version. Do not retype the endpoint.
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap');
+.bg-join{--white:#FFFFFF;--cream:#F5F4F0;--ink:#0E0E0E;--orange:#FF6600;--orange-bright:#FF7A1A;--orange-deep:#CC5200;--muted:#565659;--muted-dark:#A9A9AE;--line:#E7E5E0;--line-dark:#262629;--font:'Cooper Hewitt','Hanken Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-family:var(--font);}
+.bg-join *{box-sizing:border-box;margin:0;padding:0}
+.bg-join{background:var(--white);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-join .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.bg-join .display{font-family:var(--font);font-weight:900;letter-spacing:-0.015em;text-transform:uppercase;line-height:0.95}
+.bg-join .orange{color:var(--orange)}
+.bg-join a{color:inherit;text-decoration:none}
+.bg-join img{max-width:100%;display:block}
+.bg-join svg{display:block}
+.bg-join .sec{padding:56px 0 64px}
+.bg-join .kicker{font-size:12.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+.bg-join .h2{font-size:clamp(24px,4vw,36px);margin-top:12px}
+.bg-join .lead{color:var(--muted);font-size:16.5px;margin-top:14px;max-width:560px}
+.bg-join .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:15px;padding:15px 26px;border-radius:8px;text-transform:uppercase;letter-spacing:0.02em;transition:transform .12s ease,background .15s ease,border-color .15s ease}
+.bg-join .btn-primary{background:var(--orange);color:#fff}
+.bg-join .btn-primary:hover{background:var(--orange-deep);transform:translateY(-1px)}
+.bg-join .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.4)}
+.bg-join .btn-ghost:hover{border-color:#fff}
+.bg-join .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
+.bg-join .hero{position:relative;color:#fff;overflow:hidden;background:var(--ink)}
+.bg-join .hero-bg{position:absolute;inset:0;z-index:0}
+.bg-join .hero-bg img{width:100%;height:100%;object-fit:cover}
+.bg-join .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,14,14,0.94) 0%,rgba(14,14,14,0.80) 42%,rgba(14,14,14,0.45) 100%)}
+.bg-join .hero-inner{position:relative;z-index:1;padding:64px 0 44px;max-width:660px}
+.bg-join .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange)}
+.bg-join .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.bg-join .hero h1{font-size:clamp(32px,5.6vw,58px);margin:16px 0 0}
+.bg-join .hero h1 .sub{display:block;font-family:var(--font);font-weight:600;text-transform:none;letter-spacing:-0.01em;font-size:clamp(16px,2.2vw,21px);line-height:1.3;margin-top:16px;color:#EDEDED;max-width:540px}
+.bg-join .pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.bg-join .pill{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:30px;padding:8px 13px}
+.bg-join .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.bg-join .pill .stars{color:var(--orange);letter-spacing:1px}
+.bg-join .nav{position:sticky;top:0;z-index:60;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08)}
+.bg-join .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.bg-join .nav .logo img{height:40px;width:auto}
+.bg-join .nav .links{display:flex;align-items:center;gap:26px}
+.bg-join .nav .links a{color:#e7e7e7;font-weight:700;font-size:14px}
+.bg-join .nav .links a:hover{color:var(--orange-bright)}
+.bg-join .btn.orange{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(255,102,0,.34);border-radius:12px}
+.bg-join .btn.orange:hover{background:var(--orange-deep)}
+.bg-join .nav .btn{padding:11px 18px;font-size:13px}
+.bg-join .nav .nav-toggle{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.bg-join .nav .burger{display:none}
+.bg-join .nav .links .nav-link-cta{display:none}
+.bg-join .nav .navdrop{position:relative;display:flex;align-items:center}
+.bg-join .nav .navdrop-top{display:inline-flex;align-items:center;gap:6px;color:#e7e7e7;font-weight:700;font-size:14px;cursor:pointer}
+.bg-join .nav .navdrop-top:hover{color:var(--orange-bright)}
+.bg-join .nav .navdrop-top i{font-style:normal;font-size:11px}
+.bg-join .nav .navdrop-menu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:#161616;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;min-width:212px;opacity:0;visibility:hidden;transition:.18s;box-shadow:0 22px 44px -18px rgba(0,0,0,.8);z-index:70}
+.bg-join .nav .navdrop:hover .navdrop-menu,.bg-join .nav .navdrop:focus-within .navdrop-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.bg-join .nav .navdrop-menu a{display:block;padding:10px 13px;border-radius:8px;color:#D6D6D8;font-weight:600;font-size:14px}
+.bg-join .nav .navdrop-menu a:hover{background:#222;color:#fff}
+@media(max-width:860px){
+  .bg-join .nav .nav-cta-desktop{display:none}
+  .bg-join .nav .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08);padding:6px 20px 16px;box-shadow:0 22px 44px -22px rgba(0,0,0,.8)}
+  .bg-join .nav .nav-toggle:checked ~ .links{display:flex}
+  .bg-join .nav .burger{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;cursor:pointer;margin-right:-9px}
+  .bg-join .nav .burger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+  .bg-join .nav .links a{padding:14px 2px;font-size:15px;border-bottom:1px solid rgba(255,255,255,.07);color:#e7e7e7}
+  .bg-join .nav .links .nav-link-cta{display:flex;margin-top:12px;padding:14px;border-bottom:0;justify-content:center}
+  .bg-join .nav .navdrop{flex-direction:column;align-items:stretch}
+  .bg-join .nav .navdrop-top{padding:14px 2px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .bg-join .nav .navdrop-menu{position:static;opacity:1;visibility:visible;transform:none;background:transparent;border:0;box-shadow:none;padding:2px 0 0 14px;min-width:0}
+  .bg-join .nav .navdrop-menu a{padding:10px 2px;font-size:14px;color:#bdbdbd}
+  .bg-join .nav .nav-toggle:checked ~ .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .bg-join .nav .nav-toggle:checked ~ .burger span:nth-child(2){opacity:0}
+  .bg-join .nav .nav-toggle:checked ~ .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+.bg-join .grid2{display:grid;grid-template-columns:1fr 0.92fr;gap:44px;align-items:start}
+/* MOBILE: form first, everything else after */
+@media(max-width:900px){
+  .bg-join .grid2{display:flex;flex-direction:column;gap:30px}
+  .bg-join .formcard{order:1}
+  .bg-join .sidecol{order:2}
+}
+.bg-join .ticks{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:13px}
+.bg-join .ticks li{display:flex;gap:11px;align-items:flex-start;font-size:15.5px;font-weight:600}
+.bg-join .ticks .mk{flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:rgba(255,102,0,.12);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.bg-join .ticks .mk svg{width:13px;height:13px;stroke:var(--orange);fill:none;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round}
+.bg-join .plangrid{margin-top:26px;background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.bg-join .plangrid .row{display:flex;justify-content:space-between;gap:14px;font-size:15px;padding:10px 0;border-bottom:1px solid var(--line);color:var(--muted);font-weight:600}
+.bg-join .plangrid .row:last-child{border-bottom:0}
+.bg-join .plangrid .row b{color:var(--ink);font-weight:900}
+.bg-join .plangrid .row.is-chosen{color:var(--orange-deep)}
+.bg-join .plangrid .row.is-chosen b{color:var(--orange-deep)}
+.bg-join .foot-note{margin-top:16px;font-size:13.5px;line-height:1.55;color:var(--muted);font-weight:600}
+.bg-join .foot-note a{color:var(--orange-deep);font-weight:800}
+.bg-join .formcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 24px 60px -34px rgba(0,0,0,.4);position:sticky;top:84px}
+@media(max-width:900px){.bg-join .formcard{position:static;padding:24px 20px}}
+.bg-join .fhead{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:20px}
+.bg-join .ftag{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--orange-deep)}
+.bg-join .fprice{font-weight:900;font-size:38px;line-height:1;margin-top:6px}
+.bg-join .fprice small{font-size:15px;font-weight:700;color:var(--muted)}
+.bg-join .fthen{font-size:13px;color:var(--muted);font-weight:600;margin-top:6px}
+.bg-join .codebar{border:1.5px solid var(--orange);background:#FFF6F0;border-radius:12px;padding:14px 16px;margin-bottom:20px;font-size:14.5px;line-height:1.5;font-weight:600}
+.bg-join .codebar b{color:var(--orange-deep)}
+.bg-join .codebar[hidden]{display:none}
+.bg-join .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:420px){.bg-join .row2{grid-template-columns:1fr}}
+.bg-join .field{margin-bottom:14px}
+.bg-join .field label{display:block;font-size:12.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:6px}
+.bg-join .field input{width:100%;background:#fff;border:1.5px solid var(--line);border-radius:10px;color:var(--ink);font:500 16px/1.3 var(--font);padding:14px 14px;-webkit-appearance:none;appearance:none;transition:border-color .15s ease,box-shadow .15s ease}
+.bg-join .field input::placeholder{color:#A9A9AE}
+.bg-join .field input:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,102,0,.14)}
+.bg-join .submit{width:100%;background:var(--orange);color:#fff;border:0;border-radius:12px;font:900 17px var(--font);text-transform:uppercase;letter-spacing:.02em;padding:18px 20px;cursor:pointer;margin-top:6px;box-shadow:0 12px 28px rgba(255,102,0,.32);transition:background .15s ease,transform .12s ease}
+.bg-join .submit:hover{background:var(--orange-deep);transform:translateY(-1px)}
+.bg-join .submit[disabled]{opacity:.6;cursor:default;transform:none}
+.bg-join .err{display:none;margin-top:12px;font-size:13.5px;font-weight:700;color:#D7443E}
+.bg-join .err.show{display:block}
+.bg-join .trust-line{margin-top:16px;font-size:12.5px;line-height:1.6;color:var(--muted);font-weight:600;text-align:center}
+.bg-join .trust-line b{color:var(--ink)}
+.bg-join .changeplan{display:block;margin-top:10px;text-align:center;font-size:13px;font-weight:800;color:var(--orange-deep);text-transform:uppercase;letter-spacing:.03em}
+</style>
+<div class="bg-join">
+  <nav class="nav">
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="BasicGym"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
+      <input type="checkbox" id="navtoggle" class="nav-toggle" aria-hidden="true">
+      <div class="links">
+        <a href="/classes/">Classes</a>
+        <a href="/nottingham/">Nottingham</a>
+        <a href="/membership/">Membership</a>
+        <div class="navdrop">
+          <a class="navdrop-top" href="/about-us/">About us <i>&#9662;</i></a>
+          <div class="navdrop-menu">
+            <a href="/about-us/">About us</a>
+            <a href="/students/">Students</a>
+            <a href="/corporate-membership/">Corporate Membership</a>
+            <a href="/personal-training/">Personal Training</a>
+            <a href="/careers/">Careers</a>
+          </div>
+        </div>
+        <a class="btn orange nav-link-cta" href="/membership/">Join now</a>
+      </div>
+      <a class="btn orange nav-cta-desktop" href="/membership/">Join now</a>
+      <label for="navtoggle" class="burger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/f_auto,q_auto,w_1600/v1782655680/basicgym-peaksession_a81yxn.png" alt="BasicGym interior" fetchpriority="high"></div>
+    <div class="wrap">
+      <div class="hero-inner">
+        <span class="eyebrow"><span class="dot"></span>Join &middot; Riverside Retail Park, Nottingham</span>
+        <h1 class="display">Two minutes,<br><span class="orange">then you are in.</span>
+          <span class="sub">Enter your details, then set up your Direct Debit on the secure checkout. Monthly plans have no contract and you can cancel with 30 days&rsquo; notice.</span>
+        </h1>
+        <div class="pills">
+          <span class="pill"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 from 101 reviews</span>
+          <span class="pill"><span class="dot"></span> Open 24/7 on Plus &amp; Monthly</span>
+          <span class="pill"><span class="dot"></span> 650 free parking</span>
+          <span class="pill"><span class="dot"></span> 120 classes a week</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="grid2">
+
+        <div class="formcard" id="join-form">
+          <div class="fhead">
+            <div class="ftag" id="planTag">Membership</div>
+            <div class="fprice" id="planPrice">&pound;17.99<small> a month and up</small></div>
+            <div class="fthen" id="planThen">Four plans &middot; no contract on monthly &middot; every class included</div>
+          </div>
+
+          <div class="codebar" id="offerBar" data-bg-when="live" hidden>Enter code <b data-bg-code>SAVE50</b> at the checkout and your first month is half price. On the 12 month plans the joining fee is waived too.</div>
+          <div class="codebar" data-bg-when="closed" hidden>Standard prices apply right now.</div>
+
+          <form id="bgJoinForm" novalidate>
+            <div class="row2">
+              <div class="field">
+                <label for="fname">First name</label>
+                <input id="fname" name="first_name" type="text" autocomplete="given-name" required placeholder="Jane">
+              </div>
+              <div class="field">
+                <label for="lname">Last name</label>
+                <input id="lname" name="last_name" type="text" autocomplete="family-name" required placeholder="Smith">
+              </div>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required placeholder="jane@email.com">
+            </div>
+            <div class="field">
+              <label for="phone">Mobile</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="07123 456789">
+            </div>
+            <button class="submit" type="submit" id="bgSubmit">Continue to secure sign-up &rarr;</button>
+            <div class="err" id="bgErr">Please fill in all fields correctly.</div>
+            <a class="changeplan" href="/membership/">Change plan</a>
+            <div class="trust-line">
+              Secure Direct Debit set-up on the next step.<br>
+              <b>No contract on the monthly plans.</b> Cancel with 30 days&rsquo; notice.
+            </div>
+          </form>
+        </div>
+
+        <div class="sidecol">
+          <div class="kicker">What you get</div>
+          <h2 class="h2 display">Everything, on every plan.</h2>
+          <p class="lead">No upsells, no add-ons. Whichever plan you pick you get the full gym and the service that comes with it.</p>
+          <ul class="ticks">
+            <li><span class="mk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> 120 classes a week, all included</li>
+            <li><span class="mk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Every training zone, 10,000 sq ft</li>
+            <li><span class="mk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> 650 free parking spaces on site</li>
+            <li><span class="mk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> 24 hour access on Plus and Monthly</li>
+            <li><span class="mk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> No contract on the monthly plans</li>
+          </ul>
+          <div class="plangrid">
+            <div class="row" data-plan-row="year-offpeak"><span>Off Peak &middot; 12 month</span><b>&pound;17.99</b></div>
+            <div class="row" data-plan-row="year-plus"><span>Plus &middot; 12 month</span><b>&pound;24.99</b></div>
+            <div class="row" data-plan-row="month-start"><span>Off Peak &middot; monthly</span><b>&pound;21.99</b></div>
+            <div class="row" data-plan-row="month-plus"><span>Monthly</span><b>&pound;27.99</b></div>
+            <div class="row" data-plan-row="daypass"><span>Day pass</span><b>&pound;9.99</b></div>
+          </div>
+          <p class="foot-note">Joining fee &pound;9.99 on the 12 month plans and &pound;14.99 on the monthly plans, charged once. Full breakdown on the <a href="/membership/">membership page</a>.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbznguxLqFGd3aGD3RvDIKjVDKpfNTzeouIRYnvd7yAGTThRVT_9lLDXrXcmoFqXaBo/exec';
+  var BASE = 'https://secure.ashbournemanagement.co.uk/signup/membership?ownerGroup=GREN2&branchID=1684&ProductListID=';
+
+  /* plan key from the membership page -> Ashbourne product + card copy */
+  var PLANS = {
+    'year-offpeak': { id:'16209', name:'Off Peak &middot; 12 month', price:'&pound;17.99', then:'12 month term &middot; &pound;9.99 joining fee &middot; gym 10am to 4pm',
+                      today:9.00,  offer:'Your first month is <b>&pound;9.00</b> instead of &pound;17.99, and there is no joining fee.' },
+    'year-plus'   : { id:'16211', name:'Plus &middot; 12 month',     price:'&pound;24.99', then:'12 month term &middot; &pound;9.99 joining fee &middot; 24/7 access',
+                      today:12.50, offer:'Your first month is <b>&pound;12.50</b> instead of &pound;24.99, and there is no joining fee.' },
+    'month-start' : { id:'16210', name:'Off Peak &middot; monthly',  price:'&pound;21.99', then:'1 month rolling &middot; &pound;14.99 joining fee &middot; gym 10am to 4pm',
+                      today:25.99, offer:'Your first month is <b>&pound;11.00</b> instead of &pound;21.99. The &pound;14.99 joining fee still applies.' },
+    'month-plus'  : { id:'14357', name:'Monthly',                    price:'&pound;27.99', then:'1 month rolling &middot; &pound;14.99 joining fee &middot; 24/7 access',
+                      today:28.99, offer:'Your first month is <b>&pound;14.00</b> instead of &pound;27.99. The &pound;14.99 joining fee still applies.' },
+    'daypass'     : { id:'16208', name:'Day pass',                   price:'&pound;9.99',  then:'One day access &middot; no joining fee &middot; no membership',
+                      today:9.99,  offer:null }
+  };
+
+  var raw  = new URLSearchParams(location.search).get('plan');
+  var plan = (raw && PLANS[raw]) ? raw : null;
+  var cfg  = plan ? PLANS[plan] : null;
+  var ASH  = BASE + (cfg ? cfg.id : PLANS['month-plus'].id);
+
+  /* reflect the chosen plan in the form card and highlight it in the list */
+  if (cfg) {
+    var tag = document.getElementById('planTag');
+    var pr  = document.getElementById('planPrice');
+    var th  = document.getElementById('planThen');
+    if (tag) tag.innerHTML = cfg.name;
+    if (pr)  pr.innerHTML  = cfg.price + '<small> a month</small>';
+    if (th)  th.innerHTML  = cfg.then;
+    var row = document.querySelector('[data-plan-row="' + plan + '"]');
+    if (row) row.classList.add('is-chosen');
+
+    /* SAVE50: plan specific offer line, or no offer bar on the day pass */
+    var bar = document.getElementById('offerBar');
+    if (bar && cfg.offer) {
+      bar.innerHTML = 'Enter code <b data-bg-code>SAVE50</b> at the checkout. ' + cfg.offer;
+    } else if (bar) {
+      bar.setAttribute('data-bg-when', 'never');
+      bar.hidden = true;
+    }
+  }
+
+  var form = document.getElementById('bgJoinForm');
+  if (!form) return;
+  var btn = document.getElementById('bgSubmit');
+  var err = document.getElementById('bgErr');
+
+  function eventID() {
+    return 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    err.classList.remove('show');
+    if (!form.checkValidity()) { err.classList.add('show'); return; }
+
+    btn.disabled = true;
+    btn.textContent = 'One moment...';
+
+    var eid = eventID();
+    var fd = new FormData(form);
+    fd.append('event_id', eid);
+    fd.append('source', 'capture-first-join');
+    fd.append('offer', (window.BGPromo && window.BGPromo.live) ? window.BGPromo.code : 'none');
+    fd.append('plan', plan || 'not-set');
+    fd.append('page', location.href);
+    fd.append('ts', new Date().toISOString());
+
+    /* staging preview: never write test leads to the live sheet or the pixel */
+    if (window.BG_STAGING) { setTimeout(function () { window.location.href = ASH; }, 350); return; }
+
+    try {
+      if (navigator.sendBeacon) { navigator.sendBeacon(ENDPOINT, fd); }
+      else { fetch(ENDPOINT, { method:'POST', body:fd, mode:'no-cors', keepalive:true }); }
+    } catch (e2) {}
+
+    try {
+      if (typeof fbq === 'function') { fbq('track','Lead',{ value:(cfg ? cfg.today : 9), currency:'GBP' },{ eventID:eid }); }
+    } catch (e3) {}
+
+    try {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event:'bg_capture_lead', event_id:eid, plan:plan||'not-set', value:(cfg ? cfg.today : 9), currency:'GBP' });
+    } catch (e4) {}
+
+    setTimeout(function () { window.location.href = ASH; }, 350);
+  });
+})();
+</script>

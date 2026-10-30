@@ -1,14 +1,49 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>STAGING · Home · BasicGym Riverside</title>
+<script>window.BG_STAGING = true;</script>
+<link rel="stylesheet" href="staging.css">
+</head>
+<body>
+<div class="stg-bar"><b>Staging preview</b> <span>Not the live site. Join forms do not record anything.</span> <a href="review.html">What changed</a> <a href="?offer=off" class="stg-off">View with offer off</a></div>
 <!-- ============================================================
      BasicGym - HOMEPAGE  (basicgym.co.uk/)
-     Paste into ONE Elementor "HTML" widget (Canvas). Scoped under .bg-home.
-     Footer = SEPARATE basicgym-footer-shared.html widget below.
+     30 Oct 2026, SAVE50 (replaces BACK26):
+       - every BACK26 / £5 block now sells SAVE50: 50% off the first month,
+         joining fee waived on the 12 month plans, £14.99 joining fee still
+         applies on the monthly plans, no offer on the day pass
+       - all "limited spaces / only 100" copy removed, no end date (R07 closed)
+       - needs the SAVE50 site-wide script (00-site-wide-offer-script.html)
+       - hero headline: "Summer is over" replaced with the brand line
+         "A premium gym. At a basic price."
 
-     Updated 25 August 2026 for post-opening pricing and the Back to Basic sale.
-     Requires bg-promo.js loaded site wide for the sale states.
+     Paste into ONE Elementor "HTML" widget (Canvas). Scoped under .bg-home.
+     Footer = SEPARATE footer widget below.
+     Requires the SAVE50 offer script loaded site wide.
+
+     27 Aug 2026 mobile pass:
+       - hero tightened so the £5 block is above the fold on a phone
+       - CTAs side by side rather than stacked
+       - headline sizes and wrapping fixed, no orphan words
+
+     Oct 2026 (Riaz's website changes, tracker refs in brackets):
+       - Open days and Refer a Friend removed from the nav (RA02, RA19)
+       - nav, hero and sticky buttons read Join now, still to plan choice (RA01)
+       - Look round button removed (RA03)
+       - "From £17.99" instead of "Four plans from" (RA04)
+       - one gym, Riverside, with the Unit 3 address (RA06)
+       - 30 days' notice contract answer (RA07), link to all FAQs (RA08)
+       - 24/7 on Plus and Monthly (W09)
+       Not changed yet, waiting on Riaz: ratings and the Long Eaton
+       review section (R16, RA05), 120 classes a week (R04), 100 spaces (R07).
      ============================================================ -->
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap');
-.bg-home{--white:#FFFFFF;--paper:#FFFFFF;--cream:#F5F4F0;--ink:#0E0E0E;--orange:#FF6600;--orange-bright:#FF7A1A;--orange-deep:#CC5200;--muted:#565659;--muted-dark:#A9A9AE;--line:#E7E5E0;--line-dark:#262629;--font:'Cooper Hewitt','Hanken Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-family:var(--font);}
+.bg-home{--white:#FFFFFF;--cream:#F5F4F0;--ink:#0E0E0E;--orange:#FF6600;--orange-bright:#FF7A1A;--orange-deep:#CC5200;--muted:#565659;--muted-dark:#A9A9AE;--line:#E7E5E0;--line-dark:#262629;--font:'Cooper Hewitt','Hanken Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-family:var(--font);}
 .bg-home *{box-sizing:border-box;margin:0;padding:0}
 .bg-home{scroll-behavior:smooth;background:var(--white);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .bg-home .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
@@ -21,7 +56,7 @@
 .bg-home .sec--cream{background:var(--cream)}
 .bg-home .sec--ink{background:var(--ink);color:var(--white)}
 .bg-home .kicker{font-size:12.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
-.bg-home .h2{font-size:clamp(28px,5vw,48px);margin-top:12px}
+.bg-home .h2{font-size:clamp(26px,5vw,48px);margin-top:12px;text-wrap:balance}
 .bg-home .lead{color:var(--muted);font-size:17px;margin-top:14px;max-width:620px}
 .bg-home .sec--ink .lead{color:var(--muted-dark)}
 .bg-home .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:15px;padding:15px 26px;border-radius:8px;text-transform:uppercase;letter-spacing:0.02em;transition:transform .12s ease, background .15s ease, border-color .15s ease}
@@ -39,8 +74,8 @@
 .bg-home .hero-inner{position:relative;z-index:1;padding:88px 0 58px;max-width:680px}
 .bg-home .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange)}
 .bg-home .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
-.bg-home .hero h1{font-size:clamp(42px,8vw,86px);margin:18px 0 0}
-.bg-home .hero h1 .sub{display:block;font-family:var(--font);font-weight:600;text-transform:none;letter-spacing:-0.01em;font-size:clamp(18px,2.6vw,25px);line-height:1.25;margin-top:18px;color:#EDEDED;max-width:560px}
+.bg-home .hero h1{font-size:clamp(34px,6.2vw,66px);line-height:.98;margin:18px 0 0;text-wrap:balance}
+.bg-home .hero h1 .sub{display:block;font-family:var(--font);font-weight:600;text-transform:none;letter-spacing:-0.01em;font-size:clamp(16px,2.4vw,23px);line-height:1.3;margin-top:18px;color:#EDEDED;max-width:560px;text-wrap:pretty}
 .bg-home .fineprint{font-size:13.5px;color:#BFBFC2;margin-top:18px}
 .bg-home .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .bg-home .pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:30px;padding:8px 14px}
@@ -53,24 +88,7 @@
 .bg-home .sb .n{font-family:var(--font);font-weight:900;font-size:26px;line-height:1}
 .bg-home .sb .l{font-size:11.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
 @media(max-width:760px){.bg-home .statbar .wrap{grid-template-columns:1fr 1fr}.bg-home .sb:nth-child(2){border-right:0}.bg-home .sb:nth-child(1),.bg-home .sb:nth-child(2){border-bottom:1px solid rgba(0,0,0,0.16)}}
-.bg-home .ic svg{width:20px;height:20px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .bg-home .ci svg{width:26px;height:26px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.bg-home .local-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:42px;align-items:center;margin-top:8px}
-@media(max-width:880px){.bg-home .local-grid{grid-template-columns:1fr;gap:30px}}
-.bg-home .local-points{margin-top:26px;display:flex;flex-direction:column;gap:18px}
-.bg-home .lp{display:flex;gap:14px;align-items:flex-start}
-.bg-home .lp .ic{flex:0 0 auto;width:42px;height:42px;border-radius:10px;background:rgba(255,102,0,0.1);border:1px solid rgba(255,102,0,0.28);display:flex;align-items:center;justify-content:center}
-.bg-home .lp h4{font-size:16px;font-weight:700}
-.bg-home .lp p{font-size:14.5px;color:var(--muted);margin-top:3px}
-.bg-home .brands{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
-.bg-home .brands span{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:6px 10px;white-space:nowrap}
-.bg-home .catch-card{background:var(--ink);color:#fff;border-radius:18px;padding:30px}
-.bg-home .catch-card .big{font-family:var(--font);font-weight:900;font-size:clamp(40px,8vw,62px);color:var(--orange);line-height:0.9}
-.bg-home .catch-card .big-l{font-size:15px;font-weight:600;margin-top:10px}
-.bg-home .catch-sub{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.bg-home .catch-sub div{background:rgba(255,255,255,0.04);border:1px solid var(--line-dark);border-radius:11px;padding:14px}
-.bg-home .catch-sub .cn{font-family:var(--font);font-weight:800;font-size:20px}
-.bg-home .catch-sub .cl{font-size:12px;color:var(--muted-dark);margin-top:3px}
 .bg-home .get-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
 @media(max-width:860px){.bg-home .get-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.bg-home .get-grid{grid-template-columns:1fr}}
@@ -79,18 +97,8 @@
 .bg-home .card .ci{width:48px;height:48px;border-radius:11px;background:rgba(255,102,0,0.1);border:1px solid rgba(255,102,0,0.26);display:flex;align-items:center;justify-content:center}
 .bg-home .card h4{font-size:17px;font-weight:700;margin-top:16px}
 .bg-home .card p{font-size:14.5px;color:var(--muted);margin-top:7px}
-.bg-home .gym-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
-@media(max-width:860px){.bg-home .gym-grid{grid-template-columns:1fr}}
-.bg-home .gtile{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5}
-.bg-home .gtile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-.bg-home .gtile:hover img{transform:scale(1.04)}
-.bg-home .gtile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(14,14,14,0.85) 100%)}
-.bg-home .gtile .cap{position:absolute;left:18px;bottom:16px;z-index:2;color:#fff}
-.bg-home .gtile .cap .z{font-family:var(--font);font-weight:800;text-transform:uppercase;letter-spacing:0.04em;font-size:18px}
-.bg-home .gtile .cap .d{font-size:13px;color:#D6D6D8;margin-top:2px}
 .bg-home .found-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;margin-top:8px}
 @media(max-width:880px){.bg-home .found-grid{grid-template-columns:1fr;gap:28px}}
-.bg-home .found-copy b{color:#fff}
 .bg-home .price-card{background:var(--orange);color:#fff;border-radius:18px;padding:34px 30px;text-align:center}
 .bg-home .price-card .e{font-size:11.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;opacity:0.9}
 .bg-home .price-card .amt{font-family:var(--font);font-weight:900;font-size:72px;line-height:0.95;margin-top:10px}
@@ -100,47 +108,33 @@
 .bg-home .price-card .note{font-size:12px;margin-top:14px;opacity:0.9}
 .bg-home .rev-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:34px;align-items:center;margin-top:8px}
 @media(max-width:880px){.bg-home .rev-grid{grid-template-columns:1fr;gap:24px}}
-.bg-home .rev-stats{display:flex;gap:30px;margin-top:22px}
-.bg-home .rev-stats .n{font-family:var(--font);font-weight:900;font-size:32px;color:var(--orange);line-height:1}
-.bg-home .rev-stats .l{font-size:12.5px;color:var(--muted);margin-top:4px}
 .bg-home .rev-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:0 18px 40px -28px rgba(0,0,0,0.4)}
 .bg-home .rev-card .stars{color:var(--orange);font-size:20px;letter-spacing:2px}
 .bg-home .rev-card .score{font-family:var(--font);font-weight:900;font-size:46px;margin-top:10px;color:var(--ink)}
 .bg-home .rev-card .score span{color:var(--orange)}
 .bg-home .rev-card p{font-size:14.5px;color:var(--muted);margin-top:12px}
-.bg-home .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;margin-top:8px}
-@media(max-width:880px){.bg-home .loc-grid{grid-template-columns:1fr}}
-.bg-home .map{background:var(--cream);border:1px solid var(--line);border-radius:16px;overflow:hidden;min-height:320px}
-.bg-home .map iframe{width:100%;height:100%;min-height:320px;border:0}
-.bg-home .routes{margin-top:18px;display:flex;flex-direction:column;gap:12px}
-.bg-home .route{display:flex;gap:12px;align-items:center;font-size:15px}
-.bg-home .route .tag{font-family:var(--font);font-weight:800;font-size:13px;color:var(--orange);border:1px solid rgba(255,102,0,0.4);border-radius:7px;padding:4px 9px;min-width:54px;text-align:center}
 .bg-home .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
 @media(max-width:760px){.bg-home .faq-grid{grid-template-columns:1fr}}
 .bg-home .faq-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px}
 .bg-home .faq-card h4{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.02em}
 .bg-home .faq-card p{font-size:14px;color:var(--muted);margin-top:8px}
 .bg-home .final{background:var(--orange);color:var(--ink);text-align:center;padding:80px 0}
-.bg-home .final h2{font-size:clamp(32px,6.5vw,60px);margin-bottom:14px}
+.bg-home .final h2{font-size:clamp(28px,6.5vw,60px);margin-bottom:14px;text-wrap:balance}
 .bg-home .final p{font-size:17px;margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto}
-.bg-home .final .micro{font-size:15px;margin-top:18px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#2a1500;opacity:1}
-.bg-home .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ink);border-top:1px solid var(--line-dark);padding:11px 16px;display:none;align-items:center;justify-content:space-between;gap:12px}
-.bg-home .sticky-cta .p{font-size:13px;font-weight:700;line-height:1.2;color:#fff}
+.bg-home .final .micro{font-size:15px;margin-top:18px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#2a1500}
+.bg-home .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ink);border-top:1px solid var(--line-dark);padding:10px 14px;display:none;align-items:center;justify-content:space-between;gap:10px}
+.bg-home .sticky-cta .p{font-size:12.5px;font-weight:700;line-height:1.2;color:#fff;padding-left:58px}
 .bg-home .sticky-cta .p b{color:var(--orange)}
-.bg-home .sticky-cta .p small{display:block;color:var(--muted-dark);font-weight:500;font-size:11px}
-.bg-home .sticky-cta a{background:var(--orange);color:#fff;font-weight:800;font-size:14px;padding:13px 18px;border-radius:8px;text-transform:uppercase;white-space:nowrap}
-@media(max-width:860px){.bg-home .sticky-cta{display:flex}.bg-home{padding-bottom:70px}}
-.bg-home .reveal{animation:bg-rise .6s ease both}
-@keyframes bg-rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){.bg-home .reveal{animation:none}.bg-home .btn:hover,.bg-home .gtile:hover img{transform:none}}
-@keyframes navdrop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.bg-home .sticky-cta .p small{display:block;color:var(--muted-dark);font-weight:500;font-size:10.5px}
+.bg-home .sticky-cta a{background:var(--orange);color:#fff;font-weight:800;font-size:13.5px;padding:12px 16px;border-radius:8px;text-transform:uppercase;white-space:nowrap;margin-right:58px}
+@media(max-width:860px){.bg-home .sticky-cta{display:flex}.bg-home{padding-bottom:76px}}
+@media(max-width:420px){.bg-home .sticky-cta .p{padding-left:52px;font-size:12px}.bg-home .sticky-cta a{margin-right:52px;padding:12px 13px;font-size:13px}}
 .bg-home .nav{position:sticky;top:0;z-index:60;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08)}
 .bg-home .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
 .bg-home .nav .logo img{height:40px;width:auto}
 .bg-home .nav .links{display:flex;align-items:center;gap:26px}
 .bg-home .nav .links a{color:#e7e7e7;font-weight:700;font-size:14px}
 .bg-home .nav .links a:hover{color:var(--orange-bright)}
-.bg-home .nav .links a[aria-current="page"]{color:var(--orange-bright)}
 .bg-home .btn.orange{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(255,102,0,.34);border-radius:12px}
 .bg-home .btn.orange:hover{background:var(--orange-deep)}
 .bg-home .nav .btn{padding:11px 18px;font-size:13px}
@@ -153,11 +147,10 @@
 .bg-home .nav .navdrop-top i{font-style:normal;font-size:11px}
 .bg-home .nav .navdrop-menu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:#161616;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;min-width:212px;opacity:0;visibility:hidden;transition:.18s;box-shadow:0 22px 44px -18px rgba(0,0,0,.8);z-index:70}
 .bg-home .nav .navdrop:hover .navdrop-menu,.bg-home .nav .navdrop:focus-within .navdrop-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-.bg-home .nav .navdrop-menu a{display:block;padding:10px 13px;border-radius:8px;color:#D6D6D8;font-weight:600;font-size:14px;border:0}
+.bg-home .nav .navdrop-menu a{display:block;padding:10px 13px;border-radius:8px;color:#D6D6D8;font-weight:600;font-size:14px}
 .bg-home .nav .navdrop-menu a:hover{background:#222;color:#fff}
 .bg-home .sec--ink .kicker{color:var(--orange-bright)}
-.bg-home .sec--ink .h2,.bg-home .sec--ink h2{color:#fff}
-.bg-home .sec--ink .lead{color:#cfcfcf}
+.bg-home .sec--ink .h2{color:#fff}
 @media(max-width:860px){
   .bg-home .nav .nav-cta-desktop{display:none}
   .bg-home .nav .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08);padding:6px 20px 16px;box-shadow:0 22px 44px -22px rgba(0,0,0,.8)}
@@ -174,26 +167,7 @@
   .bg-home .nav .nav-toggle:checked ~ .burger span:nth-child(2){opacity:0}
   .bg-home .nav .nav-toggle:checked ~ .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 }
-/* --- Back to Basic sale states, added Aug 2026 --- */
-.bg-home .salebar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:24px;border:1.5px solid var(--orange);background:#FFF3EA;border-radius:14px;padding:16px 20px}
-.bg-home .salebar.shut{border-color:var(--line);background:var(--cream)}
-.bg-home .salebar[hidden]{display:none}
-.bg-home .salebar .lead-txt{font-size:15.5px;font-weight:800;color:var(--ink)}
-.bg-home .salebar .lead-txt em{font-style:normal;color:var(--orange-deep)}
-.bg-home .salebar .note{font-size:13.5px;color:var(--muted);font-weight:600;margin-top:3px}
-.bg-home .salebar .clock{display:flex;gap:7px;margin-left:auto}
-.bg-home .salebar .clock .u{text-align:center;min-width:46px}
-.bg-home .salebar .clock b{display:block;font-size:22px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
-.bg-home .salebar .clock i{display:block;font-style:normal;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px;font-weight:800}
-@media(max-width:700px){.bg-home .salebar .clock{margin-left:0}}
-.bg-home .hero .salebar{background:rgba(255,255,255,.07);border-color:rgba(255,122,26,.5)}
-.bg-home .hero .salebar .lead-txt{color:#fff}
-.bg-home .hero .salebar .lead-txt em{color:var(--orange-bright)}
-.bg-home .hero .salebar .note{color:#BFBFC2}
-.bg-home .hero .salebar .clock b{color:#fff}
-.bg-home .hero .salebar .clock i{color:#9a9a9a}
 .bg-home .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-
 .bg-home .zones{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
 .bg-home .zone{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:#222 center/cover no-repeat}
 .bg-home .zone::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(14,14,14,.85) 0%,rgba(14,14,14,.15) 60%,transparent 100%)}
@@ -207,21 +181,22 @@
 .bg-home .loc h3{font-size:22px;margin-top:14px;font-weight:900;text-transform:uppercase}
 .bg-home .loc p{margin-top:8px;font-size:14.5px;color:var(--muted)}
 .bg-home .loc a.link{display:inline-block;margin-top:14px;color:var(--orange-deep);font-weight:800;text-transform:uppercase;font-size:13px}
+.bg-home .locs.one{grid-template-columns:minmax(0,640px)}
+.bg-home .faq-more{margin-top:24px;font-size:15px;color:var(--muted)}
+.bg-home .faq-more a{color:var(--orange-deep);font-weight:800;text-decoration:underline;text-underline-offset:3px}
 
-/* --- Back to Basic hero offer block, updated 26 Aug 2026 --- */
+/* --- offer block --- */
 .bg-home .hero .wrap{position:relative}
 .bg-home .offerblock{position:absolute;top:46px;right:0;width:320px;z-index:4;text-align:center}
 .bg-home .offerblock[hidden]{display:none}
 .bg-home .fiver{width:300px;height:300px;margin:0 auto;border-radius:50%;background:var(--orange);
   display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
   color:#fff;box-shadow:0 22px 54px rgba(0,0,0,.5);padding:18px}
-.bg-home .fiver b{display:block;font-weight:900;text-transform:uppercase;font-size:26px;letter-spacing:.01em;line-height:1}
+.bg-home .fiver b{display:block;font-weight:900;text-transform:uppercase;font-size:26px;line-height:1}
 .bg-home .fiver .amt{display:block;font-weight:900;font-size:118px;line-height:.9;margin:8px 0 4px;letter-spacing:-.04em}
-.bg-home .fiver .code{display:block;font-weight:900;text-transform:uppercase;font-size:19px;letter-spacing:.02em;line-height:1.15}
-.bg-home .offerblock .btn{margin-top:18px;width:100%;font-size:17px;padding:18px 20px;
-  box-shadow:0 14px 30px rgba(0,0,0,.4)}
-.bg-home .offerblock .spaces{margin-top:12px;font-size:14px;font-weight:800;color:#fff;
-  text-transform:uppercase;letter-spacing:.04em;text-shadow:0 1px 12px rgba(0,0,0,.7)}
+.bg-home .fiver .code{display:block;font-weight:900;text-transform:uppercase;font-size:19px;line-height:1.15}
+.bg-home .offerblock .btn{margin-top:18px;width:100%;font-size:17px;padding:18px 20px;box-shadow:0 14px 30px rgba(0,0,0,.4)}
+.bg-home .offerblock .spaces{margin-top:12px;font-size:14px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.04em;text-shadow:0 1px 12px rgba(0,0,0,.7)}
 .bg-home .offerblock .spaces b{color:var(--orange-bright)}
 @media(max-width:1240px){
   .bg-home .offerblock{width:262px;top:38px}
@@ -230,79 +205,88 @@
   .bg-home .fiver .amt{font-size:96px}
   .bg-home .fiver .code{font-size:16px}
 }
+
+/* ============ MOBILE ============
+   Everything tightened so the £5 block lands above the fold. */
 @media(max-width:1040px){
-  .bg-home .offerblock{position:static;width:100%;max-width:300px;margin:32px 0 0;text-align:left}
-  .bg-home .fiver{margin:0}
-  .bg-home .offerblock .btn{width:auto;display:inline-flex}
-  .bg-home .offerblock .spaces{text-align:left}
+  .bg-home .hero .wrap{display:flex;flex-direction:column;padding:0 18px}
+  .bg-home .hero-inner{order:1;padding:26px 0 0;max-width:none}
+  .bg-home .hero h1{font-size:clamp(27px,6.6vw,40px);line-height:1.02;margin-top:12px}
+  .bg-home .hero h1 .sub{font-size:15.5px;line-height:1.4;margin-top:12px;max-width:38em}
+  .bg-home .eyebrow{font-size:11px;letter-spacing:.1em}
+  .bg-home .cta-row{gap:10px;margin-top:18px}
+  .bg-home .cta-row .btn{flex:1 1 0;min-width:0;padding:14px 10px;font-size:13px;text-align:center}
+  .bg-home .fineprint{margin-top:12px;font-size:12.5px}
+  .bg-home .pills{gap:7px;margin-top:14px}
+  .bg-home .pill{font-size:11.5px;padding:6px 11px}
+
+  .bg-home .offerblock{order:2;position:static;width:100%;max-width:none;margin:20px 0 30px;text-align:left;
+    display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .bg-home .fiver{width:132px;height:132px;margin:0;flex:0 0 auto;padding:8px;box-shadow:0 12px 30px rgba(0,0,0,.45)}
+  .bg-home .fiver b{font-size:11.5px}
+  .bg-home .fiver .amt{font-size:50px;margin:1px 0 0}
+  .bg-home .fiver .code{font-size:9.5px;line-height:1.2}
+  .bg-home .offerblock .btn{margin-top:0;width:auto;font-size:14px;padding:14px 18px;flex:1 1 auto}
+  .bg-home .offerblock .spaces{margin-top:0;flex:1 1 100%;text-align:left;font-size:12.5px;letter-spacing:.03em}
+}
+@media(max-width:400px){
+  .bg-home .hero h1{font-size:25px}
+  .bg-home .fiver{width:116px;height:116px}
+  .bg-home .fiver b{font-size:10.5px}
+  .bg-home .fiver .amt{font-size:44px}
+  .bg-home .fiver .code{font-size:8.5px}
+  .bg-home .offerblock .btn{font-size:13px;padding:13px 14px}
+  .bg-home .cta-row .btn{font-size:12px;padding:13px 8px}
 }
 
-/* --- full width sale band under the hero --- */
+/* --- full width offer band --- */
 .bg-home .fivebar{background:var(--orange);color:#fff;text-align:center;padding:34px 20px}
 .bg-home .fivebar[hidden]{display:none}
-.bg-home .fivebar h2{font-size:clamp(26px,4.6vw,46px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:1;color:#fff}
-.bg-home .fivebar p{margin:12px auto 0;max-width:44em;font-size:17px;font-weight:600;color:#fff}
-.bg-home .fivebar .cd{display:flex;justify-content:center;gap:10px;margin-top:22px}
-.bg-home .fivebar .cd .u{min-width:64px;background:rgba(0,0,0,.16);border-radius:10px;padding:10px 6px}
-.bg-home .fivebar .cd b{display:block;font-size:28px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums;color:#fff}
-.bg-home .fivebar .cd i{display:block;font-style:normal;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;margin-top:5px;color:rgba(255,255,255,.85);font-weight:800}
+.bg-home .fivebar h2{font-size:clamp(24px,4.6vw,46px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:1.02;color:#fff;text-wrap:balance}
+.bg-home .fivebar p{margin:12px auto 0;max-width:44em;font-size:16px;font-weight:600;color:#fff;text-wrap:pretty}
 .bg-home .fivebar .btn{margin-top:24px;background:var(--ink);color:#fff}
 .bg-home .fivebar .btn:hover{background:#000}
-
-/* --- headline, updated 26 Aug 2026 --- */
-.bg-home .hero h1{font-size:clamp(34px,6.2vw,66px);line-height:.98}
-@media(max-width:1040px){.bg-home .hero h1{font-size:clamp(32px,7vw,52px)}}
+@media(max-width:600px){.bg-home .fivebar{padding:28px 18px}.bg-home .fivebar p{font-size:15px}}
+.bg-home .fiver .amt small{font-size:.42em;letter-spacing:0;vertical-align:top;line-height:1.25;margin-left:2px}
 </style>
 <div class="bg-home">
   <nav class="nav">
     <div class="wrap">
-      <a class="logo" href="index.html" aria-label="BasicGym"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
+      <a class="logo" href="index.html" aria-label="BasicGym"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
       <input type="checkbox" id="navtoggle" class="nav-toggle" aria-hidden="true">
       <div class="links">
         <a href="classes.html">Classes</a>
         <a href="nottingham.html">Nottingham</a>
         <a href="membership.html">Membership</a>
-        <a href="open-day.html">Open days</a>
         <div class="navdrop">
-          <a class="navdrop-top" href="about-us.html">About us <i>&#9662;</i></a>
+          <a class="navdrop-top" href="https://basicgym.co.uk/about-us/">About us <i>&#9662;</i></a>
           <div class="navdrop-menu">
-            <a href="about-us.html">About us</a>
+            <a href="https://basicgym.co.uk/about-us/">About us</a>
             <a href="students.html">Students</a>
-            <a href="corporate-membership.html">Corporate Membership</a>
-            <a href="personal-training.html">Personal Training</a>
-            <a href="careers.html">Careers</a>
-            <a href="refer-a-friend.html">Refer a Friend</a>
+            <a href="https://basicgym.co.uk/corporate-membership/">Corporate Membership</a>
+            <a href="https://basicgym.co.uk/personal-training/">Personal Training</a>
+            <a href="https://basicgym.co.uk/careers/">Careers</a>
           </div>
         </div>
-        <a class="btn orange nav-link-cta" href="join.html" data-bg-join>Join now</a>
+        <a class="btn orange nav-link-cta" href="membership.html">Join now</a>
       </div>
-      <a class="btn orange nav-cta-desktop" href="join.html" data-bg-join>Join now</a>
+      <a class="btn orange nav-cta-desktop" href="membership.html">Join now</a>
       <label for="navtoggle" class="burger" aria-label="Open menu"><span></span><span></span><span></span></label>
     </div>
   </nav>
 
   <section class="hero">
-    <div class="hero-bg"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/f_auto,q_auto,w_1600/v1782298061/basicgymhero_iwhmp4.png" alt="BasicGym interior" fetchpriority="high"></div>
+    <div class="hero-bg"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/f_auto,q_auto,w_1600/v1782298061/basicgymhero_iwhmp4.png" alt="BasicGym interior" fetchpriority="high"></div>
     <div class="wrap">
-      <div class="offerblock" data-bg-when="live" hidden>
-        <div class="fiver">
-          <b>1st month</b>
-          <span class="amt">&pound;5</span>
-          <span class="code">Use code<br>BACK26</span>
-        </div>
-        <a class="btn btn-primary" href="join.html" data-bg-join>Join now &rarr;</a>
-        <p class="spaces">Limited spaces &middot; only <b data-bg-spaces-total>100</b> available</p>
-      </div>
       <div class="hero-inner">
         <span class="eyebrow"><span class="dot"></span>Nottingham Riverside &middot; Open now</span>
-        <h1 class="display">Summer is over.<br>Back to your routine.<br>Back to <span class="orange">basic</span>.
-          <span class="sub">Big, clean, open 24/7, with people who actually say hello. Riverside Retail Park, Nottingham. Every class included and 650 free parking spaces.</span>
+        <h1 class="display">A premium gym.<br>At a <span class="orange">basic</span> price.
+          <span class="sub">Big, clean, open 24/7, with people who actually say hello. Every class included and 650 free parking spaces.</span>
         </h1>
         <div class="cta-row">
-          <a class="btn btn-primary" href="membership.html">See membership prices</a>
-          <a class="btn btn-ghost" href="open-day.html">Come and look round</a>
+          <a class="btn btn-primary" href="membership.html">Join now</a>
         </div>
-        <p class="fineprint">Four plans from &pound;17.99 a month. No contract on the monthly plans, cancel anytime.</p>
+        <p class="fineprint">From &pound;17.99 a month. No contract on monthly.</p>
         <div class="pills">
           <span class="pill"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 from 101 reviews</span>
           <span class="pill"><span class="dot"></span> Open 24/7</span>
@@ -310,15 +294,23 @@
           <span class="pill"><span class="dot"></span> 120 classes a week</span>
         </div>
       </div>
+      <div class="offerblock" data-bg-when="live" hidden>
+        <div class="fiver">
+          <b>1st month</b>
+          <span class="amt">50<small>%</small></span>
+          <span class="code">off with code<br><span data-bg-code>SAVE50</span></span>
+        </div>
+        <a class="btn btn-primary" href="membership.html">Choose your plan &rarr;</a>
+        <p class="spaces"><b>No joining fee</b> on 12 month plans</p>
+      </div>
     </div>
   </section>
 
-
   <section class="fivebar" data-bg-when="live" hidden>
     <div class="wrap">
-      <h2>Get your first month for &pound;5</h2>
-      <p>Use code <b data-bg-code>BACK26</b> when you join. Any membership, joining fee included, then your normal monthly price after that. Limited spaces, only <span data-bg-spaces-total>100</span> available.</p>
-      <a class="btn btn-dark" href="membership.html">Get your &pound;5 first month &rarr;</a>
+      <h2>Half price first month</h2>
+      <p>Use code <b data-bg-code>SAVE50</b> when you join and your first month is 50% off. Pick a 12 month plan and the joining fee is waived too, so Off Peak starts at &pound;9.00 today and Plus, with 24/7 access, at &pound;12.50.</p>
+      <a class="btn btn-dark" href="membership.html">See the plans &rarr;</a>
     </div>
   </section>
 
@@ -334,9 +326,9 @@
   <section class="sec">
     <div class="wrap">
       <span class="kicker">Why BasicGym</span>
-      <h2 class="h2 display">The &pound;100 experience, from &pound;17.99.</h2>
+      <h2 class="h2 display">A &pound;100 experience<br>from &pound;17.99.</h2>
       <p class="lead">No swimming pool, no spa, no inflated fee. We put the money into the things you actually use, kept clean and reset daily, and into staff who treat you like a regular from day one.</p>
-      <div class="get-grid"><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></div><h4>Everything you need</h4><p>Strength, cardio, free weights, functional, Hyrox and boxing. All the kit, none of the waiting.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h4>Real people, real help</h4><p>120 classes a week with proper paid instructors, and trainers who help you for nothing. No egos, no pressure.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h4>Built around you</h4><p>Open 24/7 on Plus, 650 free parking spaces, no contract on monthly. Train on your time.</p></div></div>
+      <div class="get-grid"><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></div><h4>Everything you need</h4><p>Strength, cardio, free weights, functional, Hyrox and boxing. All the kit, none of the waiting.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h4>Real people, real help</h4><p>120 classes a week with proper paid instructors, and trainers who help you for nothing. No egos, no pressure.</p></div><div class="card"><div class="ci"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h4>Built around you</h4><p>Open 24/7 on Plus and Monthly, 650 free parking spaces, no contract on monthly. Train on your time.</p></div></div>
     </div>
   </section>
 
@@ -344,17 +336,17 @@
     <div class="wrap">
       <div class="found-grid">
         <div class="found-copy">
-          <span class="kicker">Back to Basic</span>
-          <h2 class="h2 display">Back to routine.<br>Back to basic.</h2>
-          <p class="lead">Summer is over and the gym habit needs restarting. Four plans from &pound;17.99 a month with every class included, and code BACK26 makes your first month &pound;5 on any of them, joining fee included.</p>
-          <p class="lead" style="color:#fff;font-weight:800;margin-top:18px">Limited to 100 spaces.</p>
+          <span class="kicker">Membership</span>
+          <h2 class="h2 display">Start for less.<br>Stay for the service.</h2>
+          <p class="lead">From &pound;17.99 a month with every class included.<span data-bg-when="live" hidden> Use code <b data-bg-code>SAVE50</b> and your first month is half price on any membership. On the 12 month plans the joining fee is waived as well.</span></p>
+          <p class="lead" data-bg-when="live" hidden style="color:#fff;font-weight:800;margin-top:18px">Plus, 12 month: &pound;12.50 today, then &pound;24.99 a month with 24/7 access.</p>
         </div>
         <div class="price-card">
           <div class="e">Memberships from</div>
           <div class="amt">&pound;17.99<small>/mo</small></div>
           <div class="then">every class included, 650 free parking spaces</div>
           <a class="btn btn-dark" href="membership.html">See all four plans</a>
-          <div class="note" data-bg-when="live" hidden>Code BACK26 for a &pound;5 first month, limited spaces</div>
+          <div class="note" data-bg-when="live" hidden>Code <b data-bg-code>SAVE50</b> for half price on your first month</div>
           <div class="note" data-bg-when="closed" hidden>Standard prices, from &pound;17.99 a month</div>
         </div>
       </div>
@@ -364,7 +356,7 @@
   <section class="sec">
     <div class="wrap">
       <span class="kicker">What&rsquo;s inside</span>
-      <h2 class="h2 display">Every zone, one membership.</h2>
+      <h2 class="h2 display">Every zone,<br>one membership.</h2>
       <div class="zones">
         <div class="zone" style="background-image:url('https://res.cloudinary.com/dcnabm5nc/image/upload/c_fill,g_auto,ar_4:3,w_700,f_auto,q_auto/v1782651981/basic-gym-socialarea_twi2if.png')"><span>Social area</span></div>
         <div class="zone" style="background-image:url('https://res.cloudinary.com/dcnabm5nc/image/upload/c_fill,g_auto,ar_4:3,w_700,f_auto,q_auto/v1782654186/basicgymhyrox2_ygcfjy.png')"><span>Functional zone</span></div>
@@ -384,7 +376,7 @@
       <div class="rev-grid">
         <div>
           <span class="kicker">Proven next door</span>
-          <h2 class="h2 display">Our first gym is rated 5.0.</h2>
+          <h2 class="h2 display">Our first gym<br>is rated 5.0.</h2>
           <p class="lead">BasicGym Long Eaton opened in 2024 and grew to a full house on word of mouth alone, with 101 five-star Google reviews. Riverside is the same model in a bigger, better location.</p>
         </div>
         <div class="rev-card">
@@ -399,17 +391,12 @@
   <section class="sec">
     <div class="wrap">
       <span class="kicker">Where to find us</span>
-      <h2 class="h2 display">Two gyms across Nottingham.</h2>
-      <div class="locs">
+      <h2 class="h2 display">Riverside Retail Park,<br>Nottingham.</h2>
+      <div class="locs one">
         <div class="loc">
           <span class="st">Open now</span>
-          <h3>Long Eaton</h3>
-          <p>Our first gym. Rated 5.0 with 101 reviews. The proof the model works.</p>
-        </div>
-        <div class="loc">
-          <span class="st">Open now</span>
-          <h3>Riverside, Nottingham</h3>
-          <p>Riverside Retail Park, next to B&amp;Q, Boots, JD Sports and Next. 650 free parking spaces, open 24 hours a day.</p>
+          <h3>Basic Gym Riverside</h3>
+          <p>Riverside Retail Park, Unit 3, NG2 1RU Nottingham. Next to B&amp;Q, Boots, JD Sports and Next, with 650 free parking spaces and the gym open 24 hours a day.</p>
           <a class="link" href="nottingham.html">See the Nottingham gym &rarr;</a>
         </div>
       </div>
@@ -422,25 +409,26 @@
       <h2 class="h2 display">Before you join.</h2>
       <div class="faq-grid">
         <div class="faq-card"><h4>How much is it?</h4><p>Four plans. Off Peak &pound;17.99 and Plus &pound;24.99 on a 12 month term, Off Peak &pound;21.99 and Monthly &pound;27.99 rolling. Joining fee &pound;9.99 or &pound;14.99, charged once and shown in the price.</p></div>
-        <div class="faq-card"><h4>Is there a contract?</h4><p>Not on the monthly plans. They roll on and you can cancel any time. The 12 month plans run for 12 months, which is why they cost less.</p></div>
-        <div class="faq-card"><h4>What does off peak mean?</h4><p>The Off Peak plans give you the gym between 10am and 4pm. Plus gives you 24 hour access. Classes are unlimited on every plan.</p></div>
+        <div class="faq-card"><h4>Is there a contract?</h4><p>Not on the monthly plans. They roll on automatically, and you can cancel whenever you like with 30 days&rsquo; notice. Our 12 month plans are fixed for 12 months, which is why they come at a lower monthly price.</p></div>
+        <div class="faq-card"><h4>What does off peak mean?</h4><p>The Off Peak plans give you the gym between 10am and 4pm. Plus and Monthly give you 24 hour access. Classes are unlimited on every plan.</p></div>
         <div class="faq-card"><h4>What&rsquo;s included?</h4><p>Every zone, 120 classes a week, showers and changing rooms, and 650 free parking spaces. No upsells.</p></div>
       </div>
+      <p class="faq-more">Or view <a href="faqs.html">all our FAQs</a>.</p>
     </div>
   </section>
 
   <section class="final">
     <div class="wrap">
-      <h2 class="display">Back to routine. Back to basic.</h2>
-      <p>Four plans from &pound;17.99 a month, every class included, and 650 free parking spaces at Riverside Retail Park.</p>
+      <h2 class="display">Big gym.<br>Basic price.</h2>
+      <p>From &pound;17.99 a month, every class included, and 650 free parking spaces at Riverside Retail Park.</p>
       <a class="btn btn-dark" href="membership.html">See membership prices</a>
       <div class="micro">Open 24/7 &middot; Riverside Retail Park, Nottingham NG2 1RU</div>
     </div>
   </section>
 
   <div class="sticky-cta">
-    <div class="p">Membership <b>from &pound;17.99</b><small>Every class included &middot; 650 free spaces</small></div>
-    <a href="join.html" data-bg-join>Join now</a>
+    <div class="p">Membership <b>from &pound;17.99</b><small data-bg-when="live" hidden>Half price first month with SAVE50</small><small data-bg-when="closed">Every class included</small></div>
+    <a href="membership.html">Join now</a>
   </div>
 
 </div>
@@ -466,20 +454,21 @@
   color:var(--orange);margin-bottom:22px}
 .bg-ftr .foot-col a,.bg-ftr .foot-col p{display:block;font-size:16px;color:#D6D6D8;margin-bottom:18px;font-weight:500}
 .bg-ftr .foot-col a:hover{color:#fff}
-.bg-ftr .foot-contact p{color:#9a9a9a}
+.bg-ftr .foot-contact .addr{color:#9a9a9a;line-height:1.5}
 .bg-ftr .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 22px;
   padding:22px 0 28px;margin-top:40px;border-top:1px solid var(--line-dark);font-size:14.5px;color:#9a9a9a}
 @media(max-width:900px){.bg-ftr .foot-top{grid-template-columns:1fr 1fr;gap:34px 20px}.bg-ftr .foot-brand{grid-column:1 / -1}}
-@media(max-width:560px){.bg-ftr .foot-top{grid-template-columns:1fr;gap:30px}.bg-ftr{padding-top:52px}}
+@media(max-width:560px){.bg-ftr .foot-top{grid-template-columns:1fr;gap:30px}.bg-ftr{padding-top:52px}
+  .bg-ftr .foot-bottom{padding-bottom:90px}}
 </style>
   <div class="wrap">
     <div class="foot-top">
 
       <div class="foot-brand">
-        <a class="logo" href="index.html" aria-label="BasicGym"><img src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
-        <p class="foot-tag">A premium gym at a basic price. Long Eaton &amp; Riverside, Nottingham.</p>
+        <a class="logo" href="index.html" aria-label="BasicGym"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
+        <p class="foot-tag">A premium gym at a basic price. Riverside Retail Park, Nottingham.</p>
         <div class="socials">
-          <a href="https://www.facebook.com/Basicgym.uk" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6A22 22 0 0 0 14.3 3.5c-2.4 0-4 1.45-4 4.1v2.3H7.6V13h2.7v8z"/></svg></a>
+          <a href="https://www.facebook.com/people/Basicgymuk/61561127232205/" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6A22 22 0 0 0 14.3 3.5c-2.4 0-4 1.45-4 4.1v2.3H7.6V13h2.7v8z"/></svg></a>
           <a href="https://www.instagram.com/basicgym.uk/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.2A6.6 6.6 0 1 0 18.6 12 6.6 6.6 0 0 0 12 5.4zm0 10.9A4.3 4.3 0 1 1 16.3 12 4.3 4.3 0 0 1 12 16.3zm6.9-11.1a1.5 1.5 0 1 1-1.5-1.5 1.5 1.5 0 0 1 1.5 1.5z"/></svg></a>
           <a href="https://www.tiktok.com/@basicgym.uk" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.8a4.8 4.8 0 0 1-1.1-2.8h-3v12.1a2.5 2.5 0 1 1-2.5-2.5 2.6 2.6 0 0 1 .7.1V9.6a5.6 5.6 0 0 0-.7 0 5.6 5.6 0 1 0 5.6 5.6V9a7.8 7.8 0 0 0 4.4 1.4V7.3a4.7 4.7 0 0 1-3.4-1.5z"/></svg></a>
         </div>
@@ -488,37 +477,37 @@
       <div class="foot-col">
         <h4>More info</h4>
         <a href="index.html">Home</a>
+        <a href="membership.html">Membership</a>
+        <a href="classes.html">Classes</a>
         <a href="students.html">Students</a>
-        <a href="corporate-membership.html">Corporate Membership</a>
-        <a href="personal-training.html">Personal Training</a>
-        <a href="careers.html">Careers</a>
-        <a href="refer-a-friend.html">Refer a Friend</a>
-        <a href="about-us.html">About us</a>
+        <a href="https://basicgym.co.uk/corporate-membership/">Corporate Membership</a>
+        <a href="https://basicgym.co.uk/personal-training/">Personal Training</a>
+        <a href="icons.html">Basic Icons</a>
       </div>
 
       <div class="foot-col">
         <h4>Support</h4>
         <a href="faqs.html">FAQs</a>
-        <a href="club-rules.html">Club Rules</a>
-        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="promotion-terms.html">Promotion Terms</a>
+        <a href="https://basicgym.co.uk/about-us/">About us</a>
+        <a href="https://basicgym.co.uk/careers/">Careers</a>
+        <a href="https://basicgym.co.uk/club-rules/">Club Rules</a>
+        <a href="https://basicgym.co.uk/privacy-policy/">Privacy Policy</a>
       </div>
 
       <div class="foot-col foot-contact">
         <h4>Contact</h4>
         <a href="mailto:info@basicgym.co.uk">info@basicgym.co.uk</a>
-        <a href="https://maps.google.com/?q=Riverside+Retail+Park+Nottingham+NG2+1RU" target="_blank" rel="noopener">Gym Nottingham Riverside Retail Park</a>
-        <a href="https://maps.google.com/?q=Basic+Gym+Long+Eaton+Nottingham" target="_blank" rel="noopener">Gym Long Eaton Nottingham</a>
+        <a class="addr" href="https://maps.google.com/?q=Basic+Gym+Unit+3+Riverside+Retail+Park+Nottingham+NG2+1RU" target="_blank" rel="noopener">Basic Gym Riverside<br>Unit 3, Riverside Retail Park<br>Nottingham NG2 1RU</a>
       </div>
 
     </div>
 
     <div class="foot-bottom">
       <p>&copy; 2026 BasicGym. All rights reserved.</p>
-      <p>Riverside &middot; Open 24/7</p>
+      <p>Riverside Retail Park, Nottingham &middot; Open 24/7</p>
     </div>
   </div>
 </footer>
-
-<script src="bg-promo.js"></script>
+<script src="bg-offer.js"></script>
+</body>
+</html>

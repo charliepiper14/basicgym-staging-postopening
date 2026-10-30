@@ -1,0 +1,8 @@
+/* staging preview only, not part of the Elementor build */
+html,body{margin:0;padding:0}
+body{background:#0E0E0E}
+.stg-bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;padding:9px 16px;background:#FFE14D;color:#0E0E0E;
+  font:600 13px/1.35 'Hanken Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;position:relative;z-index:100}
+.stg-bar b{font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+.stg-bar a{color:#0E0E0E;font-weight:800;text-decoration:underline;text-underline-offset:2px}
+.stg-bar span{opacity:.8}

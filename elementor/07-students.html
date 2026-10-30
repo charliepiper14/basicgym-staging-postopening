@@ -1,0 +1,249 @@
+<!-- ============================================================
+     BasicGym - STUDENTS  (basicgym.co.uk/students/)
+     30 Oct 2026: price card offer note changed from BACK26 to SAVE50.
+
+     Paste into ONE Elementor "HTML" widget (Canvas). Scoped .bg-students.
+     Footer = SEPARATE widget below.
+     Sept 2026: post-opening pricing, presale copy removed.
+     NOTE: no student rate has been set, so this sells the standard plans.
+
+     Oct 2026 (Riaz's website changes, tracker refs in brackets):
+       - Open days and Refer a Friend removed from the nav (RA02, RA19),
+         nav and sticky buttons read Join now, to the plans
+       - "Cancel anytime" pill replaced, term time card to 30 days' notice (W23)
+       - 24/7 on Plus and Monthly in the stat bar (W09)
+       - "From £17.99" in the closing band
+       Not changed yet, waiting on Riaz: 120 classes a week (R04).
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap');
+.bg-students{--white:#FFFFFF;--cream:#F5F4F0;--ink:#0E0E0E;--orange:#FF6600;--orange-bright:#FF7A1A;--orange-deep:#CC5200;--muted:#565659;--muted-dark:#A9A9AE;--line:#E7E5E0;--line-dark:#262629;--font:'Cooper Hewitt','Hanken Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-family:var(--font);}
+.bg-students *{box-sizing:border-box;margin:0;padding:0}
+.bg-students{background:var(--white);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-students .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.bg-students .display{font-family:var(--font);font-weight:900;letter-spacing:-0.015em;text-transform:uppercase;line-height:0.95;text-wrap:balance}
+.bg-students .orange{color:var(--orange)}
+.bg-students a{color:inherit;text-decoration:none}
+.bg-students img{max-width:100%;display:block}
+.bg-students svg{display:block}
+.bg-students .sec{padding:74px 0}
+.bg-students .sec--cream{background:var(--cream)}
+.bg-students .sec--ink{background:var(--ink);color:var(--white)}
+.bg-students .kicker{font-size:12.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+.bg-students .h2{font-size:clamp(26px,5vw,46px);margin-top:12px;text-wrap:balance}
+.bg-students .lead{color:var(--muted);font-size:17px;margin-top:14px;max-width:620px;text-wrap:pretty}
+.bg-students .sec--ink .lead{color:var(--muted-dark)}
+.bg-students .sec--ink .kicker{color:var(--orange-bright)}
+.bg-students .sec--ink .h2{color:#fff}
+.bg-students .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:15px;padding:15px 26px;border-radius:8px;text-transform:uppercase;letter-spacing:0.02em;transition:transform .12s ease,background .15s ease,border-color .15s ease}
+.bg-students .btn-primary{background:var(--orange);color:#fff}
+.bg-students .btn-primary:hover{background:var(--orange-deep);transform:translateY(-1px)}
+.bg-students .btn-dark{background:var(--ink);color:#fff}
+.bg-students .btn-dark:hover{background:#000;transform:translateY(-1px)}
+.bg-students .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.4)}
+.bg-students .btn-ghost:hover{border-color:#fff}
+.bg-students .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+.bg-students .hero{position:relative;color:#fff;overflow:hidden;background:var(--ink)}
+.bg-students .hero-bg{position:absolute;inset:0;z-index:0}
+.bg-students .hero-bg img{width:100%;height:100%;object-fit:cover}
+.bg-students .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,14,14,0.94) 0%,rgba(14,14,14,0.80) 42%,rgba(14,14,14,0.45) 100%)}
+.bg-students .hero-inner{position:relative;z-index:1;padding:76px 0 56px;max-width:660px}
+.bg-students .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange)}
+.bg-students .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.bg-students .hero h1{font-size:clamp(32px,6.2vw,60px);line-height:1;margin:16px 0 0}
+.bg-students .hero .sub{margin-top:18px;font-size:clamp(16px,2.2vw,21px);line-height:1.35;color:#EDEDED;font-weight:500;max-width:36em;text-wrap:pretty}
+.bg-students .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.bg-students .pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:30px;padding:8px 14px}
+.bg-students .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.bg-students .statbar{background:var(--orange);color:var(--ink)}
+.bg-students .statbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.bg-students .sb{padding:22px 18px;display:flex;align-items:baseline;gap:10px;justify-content:center;border-right:1px solid rgba(0,0,0,0.16)}
+.bg-students .sb:last-child{border-right:0}
+.bg-students .sb .n{font-weight:900;font-size:26px;line-height:1}
+.bg-students .sb .l{font-size:11.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
+@media(max-width:760px){.bg-students .statbar .wrap{grid-template-columns:1fr 1fr}.bg-students .sb:nth-child(2){border-right:0}.bg-students .sb:nth-child(1),.bg-students .sb:nth-child(2){border-bottom:1px solid rgba(0,0,0,0.16)}}
+.bg-students .nav{position:sticky;top:0;z-index:60;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08)}
+.bg-students .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.bg-students .nav .logo img{height:40px;width:auto}
+.bg-students .nav .links{display:flex;align-items:center;gap:26px}
+.bg-students .nav .links a{color:#e7e7e7;font-weight:700;font-size:14px}
+.bg-students .nav .links a:hover{color:var(--orange-bright)}
+.bg-students .btn.orange{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(255,102,0,.34);border-radius:12px}
+.bg-students .btn.orange:hover{background:var(--orange-deep)}
+.bg-students .nav .btn{padding:11px 18px;font-size:13px}
+.bg-students .nav .nav-toggle{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.bg-students .nav .burger{display:none}
+.bg-students .nav .links .nav-link-cta{display:none}
+.bg-students .nav .navdrop{position:relative;display:flex;align-items:center}
+.bg-students .nav .navdrop-top{display:inline-flex;align-items:center;gap:6px;color:#e7e7e7;font-weight:700;font-size:14px;cursor:pointer}
+.bg-students .nav .navdrop-top:hover{color:var(--orange-bright)}
+.bg-students .nav .navdrop-top i{font-style:normal;font-size:11px}
+.bg-students .nav .navdrop-menu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:#161616;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;min-width:212px;opacity:0;visibility:hidden;transition:.18s;box-shadow:0 22px 44px -18px rgba(0,0,0,.8);z-index:70}
+.bg-students .nav .navdrop:hover .navdrop-menu,.bg-students .nav .navdrop:focus-within .navdrop-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.bg-students .nav .navdrop-menu a{display:block;padding:10px 13px;border-radius:8px;color:#D6D6D8;font-weight:600;font-size:14px}
+.bg-students .nav .navdrop-menu a:hover{background:#222;color:#fff}
+.bg-students .nav .navdrop-menu a[aria-current="page"]{color:var(--orange-bright)}
+@media(max-width:860px){
+  .bg-students .nav .nav-cta-desktop{display:none}
+  .bg-students .nav .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08);padding:6px 20px 16px;box-shadow:0 22px 44px -22px rgba(0,0,0,.8)}
+  .bg-students .nav .nav-toggle:checked ~ .links{display:flex}
+  .bg-students .nav .burger{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;cursor:pointer;margin-right:-9px}
+  .bg-students .nav .burger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+  .bg-students .nav .links a{padding:14px 2px;font-size:15px;border-bottom:1px solid rgba(255,255,255,.07);color:#e7e7e7}
+  .bg-students .nav .links .nav-link-cta{display:flex;margin-top:12px;padding:14px;border-bottom:0;justify-content:center}
+  .bg-students .nav .navdrop{flex-direction:column;align-items:stretch}
+  .bg-students .nav .navdrop-top{padding:14px 2px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .bg-students .nav .navdrop-menu{position:static;opacity:1;visibility:visible;transform:none;background:transparent;border:0;box-shadow:none;padding:2px 0 0 14px;min-width:0}
+  .bg-students .nav .navdrop-menu a{padding:10px 2px;font-size:14px;color:#bdbdbd}
+  .bg-students .nav .nav-toggle:checked ~ .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .bg-students .nav .nav-toggle:checked ~ .burger span:nth-child(2){opacity:0}
+  .bg-students .nav .nav-toggle:checked ~ .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+.bg-students .get-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+@media(max-width:860px){.bg-students .get-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.bg-students .get-grid{grid-template-columns:1fr}}
+.bg-students .card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px;transition:transform .15s ease,box-shadow .15s ease}
+.bg-students .card:hover{transform:translateY(-2px);box-shadow:0 14px 34px -22px rgba(0,0,0,0.35)}
+.bg-students .card .ci{width:48px;height:48px;border-radius:11px;background:rgba(255,102,0,0.1);border:1px solid rgba(255,102,0,0.26);display:flex;align-items:center;justify-content:center}
+.bg-students .card .ci svg{width:26px;height:26px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bg-students .card h4{font-size:17px;font-weight:700;margin-top:16px}
+.bg-students .card p{font-size:14.5px;color:var(--muted);margin-top:7px}
+.bg-students .two{display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center}
+@media(max-width:880px){.bg-students .two{grid-template-columns:1fr;gap:28px}}
+.bg-students .price-card{background:var(--orange);color:#fff;border-radius:18px;padding:34px 30px;text-align:center}
+.bg-students .price-card .e{font-size:11.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;opacity:.9}
+.bg-students .price-card .amt{font-weight:900;font-size:68px;line-height:.95;margin-top:10px}
+.bg-students .price-card .amt small{font-size:21px;font-weight:800}
+.bg-students .price-card .then{font-size:13.5px;margin-top:8px;opacity:.95}
+.bg-students .price-card .btn{width:100%;margin-top:22px}
+.bg-students .price-card .note{font-size:12px;margin-top:14px;opacity:.9}
+.bg-students .final{background:var(--orange);color:var(--ink);text-align:center;padding:76px 0}
+.bg-students .final h2{font-size:clamp(28px,5.6vw,52px);margin-bottom:14px}
+.bg-students .final p{font-size:17px;margin-bottom:26px;margin-left:auto;margin-right:auto}
+.bg-students .final .micro{font-size:15px;margin-top:18px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#2a1500}
+.bg-students .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ink);border-top:1px solid var(--line-dark);padding:10px 14px;display:none;align-items:center;justify-content:space-between;gap:10px}
+.bg-students .sticky-cta .p{font-size:12.5px;font-weight:700;line-height:1.2;color:#fff;padding-left:58px}
+.bg-students .sticky-cta .p b{color:var(--orange)}
+.bg-students .sticky-cta .p small{display:block;color:var(--muted-dark);font-weight:500;font-size:10.5px}
+.bg-students .sticky-cta a{background:var(--orange);color:#fff;font-weight:800;font-size:13.5px;padding:12px 16px;border-radius:8px;text-transform:uppercase;white-space:nowrap;margin-right:58px}
+@media(max-width:860px){.bg-students .sticky-cta{display:flex}.bg-students{padding-bottom:76px}
+  .bg-students .hero-inner{padding:46px 0 38px}.bg-students .sec{padding:52px 0}}
+@media(max-width:420px){.bg-students .sticky-cta .p{padding-left:52px;font-size:12px}.bg-students .sticky-cta a{margin-right:52px;padding:12px 13px;font-size:13px}}
+</style>
+<div class="bg-students">
+  <nav class="nav">
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="BasicGym"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
+      <input type="checkbox" id="navtoggle" class="nav-toggle" aria-hidden="true">
+      <div class="links">
+        <a href="/classes/">Classes</a>
+        <a href="/nottingham/">Nottingham</a>
+        <a href="/membership/">Membership</a>
+        <div class="navdrop">
+          <a class="navdrop-top" href="/about-us/">About us <i>&#9662;</i></a>
+          <div class="navdrop-menu">
+            <a href="/about-us/">About us</a>
+            <a href="/students/" aria-current="page">Students</a>
+            <a href="/corporate-membership/">Corporate Membership</a>
+            <a href="/personal-training/">Personal Training</a>
+            <a href="/careers/">Careers</a>
+          </div>
+        </div>
+        <a class="btn orange nav-link-cta" href="/membership/">Join now</a>
+      </div>
+      <a class="btn orange nav-cta-desktop" href="/membership/">Join now</a>
+      <label for="navtoggle" class="burger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/f_auto,q_auto,w_1600/v1782298987/basicgymfreeweights_hevkjg.png" alt="BasicGym free weights" fetchpriority="high"></div>
+    <div class="wrap">
+      <div class="hero-inner">
+        <span class="eyebrow"><span class="dot"></span>Students</span>
+        <h1 class="display">Student budget.<br><span class="orange">Proper gym.</span></h1>
+        <p class="sub">A big, well-equipped gym in Nottingham without the premium price. The monthly plans roll on with no contract, so you are never tied in over summer.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/membership/">See the plans</a>
+          <a class="btn btn-ghost" href="/nottingham/">See the gym</a>
+        </div>
+        <div class="pills">
+          <span class="pill"><span class="dot"></span> No contract on monthly</span>
+          <span class="pill"><span class="dot"></span> Open 24/7</span>
+          <span class="pill"><span class="dot"></span> Every class included</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="statbar">
+    <div class="wrap">
+      <div class="sb"><span class="n">&pound;17.99</span><span class="l">From per month</span></div>
+      <div class="sb"><span class="n">24/7</span><span class="l">On Plus &amp; Monthly</span></div>
+      <div class="sb"><span class="n">650</span><span class="l">Free parking</span></div>
+      <div class="sb"><span class="n">120</span><span class="l">Classes a week</span></div>
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="wrap">
+      <span class="kicker">Why it works for students</span>
+      <h2 class="h2 display">Made for how you<br>actually study and train.</h2>
+      <div class="get-grid">
+        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4>Priced for term time</h4><p>Monthly plans from &pound;21.99 with no minimum term. Give 30 days&rsquo; notice before you head home, no lock-in.</p></div>
+        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h4>Open 24/7</h4><p>On the Plus and Monthly plans, train around lectures, shifts and deadlines. Early mornings, late nights, whenever you get a window.</p></div>
+        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div><h4>120 classes a week</h4><p>Every class is included in every membership. A good way to train with people and break up a heavy week.</p></div>
+        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg></div><h4>650 free parking spaces</h4><p>Drive in, park free, train, get on with your day. No city centre parking faff.</p></div>
+        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h4>No egos</h4><p>All levels welcome. Staff who help, trainers who show you how to use anything, free. Beginners fit right in.</p></div>
+        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></div><h4>Everything you need</h4><p>Free weights, machines, cardio and functional space across nine zones. Room to train properly.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--ink">
+    <div class="wrap">
+      <div class="two">
+        <div>
+          <span class="kicker">Getting started</span>
+          <h2 class="h2 display">Pick a plan<br>and train today.</h2>
+          <p class="lead">Off Peak is our cheapest way in at &pound;17.99 a month on a 12 month term, or &pound;21.99 rolling if you would rather not commit past this year. Both give you the gym between 10am and 4pm, which suits most timetables.</p>
+          <p class="lead">Want it open all hours? Monthly is &pound;27.99 rolling with 24 hour access and no contract.</p>
+        </div>
+        <div class="price-card">
+          <div class="e">Memberships from</div>
+          <div class="amt">&pound;17.99<small>/mo</small></div>
+          <div class="then">every class included, 650 free parking spaces</div>
+          <a class="btn btn-dark" href="/membership/">See all four plans</a>
+          <div class="note" data-bg-when="live" hidden>Code <b data-bg-code>SAVE50</b> for half price on your first month</div>
+          <div class="note" data-bg-when="closed" hidden>Standard prices, from &pound;17.99 a month</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--cream">
+    <div class="wrap">
+      <span class="kicker">Good to know</span>
+      <h2 class="h2 display">Two quick things.</h2>
+      <div class="get-grid" style="grid-template-columns:repeat(2,1fr)">
+        <div class="card"><h4>Bring a friend</h4><p>Training with someone else is the biggest thing that decides whether you keep going. There is plenty of floor space and nobody queuing for a rack.</p></div>
+        <div class="card"><h4>Try it first</h4><p>A &pound;9.99 day pass gets you one full day including classes, with no membership and no joining fee. Or just come in and ask for a look round.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2 class="display">Start today.</h2>
+      <p>From &pound;17.99 a month, every class included, and no contract on the monthly plans.</p>
+      <a class="btn btn-dark" href="/membership/">See membership prices</a>
+      <div class="micro">Open now &middot; Riverside Retail Park, Nottingham NG2 1RU</div>
+    </div>
+  </section>
+
+  <div class="sticky-cta">
+    <div class="p">Membership <b>from &pound;17.99</b><small>No contract on monthly</small></div>
+    <a href="/membership/">Join now</a>
+  </div>
+
+</div>
