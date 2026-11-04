@@ -1,0 +1,28 @@
+<script>
+/* ==========================================================================
+   BasicGym - "Basic Icons" in the About us menu, site wide (4 Nov 2026)
+   Elementor > Custom Code, location <body> end, entire site.
+
+   The header menu is written into each page's own HTML widget (14 pages), so
+   this one snippet adds the link to the About us dropdown everywhere, right
+   under "About us", instead of re-pasting 14 pages. On /basic-icons/ the link
+   is highlighted as the current page. If the link is ever written into a
+   page's own nav, the snippet sees it and adds nothing.
+   ========================================================================== */
+(function () {
+  function addIconsLink() {
+    var here = location.pathname.replace(/\/?$/, '/') === '/basic-icons/';
+    document.querySelectorAll('.nav .navdrop-menu').forEach(function (menu) {
+      if (menu.querySelector('a[href="/basic-icons/"]')) return;
+      var a = document.createElement('a');
+      a.href = '/basic-icons/';
+      a.textContent = 'Basic Icons';
+      if (here) a.setAttribute('aria-current', 'page');
+      var about = menu.querySelector('a[href="/about-us/"]');
+      if (about) menu.insertBefore(a, about.nextSibling); else menu.appendChild(a);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addIconsLink);
+  else addIconsLink();
+})();
+</script>
