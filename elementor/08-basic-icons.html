@@ -9,8 +9,9 @@
        - optional step 2 adds platform, followers, why to the same row
        - 30% commission on the first 3 months (agreed with Riaz)
        - posts must be labelled #ad (ASA / CMA)
-     FORM: set ICON_ENDPOINT in the script at the bottom to the Google
-     Apps Script /exec URL (writes the sheet, emails info@basicgym.co.uk).
+     FORM: ICON_ENDPOINT (script at the bottom) = the "Basic Icons form"
+     Apps Script web app, v1, 4 Nov 2026. It writes the "Basic Icons
+     applications" sheet and emails info@basicgym.co.uk. Do not retype it.
      Tracking: dataLayer bg_icon_application, Meta trackCustom
      IconApplication (kept apart from the membership Lead event).
      ============================================================ -->
@@ -344,7 +345,7 @@
      Empty endpoint: the form opens a pre-filled email instead.
      window.BG_STAGING (staging preview only): nothing is sent.
      ================================================================ */
-  var ICON_ENDPOINT = '';
+  var ICON_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxvbikuHt-4vM9vm2kj6nrrbmWSPET9zGW4zYmvXBKnWzKyuSkiDLR784MnuRbZn_hM/exec';
   var TO = 'info@basicgym.co.uk';
 
   var f1 = document.getElementById('iconForm');
