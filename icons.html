@@ -11,18 +11,20 @@
 <body>
 <div class="stg-bar"><b>Staging preview</b> <span>Not the live site. Join forms do not record anything.</span> <a href="review.html">What changed</a> <a href="?offer=off" class="stg-off">View with offer off</a></div>
 <!-- ============================================================
-     BasicGym - BASIC ICONS  (basicgym.co.uk/basic-icons/)  DRAFT
+     BasicGym - BASIC ICONS  (basicgym.co.uk/basic-icons/)
      Paste into ONE Elementor "HTML" widget (Canvas). Scoped .bg-icon.
-     Footer = SEPARATE shared footer widget below.
+     Footer = SEPARATE shared footer widget below
+     (90-shared-footer-with-icons-link.html adds the Icons link).
 
-     30 Oct 2026, first draft from the July brief (Gymbox ambassador
-     style): hero, three benefits (12 months complimentary membership,
-     VIP member party tickets, events), how it works, #ad rules, apply form.
-     Yellow "Draft" tags mark the terms Riaz still needs to confirm.
-     Remove every class="tbc" span before this goes live.
-     Application form: set ICON_ENDPOINT in the script at the bottom to an
-     Apps Script /exec URL once the Icons sheet exists. Until then it opens
-     a pre-filled email to info@basicgym.co.uk.
+     4 Nov 2026: rebuilt from Riaz's Basic Icon document.
+       - hero form: first name, mobile, email, optional handle, one tick
+       - optional step 2 adds platform, followers, why to the same row
+       - 30% commission on the first 3 months (agreed with Riaz)
+       - posts must be labelled #ad (ASA / CMA)
+     FORM: set ICON_ENDPOINT in the script at the bottom to the Google
+     Apps Script /exec URL (writes the sheet, emails info@basicgym.co.uk).
+     Tracking: dataLayer bg_icon_application, Meta trackCustom
+     IconApplication (kept apart from the membership Lead event).
      ============================================================ -->
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap');
@@ -139,40 +141,62 @@
   .bg-icon .hero-inner{padding:46px 0 38px}.bg-icon .sec{padding:52px 0}}
 @media(max-width:420px){.bg-icon .sticky-cta .p{padding-left:52px;font-size:12px}.bg-icon .sticky-cta a{margin-right:52px;padding:12px 13px;font-size:13px}}
 
-/* --- Basic Icons --- */
+/* --- Basic Icons (Nov 2026) --- */
+.bg-icon [hidden]{display:none!important}
 .bg-icon .hero-bg img{object-position:center 30%}
-.bg-icon .steps{list-style:none;counter-reset:st;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
-@media(max-width:900px){.bg-icon .steps{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.bg-icon .steps{grid-template-columns:1fr}}
-.bg-icon .steps li{counter-increment:st;background:#161616;border:1px solid var(--line-dark);border-radius:14px;padding:24px 22px}
-.bg-icon .steps li::before{content:counter(st,decimal-leading-zero);display:block;font-weight:900;font-size:34px;line-height:1;color:var(--orange);margin-bottom:14px}
-.bg-icon .steps b{display:block;font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.02em;color:#fff}
-.bg-icon .steps span{display:block;font-size:14.5px;color:var(--muted-dark);margin-top:7px}
-.bg-icon .rules{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--orange);border-radius:14px;padding:28px 26px}
-.bg-icon .rules h3{font-size:20px;font-weight:900;text-transform:uppercase;letter-spacing:-.005em}
-.bg-icon .rules p{font-size:15px;color:var(--muted);margin-top:10px}
-.bg-icon .rules b{color:var(--ink)}
-.bg-icon .lead.small{font-size:15px}
-.bg-icon .lead a{color:var(--orange-deep);font-weight:800}
-.bg-icon .tbc{display:inline-block;background:#FFF3B0;color:#5a4a00;border:1px dashed #C9A800;border-radius:6px;padding:1px 7px;font-size:12.5px;font-weight:700;letter-spacing:0;text-transform:none}
-.bg-icon .icon-form{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:28px 26px;box-shadow:0 24px 60px -34px rgba(0,0,0,.35)}
-.bg-icon .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:480px){.bg-icon .row2{grid-template-columns:1fr}.bg-icon .icon-form{padding:22px 18px}}
-.bg-icon .field{margin-bottom:14px}
-.bg-icon .field label{display:block;font-size:12.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:6px}
+.bg-icon .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;position:relative;z-index:1;padding-top:40px;padding-bottom:48px}
+.bg-icon .hero-grid .hero-inner{max-width:none;padding:72px 0 64px}
+.bg-icon .hero h1{font-size:clamp(38px,6.6vw,74px);line-height:.94;letter-spacing:-.02em}
+.bg-icon .apply{background:var(--white);color:var(--ink);border-radius:18px;padding:26px 24px 22px;box-shadow:0 30px 70px -30px rgba(0,0,0,.7);border-top:4px solid var(--orange)}
+.bg-icon .apply-head{margin-bottom:16px}
+.bg-icon .apply-kicker{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-deep)}
+.bg-icon .ok-kicker{color:#1F7A4D}
+.bg-icon .apply-title{font-weight:900;text-transform:uppercase;font-size:28px;line-height:1;margin-top:6px;letter-spacing:-.01em}
+.bg-icon .apply-lead{font-size:15px;color:var(--muted);margin-top:10px}
+.bg-icon .apply-lead a{color:var(--orange-deep);font-weight:800}
+.bg-icon .field{margin-bottom:12px}
+.bg-icon .field label{display:block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:5px}
+.bg-icon .field .opt{font-weight:600;text-transform:none;letter-spacing:0;color:#9A9AA0}
 .bg-icon .field input,.bg-icon .field select,.bg-icon .field textarea{width:100%;background:#fff;border:1.5px solid var(--line);border-radius:10px;color:var(--ink);font:500 16px/1.3 var(--font);padding:13px 14px;-webkit-appearance:none;appearance:none}
 .bg-icon .field select{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:34px}
-.bg-icon .field textarea{resize:vertical;min-height:110px}
+.bg-icon .field textarea{resize:vertical;min-height:84px}
+.bg-icon .field input::placeholder,.bg-icon .field textarea::placeholder{color:#A9A9AE}
 .bg-icon .field input:focus,.bg-icon .field select:focus,.bg-icon .field textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,102,0,.14)}
-.bg-icon .check{display:flex;gap:10px;align-items:flex-start;font-size:14px;font-weight:600;color:var(--muted);margin:6px 0 10px;cursor:pointer}
-.bg-icon .check input{width:18px;height:18px;margin-top:1px;accent-color:var(--orange);flex:0 0 auto}
-.bg-icon .submit{width:100%;background:var(--orange);color:#fff;border:0;border-radius:12px;font:900 17px var(--font);text-transform:uppercase;letter-spacing:.02em;padding:18px 20px;cursor:pointer;margin-top:8px;box-shadow:0 12px 28px rgba(255,102,0,.32)}
-.bg-icon .submit:hover{background:var(--orange-deep)}
-.bg-icon .submit[disabled]{opacity:.6;cursor:default}
-.bg-icon .err{display:none;margin-top:12px;font-size:13.5px;font-weight:700;color:#D7443E}
+.bg-icon .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.bg-icon .check{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;font-weight:600;color:var(--muted);margin:4px 0 12px;cursor:pointer;line-height:1.4}
+.bg-icon .check input{width:19px;height:19px;margin-top:0;accent-color:var(--orange);flex:0 0 auto}
+.bg-icon .submit{width:100%;background:var(--orange);color:#fff;border:0;border-radius:12px;font:900 17px var(--font);text-transform:uppercase;letter-spacing:.02em;padding:17px 20px;cursor:pointer;box-shadow:0 12px 28px rgba(255,102,0,.32);transition:background .15s ease,transform .12s ease}
+.bg-icon .submit:hover{background:var(--orange-deep);transform:translateY(-1px)}
+.bg-icon .submit[disabled]{opacity:.6;cursor:default;transform:none}
+.bg-icon .err{display:none;margin-top:10px;font-size:13.5px;font-weight:700;color:#D7443E}
 .bg-icon .err.show{display:block}
-.bg-icon .ok{margin-top:14px;background:#EFFAF2;border:1px solid #9ED7AE;border-radius:10px;padding:12px 14px;font-size:14.5px;color:#14532d}
-.bg-icon .ok[hidden]{display:none}
+.bg-icon .small-print{font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+.bg-icon .small-print a{color:var(--muted);text-decoration:underline}
+.bg-icon .get-grid.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1000px){.bg-icon .get-grid.four{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.bg-icon .get-grid.four{grid-template-columns:1fr}}
+.bg-icon .manifesto{background:var(--ink);color:#fff;padding:80px 0;border-top:1px solid var(--line-dark)}
+.bg-icon .manifesto .kicker{color:var(--orange-bright)}
+.bg-icon .manifesto .big{font-weight:900;text-transform:uppercase;font-size:clamp(28px,5vw,52px);line-height:1;letter-spacing:-.015em;margin-top:14px;max-width:16em;text-wrap:balance}
+.bg-icon .manifesto .lead{color:var(--muted-dark);margin-top:20px;font-size:18px;max-width:40em}
+.bg-icon .steps{list-style:none;counter-reset:st;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;padding:0}
+@media(max-width:760px){.bg-icon .steps{grid-template-columns:1fr}}
+.bg-icon .steps li{counter-increment:st;background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:24px 22px}
+.bg-icon .steps li::before{content:counter(st,decimal-leading-zero);display:block;font-weight:900;font-size:34px;line-height:1;color:var(--orange);margin-bottom:14px}
+.bg-icon .steps b{display:block;font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.02em;color:var(--ink)}
+.bg-icon .steps span{display:block;font-size:14.5px;color:var(--muted);margin-top:7px}
+.bg-icon .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+@media(max-width:760px){.bg-icon .faq-grid{grid-template-columns:1fr}}
+.bg-icon .faq-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px}
+.bg-icon .faq-card h4{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.02em}
+.bg-icon .faq-card p{font-size:14px;color:var(--muted);margin-top:8px}
+@media(max-width:900px){
+  .bg-icon .hero-grid{grid-template-columns:1fr;gap:0;padding-top:0;padding-bottom:36px}
+  .bg-icon .hero-grid .hero-inner{padding:40px 0 24px}
+  .bg-icon .hero h1{font-size:clamp(36px,10vw,52px)}
+  .bg-icon .apply{padding:22px 18px 18px}
+  .bg-icon .manifesto{padding:56px 0}
+}
 </style>
 <div class="bg-icon">
   <nav class="nav">
@@ -200,21 +224,61 @@
     </div>
   </nav>
 
-  <section class="hero">
+  <section class="hero" id="top">
     <div class="hero-bg"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/f_auto,q_auto,w_1600/v1782656619/hyrox-training_xzembf.png" alt="Members training at BasicGym Riverside" fetchpriority="high"></div>
-    <div class="wrap">
+    <div class="wrap hero-grid">
       <div class="hero-inner">
-        <span class="eyebrow"><span class="dot"></span>Basic Icons &middot; Nottingham Riverside</span>
-        <h1 class="display">Become a<br><span class="orange">Basic Icon.</span></h1>
-        <p class="sub">You train here anyway. Film it, post it, bring people with you, and we will cover your membership for a year.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#apply">Apply to be an Icon</a>
-          <a class="btn btn-ghost" href="#how">How it works</a>
-        </div>
+        <span class="eyebrow"><span class="dot"></span>Basic Icons &middot; Creators, athletes, gym lovers</span>
+        <h1 class="display">Become a<br><span class="orange">Basic Gym Icon.</span></h1>
+        <p class="sub">We&rsquo;re looking for people who love fitness, content creation and the BasicGym lifestyle. Creator, athlete, beginner or simply passionate about the gym, anyone can become an Icon.</p>
         <div class="pills">
-          <span class="pill"><span class="dot"></span> 12 months free membership</span>
-          <span class="pill"><span class="dot"></span> VIP party tickets</span>
-          <span class="pill"><span class="dot"></span> First in to our events</span>
+          <span class="pill"><span class="dot"></span> Free annual membership</span>
+          <span class="pill"><span class="dot"></span> 30% commission</span>
+          <span class="pill"><span class="dot"></span> Exclusive events</span>
+        </div>
+      </div>
+
+      <div class="apply" id="apply">
+        <div class="apply-step" id="icStep1">
+          <div class="apply-head">
+            <span class="apply-kicker">Apply in 30 seconds</span>
+            <h2 class="apply-title">Want in?</h2>
+          </div>
+          <form id="iconForm" novalidate>
+            <div class="field"><label for="ic-name">First name</label><input id="ic-name" name="first_name" type="text" autocomplete="given-name" required maxlength="60" placeholder="Jane"></div>
+            <div class="field"><label for="ic-phone">Mobile</label><input id="ic-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="07123 456789"></div>
+            <div class="field"><label for="ic-email">Email</label><input id="ic-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120" placeholder="jane@email.com"></div>
+            <div class="field"><label for="ic-handle">Instagram or TikTok <span class="opt">optional</span></label><input id="ic-handle" name="handle" type="text" autocomplete="off" autocapitalize="off" maxlength="60" placeholder="@yourname"></div>
+            <div class="hp" aria-hidden="true"><label for="ic-website">Leave this empty</label><input id="ic-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+            <label class="check"><input type="checkbox" id="ic-ok" name="consent" required> <span>I&rsquo;m 18 or over and happy for BasicGym to contact me about Basic Icons</span></label>
+            <button class="submit" type="submit" id="icSubmit">Apply to be an Icon &rarr;</button>
+            <div class="err" id="icErr" role="alert">Please add your first name, mobile and email, and tick the box.</div>
+            <p class="small-print">We only use your details for your application. <a href="https://basicgym.co.uk/privacy-policy/">Privacy policy</a>.</p>
+          </form>
+        </div>
+
+        <div class="apply-step" id="icStep2" hidden>
+          <div class="apply-head">
+            <span class="apply-kicker ok-kicker">Application received</span>
+            <h2 class="apply-title">You&rsquo;re on the list.</h2>
+            <p class="apply-lead">We&rsquo;ll be in touch soon. Want to stand out? Tell us a bit more. It&rsquo;s optional.</p>
+          </div>
+          <form id="iconMore" novalidate>
+            <div class="field"><label for="ic-platform">Main platform</label>
+              <select id="ic-platform" name="platform"><option value="">Choose one</option><option>Instagram</option><option>TikTok</option><option>YouTube</option><option>Other</option></select></div>
+            <div class="field"><label for="ic-followers">Followers</label>
+              <select id="ic-followers" name="followers"><option value="">Choose one</option><option>Under 1,000</option><option>1,000 to 5,000</option><option>5,000 to 20,000</option><option>20,000 plus</option></select></div>
+            <div class="field"><label for="ic-why">Why you&rsquo;d make a great Icon</label><textarea id="ic-why" name="why" rows="3" maxlength="600" placeholder="What you train, what you post, a link you're proud of"></textarea></div>
+            <button class="submit" type="submit" id="icMoreSubmit">Send the extra details</button>
+          </form>
+        </div>
+
+        <div class="apply-step" id="icStep3" hidden>
+          <div class="apply-head">
+            <span class="apply-kicker ok-kicker">All done</span>
+            <h2 class="apply-title">Thanks, that&rsquo;s with us.</h2>
+            <p class="apply-lead">Keep an eye on your phone and inbox. In the meantime, follow us on <a href="https://www.instagram.com/basicgym.uk/" target="_blank" rel="noopener">Instagram</a> and <a href="https://www.tiktok.com/@basicgym.uk" target="_blank" rel="noopener">TikTok</a>.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -223,98 +287,60 @@
   <section class="sec">
     <div class="wrap">
       <span class="kicker">What you get</span>
-      <h2 class="h2 display">Train, create,<br>get looked after.</h2>
-      <div class="get-grid">
-        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></div><h4>A year&rsquo;s membership on us</h4><p>Twelve months of complimentary membership at Riverside, with every class included.</p></div>
-        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M5.8 11.3 2 22l10.7-3.8"/><path d="M4 3h.01"/><path d="M22 8h.01"/><path d="M15 2h.01"/><path d="M22 20h.01"/><path d="m22 2-2.2.7a1.9 1.9 0 0 0-1.3 2.2c.2.9-.4 1.8-1.3 1.9L15 7"/><path d="m22 13-.8-.3a1.9 1.9 0 0 0-2.2 1.2c-.3.9-1.2 1.4-2.1 1.2L15 15"/><path d="M11 13 6.8 8.8"/></svg></div><h4>VIP member party tickets</h4><p>Your name on the list for our member parties.</p></div>
-        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M12 2 15 8.5l7 .9-5.1 4.8 1.3 6.9L12 17.8 5.8 21.1l1.3-6.9L2 9.4l7-.9z"/></svg></div><h4>Legendary events</h4><p>First invites to our workshops, challenges and gym events.</p></div>
+      <h2 class="h2 display">Train. Create.<br>Get rewarded.</h2>
+      <div class="get-grid four">
+        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></div><h4>Complimentary annual membership</h4><p>A year at BasicGym on us, every class included, in exchange for creating and sharing content featuring BasicGym.</p></div>
+        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h4>Earn 30% commission</h4><p>Selected Icons join the BasicGym Affiliate Programme and earn 30% of what every customer they refer pays in their first 3 months.</p></div>
+        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div><h4>Your own affiliate code</h4><p>A personal code to share with your audience, friends and community. Every signup or purchase through it earns you commission.</p></div>
+        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M12 2 15 8.5l7 .9-5.1 4.8 1.3 6.9L12 17.8 5.8 21.1l1.3-6.9L2 9.4l7-.9z"/></svg></div><h4>Exclusive events and launches</h4><p>Invites to BasicGym events, community workouts and launch parties, made for our Icons and creators.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="sec sec--ink" id="how">
+  <section class="manifesto">
+    <div class="wrap">
+      <span class="kicker">Train, create and earn</span>
+      <p class="big">We&rsquo;re building more than a gym. <span class="orange">We&rsquo;re building a movement.</span></p>
+      <p class="lead">Creator, coach, athlete or up and coming fitness personality, BasicGym gives you the platform to grow your audience, build your brand and create an extra income stream.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="how">
     <div class="wrap">
       <span class="kicker">How it works</span>
-      <h2 class="h2 display">Four steps.<br>No agency nonsense.</h2>
+      <h2 class="h2 display">Three steps.</h2>
       <ol class="steps">
-        <li><b>Apply</b><span>Tell us who you are, where you post and why the gym suits you. Two minutes, below.</span></li>
-        <li><b>Meet the team</b><span>If it looks like a fit, we invite you down for a chat and a session on the floor.</span></li>
-        <li><b>Create</b><span>We agree a simple plan together: <span class="tbc">Draft: posts per month, e.g. 2 Reels and 4 Stories</span>. You keep your own style.</span></li>
-        <li><b>Keep it going</b><span>We check in regularly and share what is working. <span class="tbc">Draft: what happens if someone stops posting</span></span></li>
+        <li><b>Apply</b><span>First name, mobile and email. It takes 30 seconds.</span></li>
+        <li><b>Chat with the team</b><span>If it&rsquo;s a fit, we call or message you to talk it through.</span></li>
+        <li><b>Get your code</b><span>Start creating, share your code, earn commission and enjoy the perks.</span></li>
       </ol>
     </div>
   </section>
 
   <section class="sec sec--cream">
-    <div class="wrap two">
-      <div>
-        <span class="kicker">Who we are looking for</span>
-        <h2 class="h2 display">Real people.<br>Real training.</h2>
-        <p class="lead">You do not need a huge following. We want people who love training, post about it honestly and get on with others in the gym. Lifters, Hyrox people, class regulars, beginners documenting the journey, all welcome.</p>
-        <p class="lead"><span class="tbc">Draft: minimum followers, if any, and whether you must already be a member</span></p>
+    <div class="wrap">
+      <span class="kicker">Good to know</span>
+      <h2 class="h2 display">The small print,<br>kept short.</h2>
+      <div class="faq-grid">
+        <div class="faq-card"><h4>Do I need a big following?</h4><p>No. Anyone can apply. We want people who love training and share it honestly, whatever their follower count.</p></div>
+        <div class="faq-card"><h4>How does the commission work?</h4><p>You earn 30% of what each customer you refer pays in their first 3 months, after VAT, on any membership or coaching plan.</p></div>
+        <div class="faq-card"><h4>Do I have to label my posts?</h4><p>Yes. Your membership and commission count as payment, so every post about BasicGym needs <b>#ad</b> at the start, or the platform&rsquo;s paid partnership label. That&rsquo;s the UK rule (ASA and CMA), and it protects you as much as us.</p></div>
+        <div class="faq-card"><h4>What happens after I apply?</h4><p>We read every application. If it&rsquo;s a fit, someone from the team gets in touch by phone or email.</p></div>
       </div>
-      <div class="rules">
-        <h3>Keep it honest</h3>
-        <p>Your free membership counts as payment, so every post about BasicGym needs to be clearly labelled as an ad. Put <b>#ad</b> at the start of the caption, or use the platform&rsquo;s paid partnership label.</p>
-        <p>That is the UK rule for influencer content (ASA and CMA), and it protects you as much as us. We will remind you how to do it when you start.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="apply">
-    <div class="wrap two">
-      <div>
-        <span class="kicker">Apply</span>
-        <h2 class="h2 display">Want in?</h2>
-        <p class="lead">Fill this in and we will get back to you. We read every application.</p>
-        <p class="lead small">Questions first? Email <a href="mailto:info@basicgym.co.uk?subject=Basic%20Icons">info@basicgym.co.uk</a>.</p>
-      </div>
-      <form class="icon-form" id="iconForm" novalidate>
-        <div class="row2">
-          <div class="field"><label for="ic-name">Name</label><input id="ic-name" name="name" type="text" autocomplete="name" required placeholder="Jane Smith"></div>
-          <div class="field"><label for="ic-email">Email</label><input id="ic-email" name="email" type="email" autocomplete="email" required placeholder="jane@email.com"></div>
-        </div>
-        <div class="row2">
-          <div class="field"><label for="ic-handle">Main handle</label><input id="ic-handle" name="handle" type="text" required placeholder="@yourname"></div>
-          <div class="field"><label for="ic-platform">Main platform</label>
-            <select id="ic-platform" name="platform" required>
-              <option value="">Choose one</option><option>Instagram</option><option>TikTok</option><option>YouTube</option><option>Other</option>
-            </select>
-          </div>
-        </div>
-        <div class="row2">
-          <div class="field"><label for="ic-followers">Followers</label>
-            <select id="ic-followers" name="followers" required>
-              <option value="">Choose one</option><option>Under 1,000</option><option>1,000 to 5,000</option><option>5,000 to 20,000</option><option>20,000 plus</option>
-            </select>
-          </div>
-          <div class="field"><label for="ic-member">BasicGym member?</label>
-            <select id="ic-member" name="member" required>
-              <option value="">Choose one</option><option>Yes</option><option>Not yet</option>
-            </select>
-          </div>
-        </div>
-        <div class="field"><label for="ic-why">Why you would make a great Icon</label><textarea id="ic-why" name="why" rows="4" required placeholder="What you train, what you post, a link to a post you are proud of"></textarea></div>
-        <label class="check"><input type="checkbox" name="age" required> I am 18 or over</label>
-        <label class="check"><input type="checkbox" name="consent" required> BasicGym can contact me about my application</label>
-        <button class="submit" type="submit" id="icSubmit">Send my application &rarr;</button>
-        <div class="err" id="icErr">Please fill in every field and tick both boxes.</div>
-        <div class="ok" id="icOk" hidden><b>Thanks, that is with us.</b> We will be in touch.</div>
-      </form>
     </div>
   </section>
 
   <section class="final">
     <div class="wrap">
-      <h2 class="display">Train here.<br>Post it. Get looked after.</h2>
-      <p>Twelve months free membership, VIP party tickets and first access to our events.</p>
-      <a class="btn btn-dark" href="#apply">Apply to be an Icon</a>
+      <h2 class="display">Become a<br>Basic Gym Icon.</h2>
+      <p>Free annual membership, 30% commission and exclusive events.</p>
+      <a class="btn btn-dark" href="#apply">Apply in 30 seconds</a>
       <div class="micro">Basic Icons &middot; Riverside Retail Park, Nottingham NG2 1RU</div>
     </div>
   </section>
 
   <div class="sticky-cta">
-    <div class="p">Basic Icons <b>12 months free</b><small>For people who post about training</small></div>
+    <div class="p">Basic Icons <b>free membership</b><small>Plus 30% commission</small></div>
     <a href="#apply">Apply</a>
   </div>
 
@@ -322,56 +348,72 @@
 
 <script>
 (function () {
-  /* Basic Icons application.
-     ICON_ENDPOINT: paste a Google Apps Script /exec URL here when the Icons
-     sheet exists (fields: name, email, handle, platform, followers, member,
-     why, page, ts). Until then the form opens a pre-filled email to
-     info@basicgym.co.uk so no application is lost. */
+  /* ================================================================
+     Basic Icons application form
+     ICON_ENDPOINT = the Google Apps Script /exec URL (sheet + email to
+     info@basicgym.co.uk). Step 1 sends name, mobile, email, handle.
+     Step 2 (optional) adds platform, followers and why to the same row.
+     Empty endpoint: the form opens a pre-filled email instead.
+     window.BG_STAGING (staging preview only): nothing is sent.
+     ================================================================ */
   var ICON_ENDPOINT = '';
   var TO = 'info@basicgym.co.uk';
 
-  var form = document.getElementById('iconForm');
-  if (!form) return;
-  var err = document.getElementById('icErr');
-  var ok  = document.getElementById('icOk');
-  var btn = document.getElementById('icSubmit');
+  var f1 = document.getElementById('iconForm');
+  if (!f1) return;
+  var f2 = document.getElementById('iconMore');
+  var s1 = document.getElementById('icStep1'), s2 = document.getElementById('icStep2'), s3 = document.getElementById('icStep3');
+  var err = document.getElementById('icErr'), btn = document.getElementById('icSubmit');
+  var started = Date.now();
+  var id = 'icon_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
+  var q = new URLSearchParams(location.search);
 
-  form.addEventListener('submit', function (e) {
+  function post(fd) {
+    if (window.BG_STAGING || !ICON_ENDPOINT) return;
+    try {
+      if (navigator.sendBeacon && navigator.sendBeacon(ICON_ENDPOINT, fd)) return;
+      fetch(ICON_ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors', keepalive: true });
+    } catch (e) {}
+  }
+  function track(name, extra) {
+    try { window.dataLayer = window.dataLayer || []; var o = { event: name }; for (var k in extra) o[k] = extra[k]; window.dataLayer.push(o); } catch (e) {}
+  }
+  function show(el) { [s1, s2, s3].forEach(function (s) { s.hidden = (s !== el); }); }
+
+  f1.addEventListener('submit', function (e) {
     e.preventDefault();
     err.classList.remove('show');
-    if (!form.checkValidity()) { err.classList.add('show'); return; }
+    if (f1.website.value) return;                        /* bot filled the hidden field */
+    if (!f1.checkValidity() || f1.phone.value.replace(/\D/g, '').length < 10) { err.classList.add('show'); return; }
+    if (Date.now() - started < 2500) { err.classList.add('show'); return; }
 
-    var fd = new FormData(form);
-    fd.append('page', location.href);
-    fd.append('ts', new Date().toISOString());
+    var fd = new FormData(f1);
+    fd.delete('website'); fd.delete('consent');
+    fd.append('id', id); fd.append('step', '1'); fd.append('consent', 'yes');
+    fd.append('page', location.href); fd.append('ts', new Date().toISOString());
+    ['utm_source', 'utm_medium', 'utm_campaign', 'ref'].forEach(function (k) { if (q.get(k)) fd.append(k, q.get(k)); });
 
-    function thanks() {
-      form.querySelectorAll('input,select,textarea,button').forEach(function (el) { el.disabled = true; });
-      ok.hidden = false;
-      try {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: 'bg_icon_application', platform: fd.get('platform'), followers: fd.get('followers') });
-      } catch (e2) {}
+    btn.disabled = true;
+    if (!ICON_ENDPOINT && !window.BG_STAGING) {
+      var body = ['First name: ' + fd.get('first_name'), 'Mobile: ' + fd.get('phone'), 'Email: ' + fd.get('email'), 'Handle: ' + (fd.get('handle') || 'not given')].join('\n');
+      window.location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent('New Basic Icon application: ' + fd.get('first_name')) + '&body=' + encodeURIComponent(body);
+    } else {
+      post(fd);
     }
+    track('bg_icon_application', { icon_step: 1, icon_has_handle: !!fd.get('handle') });
+    try { if (typeof fbq === 'function') fbq('trackCustom', 'IconApplication'); } catch (e2) {}
+    show(s2);
+  });
 
-    if (window.BG_STAGING) { thanks(); return; }   /* staging preview sends nothing */
-
-    if (ICON_ENDPOINT) {
-      btn.disabled = true;
-      try {
-        if (navigator.sendBeacon) { navigator.sendBeacon(ICON_ENDPOINT, fd); }
-        else { fetch(ICON_ENDPOINT, { method:'POST', body:fd, mode:'no-cors', keepalive:true }); }
-      } catch (e3) {}
-      thanks();
-      return;
+  f2.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var fd = new FormData(f2);
+    if (fd.get('platform') || fd.get('followers') || String(fd.get('why') || '').trim()) {
+      fd.append('id', id); fd.append('step', '2'); fd.append('email', f1.email.value);
+      post(fd);
+      track('bg_icon_application', { icon_step: 2, icon_followers: fd.get('followers') || '' });
     }
-
-    var body = ['Name: ' + fd.get('name'), 'Email: ' + fd.get('email'), 'Handle: ' + fd.get('handle'),
-                'Platform: ' + fd.get('platform'), 'Followers: ' + fd.get('followers'),
-                'Member: ' + fd.get('member'), '', fd.get('why')].join('\n');
-    window.location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent('Basic Icons application: ' + fd.get('handle')) +
-                           '&body=' + encodeURIComponent(body);
-    thanks();
+    show(s3);
   });
 })();
 </script>

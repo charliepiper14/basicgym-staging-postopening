@@ -74,15 +74,15 @@ Do this in one sitting. Purge LiteSpeed and Cloudflare at the end.
 
 **Classes (06), Students (07)**: price card note only.
 
-**Basic Icons (08)**: built from the July brief, in the Gymbox ambassador style.
-- Hero, three benefits (12 months free membership, VIP member party tickets, events), how it works, and a "Keep it honest" #ad section.
-- The apply form has name, email, handle, platform, followers, member yes/no, an "18 or over" box and a consent box.
-- Yellow **Draft** tags mark terms Riaz still has to confirm: posts per month, what happens if someone stops posting, and any minimum followers or membership requirement. Remove every `tbc` span before go live.
-- The form has no sheet yet. It opens a pre-filled email to info@basicgym.co.uk until `ICON_ENDPOINT` is set.
+**Basic Icons (08)**: rebuilt on 4 Nov from Riaz's Basic Icon document.
+- Hero with the application form: first name, mobile and email, an optional handle, and one tick box. An optional step 2 adds platform, followers and why.
+- Four benefits: complimentary annual membership, 30% commission (first 3 months, after VAT), your own affiliate code, and events and launches.
+- A "Train, create and earn" band, three steps, and a Good to know section that includes the #ad rule.
+- The form posts to a Google Apps Script that writes to the "Basic Icons applications" sheet and emails info@basicgym.co.uk. Setup is in `apps-script/SETUP.md`. Paste the `/exec` URL into `ICON_ENDPOINT` before go live.
+- Tracking: dataLayer `bg_icon_application` and the Meta custom event `IconApplication`. Kept separate from the membership Lead event.
 
 ## Still waiting on Riaz (unchanged on purpose)
 
 - Ratings and the Long Eaton review section (R16)
 - "120 classes a week" (R04)
-- Basic Icons wording and terms (his document)
 - Online PT page and gym events: next builds, not started
