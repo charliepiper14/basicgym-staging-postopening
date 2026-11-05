@@ -4,7 +4,8 @@
  * then adds the lead to Brevo (needs brevo.gs in the same project).
  *
  * 5 Nov 2026: added plan and marketing columns at the end of the row, and the
- * Brevo copy. Existing columns and their order are unchanged.
+ * Brevo copy. Existing columns and their order are unchanged. Marketing is a
+ * soft opt-in: yes unless the "don't want offers" box is ticked (no_marketing).
  *
  * To update, use Deploy > Manage deployments > edit > Version: New version, so the
  * SAME /exec URL keeps working (don't create a brand-new deployment each time).
@@ -46,7 +47,9 @@ function doPost(e) {
     var sh = ss.getSheetByName(TAB_NAME);
     if (!sh) { sh = ss.insertSheet(TAB_NAME); sh.appendRow(HEADERS); sh.setFrozenRows(1); }
 
-    var optIn = p.marketing === 'yes' || p.marketing === 'on';
+    /* soft opt-in (option B): marketing unless they ticked "don't want offers" */
+    var optOut = p.no_marketing === 'yes' || p.no_marketing === 'on';
+    var optIn = !optOut;
 
     sh.appendRow([
       p.ts || new Date().toISOString(),
@@ -60,10 +63,10 @@ function doPost(e) {
       p.page       || '',
       '',
       p.plan       || '',
-      optIn ? 'yes' : 'no'
+      optOut ? 'opted out' : 'yes'
     ]);
 
-    /* copy to Brevo (brevo.gs). Marketing only if they ticked the optional box. */
+    /* copy to Brevo (brevo.gs). Marketing yes unless they ticked the opt-out box. */
     var email = String(p.email || '').trim().toLowerCase();
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       var utm = utm_(p.page);
@@ -74,6 +77,7 @@ function doPost(e) {
         phone: p.phone || '',
         plan:  p.plan  || '',
         optIn: optIn,
+        optOut: optOut,
         source: [utm.utm_source, utm.utm_medium].filter(String).join(' / '),
         campaign: utm.utm_campaign || ''
       });

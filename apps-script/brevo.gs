@@ -23,7 +23,7 @@ var BREVO_FIELDS = { FORM: 'text', PLAN: 'text', SOURCE: 'text', CAMPAIGN: 'text
 
 /**
  * Add or update one contact. form = 'join' or 'icons'.
- * c = { email, first, last, phone, optIn (true/false), plan, source, campaign, handle }
+ * c = { email, first, last, phone, optIn, optOut (true/false), plan, source, campaign, handle }
  */
 function brevoAdd_(form, c) {
   try {
@@ -37,8 +37,10 @@ function brevoAdd_(form, c) {
     };
     /* leave out blanks, so a later form never wipes what an earlier one saved */
     Object.keys(attrs).forEach(function (k) { if (attrs[k] === '') delete attrs[k]; });
-    /* only ever set the opt-in to yes; an unticked box later doesn't undo an earlier yes */
-    if (!attrs.MARKETING_OPT_IN) delete attrs.MARKETING_OPT_IN;
+    /* opt-in: a clear "no" (opt-out box ticked) always wins; otherwise only ever set yes,
+       so a form without the box never undoes an earlier yes */
+    if (c.optOut) attrs.MARKETING_OPT_IN = false;
+    else if (!attrs.MARKETING_OPT_IN) delete attrs.MARKETING_OPT_IN;
     var sms = ukMobile_(c.phone);
     if (sms) attrs.SMS = sms;
     var body = { email: c.email, attributes: attrs, updateEnabled: true };

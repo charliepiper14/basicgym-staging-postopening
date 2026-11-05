@@ -18,7 +18,7 @@
          applies on the monthly plans, no offer on the day pass
        - all "limited spaces / only 100" copy removed, no end date (R07 closed)
        - needs the SAVE50 site-wide script (00-site-wide-offer-script.html)
-       - optional marketing opt-in tick box, sent as marketing=yes (for Brevo)
+       - marketing opt-out tick box (soft opt-in), sent as no_marketing=yes when ticked
        - offer field sent to the sheet is now SAVE50 (or "none" if the
          offer is switched off). Endpoint and product IDs unchanged.
        - Lead value is now the plan's first payment with SAVE50, was 5
@@ -248,7 +248,7 @@
               <label for="phone">Mobile</label>
               <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="07123 456789">
             </div>
-            <label class="mkt"><input type="checkbox" name="marketing" value="yes"> <span>Send me BasicGym offers and news by email and text. Optional, unsubscribe any time.</span></label>
+            <label class="mkt"><input type="checkbox" name="no_marketing" value="yes"> <span>Tick if you don't want offers and news from BasicGym by email or text. You can also unsubscribe any time.</span></label>
             <button class="submit" type="submit" id="bgSubmit">Continue to secure sign-up &rarr;</button>
             <div class="err" id="bgErr">Please fill in all fields correctly.</div>
             <a class="changeplan" href="membership.html">Change plan</a>
