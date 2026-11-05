@@ -1,6 +1,6 @@
 /**
  * BasicGym - Brevo connection for the website forms
- * Add this file to each form's Apps Script project (join leads and Basic Icons).
+ * Add this file to each form's Apps Script project (join, Basic Icons and events).
  *
  * Every form entry still goes to the sheet first. Brevo is sent a copy straight
  * after; if Brevo fails, the entry is safe in the sheet and the error is logged.
@@ -134,9 +134,10 @@ function brevoSetup() {
   console.log('Brevo is ready.');
 }
 
-/* Optional check from the editor: adds one test contact to both lists. Delete it in Brevo after. */
+/* Optional check from the editor: adds one test contact to every list. Delete it in Brevo after. */
 function brevoTest() {
   brevoAdd_('join', { email: 'brevo-test@basicgym.co.uk', first: 'Test', plan: 'test', source: 'test' });
   brevoAdd_('icons', { email: 'brevo-test@basicgym.co.uk', first: 'Test', source: 'test' });
+  brevoAdd_('events', { email: 'brevo-test@basicgym.co.uk', first: 'Test', event: 'test', source: 'test' });
   console.log('Sent. Look for brevo-test@basicgym.co.uk in Brevo > Contacts.');
 }
