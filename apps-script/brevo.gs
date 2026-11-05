@@ -10,20 +10,21 @@
  *   Property: BREVO_API_KEY    Value: the key from Brevo (Settings > SMTP & API)
  *
  * Then run brevoSetup() once from the editor. It creates, only if missing:
- *   folder "Website", lists "Website join leads" and "Basic Icons applicants",
- *   contact fields FORM, PLAN, SOURCE, CAMPAIGN, HANDLE, MARKETING_OPT_IN, FORM_DATE
+ *   folder "Website", lists "Website join leads", "Basic Icons applicants" and
+ *   "Event registrations", contact fields FORM, PLAN, SOURCE, CAMPAIGN, HANDLE,
+ *   MARKETING_OPT_IN, FORM_DATE, EVENT, MEMBER
  * Running it twice, or in both projects, is safe.
  */
 
 var BREVO_API = 'https://api.brevo.com/v3';
 var BREVO_FOLDER = 'Website';
-var BREVO_LISTS = { join: 'Website join leads', icons: 'Basic Icons applicants' };
+var BREVO_LISTS = { join: 'Website join leads', icons: 'Basic Icons applicants', events: 'Event registrations' };
 var BREVO_FIELDS = { FORM: 'text', PLAN: 'text', SOURCE: 'text', CAMPAIGN: 'text', HANDLE: 'text',
-                     MARKETING_OPT_IN: 'boolean', FORM_DATE: 'date' };
+                     MARKETING_OPT_IN: 'boolean', FORM_DATE: 'date', EVENT: 'text', MEMBER: 'text' };
 
 /**
- * Add or update one contact. form = 'join' or 'icons'.
- * c = { email, first, last, phone, optIn, optOut (true/false), plan, source, campaign, handle }
+ * Add or update one contact. form = 'join', 'icons' or 'events'.
+ * c = { email, first, last, phone, optIn, optOut (true/false), plan, source, campaign, handle, event, member }
  */
 function brevoAdd_(form, c) {
   try {
@@ -33,6 +34,7 @@ function brevoAdd_(form, c) {
     var attrs = {
       FIRSTNAME: c.first || '', LASTNAME: c.last || '', FORM: form,
       PLAN: c.plan || '', SOURCE: c.source || '', CAMPAIGN: c.campaign || '', HANDLE: c.handle || '',
+      EVENT: c.event || '', MEMBER: c.member || '',
       MARKETING_OPT_IN: !!c.optIn, FORM_DATE: Utilities.formatDate(new Date(), 'Europe/London', 'yyyy-MM-dd')
     };
     /* leave out blanks, so a later form never wipes what an earlier one saved */

@@ -90,6 +90,11 @@ Do this in one sitting. Purge LiteSpeed and Cloudflare at the end.
 
 **Brevo (5 Nov):** both forms copy each entry into Brevo (lists "Website join leads" and "Basic Icons applicants") after the sheet and email. Code in `apps-script/brevo.gs`. The join script now lives under charliepiperppc@gmail.com, with a new endpoint already in `03-join.html`. Both forms have an optional marketing opt-in tick box.
 
+**Events (11), new 5 Nov:** /events/ from Riaz's doc. Evergreen intro plus the next event (Mon 23 Nov, BasicGym x The Movement Community): plan, what to expect, partner section, FAQs, and a sign-up form (first name, last name, email, mobile, member yes/no, optional offers tick box). After sign-up it offers an Add to Google Calendar button.
+- Form posts to `apps-script/events-form.gs` (new sheet, email to info@, Brevo list "Event registrations"). Paste its /exec URL into `EVENT_ENDPOINT` before go live; until then the form opens a pre-filled email.
+- Tracking: dataLayer `bg_event_registration` and Meta custom event `EventRegistration`.
+- Draft tags: partner name (doc also says "The Running Club"), free and open to non-members, cap, run distance, pace and start point.
+
 **Personal Training band (10):** a separate HTML widget added between the PT page widget and the footer. The PT page code itself is unchanged.
 
 **Menu snippet (01b):** now adds Online Coaching under Personal Training as well as Basic Icons. Paste it only when /online-coaching/ is live.

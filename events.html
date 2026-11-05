@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>STAGING · Events · BasicGym Riverside</title>
+<script>window.BG_STAGING = true;</script>
+<link rel="stylesheet" href="staging.css">
+</head>
+<body>
+<div class="stg-bar"><b>Staging preview</b> <span>Not the live site. Join forms do not record anything.</span> <a href="review.html">What changed</a> <a href="?offer=off" class="stg-off">View with offer off</a></div>
+<!-- ============================================================
+     BasicGym - EVENTS  (basicgym.co.uk/events/)
+     Paste into ONE Elementor "HTML" widget (Canvas). Scoped .bg-evt.
+     Footer = SEPARATE shared footer widget below.
+
+     5 Nov 2026: events page from Riaz's doc. Evergreen intro plus the
+     next event (Mon 23 Nov, BasicGym x The Movement Community).
+     Registration form: first name, last name (optional), email, mobile,
+     member yes/no, optional marketing opt-in. EVENT_ENDPOINT = Apps
+     Script /exec URL (sheet + email to info@ + Brevo). Empty = email.
+     Tracking: dataLayer bg_event_registration and Meta custom event
+     EventRegistration, kept apart from Lead and Purchase.
+     Remove every class="tbc" draft tag once Riaz confirms them.
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap');
+.bg-evt{--white:#FFFFFF;--cream:#F5F4F0;--ink:#0E0E0E;--orange:#FF6600;--orange-bright:#FF7A1A;--orange-deep:#CC5200;--muted:#565659;--muted-dark:#A9A9AE;--line:#E7E5E0;--line-dark:#262629;--font:'Cooper Hewitt','Hanken Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-family:var(--font);}
+.bg-evt *{box-sizing:border-box;margin:0;padding:0}
+.bg-evt{background:var(--white);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-evt .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.bg-evt .display{font-family:var(--font);font-weight:900;letter-spacing:-0.015em;text-transform:uppercase;line-height:0.95;text-wrap:balance}
+.bg-evt .orange{color:var(--orange)}
+.bg-evt a{color:inherit;text-decoration:none}
+.bg-evt img{max-width:100%;display:block}
+.bg-evt svg{display:block}
+.bg-evt .sec{padding:74px 0}
+.bg-evt .sec--cream{background:var(--cream)}
+.bg-evt .sec--ink{background:var(--ink);color:var(--white)}
+.bg-evt .kicker{font-size:12.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+.bg-evt .h2{font-size:clamp(26px,5vw,46px);margin-top:12px;text-wrap:balance}
+.bg-evt .lead{color:var(--muted);font-size:17px;margin-top:14px;max-width:620px;text-wrap:pretty}
+.bg-evt .sec--ink .lead{color:var(--muted-dark)}
+.bg-evt .sec--ink .kicker{color:var(--orange-bright)}
+.bg-evt .sec--ink .h2{color:#fff}
+.bg-evt .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:15px;padding:15px 26px;border-radius:8px;text-transform:uppercase;letter-spacing:0.02em;transition:transform .12s ease,background .15s ease,border-color .15s ease}
+.bg-evt .btn-primary{background:var(--orange);color:#fff}
+.bg-evt .btn-primary:hover{background:var(--orange-deep);transform:translateY(-1px)}
+.bg-evt .btn-dark{background:var(--ink);color:#fff}
+.bg-evt .btn-dark:hover{background:#000;transform:translateY(-1px)}
+.bg-evt .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.4)}
+.bg-evt .btn-ghost:hover{border-color:#fff}
+.bg-evt .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+.bg-evt .hero{position:relative;color:#fff;overflow:hidden;background:var(--ink)}
+.bg-evt .hero-bg{position:absolute;inset:0;z-index:0}
+.bg-evt .hero-bg img{width:100%;height:100%;object-fit:cover}
+.bg-evt .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,14,14,0.94) 0%,rgba(14,14,14,0.80) 42%,rgba(14,14,14,0.45) 100%)}
+.bg-evt .hero-inner{position:relative;z-index:1;padding:76px 0 56px;max-width:660px}
+.bg-evt .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange)}
+.bg-evt .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.bg-evt .hero h1{font-size:clamp(32px,6.2vw,60px);line-height:1;margin:16px 0 0}
+.bg-evt .hero .sub{margin-top:18px;font-size:clamp(16px,2.2vw,21px);line-height:1.35;color:#EDEDED;font-weight:500;max-width:36em;text-wrap:pretty}
+.bg-evt .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.bg-evt .pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:30px;padding:8px 14px}
+.bg-evt .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.bg-evt .statbar{background:var(--orange);color:var(--ink)}
+.bg-evt .statbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.bg-evt .sb{padding:22px 18px;display:flex;align-items:baseline;gap:10px;justify-content:center;border-right:1px solid rgba(0,0,0,0.16)}
+.bg-evt .sb:last-child{border-right:0}
+.bg-evt .sb .n{font-weight:900;font-size:26px;line-height:1}
+.bg-evt .sb .l{font-size:11.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
+@media(max-width:760px){.bg-evt .statbar .wrap{grid-template-columns:1fr 1fr}.bg-evt .sb:nth-child(2){border-right:0}.bg-evt .sb:nth-child(1),.bg-evt .sb:nth-child(2){border-bottom:1px solid rgba(0,0,0,0.16)}}
+.bg-evt .nav{position:sticky;top:0;z-index:60;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08)}
+.bg-evt .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.bg-evt .nav .logo img{height:40px;width:auto}
+.bg-evt .nav .links{display:flex;align-items:center;gap:26px}
+.bg-evt .nav .links a{color:#e7e7e7;font-weight:700;font-size:14px}
+.bg-evt .nav .links a:hover{color:var(--orange-bright)}
+.bg-evt .btn.orange{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(255,102,0,.34);border-radius:12px}
+.bg-evt .btn.orange:hover{background:var(--orange-deep)}
+.bg-evt .nav .btn{padding:11px 18px;font-size:13px}
+.bg-evt .nav .nav-toggle{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.bg-evt .nav .burger{display:none}
+.bg-evt .nav .links .nav-link-cta{display:none}
+.bg-evt .nav .navdrop{position:relative;display:flex;align-items:center}
+.bg-evt .nav .navdrop-top{display:inline-flex;align-items:center;gap:6px;color:#e7e7e7;font-weight:700;font-size:14px;cursor:pointer}
+.bg-evt .nav .navdrop-top:hover{color:var(--orange-bright)}
+.bg-evt .nav .navdrop-top i{font-style:normal;font-size:11px}
+.bg-evt .nav .navdrop-menu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:#161616;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;min-width:212px;opacity:0;visibility:hidden;transition:.18s;box-shadow:0 22px 44px -18px rgba(0,0,0,.8);z-index:70}
+.bg-evt .nav .navdrop:hover .navdrop-menu,.bg-evt .nav .navdrop:focus-within .navdrop-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.bg-evt .nav .navdrop-menu a{display:block;padding:10px 13px;border-radius:8px;color:#D6D6D8;font-weight:600;font-size:14px}
+.bg-evt .nav .navdrop-menu a:hover{background:#222;color:#fff}
+.bg-evt .nav .navdrop-menu a[aria-current="page"]{color:var(--orange-bright)}
+@media(max-width:860px){
+  .bg-evt .nav .nav-cta-desktop{display:none}
+  .bg-evt .nav .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08);padding:6px 20px 16px;box-shadow:0 22px 44px -22px rgba(0,0,0,.8)}
+  .bg-evt .nav .nav-toggle:checked ~ .links{display:flex}
+  .bg-evt .nav .burger{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;cursor:pointer;margin-right:-9px}
+  .bg-evt .nav .burger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+  .bg-evt .nav .links a{padding:14px 2px;font-size:15px;border-bottom:1px solid rgba(255,255,255,.07);color:#e7e7e7}
+  .bg-evt .nav .links .nav-link-cta{display:flex;margin-top:12px;padding:14px;border-bottom:0;justify-content:center}
+  .bg-evt .nav .navdrop{flex-direction:column;align-items:stretch}
+  .bg-evt .nav .navdrop-top{padding:14px 2px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .bg-evt .nav .navdrop-menu{position:static;opacity:1;visibility:visible;transform:none;background:transparent;border:0;box-shadow:none;padding:2px 0 0 14px;min-width:0}
+  .bg-evt .nav .navdrop-menu a{padding:10px 2px;font-size:14px;color:#bdbdbd}
+  .bg-evt .nav .nav-toggle:checked ~ .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .bg-evt .nav .nav-toggle:checked ~ .burger span:nth-child(2){opacity:0}
+  .bg-evt .nav .nav-toggle:checked ~ .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+.bg-evt .get-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+@media(max-width:860px){.bg-evt .get-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.bg-evt .get-grid{grid-template-columns:1fr}}
+.bg-evt .card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px;transition:transform .15s ease,box-shadow .15s ease}
+.bg-evt .card:hover{transform:translateY(-2px);box-shadow:0 14px 34px -22px rgba(0,0,0,0.35)}
+.bg-evt .card .ci{width:48px;height:48px;border-radius:11px;background:rgba(255,102,0,0.1);border:1px solid rgba(255,102,0,0.26);display:flex;align-items:center;justify-content:center}
+.bg-evt .card .ci svg{width:26px;height:26px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bg-evt .card h4{font-size:17px;font-weight:700;margin-top:16px}
+.bg-evt .card p{font-size:14.5px;color:var(--muted);margin-top:7px}
+.bg-evt .two{display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center}
+@media(max-width:880px){.bg-evt .two{grid-template-columns:1fr;gap:28px}}
+.bg-evt .price-card{background:var(--orange);color:#fff;border-radius:18px;padding:34px 30px;text-align:center}
+.bg-evt .price-card .e{font-size:11.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;opacity:.9}
+.bg-evt .price-card .amt{font-weight:900;font-size:68px;line-height:.95;margin-top:10px}
+.bg-evt .price-card .amt small{font-size:21px;font-weight:800}
+.bg-evt .price-card .then{font-size:13.5px;margin-top:8px;opacity:.95}
+.bg-evt .price-card .btn{width:100%;margin-top:22px}
+.bg-evt .price-card .note{font-size:12px;margin-top:14px;opacity:.9}
+.bg-evt .final{background:var(--orange);color:var(--ink);text-align:center;padding:76px 0}
+.bg-evt .final h2{font-size:clamp(28px,5.6vw,52px);margin-bottom:14px}
+.bg-evt .final p{font-size:17px;margin-bottom:26px;margin-left:auto;margin-right:auto}
+.bg-evt .final .micro{font-size:15px;margin-top:18px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#2a1500}
+.bg-evt .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ink);border-top:1px solid var(--line-dark);padding:10px 14px;display:none;align-items:center;justify-content:space-between;gap:10px}
+.bg-evt .sticky-cta .p{font-size:12.5px;font-weight:700;line-height:1.2;color:#fff;padding-left:58px}
+.bg-evt .sticky-cta .p b{color:var(--orange)}
+.bg-evt .sticky-cta .p small{display:block;color:var(--muted-dark);font-weight:500;font-size:10.5px}
+.bg-evt .sticky-cta a{background:var(--orange);color:#fff;font-weight:800;font-size:13.5px;padding:12px 16px;border-radius:8px;text-transform:uppercase;white-space:nowrap;margin-right:58px}
+@media(max-width:860px){.bg-evt .sticky-cta{display:flex}.bg-evt{padding-bottom:76px}
+  .bg-evt .hero-inner{padding:46px 0 38px}.bg-evt .sec{padding:52px 0}}
+@media(max-width:420px){.bg-evt .sticky-cta .p{padding-left:52px;font-size:12px}.bg-evt .sticky-cta a{margin-right:52px;padding:12px 13px;font-size:13px}}
+
+/* --- Events (Nov 2026), form styles shared with Basic Icons --- */
+.bg-evt [hidden]{display:none!important}
+.bg-evt .hero-bg img{object-position:center 30%}
+.bg-evt .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;position:relative;z-index:1;padding-top:40px;padding-bottom:48px}
+.bg-evt .hero-grid .hero-inner{max-width:none;padding:72px 0 64px}
+.bg-evt .hero h1{font-size:clamp(38px,6.6vw,74px);line-height:.94;letter-spacing:-.02em}
+.bg-evt .apply{background:var(--white);color:var(--ink);border-radius:18px;padding:26px 24px 22px;box-shadow:0 30px 70px -30px rgba(0,0,0,.7);border-top:4px solid var(--orange)}
+.bg-evt .apply-head{margin-bottom:16px}
+.bg-evt .apply-kicker{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-deep)}
+.bg-evt .ok-kicker{color:#1F7A4D}
+.bg-evt .apply-title{font-weight:900;text-transform:uppercase;font-size:28px;line-height:1;margin-top:6px;letter-spacing:-.01em}
+.bg-evt .apply-lead{font-size:15px;color:var(--muted);margin-top:10px}
+.bg-evt .apply-lead a{color:var(--orange-deep);font-weight:800}
+.bg-evt .field{margin-bottom:12px}
+.bg-evt .field label{display:block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:5px}
+.bg-evt .field .opt{font-weight:600;text-transform:none;letter-spacing:0;color:#9A9AA0}
+.bg-evt .field input,.bg-evt .field select,.bg-evt .field textarea{width:100%;background:#fff;border:1.5px solid var(--line);border-radius:10px;color:var(--ink);font:500 16px/1.3 var(--font);padding:13px 14px;-webkit-appearance:none;appearance:none}
+.bg-evt .field select{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:34px}
+.bg-evt .field textarea{resize:vertical;min-height:84px}
+.bg-evt .field input::placeholder,.bg-evt .field textarea::placeholder{color:#A9A9AE}
+.bg-evt .field input:focus,.bg-evt .field select:focus,.bg-evt .field textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,102,0,.14)}
+.bg-evt .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.bg-evt .check{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;font-weight:600;color:var(--muted);margin:4px 0 12px;cursor:pointer;line-height:1.4}
+.bg-evt .check input{width:19px;height:19px;margin-top:0;accent-color:var(--orange);flex:0 0 auto}
+.bg-evt .submit{width:100%;background:var(--orange);color:#fff;border:0;border-radius:12px;font:900 17px var(--font);text-transform:uppercase;letter-spacing:.02em;padding:17px 20px;cursor:pointer;box-shadow:0 12px 28px rgba(255,102,0,.32);transition:background .15s ease,transform .12s ease}
+.bg-evt .submit:hover{background:var(--orange-deep);transform:translateY(-1px)}
+.bg-evt .submit[disabled]{opacity:.6;cursor:default;transform:none}
+.bg-evt .err{display:none;margin-top:10px;font-size:13.5px;font-weight:700;color:#D7443E}
+.bg-evt .err.show{display:block}
+.bg-evt .small-print{font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+.bg-evt .small-print a{color:var(--muted);text-decoration:underline}
+.bg-evt .get-grid.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1000px){.bg-evt .get-grid.four{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.bg-evt .get-grid.four{grid-template-columns:1fr}}
+.bg-evt .manifesto{background:var(--ink);color:#fff;padding:80px 0;border-top:1px solid var(--line-dark)}
+.bg-evt .manifesto .kicker{color:var(--orange-bright)}
+.bg-evt .manifesto .big{font-weight:900;text-transform:uppercase;font-size:clamp(28px,5vw,52px);line-height:1;letter-spacing:-.015em;margin-top:14px;max-width:16em;text-wrap:balance}
+.bg-evt .manifesto .lead{color:var(--muted-dark);margin-top:20px;font-size:18px;max-width:40em}
+.bg-evt .steps{list-style:none;counter-reset:st;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;padding:0}
+@media(max-width:760px){.bg-evt .steps{grid-template-columns:1fr}}
+.bg-evt .steps li{counter-increment:st;background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:24px 22px}
+.bg-evt .steps li::before{content:counter(st,decimal-leading-zero);display:block;font-weight:900;font-size:34px;line-height:1;color:var(--orange);margin-bottom:14px}
+.bg-evt .steps b{display:block;font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.02em;color:var(--ink)}
+.bg-evt .steps span{display:block;font-size:14.5px;color:var(--muted);margin-top:7px}
+.bg-evt .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+@media(max-width:760px){.bg-evt .faq-grid{grid-template-columns:1fr}}
+.bg-evt .faq-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px}
+.bg-evt .faq-card h4{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.02em}
+.bg-evt .faq-card p{font-size:14px;color:var(--muted);margin-top:8px}
+@media(max-width:900px){
+  .bg-evt .hero-grid{grid-template-columns:1fr;gap:0;padding-top:0;padding-bottom:36px}
+  .bg-evt .hero-grid .hero-inner{padding:40px 0 24px}
+  .bg-evt .hero h1{font-size:clamp(36px,10vw,52px)}
+  .bg-evt .apply{padding:22px 18px 18px}
+  .bg-evt .manifesto{padding:56px 0}
+}
+
+.bg-evt .tbc{display:inline-block;background:#FFF3B0;color:#5a4a00;border:1px dashed #C9A800;border-radius:6px;padding:1px 7px;font-size:12.5px;font-weight:700;letter-spacing:0;text-transform:none}
+.bg-evt .lead.small{font-size:14px}
+.bg-evt .next-chip{display:inline-flex;flex-direction:column;gap:2px;margin-top:22px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-left:4px solid var(--orange);border-radius:12px;padding:12px 16px}
+.bg-evt .nc-label{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-bright)}
+.bg-evt .nc-date{font-weight:900;font-size:22px;text-transform:uppercase;color:#fff;line-height:1.1}
+.bg-evt .nc-name{font-size:14px;color:rgba(255,255,255,.8);font-weight:600}
+.bg-evt .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bg-evt fieldset.member{border:0;padding:0;margin:2px 0 12px}
+.bg-evt fieldset.member legend{display:block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:6px;padding:0}
+.bg-evt .pick{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 6px 6px 0;font-size:14.5px;font-weight:600;cursor:pointer}
+.bg-evt .pick input{width:17px;height:17px;accent-color:var(--orange);margin:0}
+.bg-evt .pick:has(input:checked){border-color:var(--orange);background:#FFF4EC}
+.bg-evt .cal-btn{display:block;text-align:center;text-decoration:none}
+.bg-evt .plan-card{background:var(--ink);color:#fff;border-radius:18px;padding:26px 24px}
+.bg-evt .plan-title{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-bright);margin-bottom:8px}
+.bg-evt .plan{list-style:none;margin:0;padding:0}
+.bg-evt .plan li{display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line-dark)}
+.bg-evt .plan li:last-child{border-bottom:0}
+.bg-evt .plan b{font-weight:900;font-size:20px;color:#fff}
+.bg-evt .plan span{font-size:16px;color:var(--muted-dark);font-weight:600}
+.bg-evt .manifesto .tag-line{margin-top:22px;font-weight:900;text-transform:uppercase;letter-spacing:.04em;color:#fff}
+@media(max-width:560px){.bg-evt .row2{grid-template-columns:1fr;gap:0}.bg-evt .plan li{grid-template-columns:80px 1fr}}
+</style>
+<div class="bg-evt">
+  <nav class="nav">
+    <div class="wrap">
+      <a class="logo" href="index.html" aria-label="BasicGym"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
+      <input type="checkbox" id="navtoggle" class="nav-toggle" aria-hidden="true">
+      <div class="links">
+        <a href="classes.html">Classes</a>
+        <a href="nottingham.html">Nottingham</a>
+        <a href="membership.html">Membership</a>
+        <div class="navdrop">
+          <a class="navdrop-top" href="https://basicgym.co.uk/about-us/">About us <i>&#9662;</i></a>
+          <div class="navdrop-menu">
+            <a href="https://basicgym.co.uk/about-us/">About us</a>
+            <a href="students.html">Students</a>
+            <a href="https://basicgym.co.uk/corporate-membership/">Corporate Membership</a>
+            <a href="https://basicgym.co.uk/personal-training/">Personal Training</a>
+            <a href="https://basicgym.co.uk/careers/">Careers</a>
+          </div>
+        </div>
+        <a class="btn orange nav-link-cta" href="membership.html">Join now</a>
+      </div>
+      <a class="btn orange nav-cta-desktop" href="membership.html">Join now</a>
+      <label for="navtoggle" class="burger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    </div>
+  </nav>
+
+  <section class="hero" id="top">
+    <div class="hero-bg"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/f_auto,q_auto,w_1600/v1782652505/basicgymboxingsession_bxfbyn.png" alt="A boxing session at BasicGym Riverside" fetchpriority="high"></div>
+    <div class="wrap hero-grid">
+      <div class="hero-inner">
+        <span class="eyebrow"><span class="dot"></span>BasicGym Events &middot; Riverside, Nottingham</span>
+        <h1 class="display">More than<br><span class="orange">just a gym.</span></h1>
+        <p class="sub">At BasicGym we don&rsquo;t just train, we bring people together. Running events, fitness challenges, exclusive workouts and community sessions: a chance to get active, meet new people and try something different.</p>
+        <div class="next-chip">
+          <span class="nc-label">Next event</span>
+          <span class="nc-date">Mon 23 Nov &middot; 6:30pm</span>
+          <span class="nc-name">BasicGym &times; The Movement Community</span>
+        </div>
+      </div>
+
+      <div class="apply" id="register">
+        <div class="apply-step" id="evStep1">
+          <div class="apply-head">
+            <span class="apply-kicker">Run. Train. Connect.</span>
+            <h2 class="apply-title">Want to join us?</h2>
+            <p class="apply-lead">Leave your details and we&rsquo;ll send you everything you need for the night.</p>
+          </div>
+          <form id="eventForm" novalidate>
+            <div class="row2">
+              <div class="field"><label for="ev-first">First name</label><input id="ev-first" name="first_name" type="text" autocomplete="given-name" required maxlength="60" placeholder="Jane"></div>
+              <div class="field"><label for="ev-last">Last name <span class="opt">optional</span></label><input id="ev-last" name="last_name" type="text" autocomplete="family-name" maxlength="60" placeholder="Smith"></div>
+            </div>
+            <div class="field"><label for="ev-email">Email</label><input id="ev-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120" placeholder="jane@email.com"></div>
+            <div class="field"><label for="ev-phone">Mobile</label><input id="ev-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="07123 456789"></div>
+            <fieldset class="member">
+              <legend>Are you a BasicGym member?</legend>
+              <label class="pick"><input type="radio" name="member" value="yes" required> <span>Yes, I&rsquo;m a member</span></label>
+              <label class="pick"><input type="radio" name="member" value="no" required> <span>Not yet</span></label>
+            </fieldset>
+            <div class="hp" aria-hidden="true"><label for="ev-website">Leave this empty</label><input id="ev-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+            <label class="check"><input type="checkbox" name="marketing" value="yes"> <span>Also send me BasicGym offers and news by email and text. Optional.</span></label>
+            <button class="submit" type="submit" id="evSubmit">Get event updates &rarr;</button>
+            <div class="err" id="evErr" role="alert">Please add your first name, email and mobile, and pick yes or not yet.</div>
+            <p class="small-print">We&rsquo;ll use your details to send you information about this event. <a href="https://basicgym.co.uk/privacy-policy/">Privacy policy</a>.</p>
+          </form>
+        </div>
+
+        <div class="apply-step" id="evStep2" hidden>
+          <div class="apply-head">
+            <span class="apply-kicker ok-kicker">You&rsquo;re on the list</span>
+            <h2 class="apply-title">See you on the 23rd.</h2>
+            <p class="apply-lead">We&rsquo;ll send you all the details before the night. Pop it in your calendar so you don&rsquo;t miss it.</p>
+          </div>
+          <a class="submit cal-btn" id="evCal" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
+          <p class="small-print">Monday 23 November, 6:30pm to 9:15pm, BasicGym Riverside.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="statbar">
+    <div class="wrap">
+      <div class="sb"><span class="n">23 Nov</span><span class="l">Monday evening</span></div>
+      <div class="sb"><span class="n">6:30</span><span class="l">Meet &amp; greet</span></div>
+      <div class="sb"><span class="n">Run</span><span class="l">Then train</span></div>
+      <div class="sb"><span class="n">All</span><span class="l">Paces welcome</span></div>
+    </div>
+  </div>
+
+  <section class="sec" id="next">
+    <div class="wrap two">
+      <div>
+        <span class="kicker">Next event &middot; Monday 23 November</span>
+        <h2 class="h2 display">BasicGym &times;<br>The Movement<br>Community.</h2>
+        <p class="lead">We&rsquo;re teaming up with The Movement Community for a special evening of running, training and the Nottingham fitness community. Meet the crew, head out for a run, then finish back at BasicGym with a series of high-energy workouts across our training zones.</p>
+        <p class="lead small"><span class="tbc">Draft: the doc also says &ldquo;The Running Club&rdquo;. Confirm the partner name</span></p>
+      </div>
+      <div class="plan-card">
+        <div class="plan-title">The plan</div>
+        <ol class="plan">
+          <li><b>6:30pm</b><span>Meet &amp; greet</span></li>
+          <li><b>7:00pm</b><span>Warm up &amp; run</span></li>
+          <li><b>7:45pm</b><span>Back at BasicGym</span></li>
+          <li><b>8:00pm</b><span>Workout takeover</span></li>
+          <li><b>9:00pm</b><span>Finish by 9:15pm</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--cream">
+    <div class="wrap">
+      <span class="kicker">What to expect</span>
+      <h2 class="h2 display">One evening.<br>Six reasons to come.</h2>
+      <div class="get-grid">
+        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M6 8a5 5 0 0 1 10 0v4a4 4 0 0 1-4 4H9a3 3 0 0 1-3-3z"/><path d="M16 9h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 20h8"/></svg></div><h4>Boxing &amp; Boxercise</h4><p>Get the heart rate up with boxing-based training, whatever your experience.</p></div>
+        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div><h4>HIIT &amp; functional</h4><p>High-energy circuits across the gym floor to finish the night.</p></div>
+        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><circle cx="14" cy="4.5" r="2"/><path d="m8 21 3-6 3 2v4"/><path d="M6 11l3-3 4 1 3 3 3-1"/></svg></div><h4>A community run</h4><p>Head out together with The Movement Community. No matter your pace, everyone&rsquo;s welcome.</p></div>
+        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><h4>Every training zone</h4><p>Workouts across different zones of the gym, so you see what BasicGym is all about.</p></div>
+        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M15 20a4.5 4.5 0 0 1 6-4"/></svg></div><h4>Meet new people</h4><p>Runners, lifters and first timers from across the Nottingham fitness community.</p></div>
+        <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13"/><path d="M3 12h18"/><path d="M12 8c-2-4-6-4-6-1.5S9 8 12 8c3 0 6-1 6-1.5S14 4 12 8z"/></svg></div><h4>Free samples &amp; giveaways</h4><p>Selected brands join us with samples, giveaways and products to discover.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto">
+    <div class="wrap">
+      <span class="kicker">Meet The Movement Community</span>
+      <p class="big">Community first. <span class="orange">Movement always.</span></p>
+      <p class="lead">The Movement Community brings people across Nottingham together through movement. It&rsquo;s about more than running: meeting like-minded people, getting active and building real connections along the way. Experienced runner, just starting out, or simply looking to meet new people, this is a community built around moving together.</p>
+      <p class="tag-line">No matter your pace. Everyone&rsquo;s welcome.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <span class="kicker">Good to know</span>
+      <h2 class="h2 display">Before you<br>come along.</h2>
+      <div class="faq-grid">
+        <div class="faq-card"><h4>Where is it?</h4><p>We meet at BasicGym Riverside, Riverside Retail Park, Nottingham NG2 1RU. There are 650 free parking spaces on site.</p></div>
+        <div class="faq-card"><h4>Do I need to be a member?</h4><p>No. Members and non-members are welcome. Just register so we know you&rsquo;re coming. <span class="tbc">Draft: confirm it&rsquo;s free and open to non-members, and any cap on numbers</span></p></div>
+        <div class="faq-card"><h4>How far is the run?</h4><p>It&rsquo;s a community run and everyone&rsquo;s welcome, whatever your pace. <span class="tbc">Draft: confirm the distance, the pace and where the run starts</span></p></div>
+        <div class="faq-card"><h4>What should I bring?</h4><p>Running shoes, gym kit, a water bottle and a layer for the run.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2 class="display">Run. Train.<br>Connect.</h2>
+      <p>Monday 23 November, 6:30pm at BasicGym Riverside.</p>
+      <a class="btn btn-dark" href="#register">Get event updates</a>
+      <div class="micro">BasicGym Events &middot; Riverside Retail Park, Nottingham NG2 1RU</div>
+    </div>
+  </section>
+
+  <div class="sticky-cta">
+    <div class="p">Next event <b>Mon 23 Nov</b><small>Run, train, connect</small></div>
+    <a href="#register">Join us</a>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  /* ================================================================
+     BasicGym Events registration form
+     EVENT_ENDPOINT = the Google Apps Script /exec URL (sheet + email to
+     info@basicgym.co.uk + Brevo list "Event registrations").
+     Empty endpoint: the form opens a pre-filled email instead.
+     window.BG_STAGING (staging preview only): nothing is sent.
+     For the next event, change EVENT and CAL, plus the page copy.
+     ================================================================ */
+  var EVENT_ENDPOINT = '';
+  var EVENT = '2026-11-23 BasicGym x The Movement Community';
+  var CAL = { text: 'BasicGym x The Movement Community: Run. Train. Connect.',
+              dates: '20261123T183000/20261123T211500',
+              location: 'BasicGym Riverside, Riverside Retail Park, Nottingham NG2 1RU',
+              details: 'Meet & greet 6:30pm, warm up & run 7pm, workout takeover 8pm. Bring running shoes, gym kit and water. https://basicgym.co.uk/events/' };
+  var TO = 'info@basicgym.co.uk';
+
+  var f = document.getElementById('eventForm');
+  if (!f) return;
+  var s1 = document.getElementById('evStep1'), s2 = document.getElementById('evStep2');
+  var err = document.getElementById('evErr'), btn = document.getElementById('evSubmit');
+  var started = Date.now();
+  var q = new URLSearchParams(location.search);
+
+  document.getElementById('evCal').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+    '&text=' + encodeURIComponent(CAL.text) + '&dates=' + CAL.dates + '&ctz=Europe/London' +
+    '&location=' + encodeURIComponent(CAL.location) + '&details=' + encodeURIComponent(CAL.details);
+
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    err.classList.remove('show');
+    if (f.website.value) return;                          /* bot filled the hidden field */
+    if (!f.checkValidity() || f.phone.value.replace(/\D/g, '').length < 10) { err.classList.add('show'); return; }
+    if (Date.now() - started < 2500) { err.classList.add('show'); return; }
+
+    var fd = new FormData(f);
+    fd.delete('website');
+    fd.append('event', EVENT);
+    fd.append('page', location.href); fd.append('ts', new Date().toISOString());
+    ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) { if (q.get(k)) fd.append(k, q.get(k)); });
+
+    btn.disabled = true;
+    if (!window.BG_STAGING) {
+      if (EVENT_ENDPOINT) {
+        try {
+          if (!(navigator.sendBeacon && navigator.sendBeacon(EVENT_ENDPOINT, fd)))
+            fetch(EVENT_ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors', keepalive: true });
+        } catch (e1) {}
+      } else {
+        var body = ['Event: ' + EVENT, 'Name: ' + fd.get('first_name') + ' ' + (fd.get('last_name') || ''),
+                    'Email: ' + fd.get('email'), 'Mobile: ' + fd.get('phone'), 'Member: ' + fd.get('member')].join('\n');
+        window.location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent('Event registration: ' + fd.get('first_name')) + '&body=' + encodeURIComponent(body);
+      }
+    }
+    try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'bg_event_registration', bg_event: EVENT, bg_member: fd.get('member') }); } catch (e2) {}
+    try { if (typeof fbq === 'function') fbq('trackCustom', 'EventRegistration', { event_name: EVENT, member: fd.get('member') }); } catch (e3) {}
+    s1.hidden = true; s2.hidden = false;
+  });
+})();
+</script>
+
+<footer class="bg-ftr">
+<style>
+.bg-ftr{--ink:#0E0E0E;--orange:#FF6600;--line-dark:#262629;
+  --font:'Cooper Hewitt','Hanken Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--ink);color:#9a9a9a;font-family:var(--font);padding:64px 0 0;line-height:1.55;-webkit-font-smoothing:antialiased}
+.bg-ftr *{box-sizing:border-box;margin:0;padding:0}
+.bg-ftr .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.bg-ftr a{color:inherit;text-decoration:none}
+.bg-ftr img{max-width:100%;display:block}
+.bg-ftr .foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:34px}
+.bg-ftr .foot-brand .logo img{height:44px;width:auto}
+.bg-ftr .foot-tag{font-size:15px;color:#9a9a9a;margin-top:18px;max-width:26em;font-weight:500}
+.bg-ftr .socials{display:flex;gap:12px;margin-top:24px}
+.bg-ftr .socials a{width:44px;height:44px;border-radius:10px;border:1px solid var(--line-dark);
+  display:flex;align-items:center;justify-content:center;color:#fff;transition:.15s}
+.bg-ftr .socials a:hover{background:var(--orange);border-color:var(--orange)}
+.bg-ftr .socials svg{width:18px;height:18px;fill:currentColor}
+.bg-ftr .foot-col h4{font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:13.5px;
+  color:var(--orange);margin-bottom:22px}
+.bg-ftr .foot-col a,.bg-ftr .foot-col p{display:block;font-size:16px;color:#D6D6D8;margin-bottom:18px;font-weight:500}
+.bg-ftr .foot-col a:hover{color:#fff}
+.bg-ftr .foot-contact .addr{color:#9a9a9a;line-height:1.5}
+.bg-ftr .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 22px;
+  padding:22px 0 28px;margin-top:40px;border-top:1px solid var(--line-dark);font-size:14.5px;color:#9a9a9a}
+@media(max-width:900px){.bg-ftr .foot-top{grid-template-columns:1fr 1fr;gap:34px 20px}.bg-ftr .foot-brand{grid-column:1 / -1}}
+@media(max-width:560px){.bg-ftr .foot-top{grid-template-columns:1fr;gap:30px}.bg-ftr{padding-top:52px}
+  .bg-ftr .foot-bottom{padding-bottom:90px}}
+</style>
+  <div class="wrap">
+    <div class="foot-top">
+
+      <div class="foot-brand">
+        <a class="logo" href="index.html" aria-label="BasicGym"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
+        <p class="foot-tag">A premium gym at a basic price. Riverside Retail Park, Nottingham.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/people/Basicgymuk/61561127232205/" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6A22 22 0 0 0 14.3 3.5c-2.4 0-4 1.45-4 4.1v2.3H7.6V13h2.7v8z"/></svg></a>
+          <a href="https://www.instagram.com/basicgym.uk/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.2A6.6 6.6 0 1 0 18.6 12 6.6 6.6 0 0 0 12 5.4zm0 10.9A4.3 4.3 0 1 1 16.3 12 4.3 4.3 0 0 1 12 16.3zm6.9-11.1a1.5 1.5 0 1 1-1.5-1.5 1.5 1.5 0 0 1 1.5 1.5z"/></svg></a>
+          <a href="https://www.tiktok.com/@basicgym.uk" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.8a4.8 4.8 0 0 1-1.1-2.8h-3v12.1a2.5 2.5 0 1 1-2.5-2.5 2.6 2.6 0 0 1 .7.1V9.6a5.6 5.6 0 0 0-.7 0 5.6 5.6 0 1 0 5.6 5.6V9a7.8 7.8 0 0 0 4.4 1.4V7.3a4.7 4.7 0 0 1-3.4-1.5z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h4>More info</h4>
+        <a href="index.html">Home</a>
+        <a href="membership.html">Membership</a>
+        <a href="classes.html">Classes</a>
+        <a href="students.html">Students</a>
+        <a href="https://basicgym.co.uk/corporate-membership/">Corporate Membership</a>
+        <a href="https://basicgym.co.uk/personal-training/">Personal Training</a>
+        <a href="icons.html">Basic Icons</a>
+      </div>
+
+      <div class="foot-col">
+        <h4>Support</h4>
+        <a href="faqs.html">FAQs</a>
+        <a href="https://basicgym.co.uk/about-us/">About us</a>
+        <a href="https://basicgym.co.uk/careers/">Careers</a>
+        <a href="https://basicgym.co.uk/club-rules/">Club Rules</a>
+        <a href="https://basicgym.co.uk/privacy-policy/">Privacy Policy</a>
+      </div>
+
+      <div class="foot-col foot-contact">
+        <h4>Contact</h4>
+        <a href="mailto:info@basicgym.co.uk">info@basicgym.co.uk</a>
+        <a class="addr" href="https://maps.google.com/?q=Basic+Gym+Unit+3+Riverside+Retail+Park+Nottingham+NG2+1RU" target="_blank" rel="noopener">Basic Gym Riverside<br>Unit 3, Riverside Retail Park<br>Nottingham NG2 1RU</a>
+      </div>
+
+    </div>
+
+    <div class="foot-bottom">
+      <p>&copy; 2026 BasicGym. All rights reserved.</p>
+      <p>Riverside Retail Park, Nottingham &middot; Open 24/7</p>
+    </div>
+  </div>
+</footer>
+<script src="bg-offer.js"></script>
+</body>
+</html>
