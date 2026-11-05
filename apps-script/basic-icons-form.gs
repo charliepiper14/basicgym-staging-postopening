@@ -5,6 +5,7 @@
  * Every application from basicgym.co.uk/basic-icons/:
  *   1. adds a row to the "Applications" tab
  *   2. emails info@basicgym.co.uk, Reply-To = the applicant
+ *   3. adds the applicant to Brevo (needs brevo.gs in the same project)
  * The optional step 2 (platform, followers, why) fills in the same row.
  *
  * Setup: see apps-script/SETUP.md. Deploy as a web app:
@@ -60,6 +61,11 @@ function doPost(e) {
       body: text,
       htmlBody: html
     });
+
+    /* copy to Brevo (brevo.gs). Marketing only if they ticked the optional box. */
+    brevoAdd_('icons', { email: email, first: first, phone: phone, handle: handle,
+                         optIn: p.marketing === 'on' || p.marketing === 'yes',
+                         source: source, campaign: clean_(p.utm_campaign, 80) });
     return done_();
   } finally {
     lock.releaseLock();
