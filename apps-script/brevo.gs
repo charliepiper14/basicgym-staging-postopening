@@ -37,6 +37,8 @@ function brevoAdd_(form, c) {
     };
     /* leave out blanks, so a later form never wipes what an earlier one saved */
     Object.keys(attrs).forEach(function (k) { if (attrs[k] === '') delete attrs[k]; });
+    /* only ever set the opt-in to yes; an unticked box later doesn't undo an earlier yes */
+    if (!attrs.MARKETING_OPT_IN) delete attrs.MARKETING_OPT_IN;
     var sms = ukMobile_(c.phone);
     if (sms) attrs.SMS = sms;
     var body = { email: c.email, attributes: attrs, updateEnabled: true };
