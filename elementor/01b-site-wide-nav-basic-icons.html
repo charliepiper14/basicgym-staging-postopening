@@ -1,32 +1,42 @@
 <script>
 /* ==========================================================================
-   BasicGym - extra links in the About us menu, site wide
+   BasicGym - extra links in the About us menu and the footer, site wide
    Elementor > Custom Code, location <body> end, entire site.
+   Replace the existing snippet with this one (same place, same settings).
 
-   The header menu is written into each page's own HTML widget (15 pages), so
-   this one snippet adds links to the About us dropdown everywhere:
-     4 Nov 2026  Basic Icons, under About us
-     5 Nov 2026  Online Coaching, under Personal Training
-   The current page's link is highlighted. If a link is ever written into a
-   page's own nav, the snippet sees it and adds nothing.
+   The header menu and footer are written into each page's own widgets
+   (15+ pages), so this one snippet adds links everywhere:
+     4 Nov 2026  Basic Icons, in the About us menu
+     5 Nov 2026  Events, in the About us menu and the footer (More info)
+   Online Coaching: add { href: '/online-coaching/', text: 'Online Coaching',
+   after: '/personal-training/' } to MENU only once that page is live.
+   The current page's link is highlighted. If a link is already on the page,
+   the snippet adds nothing.
    ========================================================================== */
 (function () {
-  var LINKS = [
-    { href: '/basic-icons/',     text: 'Basic Icons',     after: '/about-us/' },
-    { href: '/online-coaching/', text: 'Online Coaching', after: '/personal-training/' }
+  var MENU = [
+    { href: '/basic-icons/', text: 'Basic Icons', after: '/about-us/' },
+    { href: '/events/',      text: 'Events',      after: '/basic-icons/' }
   ];
+  var FOOTER = [
+    { href: '/events/', text: 'Events', after: '/basic-icons/' }
+  ];
+  var path = location.pathname.replace(/\/?$/, '/');
+
+  function add(box, l) {
+    if (box.querySelector('a[href="' + l.href + '"]')) return;
+    var a = document.createElement('a');
+    a.href = l.href;
+    a.textContent = l.text;
+    if (path === l.href) a.setAttribute('aria-current', 'page');
+    var ref = box.querySelector('a[href="' + l.after + '"]');
+    if (ref) box.insertBefore(a, ref.nextSibling); else box.appendChild(a);
+  }
   function addLinks() {
-    var path = location.pathname.replace(/\/?$/, '/');
-    document.querySelectorAll('.nav .navdrop-menu').forEach(function (menu) {
-      LINKS.forEach(function (l) {
-        if (menu.querySelector('a[href="' + l.href + '"]')) return;
-        var a = document.createElement('a');
-        a.href = l.href;
-        a.textContent = l.text;
-        if (path === l.href) a.setAttribute('aria-current', 'page');
-        var ref = menu.querySelector('a[href="' + l.after + '"]');
-        if (ref) menu.insertBefore(a, ref.nextSibling); else menu.appendChild(a);
-      });
+    document.querySelectorAll('.nav .navdrop-menu').forEach(function (m) { MENU.forEach(function (l) { add(m, l); }); });
+    document.querySelectorAll('.bg-ftr .foot-col').forEach(function (c) {
+      if (!c.querySelector('a[href="/basic-icons/"]')) return;     /* the More info column */
+      FOOTER.forEach(function (l) { add(c, l); });
     });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addLinks);
