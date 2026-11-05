@@ -98,6 +98,7 @@ function brevoSetup() {
   /* contact fields: a 400 here just means the field already exists */
   Object.keys(BREVO_FIELDS).forEach(function (name) {
     var r = brevoCall_(key, 'post', '/contacts/attributes/normal/' + name, { type: BREVO_FIELDS[name] });
+    if (r.code === 401 || r.code === 403) throw new Error('Brevo refused the key (' + r.code + '): ' + r.text);
     console.log('Field ' + name + ': ' + (r.code < 300 ? 'created' : 'already there (' + r.code + ')'));
   });
 
