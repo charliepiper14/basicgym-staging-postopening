@@ -10,7 +10,7 @@
  * SAME /exec URL keeps working (don't create a brand-new deployment each time).
  */
 
-var SHEET_ID  = '18xBrlL4MFy28FRwikvK5JOiPcOZxu25t-hDU5zdegO4'; // BasicGym Join Leads spreadsheet
+var SHEET_ID  = '10RjFVnaD4rJ8NLyKIR8ffXdk5-zOUmLg3KJX98lUWRI'; // BasicGym Join Leads (charliepiperppc, from 5 Nov 2026)
 var TAB_NAME  = 'join_leads';
 
 var HEADERS = ['timestamp','first_name','last_name','email','phone','event_id','source','offer','page','user_agent',
@@ -53,7 +53,7 @@ function doPost(e) {
       p.first_name || '',
       p.last_name  || '',
       p.email      || '',
-      p.phone      || '',
+      p.phone ? "'" + p.phone : '',   // apostrophe keeps the leading 0
       p.event_id   || '',
       p.source     || 'capture-first-join',
       p.offer      || 'none',
