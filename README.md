@@ -88,6 +88,8 @@ Do this in one sitting. Purge LiteSpeed and Cloudflare at the end.
 - Tracking: dataLayer `coaching_app_click` with tier and store, plus the Meta custom event `CoachingAppClick`.
 - Draft tags to confirm: cancellation terms, plan changes, and whether people who aren't members can create an app account.
 
+**Brevo (5 Nov):** both forms copy each entry into Brevo (lists "Website join leads" and "Basic Icons applicants") after the sheet and email. Code in `apps-script/brevo.gs`. The join script now lives under charliepiperppc@gmail.com, with a new endpoint already in `03-join.html`. Both forms have an optional marketing opt-in tick box.
+
 **Personal Training band (10):** a separate HTML widget added between the PT page widget and the footer. The PT page code itself is unchanged.
 
 **Menu snippet (01b):** now adds Online Coaching under Personal Training as well as Basic Icons. Paste it only when /online-coaching/ is live.
