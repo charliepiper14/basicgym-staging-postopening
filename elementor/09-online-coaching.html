@@ -1,0 +1,396 @@
+<!-- ============================================================
+     BasicGym - ONLINE COACHING  (basicgym.co.uk/online-coaching/)
+     Paste into ONE Elementor "HTML" widget (Canvas). Scoped .bg-coach.
+     Footer = SEPARATE shared footer widget below.
+
+     5 Nov 2026: sales page for the three coaching plans sold in the
+     BasicGym app (Technogym Mywellness shop):
+       Coach 29.99, Online Coaching 59.99 (Recommended), Premium 99.99.
+     Plan details are taken from the Mywellness product descriptions.
+     Buttons open the right app store on phones, and scroll to the
+     download section on computers.
+     Tracking: dataLayer coaching_app_click (bg_tier, bg_store) and Meta
+     custom event CoachingAppClick, kept apart from Lead and Purchase.
+     Remove every class="tbc" draft tag once Riaz confirms them.
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap');
+.bg-coach{--white:#FFFFFF;--cream:#F5F4F0;--ink:#0E0E0E;--orange:#FF6600;--orange-bright:#FF7A1A;--orange-deep:#CC5200;--muted:#565659;--muted-dark:#A9A9AE;--line:#E7E5E0;--line-dark:#262629;--font:'Cooper Hewitt','Hanken Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-family:var(--font);}
+.bg-coach *{box-sizing:border-box;margin:0;padding:0}
+.bg-coach{background:var(--white);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-coach .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.bg-coach .display{font-family:var(--font);font-weight:900;letter-spacing:-0.015em;text-transform:uppercase;line-height:0.95;text-wrap:balance}
+.bg-coach .orange{color:var(--orange)}
+.bg-coach a{color:inherit;text-decoration:none}
+.bg-coach img{max-width:100%;display:block}
+.bg-coach svg{display:block}
+.bg-coach .sec{padding:74px 0}
+.bg-coach .sec--cream{background:var(--cream)}
+.bg-coach .sec--ink{background:var(--ink);color:var(--white)}
+.bg-coach .kicker{font-size:12.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+.bg-coach .h2{font-size:clamp(26px,5vw,46px);margin-top:12px;text-wrap:balance}
+.bg-coach .lead{color:var(--muted);font-size:17px;margin-top:14px;max-width:620px;text-wrap:pretty}
+.bg-coach .sec--ink .lead{color:var(--muted-dark)}
+.bg-coach .sec--ink .kicker{color:var(--orange-bright)}
+.bg-coach .sec--ink .h2{color:#fff}
+.bg-coach .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:15px;padding:15px 26px;border-radius:8px;text-transform:uppercase;letter-spacing:0.02em;transition:transform .12s ease,background .15s ease,border-color .15s ease}
+.bg-coach .btn-primary{background:var(--orange);color:#fff}
+.bg-coach .btn-primary:hover{background:var(--orange-deep);transform:translateY(-1px)}
+.bg-coach .btn-dark{background:var(--ink);color:#fff}
+.bg-coach .btn-dark:hover{background:#000;transform:translateY(-1px)}
+.bg-coach .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.4)}
+.bg-coach .btn-ghost:hover{border-color:#fff}
+.bg-coach .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+.bg-coach .hero{position:relative;color:#fff;overflow:hidden;background:var(--ink)}
+.bg-coach .hero-bg{position:absolute;inset:0;z-index:0}
+.bg-coach .hero-bg img{width:100%;height:100%;object-fit:cover}
+.bg-coach .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,14,14,0.94) 0%,rgba(14,14,14,0.80) 42%,rgba(14,14,14,0.45) 100%)}
+.bg-coach .hero-inner{position:relative;z-index:1;padding:76px 0 56px;max-width:660px}
+.bg-coach .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange)}
+.bg-coach .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.bg-coach .hero h1{font-size:clamp(32px,6.2vw,60px);line-height:1;margin:16px 0 0}
+.bg-coach .hero .sub{margin-top:18px;font-size:clamp(16px,2.2vw,21px);line-height:1.35;color:#EDEDED;font-weight:500;max-width:36em;text-wrap:pretty}
+.bg-coach .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.bg-coach .pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#fff;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:30px;padding:8px 14px}
+.bg-coach .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.bg-coach .statbar{background:var(--orange);color:var(--ink)}
+.bg-coach .statbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.bg-coach .sb{padding:22px 18px;display:flex;align-items:baseline;gap:10px;justify-content:center;border-right:1px solid rgba(0,0,0,0.16)}
+.bg-coach .sb:last-child{border-right:0}
+.bg-coach .sb .n{font-weight:900;font-size:26px;line-height:1}
+.bg-coach .sb .l{font-size:11.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
+@media(max-width:760px){.bg-coach .statbar .wrap{grid-template-columns:1fr 1fr}.bg-coach .sb:nth-child(2){border-right:0}.bg-coach .sb:nth-child(1),.bg-coach .sb:nth-child(2){border-bottom:1px solid rgba(0,0,0,0.16)}}
+.bg-coach .nav{position:sticky;top:0;z-index:60;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08)}
+.bg-coach .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.bg-coach .nav .logo img{height:40px;width:auto}
+.bg-coach .nav .links{display:flex;align-items:center;gap:26px}
+.bg-coach .nav .links a{color:#e7e7e7;font-weight:700;font-size:14px}
+.bg-coach .nav .links a:hover{color:var(--orange-bright)}
+.bg-coach .btn.orange{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(255,102,0,.34);border-radius:12px}
+.bg-coach .btn.orange:hover{background:var(--orange-deep)}
+.bg-coach .nav .btn{padding:11px 18px;font-size:13px}
+.bg-coach .nav .nav-toggle{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.bg-coach .nav .burger{display:none}
+.bg-coach .nav .links .nav-link-cta{display:none}
+.bg-coach .nav .navdrop{position:relative;display:flex;align-items:center}
+.bg-coach .nav .navdrop-top{display:inline-flex;align-items:center;gap:6px;color:#e7e7e7;font-weight:700;font-size:14px;cursor:pointer}
+.bg-coach .nav .navdrop-top:hover{color:var(--orange-bright)}
+.bg-coach .nav .navdrop-top i{font-style:normal;font-size:11px}
+.bg-coach .nav .navdrop-menu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);background:#161616;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;min-width:212px;opacity:0;visibility:hidden;transition:.18s;box-shadow:0 22px 44px -18px rgba(0,0,0,.8);z-index:70}
+.bg-coach .nav .navdrop:hover .navdrop-menu,.bg-coach .nav .navdrop:focus-within .navdrop-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.bg-coach .nav .navdrop-menu a{display:block;padding:10px 13px;border-radius:8px;color:#D6D6D8;font-weight:600;font-size:14px}
+.bg-coach .nav .navdrop-menu a:hover{background:#222;color:#fff}
+.bg-coach .nav .navdrop-menu a[aria-current="page"]{color:var(--orange-bright)}
+@media(max-width:860px){
+  .bg-coach .nav .nav-cta-desktop{display:none}
+  .bg-coach .nav .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0E0E0E;border-bottom:1px solid rgba(255,255,255,.08);padding:6px 20px 16px;box-shadow:0 22px 44px -22px rgba(0,0,0,.8)}
+  .bg-coach .nav .nav-toggle:checked ~ .links{display:flex}
+  .bg-coach .nav .burger{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;cursor:pointer;margin-right:-9px}
+  .bg-coach .nav .burger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+  .bg-coach .nav .links a{padding:14px 2px;font-size:15px;border-bottom:1px solid rgba(255,255,255,.07);color:#e7e7e7}
+  .bg-coach .nav .links .nav-link-cta{display:flex;margin-top:12px;padding:14px;border-bottom:0;justify-content:center}
+  .bg-coach .nav .navdrop{flex-direction:column;align-items:stretch}
+  .bg-coach .nav .navdrop-top{padding:14px 2px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .bg-coach .nav .navdrop-menu{position:static;opacity:1;visibility:visible;transform:none;background:transparent;border:0;box-shadow:none;padding:2px 0 0 14px;min-width:0}
+  .bg-coach .nav .navdrop-menu a{padding:10px 2px;font-size:14px;color:#bdbdbd}
+  .bg-coach .nav .nav-toggle:checked ~ .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .bg-coach .nav .nav-toggle:checked ~ .burger span:nth-child(2){opacity:0}
+  .bg-coach .nav .nav-toggle:checked ~ .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+.bg-coach .get-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+@media(max-width:860px){.bg-coach .get-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.bg-coach .get-grid{grid-template-columns:1fr}}
+.bg-coach .card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px;transition:transform .15s ease,box-shadow .15s ease}
+.bg-coach .card:hover{transform:translateY(-2px);box-shadow:0 14px 34px -22px rgba(0,0,0,0.35)}
+.bg-coach .card .ci{width:48px;height:48px;border-radius:11px;background:rgba(255,102,0,0.1);border:1px solid rgba(255,102,0,0.26);display:flex;align-items:center;justify-content:center}
+.bg-coach .card .ci svg{width:26px;height:26px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bg-coach .card h4{font-size:17px;font-weight:700;margin-top:16px}
+.bg-coach .card p{font-size:14.5px;color:var(--muted);margin-top:7px}
+.bg-coach .two{display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center}
+@media(max-width:880px){.bg-coach .two{grid-template-columns:1fr;gap:28px}}
+.bg-coach .price-card{background:var(--orange);color:#fff;border-radius:18px;padding:34px 30px;text-align:center}
+.bg-coach .price-card .e{font-size:11.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;opacity:.9}
+.bg-coach .price-card .amt{font-weight:900;font-size:68px;line-height:.95;margin-top:10px}
+.bg-coach .price-card .amt small{font-size:21px;font-weight:800}
+.bg-coach .price-card .then{font-size:13.5px;margin-top:8px;opacity:.95}
+.bg-coach .price-card .btn{width:100%;margin-top:22px}
+.bg-coach .price-card .note{font-size:12px;margin-top:14px;opacity:.9}
+.bg-coach .final{background:var(--orange);color:var(--ink);text-align:center;padding:76px 0}
+.bg-coach .final h2{font-size:clamp(28px,5.6vw,52px);margin-bottom:14px}
+.bg-coach .final p{font-size:17px;margin-bottom:26px;margin-left:auto;margin-right:auto}
+.bg-coach .final .micro{font-size:15px;margin-top:18px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#2a1500}
+.bg-coach .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ink);border-top:1px solid var(--line-dark);padding:10px 14px;display:none;align-items:center;justify-content:space-between;gap:10px}
+.bg-coach .sticky-cta .p{font-size:12.5px;font-weight:700;line-height:1.2;color:#fff;padding-left:58px}
+.bg-coach .sticky-cta .p b{color:var(--orange)}
+.bg-coach .sticky-cta .p small{display:block;color:var(--muted-dark);font-weight:500;font-size:10.5px}
+.bg-coach .sticky-cta a{background:var(--orange);color:#fff;font-weight:800;font-size:13.5px;padding:12px 16px;border-radius:8px;text-transform:uppercase;white-space:nowrap;margin-right:58px}
+@media(max-width:860px){.bg-coach .sticky-cta{display:flex}.bg-coach{padding-bottom:76px}
+  .bg-coach .hero-inner{padding:46px 0 38px}.bg-coach .sec{padding:52px 0}}
+@media(max-width:420px){.bg-coach .sticky-cta .p{padding-left:52px;font-size:12px}.bg-coach .sticky-cta a{margin-right:52px;padding:12px 13px;font-size:13px}}
+
+/* --- Online coaching (Nov 2026) --- */
+.bg-coach [hidden]{display:none!important}
+.bg-coach .hero-inner{padding:84px 0 64px;max-width:700px}
+.bg-coach .hero h1{font-size:clamp(36px,6.4vw,70px);line-height:.95;letter-spacing:-.02em}
+.bg-coach .tbc{display:inline-block;background:#FFF3B0;color:#5a4a00;border:1px dashed #C9A800;border-radius:6px;padding:1px 7px;font-size:12.5px;font-weight:700;letter-spacing:0;text-transform:none}
+.bg-coach .steps{list-style:none;counter-reset:st;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px;padding:0}
+@media(max-width:900px){.bg-coach .steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.bg-coach .steps{grid-template-columns:1fr}}
+.bg-coach .steps li{counter-increment:st;background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:22px 20px}
+.bg-coach .steps li::before{content:counter(st,decimal-leading-zero);display:block;font-weight:900;font-size:32px;line-height:1;color:var(--orange);margin-bottom:12px}
+.bg-coach .steps b{display:block;font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.02em}
+.bg-coach .steps span{display:block;font-size:14.5px;color:var(--muted);margin-top:6px}
+.bg-coach .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;align-items:stretch}
+@media(max-width:960px){.bg-coach .tiers{grid-template-columns:1fr;max-width:560px}}
+.bg-coach .tier{position:relative;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:28px 24px 24px;display:flex;flex-direction:column}
+.bg-coach .tier.best{border:2px solid var(--orange);box-shadow:0 24px 54px -30px rgba(255,102,0,.55)}
+.bg-coach .t-flag{position:absolute;top:-13px;left:24px;background:var(--orange);color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:20px}
+.bg-coach .t-name{font-weight:900;text-transform:uppercase;font-size:19px;letter-spacing:.01em}
+.bg-coach .t-price{font-weight:900;font-size:44px;line-height:1;margin-top:10px;letter-spacing:-.02em}
+.bg-coach .t-price small{font-size:15px;font-weight:700;color:var(--muted);letter-spacing:0}
+.bg-coach .t-for{font-size:14.5px;color:var(--muted);margin-top:12px;min-height:3em}
+.bg-coach .tier ul{list-style:none;padding:0;margin:16px 0 22px;border-top:1px solid var(--line);flex:1}
+.bg-coach .tier li{position:relative;padding:9px 0 9px 26px;font-size:14.5px;border-bottom:1px solid var(--line)}
+.bg-coach .tier li::before{content:"";position:absolute;left:2px;top:14px;width:11px;height:6px;border:solid var(--orange);border-width:0 0 2.5px 2.5px;transform:rotate(-45deg)}
+.bg-coach .btn-line{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.bg-coach .btn-line:hover{background:var(--ink);color:#fff}
+.bg-coach .t-btn{width:100%}
+.bg-coach .t-foot{margin-top:20px;font-size:13.5px;color:var(--muted)}
+.bg-coach .anchor{background:#161616;border:1px solid var(--line-dark);border-radius:16px;padding:26px 24px}
+.bg-coach .a-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--line-dark)}
+.bg-coach .a-row span{font-size:15px;color:var(--muted-dark);font-weight:600}
+.bg-coach .a-row b{font-weight:900;font-size:26px;color:#fff;white-space:nowrap}
+.bg-coach .a-row b small{font-size:13px;color:var(--muted-dark);font-weight:700}
+.bg-coach .a-row b.old{color:var(--muted-dark);text-decoration:line-through;text-decoration-thickness:2px}
+.bg-coach .a-row.us span{color:#fff}
+.bg-coach .a-row.us b{color:var(--orange-bright);font-size:34px}
+.bg-coach .a-note{font-size:12px;color:var(--muted-dark);margin-top:12px}
+.bg-coach .app-band{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+@media(max-width:860px){.bg-coach .app-band{grid-template-columns:1fr;gap:20px}}
+.bg-coach .app-btns{display:grid;gap:12px}
+.bg-coach .app-btn{width:100%}
+.bg-coach .lead.small{font-size:14px}
+.bg-coach .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+@media(max-width:760px){.bg-coach .faq-grid{grid-template-columns:1fr}}
+.bg-coach .faq-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px}
+.bg-coach .faq-card h4{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.02em}
+.bg-coach .faq-card p{font-size:14px;color:var(--muted);margin-top:8px}
+@media(max-width:860px){.bg-coach .hero-inner{padding:44px 0 40px}}
+</style>
+<div class="bg-coach">
+  <nav class="nav">
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="BasicGym"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/e_trim/v1782645760/Transparent_background_logos_oakfhz.png" alt="BasicGym" /></a>
+      <input type="checkbox" id="navtoggle" class="nav-toggle" aria-hidden="true">
+      <div class="links">
+        <a href="/classes/">Classes</a>
+        <a href="/nottingham/">Nottingham</a>
+        <a href="/membership/">Membership</a>
+        <div class="navdrop">
+          <a class="navdrop-top" href="/about-us/">About us <i>&#9662;</i></a>
+          <div class="navdrop-menu">
+            <a href="/about-us/">About us</a>
+            <a href="/students/">Students</a>
+            <a href="/corporate-membership/">Corporate Membership</a>
+            <a href="/personal-training/">Personal Training</a>
+            <a href="/careers/">Careers</a>
+          </div>
+        </div>
+        <a class="btn orange nav-link-cta" href="/membership/">Join now</a>
+      </div>
+      <a class="btn orange nav-cta-desktop" href="/membership/">Join now</a>
+      <label for="navtoggle" class="burger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"><img decoding="async" src="https://res.cloudinary.com/dcnabm5nc/image/upload/f_auto,q_auto,w_1600/v1782655680/basicgym-peaksession_a81yxn.png" alt="A BasicGym personal trainer coaching a member" fetchpriority="high"></div>
+    <div class="wrap">
+      <div class="hero-inner">
+        <span class="eyebrow"><span class="dot"></span>Online coaching &middot; From the PTs at BasicGym Riverside</span>
+        <h1 class="display">Real coaching.<br><span class="orange">Anywhere in the UK.</span></h1>
+        <p class="sub">A plan built around your goals, your days and your kit, in the BasicGym app. Train at home, at BasicGym or any gym, with a qualified PT in your corner. From &pound;29.99 a month.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#plans" data-bg-evt="coaching_plans_click">See the plans</a>
+          <a class="btn btn-ghost" href="#app" data-app-any data-bg-evt="coaching_app_click" data-bg-tier="hero">Download the app</a>
+        </div>
+        <div class="pills">
+          <span class="pill"><span class="dot"></span> Your plan within 24 hours</span>
+          <span class="pill"><span class="dot"></span> Chat and Zoom with your PT</span>
+          <span class="pill"><span class="dot"></span> Home or any gym</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="statbar">
+    <div class="wrap">
+      <div class="sb"><span class="n">&pound;29.99</span><span class="l">From per month</span></div>
+      <div class="sb"><span class="n">24h</span><span class="l">Plan in your app</span></div>
+      <div class="sb"><span class="n">1:1</span><span class="l">Zoom with your PT</span></div>
+      <div class="sb"><span class="n">Any</span><span class="l">Home or gym</span></div>
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="wrap">
+      <span class="kicker">How it works</span>
+      <h2 class="h2 display">Four steps.<br>Training this week.</h2>
+      <ol class="steps four">
+        <li><b>Download the app</b><span>The free BasicGym app, on iPhone or Android.</span></li>
+        <li><b>Pick your plan</b><span>Choose Coach, Online Coaching or Premium in the app shop. Paid monthly, securely in the app.</span></li>
+        <li><b>Tell us about you</b><span>A quick health check, then your goal, your training days and the kit you have.</span></li>
+        <li><b>Start training</b><span>Your plan lands in the app within 24 hours. On coaching plans, your PT gets in touch.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec sec--cream" id="plans">
+    <div class="wrap">
+      <span class="kicker">Plans</span>
+      <h2 class="h2 display">Pick your level<br>of coaching.</h2>
+      <p class="lead">Every plan is personal to you and lives in the BasicGym app. Step up when you want more contact with your PT.</p>
+      <div class="tiers">
+        <div class="tier">
+          <div class="t-name">Coach</div>
+          <div class="t-price">&pound;29.99<small> / month</small></div>
+          <p class="t-for">Your own plan, built for your goals. For people who know how to train and want the right programme.</p>
+          <ul>
+            <li>Personalised one-month training plan</li>
+            <li>For muscle, weight loss or fitness</li>
+            <li>Fits your experience, your days and your kit</li>
+            <li>Sets, reps and rest for every exercise</li>
+            <li>Progress tracking in the app</li>
+            <li>Plan adjusted as you progress</li>
+          </ul>
+          <a class="btn btn-line t-btn" href="#app" data-app-any data-bg-evt="coaching_app_click" data-bg-tier="coach">Get Coach in the app</a>
+        </div>
+        <div class="tier best">
+          <div class="t-flag">Recommended</div>
+          <div class="t-name">Online Coaching</div>
+          <div class="t-price">&pound;59.99<small> / month</small></div>
+          <p class="t-for">Everything in Coach, plus a real PT. Less than &pound;2 a day for your own coach.</p>
+          <ul>
+            <li><b>Everything in Coach</b></li>
+            <li>A dedicated, qualified personal trainer</li>
+            <li>Chat with your PT in the app, plus email support</li>
+            <li>One video consultation a month on Zoom</li>
+            <li>Progress reviews</li>
+            <li>Plan adjusted by your PT as you progress</li>
+          </ul>
+          <a class="btn btn-primary t-btn" href="#app" data-app-any data-bg-evt="coaching_app_click" data-bg-tier="online">Get Online Coaching</a>
+        </div>
+        <div class="tier">
+          <div class="t-name">Premium Coaching</div>
+          <div class="t-price">&pound;99.99<small> / month</small></div>
+          <p class="t-for">For people who want more contact, more accountability and faster changes.</p>
+          <ul>
+            <li><b>Everything in Online Coaching</b></li>
+            <li>Weekly progress check-ins</li>
+            <li>Two video consultations a month on Zoom</li>
+            <li>More frequent plan adjustments</li>
+            <li>Extra accountability and goal-focused support</li>
+          </ul>
+          <a class="btn btn-line t-btn" href="#app" data-app-any data-bg-evt="coaching_app_click" data-bg-tier="premium">Get Premium in the app</a>
+        </div>
+      </div>
+      <p class="t-foot">Plans are paid monthly in the app. <span class="tbc">Draft: confirm cancellation terms, for example cancel any time</span></p>
+    </div>
+  </section>
+
+  <section class="sec sec--ink">
+    <div class="wrap two">
+      <div>
+        <span class="kicker">Why BasicGym coaching</span>
+        <h2 class="h2 display">A real gym.<br>Real PTs.</h2>
+        <p class="lead">A lot of online coaching is either an app with no human contact, or one trainer working on their own. Ours comes from the personal trainers at BasicGym Riverside in Nottingham, the same people who coach on our gym floor.</p>
+        <p class="lead">You get a real gym’s coaching team behind your plan, at a price that sits well below the usual UK rate.</p>
+      </div>
+      <div class="anchor">
+        <div class="a-row"><span>Typical UK online coaching</span><b class="old">&pound;120 to &pound;300<small> / month</small></b></div>
+        <div class="a-row us"><span>BasicGym Online Coaching</span><b>&pound;59.99<small> / month</small></b></div>
+        <p class="a-note">UK range for fully programmed monthly online coaching, from REPs UK, 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="app">
+    <div class="wrap app-band">
+      <div>
+        <span class="kicker">Download the app</span>
+        <h2 class="h2 display">Start in the<br>BasicGym app.</h2>
+        <p class="lead">Download the free app, create your account, then open the shop and pick your plan.</p>
+        <p class="lead small"><span class="tbc">Draft: confirm people who are not gym members can create an account in the app</span></p>
+      </div>
+      <div class="app-btns">
+        <a class="btn btn-primary app-btn" href="https://apps.apple.com/app/id6819997193" target="_blank" rel="noopener" data-app-store="ios" data-bg-evt="coaching_app_click" data-bg-tier="app_section" data-bg-store="app_store">Download on the App Store</a>
+        <a class="btn btn-primary app-btn" href="https://play.google.com/store/apps/details?id=com.technogym.basicgym" target="_blank" rel="noopener" data-app-store="android" data-bg-evt="coaching_app_click" data-bg-tier="app_section" data-bg-store="google_play">Get it on Google Play</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--cream">
+    <div class="wrap">
+      <span class="kicker">Questions</span>
+      <h2 class="h2 display">Before you start.</h2>
+      <div class="faq-grid">
+        <div class="faq-card"><h4>Do I need to be a BasicGym member?</h4><p>No. Online coaching works wherever you train: at home, at BasicGym or at any other gym in the UK.</p></div>
+        <div class="faq-card"><h4>What equipment do I need?</h4><p>Whatever you have. You tell us your kit when you start, and your plan is built around it, from bodyweight at home to a full gym.</p></div>
+        <div class="faq-card"><h4>How quickly do I get my plan?</h4><p>Within 24 hours of finishing your health check and goals, straight into the app.</p></div>
+        <div class="faq-card"><h4>What is the difference between the plans?</h4><p>Coach gives you a personal plan. Online Coaching adds a dedicated PT you can chat to and a monthly Zoom. Premium adds weekly check-ins and two Zooms a month.</p></div>
+        <div class="faq-card"><h4>I have a health condition. Can I still join?</h4><p>Every plan starts with a health check, and your plan is adapted to it. If you have a medical condition, check with your GP before starting a new training plan.</p></div>
+        <div class="faq-card"><h4>Can I change plan later?</h4><p>Yes. Start with Coach and step up to Online Coaching or Premium when you want more support. <span class="tbc">Draft: confirm how plan changes and cancelling work</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2 class="display">Your plan.<br>Your PT. Your pocket.</h2>
+      <p>Coaching from the PTs at BasicGym, from &pound;29.99 a month.</p>
+      <a class="btn btn-dark" href="#plans">See the plans</a>
+      <div class="micro">Online coaching &middot; BasicGym Riverside, Nottingham</div>
+    </div>
+  </section>
+
+  <div class="sticky-cta">
+    <div class="p">Online coaching <b>from &pound;29.99</b><small>Plan in your app within 24 hours</small></div>
+    <a href="#plans">See plans</a>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  /* BasicGym app store links (same as the Classes page). Phones go straight to
+     their own store; computers scroll to the download section. */
+  var APP_STORE = 'https://apps.apple.com/app/id6819997193';
+  var PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.technogym.basicgym';
+  var root = document.currentScript && document.currentScript.parentNode;
+  if (!root) return;
+  var ua = navigator.userAgent || '';
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/i.test(ua);
+  var store = isIOS ? APP_STORE : (isAndroid ? PLAY_STORE : '');
+
+  root.querySelectorAll('[data-app-any]').forEach(function (a) {
+    if (store) { a.href = store; a.target = '_blank'; a.rel = 'noopener'; a.setAttribute('data-bg-store', isIOS ? 'app_store' : 'google_play'); }
+  });
+  root.querySelectorAll('[data-app-store="ios"]').forEach(function (a) { if (isAndroid) a.hidden = true; else if (isIOS) a.textContent = 'Download the app'; });
+  root.querySelectorAll('[data-app-store="android"]').forEach(function (a) { if (isIOS) a.hidden = true; else if (isAndroid) a.textContent = 'Download the app'; });
+
+  /* Tracking: purchases happen in the app, so the store click is the page's
+     conversion. dataLayer coaching_app_click with the tier, plus a Meta custom
+     event kept apart from the membership Lead and Purchase events. */
+  window.dataLayer = window.dataLayer || [];
+  root.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-bg-evt]');
+    if (!a) return;
+    var tier = a.getAttribute('data-bg-tier') || '';
+    window.dataLayer.push({ event: a.getAttribute('data-bg-evt'), bg_page: location.pathname, bg_tier: tier, bg_store: a.getAttribute('data-bg-store') || '' });
+    if (a.getAttribute('data-bg-evt') === 'coaching_app_click' && a.getAttribute('data-bg-store')) {
+      try { if (typeof fbq === 'function') fbq('trackCustom', 'CoachingAppClick', { tier: tier }); } catch (e2) {}
+    }
+  });
+})();
+</script>

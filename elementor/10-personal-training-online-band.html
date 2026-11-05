@@ -1,0 +1,40 @@
+<!-- ============================================================
+     BasicGym - PERSONAL TRAINING: online coaching band (5 Nov 2026)
+     Add as a NEW HTML widget on /personal-training/, between the page
+     widget and the footer widget. The page widget itself is unchanged.
+     Scoped .bg-ptx. Sends people who can't train at Riverside, or want
+     coaching between sessions, to /online-coaching/.
+     ============================================================ -->
+<style>
+.bg-ptx{--ink:#0E0E0E;--orange:#FF6600;--orange-deep:#CC5200;--cream:#F5F4F0;--line:#E7E5E0;--muted:#565659;
+  --font:'Cooper Hewitt','Hanken Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-family:var(--font);background:var(--cream);color:var(--ink);padding:64px 0;-webkit-font-smoothing:antialiased}
+.bg-ptx *{box-sizing:border-box;margin:0;padding:0}
+.bg-ptx .wrap{max-width:1120px;margin:0 auto;padding:0 22px;display:grid;grid-template-columns:1.25fr .75fr;gap:36px;align-items:center}
+.bg-ptx .kicker{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+.bg-ptx h2{font-weight:900;text-transform:uppercase;font-size:clamp(26px,4.4vw,42px);line-height:.98;letter-spacing:-.015em;margin-top:10px;text-wrap:balance}
+.bg-ptx p{font-size:16.5px;color:var(--muted);margin-top:14px;max-width:36em;line-height:1.55}
+.bg-ptx .box{background:#fff;border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:16px;padding:24px 22px;text-align:center}
+.bg-ptx .from{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.bg-ptx .amt{font-weight:900;font-size:46px;line-height:1;margin-top:6px}
+.bg-ptx .amt small{font-size:15px;font-weight:700;color:var(--muted)}
+.bg-ptx .btn{display:block;margin-top:18px;background:var(--orange);color:#fff;font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.02em;padding:15px 18px;border-radius:10px;text-decoration:none}
+.bg-ptx .btn:hover{background:var(--orange-deep)}
+.bg-ptx .note{font-size:12.5px;color:var(--muted);margin-top:10px}
+@media(max-width:820px){.bg-ptx{padding:48px 0}.bg-ptx .wrap{grid-template-columns:1fr;gap:22px}}
+</style>
+<section class="bg-ptx">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Online coaching</span>
+      <h2>Not near Riverside?<br>Train with our PTs online.</h2>
+      <p>A personal plan in the BasicGym app, built around your goals, your days and your kit. Add a dedicated PT with chat and Zoom calls when you want more support.</p>
+    </div>
+    <div class="box">
+      <div class="from">Plans from</div>
+      <div class="amt">&pound;29.99<small> / month</small></div>
+      <a class="btn" href="/online-coaching/" onclick="try{(window.dataLayer=window.dataLayer||[]).push({event:'pt_online_coaching_click'})}catch(e){}">See online coaching</a>
+      <div class="note">Home or any gym, anywhere in the UK</div>
+    </div>
+  </div>
+</section>

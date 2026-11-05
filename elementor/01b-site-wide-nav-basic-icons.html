@@ -1,28 +1,35 @@
 <script>
 /* ==========================================================================
-   BasicGym - "Basic Icons" in the About us menu, site wide (4 Nov 2026)
+   BasicGym - extra links in the About us menu, site wide
    Elementor > Custom Code, location <body> end, entire site.
 
-   The header menu is written into each page's own HTML widget (14 pages), so
-   this one snippet adds the link to the About us dropdown everywhere, right
-   under "About us", instead of re-pasting 14 pages. On /basic-icons/ the link
-   is highlighted as the current page. If the link is ever written into a
+   The header menu is written into each page's own HTML widget (15 pages), so
+   this one snippet adds links to the About us dropdown everywhere:
+     4 Nov 2026  Basic Icons, under About us
+     5 Nov 2026  Online Coaching, under Personal Training
+   The current page's link is highlighted. If a link is ever written into a
    page's own nav, the snippet sees it and adds nothing.
    ========================================================================== */
 (function () {
-  function addIconsLink() {
-    var here = location.pathname.replace(/\/?$/, '/') === '/basic-icons/';
+  var LINKS = [
+    { href: '/basic-icons/',     text: 'Basic Icons',     after: '/about-us/' },
+    { href: '/online-coaching/', text: 'Online Coaching', after: '/personal-training/' }
+  ];
+  function addLinks() {
+    var path = location.pathname.replace(/\/?$/, '/');
     document.querySelectorAll('.nav .navdrop-menu').forEach(function (menu) {
-      if (menu.querySelector('a[href="/basic-icons/"]')) return;
-      var a = document.createElement('a');
-      a.href = '/basic-icons/';
-      a.textContent = 'Basic Icons';
-      if (here) a.setAttribute('aria-current', 'page');
-      var about = menu.querySelector('a[href="/about-us/"]');
-      if (about) menu.insertBefore(a, about.nextSibling); else menu.appendChild(a);
+      LINKS.forEach(function (l) {
+        if (menu.querySelector('a[href="' + l.href + '"]')) return;
+        var a = document.createElement('a');
+        a.href = l.href;
+        a.textContent = l.text;
+        if (path === l.href) a.setAttribute('aria-current', 'page');
+        var ref = menu.querySelector('a[href="' + l.after + '"]');
+        if (ref) menu.insertBefore(a, ref.nextSibling); else menu.appendChild(a);
+      });
     });
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addIconsLink);
-  else addIconsLink();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addLinks);
+  else addLinks();
 })();
 </script>

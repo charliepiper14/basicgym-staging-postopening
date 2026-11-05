@@ -81,6 +81,15 @@ Do this in one sitting. Purge LiteSpeed and Cloudflare at the end.
 - The form posts to a Google Apps Script that writes to the "Basic Icons applications" sheet and emails info@basicgym.co.uk. Setup is in `apps-script/SETUP.md`. Paste the `/exec` URL into `ICON_ENDPOINT` before go live.
 - Tracking: dataLayer `bg_icon_application` and the Meta custom event `IconApplication`. Kept separate from the membership Lead event.
 
+**Online Coaching (09), new 5 Nov:** a sales page at /online-coaching/ for the three coaching plans sold in the BasicGym app: Coach £29.99, Online Coaching £59.99 (marked Recommended) and Premium £99.99.
+- The page sells; the app takes payment. Buttons open the right app store on phones and scroll to the download section on computers.
+- Tracking: dataLayer `coaching_app_click` with tier and store, plus the Meta custom event `CoachingAppClick`.
+- Draft tags to confirm: cancellation terms, plan changes, and whether people who aren't members can create an app account.
+
+**Personal Training band (10):** a separate HTML widget added between the PT page widget and the footer. The PT page code itself is unchanged.
+
+**Menu snippet (01b):** now adds Online Coaching under Personal Training as well as Basic Icons. Paste it only when /online-coaching/ is live.
+
 ## Still waiting on Riaz (unchanged on purpose)
 
 - Ratings and the Long Eaton review section (R16)
