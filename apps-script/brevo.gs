@@ -130,8 +130,9 @@ function brevoSetup() {
   console.log('Brevo is ready.');
 }
 
-/* Optional check from the editor: adds one test contact, then delete it in Brevo. */
+/* Optional check from the editor: adds one test contact to both lists. Delete it in Brevo after. */
 function brevoTest() {
-  brevoAdd_('icons', { email: 'brevo-test@basicgym.co.uk', first: 'Test', phone: '', optIn: false, source: 'test' });
+  brevoAdd_('join', { email: 'brevo-test@basicgym.co.uk', first: 'Test', plan: 'test', source: 'test' });
+  brevoAdd_('icons', { email: 'brevo-test@basicgym.co.uk', first: 'Test', source: 'test' });
   console.log('Sent. Look for brevo-test@basicgym.co.uk in Brevo > Contacts.');
 }
