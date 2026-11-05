@@ -35,6 +35,8 @@ function brevoAdd_(form, c) {
       PLAN: c.plan || '', SOURCE: c.source || '', CAMPAIGN: c.campaign || '', HANDLE: c.handle || '',
       MARKETING_OPT_IN: !!c.optIn, FORM_DATE: Utilities.formatDate(new Date(), 'Europe/London', 'yyyy-MM-dd')
     };
+    /* leave out blanks, so a later form never wipes what an earlier one saved */
+    Object.keys(attrs).forEach(function (k) { if (attrs[k] === '') delete attrs[k]; });
     var sms = ukMobile_(c.phone);
     if (sms) attrs.SMS = sms;
     var body = { email: c.email, attributes: attrs, updateEnabled: true };
