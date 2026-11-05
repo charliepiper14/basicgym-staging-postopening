@@ -81,7 +81,9 @@ Do this in one sitting. Purge LiteSpeed and Cloudflare at the end.
 - The form posts to a Google Apps Script that writes to the "Basic Icons applications" sheet and emails info@basicgym.co.uk. Setup is in `apps-script/SETUP.md`. Paste the `/exec` URL into `ICON_ENDPOINT` before go live.
 - Tracking: dataLayer `bg_icon_application` and the Meta custom event `IconApplication`. Kept separate from the membership Lead event.
 
-**Online Coaching (09), new 5 Nov:** a sales page at /online-coaching/ for the three coaching plans sold in the BasicGym app: Coach £29.99, Online Coaching £59.99 (marked Recommended) and Premium £99.99.
+**Online Coaching (09), new 5 Nov:** a sales page at /online-coaching/ for three plans sold in the BasicGym app, named as in the app shop: Workout Library £9.99 (14 day free trial, 30% off yearly), Training Scheme £29.99 or £79.99 for 3 months (marked Recommended) and Online Personal Training £59.99.
+- Online Premium Personal Training (£99.99) is left off on purpose. It is the upgrade offered once people are in (Riaz, 5 Nov).
+- Each plan says where to tap in the app: Basic Gym tab > Personal Training > plan.
 - The page sells; the app takes payment. Buttons open the right app store on phones and scroll to the download section on computers.
 - Tracking: dataLayer `coaching_app_click` with tier and store, plus the Meta custom event `CoachingAppClick`.
 - Draft tags to confirm: cancellation terms, plan changes, and whether people who aren't members can create an app account.
