@@ -148,7 +148,7 @@
 .bg-coach .steps li::before{content:counter(st,decimal-leading-zero);display:block;font-weight:900;font-size:32px;line-height:1;color:var(--orange);margin-bottom:12px}
 .bg-coach .steps b{display:block;font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.02em}
 .bg-coach .steps span{display:block;font-size:14.5px;color:var(--muted);margin-top:6px}
-.bg-coach .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;align-items:stretch}
+.bg-coach .tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px;align-items:stretch;max-width:820px}
 @media(max-width:960px){.bg-coach .tiers{grid-template-columns:1fr;max-width:560px}}
 .bg-coach .tier{position:relative;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:28px 24px 24px;display:flex;flex-direction:column}
 .bg-coach .tier.best{border:2px solid var(--orange);box-shadow:0 24px 54px -30px rgba(255,102,0,.55)}
@@ -220,14 +220,13 @@
       <div class="hero-inner">
         <span class="eyebrow"><span class="dot"></span>Online coaching &middot; From the PTs at BasicGym Riverside</span>
         <h1 class="display">Real coaching.<br><span class="orange">Anywhere in the UK.</span></h1>
-        <p class="sub">A plan built around your goals, your days and your kit, in the BasicGym app. Train at home, at BasicGym or any gym, with a qualified PT in your corner. From &pound;9.99 a month, with a 14 day free trial.</p>
+        <p class="sub">A plan built around your goals, your days and your kit, in the BasicGym app. Train at home, at BasicGym or any gym, with a qualified PT in your corner. From &pound;29.99 a month.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#plans" data-bg-evt="coaching_plans_click">See the plans</a>
           <a class="btn btn-ghost" href="#app" data-app-any data-bg-evt="coaching_app_click" data-bg-tier="hero">Download the app</a>
         </div>
         <div class="pills">
-          <span class="pill"><span class="dot"></span> 14 day free trial</span>
-          <span class="pill"><span class="dot"></span> Plans from &pound;9.99</span>
+          <span class="pill"><span class="dot"></span> Plans from &pound;29.99</span>
           <span class="pill"><span class="dot"></span> Chat and Zoom with your PT</span>
           <span class="pill"><span class="dot"></span> Home or any gym</span>
         </div>
@@ -237,10 +236,10 @@
 
   <div class="statbar">
     <div class="wrap">
-      <div class="sb"><span class="n">&pound;9.99</span><span class="l">From per month</span></div>
+      <div class="sb"><span class="n">&pound;29.99</span><span class="l">From per month</span></div>
       <div class="sb"><span class="n">Any</span><span class="l">Home or gym</span></div>
       <div class="sb"><span class="n">1:1</span><span class="l">Zoom with your PT</span></div>
-      <div class="sb"><span class="n">14</span><span class="l">Day free trial</span></div>
+      <div class="sb"><span class="n">PT</span><span class="l">From BasicGym Riverside</span></div>
     </div>
   </div>
 
@@ -261,8 +260,9 @@
     <div class="wrap">
       <span class="kicker">Plans</span>
       <h2 class="h2 display">Pick how much<br>coaching you want.</h2>
-      <p class="lead">Every plan lives in the BasicGym app. Start with the free trial, or go straight to a personal plan. Step up whenever you want more support.</p>
+      <p class="lead">Every plan lives in the BasicGym app. Start with an AI-built plan, or go straight to your own PT. Step up whenever you want more support.</p>
       <div class="tiers">
+        <!-- Workout Library tier paused 8 Nov 2026 (library not ready). Restore by removing this comment.
         <div class="tier">
           <div class="t-name">Workout Library</div>
           <div class="t-price">&pound;9.99<small> / month</small></div>
@@ -275,6 +275,7 @@
           <p class="t-where">In the app: <b>Basic Gym</b> tab &rsaquo; <b>Personal Training</b> &rsaquo; <b>14-Day Free Trial</b></p>
           <a class="btn btn-line t-btn" href="#app" data-app-any data-bg-evt="coaching_app_click" data-bg-tier="library">Start your free trial</a>
         </div>
+        -->
         <div class="tier best">
           <div class="t-flag">Recommended</div>
           <div class="t-name">Training Scheme</div>
@@ -351,9 +352,9 @@
         <div class="faq-card"><h4>Do I need to be a BasicGym member?</h4><p>No. Online coaching works wherever you train: at home, at BasicGym or at any other gym in the UK.</p></div>
         <div class="faq-card"><h4>What equipment do I need?</h4><p>Whatever you have. You tell us your kit when you start, and your plan is built around it, from bodyweight at home to a full gym.</p></div>
         <div class="faq-card"><h4>Can I buy on my computer?</h4><p>Yes, if you already have the BasicGym app. Log in to our web shop with the same details and pay by card. New to the app? Download it first to create your account.</p></div>
-        <div class="faq-card"><h4>What is the difference between the plans?</h4><p>Workout Library gives you ready-made workouts to follow. Training Scheme builds an AI plan around you. Online Personal Training adds a dedicated PT you can chat to and a monthly Zoom.</p></div>
+        <div class="faq-card"><h4>What is the difference between the plans?</h4><p>Training Scheme builds an AI plan around you. Online Personal Training adds a dedicated PT you can chat to and a monthly Zoom.</p></div>
         <div class="faq-card"><h4>I have a health condition. Can I still join?</h4><p>Every plan starts with a health check, and your plan is adapted to it. If you have a medical condition, check with your GP before starting a new training plan.</p></div>
-        <div class="faq-card"><h4>Can I change plan later?</h4><p>Yes. Start with the free trial or Training Scheme, and step up when you want more support from a PT. <span class="tbc">Draft: confirm how plan changes and cancelling work</span></p></div>
+        <div class="faq-card"><h4>Can I change plan later?</h4><p>Yes. Start with Training Scheme, and step up when you want more support from a PT. <span class="tbc">Draft: confirm how plan changes and cancelling work</span></p></div>
       </div>
     </div>
   </section>
@@ -361,14 +362,14 @@
   <section class="final">
     <div class="wrap">
       <h2 class="display">Your plan.<br>Your PT. Your pocket.</h2>
-      <p>Start free for 14 days, or get a personal plan from &pound;29.99 a month.</p>
+      <p>Get your plan from &pound;29.99 a month, at home or in any gym.</p>
       <a class="btn btn-dark" href="#plans">See the plans</a>
       <div class="micro">Online coaching &middot; BasicGym Riverside, Nottingham</div>
     </div>
   </section>
 
   <div class="sticky-cta">
-    <div class="p">Online coaching <b>from &pound;9.99</b><small>14 day free trial</small></div>
+    <div class="p">Online coaching <b>from &pound;29.99</b><small>AI plan or your own PT</small></div>
     <a href="#plans">See plans</a>
   </div>
 
