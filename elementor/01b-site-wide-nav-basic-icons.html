@@ -8,18 +8,19 @@
    (15+ pages), so this one snippet adds links everywhere:
      4 Nov 2026  Basic Icons, in the About us menu
      5 Nov 2026  Events, in the About us menu and the footer (More info)
-   Online Coaching: add { href: '/online-coaching/', text: 'Online Coaching',
-   after: '/personal-training/' } to MENU only once that page is live.
+     8 Nov 2026  Online Coaching, after Personal Training in the menu and footer
    The current page's link is highlighted. If a link is already on the page,
    the snippet adds nothing.
    ========================================================================== */
 (function () {
   var MENU = [
     { href: '/basic-icons/', text: 'Basic Icons', after: '/about-us/' },
-    { href: '/events/',      text: 'Events',      after: '/basic-icons/' }
+    { href: '/events/',      text: 'Events',      after: '/basic-icons/' },
+    { href: '/online-coaching/', text: 'Online Coaching', after: '/personal-training/' }
   ];
   var FOOTER = [
-    { href: '/events/', text: 'Events', after: '/basic-icons/' }
+    { href: '/events/', text: 'Events', after: '/basic-icons/' },
+    { href: '/online-coaching/', text: 'Online Coaching', after: '/personal-training/' }
   ];
   var path = location.pathname.replace(/\/?$/, '/');
 

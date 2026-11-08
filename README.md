@@ -99,7 +99,7 @@ Do this in one sitting. Purge LiteSpeed and Cloudflare at the end.
 
 **Personal Training band (10):** a separate HTML widget added between the PT page widget and the footer. The PT page code itself is unchanged.
 
-**Menu snippet (01b):** adds Basic Icons and Events to the About us menu, and Events to the footer (More info), on every page. Online Coaching gets added to it only once that page is live.
+**Menu snippet (01b):** adds Basic Icons, Events and Online Coaching (after Personal Training) to the About us menu, and Events and Online Coaching to the footer (More info), on every page.
 
 ## Still waiting on Riaz (unchanged on purpose)
 
