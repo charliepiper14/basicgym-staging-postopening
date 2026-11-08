@@ -6,7 +6,12 @@
      5 Nov 2026: sales page for the three coaching plans sold in the
      BasicGym app (Technogym Mywellness shop):
        Workout Library 9.99 (14 day free trial), Training Scheme 29.99
-       or 79.99 for 3 months (Recommended), Online Personal Training 59.99.
+       (Recommended), Online Personal Training 59.99.
+     8 Nov 2026: copy matched to the live web shop (Technogym, 5 Nov). The
+     3 month and yearly prices are gone, Training Scheme is AI-built, no
+     24 hour claims. New: "Already have the app? Buy on the web" link to
+     the BasicGym web shop (login needed, card via Stripe, no Apple fee).
+     Shop link tracking: dataLayer coaching_shop_click.
      Online Premium Personal Training 99.99 is deliberately left off: it is
      the upgrade offered once people are in (Riaz, 5 Nov).
      Names match the app shop. Details from the Mywellness descriptions.
@@ -174,6 +179,7 @@
 @media(max-width:860px){.bg-coach .app-band{grid-template-columns:1fr;gap:20px}}
 .bg-coach .app-btns{display:grid;gap:12px}
 .bg-coach .app-btn{width:100%}
+.bg-coach .shop-note{margin:10px 0 0;font-size:14px;color:var(--muted)}
 .bg-coach .lead.small{font-size:14px}
 .bg-coach .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
 @media(max-width:760px){.bg-coach .faq-grid{grid-template-columns:1fr}}
@@ -221,7 +227,7 @@
         </div>
         <div class="pills">
           <span class="pill"><span class="dot"></span> 14 day free trial</span>
-          <span class="pill"><span class="dot"></span> Your plan within 24 hours</span>
+          <span class="pill"><span class="dot"></span> Plans from &pound;9.99</span>
           <span class="pill"><span class="dot"></span> Chat and Zoom with your PT</span>
           <span class="pill"><span class="dot"></span> Home or any gym</span>
         </div>
@@ -232,7 +238,7 @@
   <div class="statbar">
     <div class="wrap">
       <div class="sb"><span class="n">&pound;9.99</span><span class="l">From per month</span></div>
-      <div class="sb"><span class="n">24h</span><span class="l">Plan in your app</span></div>
+      <div class="sb"><span class="n">Any</span><span class="l">Home or gym</span></div>
       <div class="sb"><span class="n">1:1</span><span class="l">Zoom with your PT</span></div>
       <div class="sb"><span class="n">14</span><span class="l">Day free trial</span></div>
     </div>
@@ -244,9 +250,9 @@
       <h2 class="h2 display">Four steps.<br>Training this week.</h2>
       <ol class="steps four">
         <li><b>Download the app</b><span>The free BasicGym app, on iPhone or Android.</span></li>
-        <li><b>Pick your plan</b><span>Tap the Basic Gym tab, then Personal Training, and choose your plan. Paid securely in the app.</span></li>
+        <li><b>Pick your plan</b><span>Tap the Basic Gym tab, then Personal Training, and choose your plan. Pay securely by card.</span></li>
         <li><b>Tell us about you</b><span>A quick health check, then your goal, your training days and the kit you have.</span></li>
-        <li><b>Start training</b><span>Your plan lands in the app within 24 hours. On Online Personal Training, your PT gets in touch.</span></li>
+        <li><b>Start training</b><span>Your plan appears in the app. On Online Personal Training, your PT gets in touch.</span></li>
       </ol>
     </div>
   </section>
@@ -265,7 +271,6 @@
             <li>Workouts for upper body, lower body, chest, back, arms, legs, glutes and abs</li>
             <li>For beginners and advanced</li>
             <li>Home and gym workouts</li>
-            <li>30% off when you pay yearly</li>
           </ul>
           <p class="t-where">In the app: <b>Basic Gym</b> tab &rsaquo; <b>Personal Training</b> &rsaquo; <b>14-Day Free Trial</b></p>
           <a class="btn btn-line t-btn" href="#app" data-app-any data-bg-evt="coaching_app_click" data-bg-tier="library">Start your free trial</a>
@@ -274,7 +279,7 @@
           <div class="t-flag">Recommended</div>
           <div class="t-name">Training Scheme</div>
           <div class="t-price">&pound;29.99<small> / month</small></div>
-          <p class="t-for">Your own plan, built for your goals. Or <b>&pound;79.99 for 3 months</b>, saving &pound;9.98.</p>
+          <p class="t-for">An AI-built plan tailored to your goals, your level and your week.</p>
           <ul>
             <li>Personalised one-month training plan</li>
             <li>For muscle, weight loss or fitness</li>
@@ -289,20 +294,19 @@
         <div class="tier">
           <div class="t-name">Online Personal Training</div>
           <div class="t-price">&pound;59.99<small> / month</small></div>
-          <p class="t-for">Everything in Training Scheme, plus a real PT. Less than &pound;2 a day for your own coach.</p>
+          <p class="t-for">Coaching from a qualified PT, delivered remotely. Less than &pound;2 a day for your own coach.</p>
           <ul>
-            <li><b>Everything in Training Scheme</b></li>
-            <li>A dedicated, qualified personal trainer</li>
+            <li><b>A dedicated, qualified personal trainer</b></li>
+            <li>Your own personalised training programme</li>
             <li>Chat with your PT in the app, plus email support</li>
             <li>One video consultation a month on Zoom</li>
             <li>Progress reviews</li>
-            <li>Plan adjusted by your PT as you progress</li>
           </ul>
           <p class="t-where">In the app: <b>Basic Gym</b> tab &rsaquo; <b>Personal Training</b> &rsaquo; <b>Online Personal Training</b></p>
           <a class="btn btn-line t-btn" href="#app" data-app-any data-bg-evt="coaching_app_click" data-bg-tier="online_pt">Get Online PT</a>
         </div>
       </div>
-      <p class="t-foot">Plans are paid in the app. <span class="tbc">Draft: confirm cancellation terms, for example cancel any time</span></p>
+      <p class="t-foot">Monthly plans, paid by card in the app or on the web. <span class="tbc">Draft: confirm cancellation terms, for example cancel any time</span></p>
     </div>
   </section>
 
@@ -333,6 +337,8 @@
       <div class="app-btns">
         <a class="btn btn-primary app-btn" href="https://apps.apple.com/app/id6819997193" target="_blank" rel="noopener" data-app-store="ios" data-bg-evt="coaching_app_click" data-bg-tier="app_section" data-bg-store="app_store">Download on the App Store</a>
         <a class="btn btn-primary app-btn" href="https://play.google.com/store/apps/details?id=com.technogym.basicgym" target="_blank" rel="noopener" data-app-store="android" data-bg-evt="coaching_app_click" data-bg-tier="app_section" data-bg-store="google_play">Get it on Google Play</a>
+        <p class="shop-note">Already have the BasicGym app? Log in with the same details and buy on the web.</p>
+        <a class="btn btn-line app-btn" href="https://widgets.mywellness.com/facility/ac2713859/products/ac2713859" target="_blank" rel="noopener" data-bg-evt="coaching_shop_click" data-bg-tier="app_section">Buy on the web</a>
       </div>
     </div>
   </section>
@@ -344,8 +350,8 @@
       <div class="faq-grid">
         <div class="faq-card"><h4>Do I need to be a BasicGym member?</h4><p>No. Online coaching works wherever you train: at home, at BasicGym or at any other gym in the UK.</p></div>
         <div class="faq-card"><h4>What equipment do I need?</h4><p>Whatever you have. You tell us your kit when you start, and your plan is built around it, from bodyweight at home to a full gym.</p></div>
-        <div class="faq-card"><h4>How quickly do I get my plan?</h4><p>Training Scheme and Online Personal Training plans land in the app within 24 hours of your health check and goals. The Workout Library is ready straight away.</p></div>
-        <div class="faq-card"><h4>What is the difference between the plans?</h4><p>Workout Library gives you ready-made workouts to follow. Training Scheme builds a personal plan around you. Online Personal Training adds a dedicated PT you can chat to and a monthly Zoom.</p></div>
+        <div class="faq-card"><h4>Can I buy on my computer?</h4><p>Yes, if you already have the BasicGym app. Log in to our web shop with the same details and pay by card. New to the app? Download it first to create your account.</p></div>
+        <div class="faq-card"><h4>What is the difference between the plans?</h4><p>Workout Library gives you ready-made workouts to follow. Training Scheme builds an AI plan around you. Online Personal Training adds a dedicated PT you can chat to and a monthly Zoom.</p></div>
         <div class="faq-card"><h4>I have a health condition. Can I still join?</h4><p>Every plan starts with a health check, and your plan is adapted to it. If you have a medical condition, check with your GP before starting a new training plan.</p></div>
         <div class="faq-card"><h4>Can I change plan later?</h4><p>Yes. Start with the free trial or Training Scheme, and step up when you want more support from a PT. <span class="tbc">Draft: confirm how plan changes and cancelling work</span></p></div>
       </div>
@@ -398,6 +404,9 @@
     window.dataLayer.push({ event: a.getAttribute('data-bg-evt'), bg_page: location.pathname, bg_tier: tier, bg_store: a.getAttribute('data-bg-store') || '' });
     if (a.getAttribute('data-bg-evt') === 'coaching_app_click' && a.getAttribute('data-bg-store')) {
       try { if (typeof fbq === 'function') fbq('trackCustom', 'CoachingAppClick', { tier: tier }); } catch (e2) {}
+    }
+    if (a.getAttribute('data-bg-evt') === 'coaching_shop_click') {
+      try { if (typeof fbq === 'function') fbq('trackCustom', 'CoachingShopClick', { tier: tier }); } catch (e3) {}
     }
   });
 })();

@@ -95,6 +95,8 @@ Do this in one sitting. Purge LiteSpeed and Cloudflare at the end.
 - Tracking: dataLayer `bg_event_registration` and Meta custom event `EventRegistration`.
 - Riaz confirmed 5 Nov: The Movement Community, free, open to non-members, no cap, all running levels welcome. Draft tags removed.
 
+- 8 Nov: copy matched to the live web shop (no 3 month or yearly prices, Training Scheme is AI-built, no 24 hour claims). Added "Buy on the web" link to the BasicGym web shop for people who already have the app (dataLayer `coaching_shop_click`, Meta `CoachingShopClick`).
+
 **Personal Training band (10):** a separate HTML widget added between the PT page widget and the footer. The PT page code itself is unchanged.
 
 **Menu snippet (01b):** adds Basic Icons and Events to the About us menu, and Events to the footer (More info), on every page. Online Coaching gets added to it only once that page is live.
