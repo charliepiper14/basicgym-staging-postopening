@@ -5,42 +5,58 @@
    Replace the existing snippet with this one (same place, same settings).
 
    The header menu and footer are written into each page's own widgets
-   (15+ pages), so this one snippet adds links everywhere:
+   (15+ pages), so this one snippet changes links everywhere:
      4 Nov 2026  Basic Icons, in the About us menu
      5 Nov 2026  Events, in the About us menu and the footer (More info)
      8 Nov 2026  Online Coaching, after Personal Training in the menu and footer
+     9 Nov 2026  Riaz: old Personal Training link hidden. The online coaching
+                 page (/online-coaching/) now shows as "Personal Training"
+                 in the same slot. The /personal-training/ page itself is
+                 still live, only taken out of the menu and footer.
    The current page's link is highlighted. If a link is already on the page,
    the snippet adds nothing.
    ========================================================================== */
 (function () {
+  var PT_LABEL = 'Personal Training';
   var MENU = [
     { href: '/basic-icons/', text: 'Basic Icons', after: '/about-us/' },
     { href: '/events/',      text: 'Events',      after: '/basic-icons/' },
-    { href: '/online-coaching/', text: 'Online Coaching', after: '/personal-training/' }
+    { href: '/online-coaching/', text: PT_LABEL, after: '/personal-training/' }
   ];
   var FOOTER = [
     { href: '/events/', text: 'Events', after: '/basic-icons/' },
-    { href: '/online-coaching/', text: 'Online Coaching', after: '/personal-training/' }
+    { href: '/online-coaching/', text: PT_LABEL, after: '/personal-training/' }
   ];
+  var HIDE = ['/personal-training/'];
   var path = location.pathname.replace(/\/?$/, '/');
 
   function add(box, l) {
-    if (box.querySelector('a[href="' + l.href + '"]')) return;
-    var a = document.createElement('a');
+    var a = box.querySelector('a[href="' + l.href + '"]');
+    if (a) { a.textContent = l.text; return; }
+    a = document.createElement('a');
     a.href = l.href;
     a.textContent = l.text;
     if (path === l.href) a.setAttribute('aria-current', 'page');
     var ref = box.querySelector('a[href="' + l.after + '"]');
     if (ref) box.insertBefore(a, ref.nextSibling); else box.appendChild(a);
   }
-  function addLinks() {
-    document.querySelectorAll('.nav .navdrop-menu').forEach(function (m) { MENU.forEach(function (l) { add(m, l); }); });
+  function hide(box) {
+    HIDE.forEach(function (h) {
+      box.querySelectorAll('a[href="' + h + '"]').forEach(function (a) { a.remove(); });
+    });
+  }
+  function fix() {
+    document.querySelectorAll('.nav .navdrop-menu').forEach(function (m) {
+      MENU.forEach(function (l) { add(m, l); });
+      hide(m);
+    });
     document.querySelectorAll('.bg-ftr .foot-col').forEach(function (c) {
       if (!c.querySelector('a[href="/basic-icons/"]')) return;     /* the More info column */
       FOOTER.forEach(function (l) { add(c, l); });
+      hide(c);
     });
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addLinks);
-  else addLinks();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fix);
+  else fix();
 })();
 </script>
