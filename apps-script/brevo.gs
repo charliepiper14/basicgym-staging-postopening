@@ -18,7 +18,8 @@
 
 var BREVO_API = 'https://api.brevo.com/v3';
 var BREVO_FOLDER = 'Website';
-var BREVO_LISTS = { join: 'Website join leads', icons: 'Basic Icons applicants', events: 'Event registrations' };
+var BREVO_LISTS = { join: 'Website join leads', icons: 'Basic Icons applicants', events: 'Event registrations',
+                    members: 'Members' };
 var BREVO_FIELDS = { FORM: 'text', PLAN: 'text', SOURCE: 'text', CAMPAIGN: 'text', HANDLE: 'text',
                      MARKETING_OPT_IN: 'boolean', FORM_DATE: 'date', EVENT: 'text', MEMBER: 'text' };
 
@@ -57,6 +58,26 @@ function brevoAdd_(form, c) {
     if (res.code >= 300) console.error('Brevo ' + res.code + ': ' + res.text);
   } catch (err) {
     console.error('Brevo failed: ' + err);
+  }
+}
+
+/**
+ * Mark someone as a member (9 Nov 2026). Called when they land on /join-thank-you/
+ * after paying on Ashbourne. Adds them to the Members list and sets MEMBER = Yes.
+ * Being added to Members is the exit condition of the Join follow-up automation,
+ * so a new member never gets the "you didn't finish joining" emails.
+ */
+function brevoMember_(email) {
+  try {
+    var key = PropertiesService.getScriptProperties().getProperty('BREVO_API_KEY');
+    if (!key || !email) return;
+    var listId = brevoListId_(key, 'members');
+    var body = { email: email, attributes: { MEMBER: 'Yes' }, updateEnabled: true };
+    if (listId) body.listIds = [listId];
+    var res = brevoCall_(key, 'post', '/contacts', body);
+    if (res.code >= 300) console.error('Brevo member ' + res.code + ': ' + res.text);
+  } catch (err) {
+    console.error('Brevo member failed: ' + err);
   }
 }
 

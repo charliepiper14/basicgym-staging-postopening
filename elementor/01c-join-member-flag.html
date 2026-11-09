@@ -1,0 +1,55 @@
+<script>
+/* ==========================================================================
+   BasicGym - tell Brevo when a join lead has paid (9 Nov 2026)
+   Elementor > Custom Code, NEW snippet, location <body> end, entire site.
+
+   1. On /join/: when the form is sent, the email is kept on this device.
+   2. On /join-thank-you/ (where Ashbourne sends people after paying): the
+      email is sent to the join script with action=member, then forgotten.
+      The script marks the sheet row as joined and adds the person to the
+      Brevo Members list, which takes them out of the Join follow-up emails.
+   Only works when they pay on the same device and browser, which is the
+   normal flow (form > Ashbourne > back to our thank-you page).
+   ========================================================================== */
+(function () {
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbyfvG7itqRHs_XShGnAMzV0Yvev2_B2DRVIS3f5tfqmhsZ9ilTu1nI3qkhhxHb1rdM9/exec';
+  var KEY = 'bg_join_lead';
+  var DAY = 86400000;
+  var path = location.pathname.replace(/\/?$/, '/');
+
+  function save(email) {
+    try { localStorage.setItem(KEY, JSON.stringify({ e: email, t: Date.now() })); } catch (x) {}
+  }
+  function load() {
+    try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (x) { return null; }
+  }
+  function forget() {
+    try { localStorage.removeItem(KEY); } catch (x) {}
+  }
+
+  /* 1. join page: remember the email as the form is sent (runs before the redirect) */
+  if (path === '/join/') {
+    document.addEventListener('submit', function (ev) {
+      var f = ev.target;
+      if (!f || f.id !== 'bgJoinForm' || !f.checkValidity()) return;
+      var el = f.querySelector('[name="email"]');
+      var email = el ? String(el.value || '').trim().toLowerCase() : '';
+      if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) save(email);
+    }, true);
+  }
+
+  /* 2. thank-you page: they paid, so mark them as a member */
+  if (path === '/join-thank-you/') {
+    var lead = load();
+    if (!lead || !lead.e || Date.now() - lead.t > DAY) { forget(); return; }
+    var fd = new FormData();
+    fd.append('action', 'member');
+    fd.append('email', lead.e);
+    try {
+      if (navigator.sendBeacon) navigator.sendBeacon(ENDPOINT, fd);
+      else fetch(ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors', keepalive: true });
+    } catch (x) {}
+    forget();
+  }
+})();
+</script>
