@@ -248,6 +248,25 @@
 .bg-home .fivebar .btn:hover{background:#000}
 @media(max-width:600px){.bg-home .fivebar{padding:28px 18px}.bg-home .fivebar p{font-size:15px}}
 .bg-home .fiver .amt small{font-size:.42em;letter-spacing:0;vertical-align:top;line-height:1.25;margin-left:2px}
+/* --- Personal training band (9 Nov 2026, Riaz: make PT more prominent) --- */
+.bg-home .pt-home{display:grid;grid-template-columns:0.95fr 1.05fr;gap:44px;align-items:center}
+@media(max-width:880px){.bg-home .pt-home{grid-template-columns:1fr;gap:26px}}
+.bg-home .pt-img{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:#222 center/cover no-repeat}
+@media(max-width:880px){.bg-home .pt-img{aspect-ratio:16/10}}
+.bg-home .pt-img .badge{position:absolute;left:16px;bottom:16px;background:var(--ink);color:#fff;border-radius:12px;padding:12px 14px;font-weight:800;font-size:13px;line-height:1.25}
+.bg-home .pt-img .badge b{display:block;color:var(--orange-bright);font-size:22px;font-weight:900}
+.bg-home .pt-plans{display:grid;gap:12px;margin-top:24px}
+.bg-home .pt-plan{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.bg-home .pt-plan.best{border:2px solid var(--orange)}
+.bg-home .pt-plan h4{font-size:16px;font-weight:900;text-transform:uppercase}
+.bg-home .pt-plan p{font-size:13.5px;color:var(--muted);margin-top:3px}
+.bg-home .pt-plan .pr{font-weight:900;font-size:22px;white-space:nowrap;text-align:right}
+.bg-home .pt-plan .pr small{display:block;font-size:11.5px;font-weight:700;color:var(--muted)}
+.bg-home .pt-plan .tag{display:inline-block;background:var(--orange);color:#fff;font-size:10.5px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:5px;margin-left:6px;vertical-align:2px}
+.bg-home .pt-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:24px}
+.bg-home .pt-cta .more{font-weight:800;color:var(--ink);border-bottom:2px solid var(--orange);padding-bottom:2px}
+.bg-home .pt-anchor{font-size:13px;color:var(--muted);margin-top:14px}
+@media(max-width:560px){.bg-home .pt-cta .btn{width:100%}}
 </style>
 <div class="bg-home">
   <nav class="nav">
@@ -352,6 +371,48 @@
       </div>
     </div>
   </section>
+
+  <!-- Personal training band (9 Nov 2026). Sells the online PT plans; links to /online-coaching/. -->
+  <section class="sec sec--cream" id="personal-training">
+    <div class="wrap pt-home">
+      <div class="pt-img" style="background-image:url('https://res.cloudinary.com/dcnabm5nc/image/upload/c_fill,g_auto,ar_4:5,w_800,f_auto,q_auto/v1782655680/basicgym-peaksession_a81yxn.png')" role="img" aria-label="A BasicGym personal trainer coaching a member">
+        <div class="badge">Your own PT<b>&pound;59.99/mo</b></div>
+      </div>
+      <div>
+        <span class="kicker">Personal training</span>
+        <h2 class="h2 display">Personal training.<br>From &pound;29.99 a month.</h2>
+        <p class="lead">Plans from the personal trainers at BasicGym Riverside, in the BasicGym app. Train here, at home or at any gym.</p>
+        <div class="pt-plans">
+          <div class="pt-plan best">
+            <div><h4>Training Scheme <span class="tag">Recommended</span></h4><p>A plan built around your goals, your level and your week</p></div>
+            <div class="pr">&pound;29.99<small>a month</small></div>
+          </div>
+          <div class="pt-plan">
+            <div><h4>Online Personal Training</h4><p>Your own qualified PT, chat in the app and a monthly Zoom</p></div>
+            <div class="pr">&pound;59.99<small>a month</small></div>
+          </div>
+        </div>
+        <div class="pt-cta">
+          <a class="btn btn-primary" href="online-coaching.html#plans" data-bg-pt="home_section_cta">Get my plan</a>
+          <a class="more" href="online-coaching.html" data-bg-pt="home_section_more">How it works</a>
+        </div>
+        <p class="pt-anchor">Typical UK online coaching costs &pound;120 to &pound;300 a month.</p>
+      </div>
+    </div>
+  </section>
+  <script>
+  (function () {
+    var s = document.getElementById('personal-training');
+    if (!s) return;
+    s.addEventListener('click', function (e) {
+      var a = e.target.closest('[data-bg-pt]');
+      if (!a) return;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'home_pt_click', bg_page: location.pathname, bg_tier: a.getAttribute('data-bg-pt') });
+      try { if (typeof fbq === 'function') fbq('trackCustom', 'HomePTClick', { tier: a.getAttribute('data-bg-pt') }); } catch (x) {}
+    });
+  })();
+  </script>
 
   <section class="sec">
     <div class="wrap">
